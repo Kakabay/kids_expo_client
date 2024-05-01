@@ -1,9 +1,10 @@
 'use client';
 
-import React from 'react';
+import React, { useRef, useState } from 'react';
 import clsx from 'clsx';
 import { v4 } from 'uuid';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLangStore } from '../../zustand/store';
 
 export type activeLangType = {
   title: 'Ру' | 'Tm' | 'En';
@@ -26,12 +27,16 @@ export const lang: activeLangType[] = [
 ];
 
 export const LangMenu = () => {
-  const [active, setActive] = React.useState(false);
-  const [rotate, setRotate] = React.useState(false);
-  const menuRef = React.useRef<HTMLDivElement>(null);
+  const [active, setActive] = useState(false);
+  const [rotate, setRotate] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+
+  const activeLang = useLangStore((state) => state.activeLang);
+  const setLan = useLangStore((state) => state.setLang);
 
   const setLang = (str: { localization: 'ru' | 'en' | 'tm'; title: 'Ру' | 'En' | 'Tm' }) => {
     setActive(false);
+    setLan(str);
   };
 
   React.useEffect(() => {
@@ -47,6 +52,8 @@ export const LangMenu = () => {
     return () => document.removeEventListener('click', handleClick);
   }, []);
 
+  console.log(activeLang);
+
   return (
     <div
       ref={menuRef}
@@ -56,7 +63,14 @@ export const LangMenu = () => {
         setRotate(!rotate);
       }}>
       <div className="flex items-center px-[12px]">
-        <p>{}</p>
+        <p>{activeLang.title}</p>
+        <img
+          src="../assets/icons/drop-icon.svg"
+          alt=""
+          className={clsx('transition-rotate duration-300 img-auto', {
+            'rotate-180': rotate,
+          })}
+        />
       </div>
       <AnimatePresence>
         {active && (
@@ -73,14 +87,14 @@ export const LangMenu = () => {
             transition={{
               duration: 0.2,
             }}
-            className="absolute overflow-hidden z-10 flex flex-col top-[27px] bg-darkBlue transition-all duration-300">
+            className="absolute overflow-hidden z-10 flex flex-col top-[28px] bg-purple transition-all duration-300">
             {lang
-              .filter((item) => item.title !== item.title)
+              .filter((item) => item.title !== activeLang.title)
               .map((item) => (
                 <div
                   key={v4()}
                   onClick={() => setLang(item)}
-                  className={clsx('p-3 pr-[22px] text-extraSm transition-all', {
+                  className={clsx('p-3 pr-[22px] transition-all', {
                     'hover:bg-navyBlue2': item.title === item.title,
                   })}>
                   {item.title}

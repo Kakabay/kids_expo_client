@@ -24,18 +24,23 @@ export const Header = () => {
               {headerMenu.map((item) => (
                 <div>
                   <p
-                    className={clsx('after:transition-all duration-1000 relative leading-[130%]', {
-                      // 'link-border-bottom cursor-default hover:after:bg-green':
-                      //   // item.link === pathname,
-                      'hover:link-border-bottom hover:after:bg-[#738799]':
-                        item.title === item.title,
-                    })}>
+                    className={clsx(
+                      'after:transition-all cursor-pointer duration-1000 relative leading-[130%]',
+                      {
+                        // 'link-border-bottom cursor-default hover:after:bg-green':
+                        //   // item.link === pathname,
+                        'hover:link-border-bottom hover:after:bg-[#738799]':
+                          item.title === item.title,
+                      },
+                    )}>
                     {item.title}
                   </p>
                 </div>
               ))}
             </div>
-            <div className="flex gap-[10px]">{/* <LangMenu /> */}</div>
+            <div className="flex gap-[10px]">
+              <LangMenu />
+            </div>
           </div>
         </div>
       </div>
