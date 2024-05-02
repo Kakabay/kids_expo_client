@@ -4,7 +4,6 @@ import { NavBtn } from '../components/NavBtn';
 import { PageLayout } from '../components/PageLayout';
 import { Title } from '../components/Title';
 import { cardsData, cardsRectData } from '../database/home.data';
-import { Link } from 'react-router-dom';
 import { newsData } from '../database/news.data';
 import { NewsCard } from '../components/Home/NewsCard';
 import { Button } from '../components/Button';
