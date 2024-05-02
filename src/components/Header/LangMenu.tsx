@@ -1,28 +1,28 @@
-'use client';
+"use client";
 
-import React, { useRef, useState } from 'react';
-import clsx from 'clsx';
-import { v4 } from 'uuid';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useLangStore } from '../../zustand/store';
+import React, { useRef, useState } from "react";
+import clsx from "clsx";
+import { v4 } from "uuid";
+import { motion, AnimatePresence } from "framer-motion";
+import { useLang } from "../../zustand/zusLang";
 
 export type activeLangType = {
-  title: 'Ру' | 'Tm' | 'En';
-  localization: 'ru' | 'tm' | 'en';
+  title: "Ру" | "Tm" | "En";
+  localization: "ru" | "tm" | "en";
 };
 
 export const lang: activeLangType[] = [
   {
-    title: 'Ру',
-    localization: 'ru',
+    title: "Ру",
+    localization: "ru",
   },
   {
-    title: 'Tm',
-    localization: 'tm',
+    title: "Tm",
+    localization: "tm",
   },
   {
-    title: 'En',
-    localization: 'en',
+    title: "En",
+    localization: "en",
   },
 ];
 
@@ -31,10 +31,13 @@ export const LangMenu = () => {
   const [rotate, setRotate] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
 
-  const activeLang = useLangStore((state) => state.activeLang);
-  const setLan = useLangStore((state) => state.setLang);
+  const activeLang = useLang((state) => state.activeLang);
+  const setLan = useLang((state) => state.setLang);
 
-  const setLang = (str: { localization: 'ru' | 'en' | 'tm'; title: 'Ру' | 'En' | 'Tm' }) => {
+  const setLang = (str: {
+    localization: "ru" | "en" | "tm";
+    title: "Ру" | "En" | "Tm";
+  }) => {
     setActive(false);
     setLan(str);
   };
@@ -47,9 +50,9 @@ export const LangMenu = () => {
       }
     };
 
-    document.addEventListener('click', handleClick);
+    document.addEventListener("click", handleClick);
 
-    return () => document.removeEventListener('click', handleClick);
+    return () => document.removeEventListener("click", handleClick);
   }, []);
 
   console.log(activeLang);
@@ -61,14 +64,15 @@ export const LangMenu = () => {
       onClick={() => {
         setActive(!active);
         setRotate(!rotate);
-      }}>
+      }}
+    >
       <div className="flex items-center px-[12px]">
-        <p>{activeLang.title}</p>
+        <p className="text-[13px]">{activeLang.title}</p>
         <img
           src="../assets/icons/drop-icon.svg"
           alt=""
-          className={clsx('transition-rotate duration-300 img-auto', {
-            'rotate-180': rotate,
+          className={clsx("transition-rotate duration-300 img-auto", {
+            "rotate-180": rotate,
           })}
         />
       </div>
@@ -87,16 +91,18 @@ export const LangMenu = () => {
             transition={{
               duration: 0.2,
             }}
-            className="absolute overflow-hidden z-10 flex flex-col top-[28px] bg-purple transition-all duration-300">
+            className="absolute overflow-hidden z-10 flex flex-col top-[28px] bg-purple transition-all duration-300"
+          >
             {lang
               .filter((item) => item.title !== activeLang.title)
               .map((item) => (
                 <div
                   key={v4()}
                   onClick={() => setLang(item)}
-                  className={clsx('p-3 pr-[22px] transition-all', {
-                    'hover:bg-navyBlue2': item.title === item.title,
-                  })}>
+                  className={clsx("p-3 text-[13px] pr-[22px] transition-all", {
+                    "hover:bg-[#704B95]": item.title === item.title,
+                  })}
+                >
                   {item.title}
                 </div>
               ))}

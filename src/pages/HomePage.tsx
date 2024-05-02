@@ -1,40 +1,42 @@
-import { Card } from '../components/Home/Card';
-import { LinkSeeMore } from '../components/LinkSeeMore';
-import { NavBtn } from '../components/NavBtn';
-import { PageLayout } from '../components/PageLayout';
-import { Title } from '../components/Title';
-import { cardsData, cardsRectData } from '../database/home.data';
-import { newsData } from '../database/news.data';
-import { NewsCard } from '../components/Home/NewsCard';
-import { Button } from '../components/Button';
+import { Card } from "../components/Home/Card";
+import { LinkSeeMore } from "../components/LinkSeeMore";
+import { NavBtn } from "../components/NavBtn";
+import { PageLayout } from "../components/PageLayout";
+import { Title } from "../components/Title";
+import { cardsData, cardsRectData } from "../database/home.data";
+import { newsData } from "../database/news.data";
+import { NewsCard } from "../components/Home/NewsCard";
+import { Button } from "../components/Button";
+import { Slider } from "../components/Home/Slider";
 
 export default function HomePage() {
   return (
     <PageLayout>
       <section>
-        <img src="../assets/images/test_banner.png" alt="banner" />
+        <Slider />
       </section>
 
-      <section className="pb-10 bg-white2">
+      <section className="pb-10 bg-white2 relative z-10">
         <div className="container">
-          <div className="grid my-[-60px] mb-10 grid-cols-4 gap-[30px] justify-between items-center">
+          <div className="grid translate-y-[-50px] gap-y-3 grid-cols-1 tab:grid-cols-4 gap-5 tab:gap-[30px]">
             {cardsData.map((item) => (
               <Card {...item} />
             ))}
           </div>
 
-          <div className="flex gap-[30px]">
-            <div className="flex flex-col gap-3">
+          <div className="flex tab:flex-row flex-col-reverse gap-[30px]">
+            <div className="flex tab:flex-col flex-wrap gap-3">
               {cardsRectData.map((item) => (
                 <Card {...item} rect />
               ))}
             </div>
 
-            <div className="flex flex-col items-end justify-between">
-              <p className="text-[24px] leading-[130%] font-light">
-                «Все для детей» - крупнейшее конгресно-выставочное В2В-мероприятие в сфере индустрии
-                детских товаров на территории Туркменистана, стран ЦА и СНГ, объединяющее
-                профессионалов, производящих и закупающих качественную продукцию.
+            <div className="flex flex-col tab:items-end justify-between">
+              <p className="text-[24px] leading-[130%] font-light tab:mb-0 mb-8">
+                «Все для детей» - крупнейшее конгресно-выставочное
+                В2В-мероприятие в сфере индустрии детских товаров на территории
+                Туркменистана, стран ЦА и СНГ, объединяющее профессионалов,
+                производящих и закупающих качественную продукцию.
               </p>
               <LinkSeeMore path="" />
             </div>
