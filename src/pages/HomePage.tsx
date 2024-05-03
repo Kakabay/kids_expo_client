@@ -1,13 +1,13 @@
-import { Card } from "../components/Home/Card";
-import { LinkSeeMore } from "../components/LinkSeeMore";
-import { NavBtn } from "../components/NavBtn";
-import { PageLayout } from "../components/PageLayout";
-import { Title } from "../components/Title";
-import { cardsData, cardsRectData } from "../database/home.data";
-import { newsData } from "../database/news.data";
-import { NewsCard } from "../components/Home/NewsCard";
-import { Button } from "../components/Button";
-import { Slider } from "../components/Home/Slider";
+import { Card } from '../components/Home/Card';
+import { LinkSeeMore } from '../components/LinkSeeMore';
+import { NavBtn } from '../components/NavBtn';
+import { PageLayout } from '../components/PageLayout';
+import { Title } from '../components/Title';
+import { cardsData, cardsRectData } from '../database/home.data';
+import { newsData } from '../database/news.data';
+import { NewsCard } from '../components/Home/NewsCard';
+import { Button } from '../components/Button';
+import { Slider } from '../components/Home/Slider';
 
 export default function HomePage() {
   return (
@@ -33,10 +33,9 @@ export default function HomePage() {
 
             <div className="flex flex-col tab:items-end justify-between">
               <p className="text-[24px] leading-[130%] font-light tab:mb-0 mb-8">
-                «Все для детей» - крупнейшее конгресно-выставочное
-                В2В-мероприятие в сфере индустрии детских товаров на территории
-                Туркменистана, стран ЦА и СНГ, объединяющее профессионалов,
-                производящих и закупающих качественную продукцию.
+                «Все для детей» - крупнейшее конгресно-выставочное В2В-мероприятие в сфере индустрии
+                детских товаров на территории Туркменистана, стран ЦА и СНГ, объединяющее
+                профессионалов, производящих и закупающих качественную продукцию.
               </p>
               <LinkSeeMore path="" />
             </div>
