@@ -1,5 +1,4 @@
 import clsx from 'clsx';
-import { LangMenu } from './LangMenu';
 
 export const headerMenu = [
   { title: 'Новости', link: '/news' },

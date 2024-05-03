@@ -7,7 +7,6 @@ import { cardsData, cardsRectData } from '../database/home.data';
 import { NewsCard } from '../components/Home/NewsCard';
 import { Button } from '../components/Button';
 import { Slider } from '../components/Home/Slider';
-import { useQuery } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
 import { NewsDataType } from '../api/types/getNewsTypes';
 import { v4 } from 'uuid';

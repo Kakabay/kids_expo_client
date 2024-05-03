@@ -2,12 +2,11 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Link } from 'react-router-dom';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { v4 } from 'uuid';
-import { useQuery } from '@tanstack/react-query';
-import expoService from '../../api/services/expo.service';
+
 import { useEffect, useState } from 'react';
 import { GetBannersTypes } from '../../api/types/getBannersTypes';
 
-const bannersData = ['/assets/images/banner3.png', '/assets/images/test_banner.png'];
+// const bannersData = ['/assets/images/banner3.png', '/assets/images/test_banner.png'];
 
 export const Slider = () => {
   // const { isError, isLoading, data } = useQuery({
@@ -29,7 +28,7 @@ export const Slider = () => {
     try {
       const response = await fetch('http://editor.turkmenexpo.com/api/v1/banners');
 
-      const data = await response.json();
+      const data: GetBannersTypes = await response.json();
 
       setData(data);
     } catch (error) {}
@@ -46,19 +45,18 @@ export const Slider = () => {
       // onAutoplayTimeLeft={onAutoplayTimeLeft}
       loop
       speed={1500}
-      autoplay={{ delay: 5000 }}>
+      autoplay={{ delay: 1500000 }}>
       {data
         ? data.data.map((item) =>
             item.code.includes('main-banner') ? (
               <SwiperSlide key={v4()}>
                 <Link to={''}>
-                  <div className="">
+                  <div className="h-[490px] w-full">
+                    {' '}
                     <img
                       src={item.banner_items[0].image}
                       alt={item.banner_items[0].title}
-                      width={1920}
-                      height={490}
-                      className="h-[490px] object-cover object-center w-[1920px]"
+                      className="h-full w-full object-cover object-center"
                     />
                   </div>
                 </Link>
