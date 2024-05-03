@@ -39,9 +39,9 @@ export const Header = () => {
                 </div>
               ))}
             </div>
-            <div className="flex gap-[10px]">
+            {/* <div className="flex gap-[10px]">
               <LangMenu />
-            </div>
+            </div> */}
           </div>
         </div>
       </div>
