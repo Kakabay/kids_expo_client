@@ -1,12 +1,9 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Link } from "react-router-dom";
-import { Autoplay, Navigation, Pagination } from "swiper/modules";
-import { v4 } from "uuid";
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Link } from 'react-router-dom';
+import { Autoplay, Navigation, Pagination } from 'swiper/modules';
+import { v4 } from 'uuid';
 
-const bannersData = [
-  "/public/assets/images/banner3.png",
-  "/public/assets/images/test_banner.png",
-];
+const bannersData = ['/assets/images/banner3.png', '/assets/images/test_banner.png'];
 
 export const Slider = () => {
   return (
@@ -16,12 +13,11 @@ export const Slider = () => {
       // onAutoplayTimeLeft={onAutoplayTimeLeft}
       loop
       speed={1500}
-      autoplay={{ delay: 15000 }}
-    >
+      autoplay={{ delay: 15000 }}>
       {bannersData
         ? bannersData.map((item) => (
             <SwiperSlide key={v4()}>
-              <Link to={""}>
+              <Link to={''}>
                 <div className="">
                   <img
                     src={item}
