@@ -4,12 +4,36 @@ import { NavBtn } from '../components/NavBtn';
 import { PageLayout } from '../components/PageLayout';
 import { Title } from '../components/Title';
 import { cardsData, cardsRectData } from '../database/home.data';
-import { newsData } from '../database/news.data';
 import { NewsCard } from '../components/Home/NewsCard';
 import { Button } from '../components/Button';
 import { Slider } from '../components/Home/Slider';
+import { useQuery } from '@tanstack/react-query';
+import { useEffect, useState } from 'react';
+import { NewsDataType } from '../api/types/getNewsTypes';
+import { v4 } from 'uuid';
 
 export default function HomePage() {
+  const [newsData, setNewsData] = useState<NewsDataType>();
+
+  const fetchNews = async () => {
+    try {
+      const res = await fetch(`http://editor.turkmenexpo.com/api/v1/news`);
+
+      if (!res.ok) {
+        throw new Error('error');
+      }
+      const data = await res.json();
+
+      setNewsData(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchNews();
+  }, []);
+
   return (
     <PageLayout>
       <section>
@@ -20,14 +44,14 @@ export default function HomePage() {
         <div className="container">
           <div className="grid translate-y-[-50px] gap-y-3 grid-cols-1 tab:grid-cols-4 gap-5 tab:gap-[30px]">
             {cardsData.map((item) => (
-              <Card {...item} />
+              <Card {...item} key={item.path} />
             ))}
           </div>
 
           <div className="flex tab:flex-row flex-col-reverse gap-[30px]">
             <div className="flex tab:flex-col flex-wrap gap-3">
               {cardsRectData.map((item) => (
-                <Card {...item} rect />
+                <Card {...item} rect key={item.path} />
               ))}
             </div>
 
@@ -53,9 +77,16 @@ export default function HomePage() {
         </div>
 
         <div className="grid grid-cols-4 gap-5">
-          {newsData.map((item) => (
-            <NewsCard {...item} />
-          ))}
+          {newsData
+            ? newsData.data.map((item) => (
+                <NewsCard
+                  path={item.featured_images[0].path}
+                  title={item.title}
+                  published_at={item.published_at}
+                  key={v4()}
+                />
+              ))
+            : null}
         </div>
 
         <Button text="Все новости" />

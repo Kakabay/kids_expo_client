@@ -19,13 +19,17 @@ export const Footer = () => {
 
           <div className="w-full max-w-[290px] flex flex-col gap-[10px]">
             {headerMenu2.map((item) => (
-              <Link to={item.link}>{item.title}</Link>
+              <Link key={item.link} to={item.link}>
+                {item.title}
+              </Link>
             ))}
           </div>
 
           <div className="w-full max-w-[290px] flex flex-col gap-[10px]">
             {headerMenu.map((item) => (
-              <Link to={item.link}>{item.title}</Link>
+              <Link key={item.link} to={item.link}>
+                {item.title}
+              </Link>
             ))}
           </div>
         </div>
