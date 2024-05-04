@@ -19,7 +19,6 @@ export const NavBtn = ({
 
   return (
     <button
-      type="button"
       ref={btnRef}
       className={`${!left ? 'next-btn' : 'prev-btn'} `}
       onClick={!left ? onNext : onPrev}>

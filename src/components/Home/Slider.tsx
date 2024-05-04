@@ -26,12 +26,14 @@ export const Slider = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch('http://editor.turkmenexpo.com/api/v1/banners');
+      const response = await fetch('https://editor.turkmenexpo.com/api/v1/banners');
 
       const data: GetBannersTypes = await response.json();
 
       setData(data);
-    } catch (error) {}
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   useEffect(() => {
@@ -45,25 +47,26 @@ export const Slider = () => {
       // onAutoplayTimeLeft={onAutoplayTimeLeft}
       loop
       speed={1500}
-      autoplay={{ delay: 1500000 }}>
-      {data
-        ? data.data.map((item) =>
-            item.code.includes('main-banner') ? (
-              <SwiperSlide key={v4()}>
-                <Link to={''}>
-                  <div className="h-[490px] w-full">
-                    {' '}
-                    <img
-                      src={item.banner_items[0].image}
-                      alt={item.banner_items[0].title}
-                      className="h-full w-full object-cover object-center"
-                    />
-                  </div>
-                </Link>
-              </SwiperSlide>
-            ) : null,
-          )
-        : null}
+      autoplay={{ delay: 5000 }}>
+      {data ? (
+        data.data.map((item) =>
+          item.code.includes('main-banner') ? (
+            <SwiperSlide key={v4()}>
+              <Link to={''}>
+                <div className="h-[490px] w-full">
+                  <img
+                    src={item.banner_items[0].image}
+                    alt={item.banner_items[0].title}
+                    className="h-full w-full object-cover object-center"
+                  />
+                </div>
+              </Link>
+            </SwiperSlide>
+          ) : null,
+        )
+      ) : (
+        <div className="h-[490px] w-full"></div>
+      )}
 
       {/* <div className="container absolute right-0 bottom-[25px] swiper-pagination swiper-pagination-horizontal">
           <div className="swiper-pagination-fraction items-center justify-end gap-4">

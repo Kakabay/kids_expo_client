@@ -1,13 +1,12 @@
-import { Footer } from './components/Footer/Footer';
-import { Header } from './components/Header/Header';
+import { PageLayout } from './components/PageLayout';
 import HomePage from './pages/HomePage';
 
 const App = () => {
   return (
     <div>
-      <Header />
-      <HomePage />
-      <Footer />
+      <PageLayout>
+        <HomePage />
+      </PageLayout>
     </div>
   );
 };

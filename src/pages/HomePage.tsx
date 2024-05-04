@@ -1,7 +1,6 @@
 import { Card } from '../components/Home/Card';
 import { LinkSeeMore } from '../components/LinkSeeMore';
 import { NavBtn } from '../components/NavBtn';
-import { PageLayout } from '../components/PageLayout';
 import { Title } from '../components/Title';
 import { cardsData, cardsRectData } from '../database/home.data';
 import { NewsCard } from '../components/Home/NewsCard';
@@ -10,13 +9,15 @@ import { Slider } from '../components/Home/Slider';
 import { useEffect, useState } from 'react';
 import { NewsDataType } from '../api/types/getNewsTypes';
 import { v4 } from 'uuid';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation } from 'swiper/modules';
 
 export default function HomePage() {
   const [newsData, setNewsData] = useState<NewsDataType>();
 
   const fetchNews = async () => {
     try {
-      const res = await fetch(`http://editor.turkmenexpo.com/api/v1/news`);
+      const res = await fetch(`https://editor.turkmenexpo.com/api/v1/news`);
 
       if (!res.ok) {
         throw new Error('error');
@@ -34,7 +35,7 @@ export default function HomePage() {
   }, []);
 
   return (
-    <PageLayout>
+    <div>
       <section>
         <Slider />
       </section>
@@ -55,7 +56,7 @@ export default function HomePage() {
             </div>
 
             <div className="flex flex-col tab:items-end justify-between">
-              <p className="text-[24px] leading-[130%] font-light tab:mb-0 mb-8">
+              <p className="text-[20px] md:text-[24px] leading-[130%] font-light tab:mb-0 mb-8">
                 «Все для детей» - крупнейшее конгресно-выставочное В2В-мероприятие в сфере индустрии
                 детских товаров на территории Туркменистана, стран ЦА и СНГ, объединяющее
                 профессионалов, производящих и закупающих качественную продукцию.
@@ -75,31 +76,46 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="grid grid-cols-4 gap-5">
+        <Swiper
+          modules={[Navigation]}
+          slidesPerView={1}
+          spaceBetween={20}
+          navigation={{
+            nextEl: '.next-btn',
+            prevEl: '.prev-btn',
+          }}
+          breakpoints={{
+            1024: { slidesPerView: 4 },
+            850: { slidesPerView: 3.5 },
+            640: { slidesPerView: 2.5 },
+            440: { slidesPerView: 1.5 },
+          }}>
           {newsData
             ? newsData.data.map((item) => (
-                <NewsCard
-                  path={item.featured_images[0].path}
-                  title={item.title}
-                  published_at={item.published_at}
-                  key={v4()}
-                />
+                <SwiperSlide key={v4()}>
+                  <NewsCard
+                    path={item.featured_images[0].path}
+                    title={item.title}
+                    published_at={item.published_at}
+                    key={v4()}
+                  />
+                </SwiperSlide>
               ))
             : null}
-        </div>
+        </Swiper>
 
         <Button text="Все новости" />
       </section>
 
-      <section className="relative w-full h-[480px] google-map mb-[50px]">
+      <section className="relative w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[480px] mb-[50px]">
         <iframe
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3148.67827952586!2d58.29659607507902!3d37.8912058554459!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f7003944259cb1d%3A0xafc893357e4b0d2!2z0KLQvtGA0LPQvtCy0L4t0L_RgNC-0LzRi9GI0LvQtdC90L3QsNGPINC_0LDQu9Cw0YLQsCDQotGD0YDQutC80LXQvdC40YHRgtCw0L3QsA!5e0!3m2!1sru!2s!4v1713164734635!5m2!1sru!2s"
-          className="absolute inset-0 w-full h-full"
+          className="absolute inset-0 w-full h-full "
           style={{ border: 0 }}
           allowFullScreen
           loading="lazy"
         />
       </section>
-    </PageLayout>
+    </div>
   );
 }

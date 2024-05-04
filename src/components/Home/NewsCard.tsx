@@ -20,7 +20,7 @@ export const NewsCard = ({ title, published_at, path }: IProps) => {
         />
         <div className=" h-full sm:h-[137px]">
           <p className="font-bold leading-[125%] text-[16px] news-text mb-[10px]">{title}</p>
-          <p className="text-extraSm leading-[125%] text-gray">{published_at}</p>
+          <p className="text-extraSm leading-[125%] text-gray news-text">{published_at}</p>
         </div>
       </Link>
     </div>
