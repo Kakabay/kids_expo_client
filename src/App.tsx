@@ -1,12 +1,13 @@
-import { PageLayout } from './components/PageLayout';
-import HomePage from './pages/HomePage';
+import { Outlet } from 'react-router-dom';
+import { Header } from './components/Header/Header';
+import { Footer } from './components/Footer/Footer';
 
 const App = () => {
   return (
     <div>
-      <PageLayout>
-        <HomePage />
-      </PageLayout>
+      <Header />
+      <Outlet />
+      <Footer />
     </div>
   );
 };

@@ -35,7 +35,7 @@ export default function HomePage() {
   }, []);
 
   return (
-    <div>
+    <>
       <section>
         <Slider />
       </section>
@@ -104,7 +104,7 @@ export default function HomePage() {
             : null}
         </Swiper>
 
-        <Button text="Все новости" />
+        <Button news text="Все новости" />
       </section>
 
       <section className="relative w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[480px] mb-[50px]">
@@ -116,6 +116,6 @@ export default function HomePage() {
           loading="lazy"
         />
       </section>
-    </div>
+    </>
   );
 }

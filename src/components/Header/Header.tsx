@@ -1,4 +1,5 @@
 import clsx from 'clsx';
+import { Link } from 'react-router-dom';
 
 export const headerMenu = [
   { title: 'Новости', link: '/news' },
@@ -22,7 +23,8 @@ export const Header = () => {
             <div className="hidden tab:flex items-center gap-x-[20px]">
               {headerMenu.map((item) => (
                 <div key={item.link}>
-                  <p
+                  <Link
+                    to={''}
                     className={clsx(
                       'after:transition-all cursor-pointer duration-1000 relative leading-[130%]',
                       {
@@ -33,7 +35,7 @@ export const Header = () => {
                       },
                     )}>
                     {item.title}
-                  </p>
+                  </Link>
                 </div>
               ))}
             </div>
@@ -44,11 +46,11 @@ export const Header = () => {
         </div>
       </div>
 
-      <div className="bg-bgWhite text-black">
+      <div className="bg-white text-black">
         <div className="container py-[5px] flex items-center justify-between">
-          <div className="flex">
+          <Link to="/" className="flex">
             <img
-              src="../assets/icons/flower-toy.svg"
+              src="/assets/icons/flower-toy.svg"
               width={65}
               height={65}
               alt="logo"
@@ -56,14 +58,14 @@ export const Header = () => {
             />
             <div className="">
               <p className="text-#050505 font-bold text-[12px]">19–22 августа 2024</p>
-              <img src="../assets/icons/kids-expo.svg" alt="" />
+              <img src="/assets/icons/kids-expo.svg" alt="" />
             </div>
-          </div>
+          </Link>
           <div className="hidden tab:flex text-[16px] items-center gap-x-[20px] font-medium">
             {headerMenu2.map((item) => (
-              <div className="cursor-pointer" key={item.link}>
+              <Link to={''} className="cursor-pointer" key={item.link}>
                 {item.title}
-              </div>
+              </Link>
             ))}
           </div>
 
@@ -94,7 +96,3 @@ export const Header = () => {
     </header>
   );
 };
-
-{
-  /* <header className="hidden relative z-[3000] tab:flex flex-col"> */
-}

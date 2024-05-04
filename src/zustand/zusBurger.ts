@@ -1,11 +1,11 @@
-import { create } from "zustand";
+import { create } from 'zustand';
 
-type BurgerType = {
+type BurgerStore = {
   burger: boolean;
   setBurger: (status: boolean) => void;
 };
 
-export const useBurger = create<BurgerType>((set) => ({
+export const useBurger = create<BurgerStore>((set) => ({
   burger: false,
   setBurger: (status) => {
     set((state) => ({ burger: (state.burger = status) }));
