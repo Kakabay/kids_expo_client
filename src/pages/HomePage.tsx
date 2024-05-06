@@ -1,39 +1,11 @@
 import { Card } from '../components/Home/Card';
 import { LinkSeeMore } from '../components/ui/LinkSeeMore';
-import { NavBtn } from '../components/ui/NavBtn';
-import { Title } from '../components/ui/Title';
 import { cardsData, cardsRectData } from '../database/home.data';
-import { NewsCard } from '../components/Home/NewsCard';
-import { Button } from '../components/ui/Button';
 import { Slider } from '../components/Home/Slider';
-import { useEffect, useState } from 'react';
-import { NewsDataType } from '../services/api/types/getNewsTypes';
-import { v4 } from 'uuid';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules';
+import NewsSection from '../components/Home/NewsSection';
+import { useEffect } from 'react';
 
 export default function HomePage() {
-  const [newsData, setNewsData] = useState<NewsDataType>();
-
-  const fetchNews = async () => {
-    try {
-      const res = await fetch(`https://editor.turkmenexpo.com/api/v1/news`);
-
-      if (!res.ok) {
-        throw new Error('error');
-      }
-      const data = await res.json();
-
-      setNewsData(data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  useEffect(() => {
-    fetchNews();
-  }, []);
-
   return (
     <>
       <section>
@@ -67,45 +39,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section className="container pt-[100px] pb-[50px]">
-        <div className="flex items-center justify-between mb-10">
-          <Title title="Новости" />
-          <div className="flex gap-5">
-            <NavBtn left />
-            <NavBtn />
-          </div>
-        </div>
-
-        <Swiper
-          modules={[Navigation]}
-          slidesPerView={1}
-          spaceBetween={20}
-          navigation={{
-            nextEl: '.next-btn',
-            prevEl: '.prev-btn',
-          }}
-          breakpoints={{
-            1024: { slidesPerView: 4 },
-            850: { slidesPerView: 3.5 },
-            640: { slidesPerView: 2.5 },
-            440: { slidesPerView: 1.5 },
-          }}>
-          {newsData
-            ? newsData.data.map((item) => (
-                <SwiperSlide key={v4()}>
-                  <NewsCard
-                    path={item.featured_images[0].path}
-                    title={item.title}
-                    published_at={item.published_at}
-                    key={v4()}
-                  />
-                </SwiperSlide>
-              ))
-            : null}
-        </Swiper>
-
-        <Button news text="Все новости" />
-      </section>
+      <NewsSection />
 
       <section className="relative w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[480px] mb-[50px]">
         <iframe

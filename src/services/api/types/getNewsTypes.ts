@@ -1,4 +1,4 @@
-export interface NewsDataType {
+export interface GetNewsTypes {
   data: Datum[];
   links: Links;
   meta: Meta;
@@ -42,27 +42,4 @@ export interface Link {
   url: null | string;
   label: string;
   active: boolean;
-}
-
-//---------------------------------------------------------------
-
-export interface NewsPageData {
-  data: Data;
-  rect?: boolean;
-}
-
-export interface Data {
-  id: number;
-  title: string;
-  published_at: string;
-  // featured_images: FeaturedImage[];
-  content_html: string;
-}
-
-export interface FeaturedImage {
-  id: number;
-  disk_name: string;
-  file_name: string;
-  path: string;
-  extension: string;
 }
