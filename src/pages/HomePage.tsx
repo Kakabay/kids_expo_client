@@ -1,13 +1,13 @@
 import { Card } from '../components/Home/Card';
-import { LinkSeeMore } from '../components/LinkSeeMore';
-import { NavBtn } from '../components/NavBtn';
-import { Title } from '../components/Title';
+import { LinkSeeMore } from '../components/ui/LinkSeeMore';
+import { NavBtn } from '../components/ui/NavBtn';
+import { Title } from '../components/ui/Title';
 import { cardsData, cardsRectData } from '../database/home.data';
 import { NewsCard } from '../components/Home/NewsCard';
-import { Button } from '../components/Button';
+import { Button } from '../components/ui/Button';
 import { Slider } from '../components/Home/Slider';
 import { useEffect, useState } from 'react';
-import { NewsDataType } from '../api/types/getNewsTypes';
+import { NewsDataType } from '../services/api/types/getNewsTypes';
 import { v4 } from 'uuid';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';

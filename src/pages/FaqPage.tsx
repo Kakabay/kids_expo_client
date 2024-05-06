@@ -1,8 +1,8 @@
 import { v4 } from 'uuid';
-import { BreadCrumbs } from '../components/BreadCrumbs';
-import { Radio } from '../components/Radio';
-import { Title } from '../components/Title';
-import { useFaq } from '../zustand/zusFaq';
+import { BreadCrumbs } from '../components/ui/BreadCrumbs';
+import { Radio } from '../components/ui/Radio';
+import { Title } from '../components/ui/Title';
+import { useFaq } from '../services/zustand/zusFaq';
 
 const faqRadio = [
   {

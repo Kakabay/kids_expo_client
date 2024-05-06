@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { useFaq } from '../zustand/zusFaq';
+import { useFaq } from '../../services/zustand/zusFaq';
 
 interface IProps {
   name: string;

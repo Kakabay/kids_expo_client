@@ -4,41 +4,45 @@ import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { v4 } from 'uuid';
 
 import { useEffect, useState } from 'react';
-import { GetBannersTypes } from '../../api/types/getBannersTypes';
+import { GetBannersTypes } from '../../services/api/types/getBannersTypes';
+import { useQuery } from '@tanstack/react-query';
+import expoService from '../../services/api/requests/expo.service';
 
 // const bannersData = ['/assets/images/banner3.png', '/assets/images/test_banner.png'];
 
 export const Slider = () => {
+  const { isError, isLoading, data } = useQuery(['todos'], () => expoService.getBanners());
+
   // const { isError, isLoading, data } = useQuery({
   //   queryKey: ['bannersData'],
   //   queryFn: () => expoService.getBanners(),
   // });
 
-  // if (isError) {
-  //   <h1>Error...</h1>;
-  // }
+  if (isError) {
+    <h1>Error...</h1>;
+  }
 
-  // if (isLoading) {
-  //   <h1>Loading...</h1>;
-  // }
+  if (isLoading) {
+    <h1>Loading...</h1>;
+  }
 
-  const [data, setData] = useState<GetBannersTypes>();
+  // const [data, setData] = useState<GetBannersTypes>();
 
-  const fetchData = async () => {
-    try {
-      const response = await fetch('https://editor.turkmenexpo.com/api/v1/banners');
+  // const fetchData = async () => {
+  //   try {
+  //     const response = await fetch('https://editor.turkmenexpo.com/api/v1/banners');
 
-      const data: GetBannersTypes = await response.json();
+  //     const data: GetBannersTypes = await response.json();
 
-      setData(data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
+  //     setData(data);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  // useEffect(() => {
+  //   fetchData();
+  // }, []);
 
   return (
     <Swiper
