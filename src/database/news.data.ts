@@ -1,28 +1,30 @@
 interface NewsCardTypes {
-  img: string;
-  text: string;
-  date: string;
+  path: string;
+  title: string;
+  published_at: string;
 }
 
-export const newsData: NewsCardTypes[] = [
+export const newsDataEn: NewsCardTypes[] = [
   {
-    img: '/assets/images/news.png',
-    text: `Популярные товары и новинки – в Ашхабаде проходит выставка торгового комплекса`,
-    date: '06.02.2024',
+    path: '/assets/images/news.png',
+    title: `Popular goods and novelties – an exhibition of a shopping complex is being held in Ashgabat`,
+    published_at: '4/3/2024',
   },
   {
-    img: '/assets/images/news2.png',
-    text: 'Выставка торгового комплекса Туркменистана представит бренды и тренды коммерческого рынка',
-    date: '06.02.2024',
+    path: '/assets/images/news2.png',
+    title:
+      'The exhibition of the shopping complex of Turkmenistan will present brands and trends of the commercial market',
+    published_at: '3/30/2024',
   },
   {
-    img: '/assets/images/news3.png',
-    text: 'Выставка в ТППТ: что привезли афганские производители в Ашхабад ',
-    date: '06.02.2024',
+    path: '/assets/images/news3.png',
+    title:
+      'Exhibition at the Chamber of Commerce and Industry: what Afghan producers brought to Ashgabat',
+    published_at: '3/4/2024',
   },
   {
-    img: '/assets/images/news4.png',
-    text: 'В Ашхабаде проходит выставка «Агро-Пак Туркменистан-2023»',
-    date: '06.02.2024',
+    path: '/assets/images/news4.png',
+    title: 'The exhibition “Agro-Pak Turkmenistan-2023” is being held in Ashgabat',
+    published_at: '11/28/2023',
   },
 ];

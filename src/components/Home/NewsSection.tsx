@@ -3,33 +3,32 @@ import { Button } from '../ui/Button';
 import { NavBtn } from '../ui/NavBtn';
 import { Title } from '../ui/Title';
 import { NewsCard } from './NewsCard';
-import { useQuery } from '@tanstack/react-query';
-import { AxiosPromise } from 'axios';
-import expoService from '../../services/api/requests/expo.service';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
-import { GetNewsTypes } from '../../services/api/types/getNewsTypes';
+import useGetNews from '../../hooks/useGetNews';
+import { useLang } from '../../services/zustand/zusLang';
+import { newsDataEn } from '../../database/news.data';
 
 const NewsSection = () => {
-  const { isError, isLoading, data, isSuccess } = useQuery({
-    queryKey: ['newsData'],
-    queryFn: (): AxiosPromise<GetNewsTypes> => expoService.getNews(),
-    select: ({ data }) => data.data,
-  });
+  const { newsIsError, newsIsLoading, newsData, newsIsSuccess } = useGetNews();
 
-  if (isError) {
+  if (newsIsError) {
     <h1>Error...</h1>;
   }
 
-  if (isLoading) {
+  if (newsIsLoading) {
     <h1>Loading...</h1>;
   }
 
-  if (isSuccess) {
+  const localization = useLang((state) => state.activeLang.localization);
+
+  const chooseDataLang = (en: string, ru: string) => (localization === 'en' ? en : ru);
+
+  if (newsIsSuccess) {
     return (
       <section className="container pt-[100px] pb-[50px]">
         <div className="flex items-center justify-between mb-10">
-          <Title title="Новости" />
+          <Title title={chooseDataLang('News', 'Новости')} />
           <div className="flex gap-5">
             <NavBtn left />
             <NavBtn />
@@ -50,19 +49,34 @@ const NewsSection = () => {
             640: { slidesPerView: 2.5 },
             440: { slidesPerView: 1.5 },
           }}>
-          {data.map((item) => (
-            <SwiperSlide key={v4()}>
-              <NewsCard
-                path={item.featured_images[0].path}
-                title={item.title}
-                published_at={item.published_at}
-                key={v4()}
-              />
-            </SwiperSlide>
-          ))}
+          {localization === 'en' ? (
+            newsDataEn.map((item) => (
+              <SwiperSlide key={v4()}>
+                <NewsCard
+                  path={item.path}
+                  title={item.title}
+                  published_at={item.published_at}
+                  key={v4()}
+                />
+              </SwiperSlide>
+            ))
+          ) : newsData ? (
+            newsData.data.map((item) => (
+              <SwiperSlide key={v4()}>
+                <NewsCard
+                  path={item.featured_images[0].path}
+                  title={item.title}
+                  published_at={item.published_at}
+                  key={v4()}
+                />
+              </SwiperSlide>
+            ))
+          ) : (
+            <div>Loading news...</div>
+          )}
         </Swiper>
 
-        <Button news text="Все новости" />
+        <Button news text={chooseDataLang('All news', 'Все новости')} />
       </section>
     );
   }

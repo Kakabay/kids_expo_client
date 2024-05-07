@@ -1,47 +1,67 @@
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
+import { LangMenu } from './LangMenu';
+import { useLang } from '../../services/zustand/zusLang';
 
 export const headerMenu = [
-  { title: 'Новости', link: '/news' },
-  { title: 'FAQ', link: '/faq' },
-  { title: 'Контакты', link: '/contacts' },
+  { title: 'Новости', titleEn: 'News', link: '/news' },
+  { title: 'FAQ', titleEn: 'FAQ', link: '/faq' },
+  { title: 'Контакты', titleEn: 'Contacts', link: '/contacts' },
+
+  { en: true, title: 'News', link: '/news' },
+  { en: true, title: 'FAQ', link: '/faq' },
+  { en: true, title: 'Contacts', link: '/contacts' },
 ];
 
 export const headerMenu2 = [
   { title: 'Выставка', link: '/exhibition' },
   { title: 'Участникам', link: '/participants' },
   { title: 'Посетителям', link: '/visitors' },
+
+  { en: true, title: 'Exhibition', link: '/exhibition' },
+  { en: true, title: 'Participants', link: '/participants' },
+  { en: true, title: 'For visitors', link: '/visitors' },
 ];
 
+export const headerMenu2En = [];
+
 export const Header = () => {
+  const localization = useLang((state) => state.activeLang.localization);
+
+  const chooseDataLang = (en: string, ru: string) => (localization === 'en' ? en : ru);
+
   return (
     <header className="relative z-[3000] flex-col">
       <div className="hidden tab:flex items-center bg-purple text-white py-[12px] font-regular text-extraSm">
         <div className="container flex items-center justify-between">
-          <p className="text-[13px] leading-[115%]">Тел.: +99362006200</p>
+          <p className="text-[13px] leading-[115%]">
+            {chooseDataLang('Phone: +99363006200', 'Тел.: +99362006200')}
+          </p>
           <div className="flex items-center gap-[6px]">
             <div className="hidden tab:flex items-center gap-x-[20px]">
-              {headerMenu.map((item) => (
-                <div key={item.link}>
-                  <Link
-                    to={''}
-                    className={clsx(
-                      'after:transition-all cursor-pointer duration-1000 relative leading-[130%]',
-                      {
-                        // 'link-border-bottom cursor-default hover:after:bg-green':
-                        //   // item.link === pathname,
-                        'hover:link-border-bottom text-[16px] hover:after:bg-[#738799]':
-                          item.title === item.title,
-                      },
-                    )}>
-                    {item.title}
-                  </Link>
-                </div>
-              ))}
+              {headerMenu
+                .filter((item) => (localization === 'en' ? item.en : !item.en))
+                .map((item) => (
+                  <div key={item.link}>
+                    <Link
+                      to={''}
+                      className={clsx(
+                        'after:transition-all cursor-pointer duration-1000 relative leading-[130%]',
+                        {
+                          // 'link-border-bottom cursor-default hover:after:bg-green':
+                          //   // item.link === pathname,
+                          'hover:link-border-bottom text-[16px] hover:after:bg-[#738799]':
+                            item.title === item.title,
+                        },
+                      )}>
+                      {item.title}
+                    </Link>
+                  </div>
+                ))}
             </div>
-            {/* <div className="flex gap-[10px]">
+            <div className="flex gap-[10px]">
               <LangMenu />
-            </div> */}
+            </div>
           </div>
         </div>
       </div>
@@ -57,16 +77,20 @@ export const Header = () => {
               className="mr-[5px]"
             />
             <div className="">
-              <p className="text-#050505 font-bold text-[12px]">19–22 августа 2024</p>
+              <p className="text-#050505 font-bold text-[12px]">
+                {chooseDataLang('19-22 August, 2024', '19–22 августа 2024')}
+              </p>
               <img src="/assets/icons/kids-expo.svg" alt="" />
             </div>
           </Link>
           <div className="hidden tab:flex text-[16px] items-center gap-x-[20px] font-medium">
-            {headerMenu2.map((item) => (
-              <Link to={''} className="cursor-pointer" key={item.link}>
-                {item.title}
-              </Link>
-            ))}
+            {headerMenu2
+              .filter((item) => (localization === 'en' ? item.en : !item.en))
+              .map((item) => (
+                <Link to={''} className="cursor-pointer" key={item.link}>
+                  {item.title}
+                </Link>
+              ))}
           </div>
 
           <div

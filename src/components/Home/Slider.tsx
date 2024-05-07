@@ -3,30 +3,25 @@ import { Link } from 'react-router-dom';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { v4 } from 'uuid';
 
-import { useEffect, useState } from 'react';
-import { GetBannersTypes } from '../../services/api/types/getBannersTypes';
-import { useQuery } from '@tanstack/react-query';
-import axios, { AxiosPromise } from 'axios';
-import expoService from '../../services/api/requests/expo.service';
+import useGetBanners from '../../hooks/useGetBanners';
+import { useLang } from '../../services/zustand/zusLang';
 
 // const bannersData = ['/assets/images/banner3.png', '/assets/images/test_banner.png'];
 
 export const Slider = () => {
-  const { isError, isLoading, data, isSuccess } = useQuery({
-    queryKey: ['bannersData'],
-    queryFn: (): AxiosPromise<GetBannersTypes> => expoService.getBanners(),
-    select: ({ data }) => data.data,
-  });
+  const { bannersIsError, bannersIsLoading, bannersData, bannersIsSuccess } = useGetBanners();
 
-  if (isError) {
+  if (bannersIsError) {
     <h1>Error...</h1>;
   }
 
-  if (isLoading) {
+  if (bannersIsLoading) {
     <h1>Loading...</h1>;
   }
 
-  if (isSuccess) {
+  const localization = useLang((state) => state.activeLang.localization);
+
+  if (bannersIsSuccess) {
     return (
       <Swiper
         modules={[Pagination, Autoplay, Navigation]}
@@ -35,8 +30,20 @@ export const Slider = () => {
         loop
         speed={1500}
         autoplay={{ delay: 5000 }}>
-        {data ? (
-          data.map((item) =>
+        {localization === 'en' ? (
+          <SwiperSlide key={v4()}>
+            <Link to={''}>
+              <div className="h-[490px] w-full">
+                <img
+                  src={'/assets/images/banner-en.png'}
+                  alt={'banner'}
+                  className="h-full w-full object-cover object-center"
+                />
+              </div>
+            </Link>
+          </SwiperSlide>
+        ) : bannersData ? (
+          bannersData.map((item) =>
             item.code.includes('main-banner') ? (
               <SwiperSlide key={v4()}>
                 <Link to={''}>

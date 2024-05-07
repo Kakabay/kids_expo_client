@@ -16,10 +16,10 @@ export const lang: activeLangType[] = [
     title: 'Ру',
     localization: 'ru',
   },
-  {
-    title: 'Tm',
-    localization: 'tm',
-  },
+  // {
+  //   title: 'Tm',
+  //   localization: 'tm',
+  // },
   {
     title: 'En',
     localization: 'en',
@@ -52,8 +52,6 @@ export const LangMenu = () => {
     return () => document.removeEventListener('click', handleClick);
   }, []);
 
-  console.log(activeLang);
-
   return (
     <div
       ref={menuRef}
@@ -63,7 +61,7 @@ export const LangMenu = () => {
         setRotate(!rotate);
       }}>
       <div className="flex items-center px-[12px]">
-        <p className="text-[13px]">{activeLang.title}</p>
+        <p className="text-[16px]">{activeLang.title}</p>
         <img
           src="../assets/icons/drop-icon.svg"
           alt=""
@@ -94,7 +92,7 @@ export const LangMenu = () => {
                 <div
                   key={v4()}
                   onClick={() => setLang(item)}
-                  className={clsx('p-3 text-[13px] pr-[22px] transition-all', {
+                  className={clsx('p-3 text-[16px] pr-[22px] transition-all', {
                     'hover:bg-[#704B95]': item.title === item.title,
                   })}>
                   {item.title}

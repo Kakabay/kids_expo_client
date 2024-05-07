@@ -3,9 +3,13 @@ import { LinkSeeMore } from '../components/ui/LinkSeeMore';
 import { cardsData, cardsRectData } from '../database/home.data';
 import { Slider } from '../components/Home/Slider';
 import NewsSection from '../components/Home/NewsSection';
-import { useEffect } from 'react';
+import { useLang } from '../services/zustand/zusLang';
 
 export default function HomePage() {
+  const localization = useLang((state) => state.activeLang.localization);
+
+  const chooseDataLang = (en: string, ru: string) => (localization === 'en' ? en : ru);
+
   return (
     <>
       <section>
@@ -15,25 +19,37 @@ export default function HomePage() {
       <section className="pb-10 bg-white2 relative z-10">
         <div className="container">
           <div className="grid translate-y-[-50px] gap-y-3 grid-cols-1 tab:grid-cols-4 gap-5 tab:gap-[30px]">
-            {cardsData.map((item) => (
-              <Card {...item} key={item.path} />
-            ))}
+            {cardsData
+              .filter((item) => (localization === 'en' ? item.en : !item.en))
+              .map((item) => (
+                <Card {...item} key={item.path} />
+              ))}
           </div>
 
           <div className="flex tab:flex-row flex-col-reverse gap-[30px]">
             <div className="flex tab:flex-col flex-wrap gap-3">
-              {cardsRectData.map((item) => (
-                <Card {...item} rect key={item.path} />
-              ))}
+              {cardsRectData
+                .filter((item) => (localization === 'en' ? item.en : !item.en))
+                .map((item) => (
+                  <Card {...item} rect key={item.path} />
+                ))}
             </div>
 
             <div className="flex flex-col tab:items-end justify-between">
               <p className="text-[20px] md:text-[24px] leading-[130%] font-light tab:mb-0 mb-8">
-                «Все для детей» - крупнейшее конгресно-выставочное В2В-мероприятие в сфере индустрии
-                детских товаров на территории Туркменистана, стран ЦА и СНГ, объединяющее
-                профессионалов, производящих и закупающих качественную продукцию.
+                {chooseDataLang(
+                  `“Everything for Children”
+                  is the largest congress and exhibition B2B event in the
+                  field of children's goods industry in Turkmenistan,
+                  Central Asia and the CIS countries, uniting
+                  professionals who produce and
+                  purchase quality products.`,
+                  `«Все для детей» - крупнейшее конгресно-выставочное В2В-мероприятие в сфере индустрии
+                  детских товаров на территории Туркменистана, стран ЦА и СНГ, объединяющее
+                  профессионалов, производящих и закупающих качественную продукцию.`,
+                )}
               </p>
-              <LinkSeeMore path="" />
+              <LinkSeeMore text={chooseDataLang('To learn more', 'Узнать больше')} path="" />
             </div>
           </div>
         </div>
