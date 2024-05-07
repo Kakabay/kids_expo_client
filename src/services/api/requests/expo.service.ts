@@ -8,8 +8,8 @@ class ExpoService {
   async getBanners(localiztion: string) {
     return await axios.get<GetBannersTypes>(`${this.URL}/banners`, {
       headers: {
-        // 'Accept-Language': localiztion,
-        'X-Localization': localiztion,
+        'Accept-Language': localiztion,
+        // 'X-Localization': localiztion,
       },
     });
   }
@@ -17,8 +17,8 @@ class ExpoService {
   async getNews(localiztion: string) {
     return await axios.get<GetNewsTypes>(`${this.URL}/news`, {
       headers: {
-        // 'Accept-Language': localiztion,
-        'X-Localization': localiztion,
+        'Accept-Language': localiztion,
+        // 'X-Localization': localiztion,
       },
     });
   }
