@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { GetBannersTypes } from '../types/getBannersTypes';
 import { GetNewsTypes } from '../types/getNewsTypes';
-import { useLang } from '../../zustand/zusLang';
 
 class ExpoService {
   private URL = 'https://editor.turkmenexpo.com/api/v1';

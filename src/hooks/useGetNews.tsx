@@ -1,6 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
 import { AxiosPromise } from 'axios';
-import React from 'react';
 import expoService from '../services/api/requests/expo.service';
 import { GetNewsTypes } from '../services/api/types/getNewsTypes';
 
