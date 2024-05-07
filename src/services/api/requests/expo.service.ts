@@ -8,14 +8,19 @@ class ExpoService {
   async getBanners(localiztion: string) {
     return await axios.get<GetBannersTypes>(`${this.URL}/banners`, {
       headers: {
-        Accept: 'application/json',
+        // 'Accept-Language': localiztion,
         'X-Localization': localiztion,
       },
     });
   }
 
-  async getNews() {
-    return await axios.get<GetNewsTypes>(`${this.URL}/news`, {});
+  async getNews(localiztion: string) {
+    return await axios.get<GetNewsTypes>(`${this.URL}/news`, {
+      headers: {
+        // 'Accept-Language': localiztion,
+        'X-Localization': localiztion,
+      },
+    });
   }
 }
 
