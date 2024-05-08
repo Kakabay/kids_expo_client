@@ -1,7 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { AxiosPromise } from 'axios';
 import expoService from '../services/api/requests/expo.service';
-import { GetBannersTypes } from '../services/api/types/getBannersTypes';
 import { useLang } from '../services/zustand/zusLang';
 
 const useGetBanners = () => {
@@ -14,7 +12,7 @@ const useGetBanners = () => {
     isSuccess: bannersIsSuccess,
   } = useQuery({
     queryKey: ['bannersData', localization],
-    queryFn: (): AxiosPromise<GetBannersTypes> => expoService.getBanners(localization),
+    queryFn: () => expoService.getBanners(localization),
     select: ({ data }) => data.data,
   });
 

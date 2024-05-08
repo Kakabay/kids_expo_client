@@ -1,7 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
-import { AxiosPromise } from 'axios';
 import expoService from '../services/api/requests/expo.service';
-import { GetNewsTypes } from '../services/api/types/getNewsTypes';
 import { useLang } from '../services/zustand/zusLang';
 
 const useGetNews = () => {
@@ -14,7 +12,7 @@ const useGetNews = () => {
     isSuccess: newsIsSuccess,
   } = useQuery({
     queryKey: ['newsData', localization],
-    queryFn: (): AxiosPromise<GetNewsTypes> => expoService.getNews(localization),
+    queryFn: () => expoService.getNews(localization),
     select: ({ data }) => data,
   });
 

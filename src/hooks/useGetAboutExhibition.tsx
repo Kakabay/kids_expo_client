@@ -1,5 +1,4 @@
 import { useQuery } from '@tanstack/react-query';
-import { AxiosPromise } from 'axios';
 import expoService from '../services/api/requests/expo.service';
 import { useLang } from '../services/zustand/zusLang';
 
@@ -13,7 +12,7 @@ const useGetAboutExhibition = () => {
     isSuccess: aboutExhibitionIsSuccess,
   } = useQuery({
     queryKey: ['aboutExhibitionData', localization],
-    queryFn: (): AxiosPromise<string> => expoService.getAboutExhibition(localization),
+    queryFn: () => expoService.getAboutExhibition(localization),
   });
 
   return {
