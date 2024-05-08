@@ -52,7 +52,7 @@ class ExpoService {
     what_demonstrated: string;
     web_site: string;
   }) {
-    return await axios.post(`${this.URL}/applications`, {
+    return await axios.post(`https://turkmenexpo.com/app/api/v1/applications`, {
       event_id: 3,
       company_name: company_name,
       phone: phone,
@@ -60,7 +60,7 @@ class ExpoService {
       area: area,
       response_method: response_method,
       contact_person: contact_person,
-      area_is_equipped: area_is_equipped,
+      area_is_requipped: area_is_equipped,
       what_demonstrated: what_demonstrated,
       web_site: web_site,
     });
