@@ -1,17 +1,17 @@
-import clsx from "clsx";
-import { AnimatePresence, motion } from "framer-motion";
-import { v4 } from "uuid";
-import { useParticipantsForm } from "../../services/zustand/zusForm";
-import { useState } from "react";
-import { responseMethod } from "../../pages/participants/ParticipantsApply";
-import { useLang } from "../../services/zustand/zusLang";
+import clsx from 'clsx';
+import { AnimatePresence, motion } from 'framer-motion';
+import { v4 } from 'uuid';
+import { useParticipantsForm } from '../../services/zustand/zusForm';
+import { useState } from 'react';
+import { responseMethod } from '../../pages/participants/ParticipantsApply';
+import { useLang } from '../../services/zustand/zusLang';
 
-interface IProps {
-  responseMethod: {
-    title: string;
-    id: string;
-  };
-}
+// interface IProps {
+//   responseMethod: {
+//     title: string;
+//     id: string;
+//   };
+// }
 
 const DropDown = () => {
   const [active, setActive] = useState(false);
@@ -27,10 +27,9 @@ const DropDown = () => {
         onClick={() => {
           setActive(!active);
         }}
-        className="h-[43px] flex cursor-pointer items-center justify-between bid-drop py-[15px]"
-      >
+        className="h-[43px] flex cursor-pointer items-center justify-between bid-drop py-[15px]">
         <div className="form-input w-full flex items-center justify-between">
-          <div className="">{localization === "en" ? titleEn : title}</div>
+          <div className="">{localization === 'en' ? titleEn : title}</div>
         </div>
       </div>
       <div className="relative">
@@ -49,8 +48,7 @@ const DropDown = () => {
               transition={{
                 duration: 0.25,
               }}
-              className="bg-white rounded-sm flex flex-col absolute w-full shadow-lg"
-            >
+              className="bg-white rounded-sm flex flex-col absolute w-full shadow-lg">
               {responseMethod.map((item) => (
                 <div
                   key={v4()}
@@ -59,14 +57,12 @@ const DropDown = () => {
                     setActive(false);
                   }}
                   className={clsx(
-                    "cursor-pointer py-[15px] px-[12px] text-[14px] font-regular leading-[125%] transition-all",
+                    'cursor-pointer py-[15px] px-[12px] text-[14px] font-regular leading-[125%] transition-all',
                     {
-                      "hover:bg-purple rounded-sm hover:text-white":
-                        item.title === item.title,
-                    }
-                  )}
-                >
-                  {localization === "en" ? item.titleEn : item.title}
+                      'hover:bg-purple rounded-sm hover:text-white': item.title === item.title,
+                    },
+                  )}>
+                  {localization === 'en' ? item.titleEn : item.title}
                 </div>
               ))}
             </motion.div>
