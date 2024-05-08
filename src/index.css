@@ -4,11 +4,21 @@
 
 @layer utilities {
   body {
-    @apply text-[16px] bg-white leading-[100%] font-normal text-black2;
+    @apply text-[16px] bg-[#FAFAFA] leading-[100%] font-normal text-black2;
   }
 
   .container {
     @apply w-full mx-auto max-w-[1290px] lg:px-10 md:px-6 px-4;
+  }
+
+  .main-abs-bg::before {
+    content: '';
+    position: absolute;
+    left: 100%;
+    width: 100vw;
+    top: 0;
+    height: 100%;
+    background-color: #fff;
   }
 
   .news-text {
