@@ -22,6 +22,15 @@ class ExpoService {
       },
     });
   }
+
+  async getAboutExhibition(localiztion: string) {
+    return await axios.get<string>(`${this.URL}/settings/about_us`, {
+      headers: {
+        'Accept-Language': localiztion,
+        // 'X-Localization': localiztion,
+      },
+    });
+  }
 }
 
 export default new ExpoService();
