@@ -15,15 +15,24 @@
     @apply mb-[100px];
   }
 
+  .form-input {
+    @apply py-[15px] px-[12px] border-[1px] border-[#BFBFBF] rounded-sm focus:outline-none;
+  }
+
+  .form-label {
+    @apply text-[14px] leading-[140%];
+  }
+
   .exibition-about-wrapper p {
     @apply text-base leading-[24px];
   }
+
   .exibition-about-wrapper img {
     @apply h-[462px] w-full object-cover !important;
   }
 
   .main-abs-bg::before {
-    content: '';
+    content: "";
     position: absolute;
     left: 100%;
     width: 100vw;
