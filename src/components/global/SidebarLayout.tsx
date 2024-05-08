@@ -5,7 +5,7 @@ export const SidebarLayout = ({ children }: { children: ReactNode }) => {
   return (
     <section className="tab:bg-blueBg bg-navyBlueBg h-full">
       <div className="container h-full">
-        <div className="flex w-full h-full">
+        <div className="flex w-full h-full gap-[100px]">
           <Sidebar />
           <div className="bg-white pt-[20px] lg:pl-10 md:pl-6 pl-0 lg:w-[75%] w-full relative main-abs-bg h-full">
             {children}

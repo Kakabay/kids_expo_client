@@ -15,8 +15,15 @@
     @apply mb-[100px];
   }
 
+  .exibition-about-wrapper p {
+    @apply text-base leading-[24px];
+  }
+  .exibition-about-wrapper img {
+    @apply h-[462px] w-full object-cover !important;
+  }
+
   .main-abs-bg::before {
-    content: "";
+    content: '';
     position: absolute;
     left: 100%;
     width: 100vw;

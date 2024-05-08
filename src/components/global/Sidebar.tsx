@@ -8,7 +8,7 @@ export const Sidebar = () => {
   const pathname = useLocation().pathname;
 
   return (
-    <aside className="flex flex-col items-start gap-y-[12px] py-[20px] sticky top-0 left-0 overflow-hidden">
+    <aside className="flex flex-col items-start gap-y-[12px] py-[20px] sticky top-0 left-0 overflow-hidden min-w-[230px]">
       {sidebarData
         .filter((obj) => pathname === '/about-exebition' && obj.exebition)
         .map((item) => (
@@ -22,7 +22,7 @@ export const Sidebar = () => {
                   <Link
                     to={obj.link}
                     className={clsx(
-                      'cursor-pointer py-1 leading-[130%] transition-all hover:text-purple',
+                      'cursor-pointer py-1 leading-[130%] text-[14px] transition-all hover:text-purple',
                       {
                         'hover:text-purple text-purple hover:cursor-default': obj.link === pathname,
                       },
