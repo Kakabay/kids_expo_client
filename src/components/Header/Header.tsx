@@ -14,11 +14,11 @@ export const headerMenu = [
 ];
 
 export const headerMenu2 = [
-  { title: 'Выставка', link: '/exhibition' },
+  { title: 'Выставка', link: '/about-exebition' },
   { title: 'Участникам', link: '/participants' },
   { title: 'Посетителям', link: '/visitors' },
 
-  { en: true, title: 'Exhibition', link: '/exhibition' },
+  { en: true, title: 'Exhibition', link: '/about-exebition' },
   { en: true, title: 'Participants', link: '/participants' },
   { en: true, title: 'For visitors', link: '/visitors' },
 ];
@@ -87,7 +87,7 @@ export const Header = () => {
             {headerMenu2
               .filter((item) => (localization === 'en' ? item.en : !item.en))
               .map((item) => (
-                <Link to={''} className="cursor-pointer" key={item.link}>
+                <Link to={item.link} className="cursor-pointer" key={item.link}>
                   {item.title}
                 </Link>
               ))}
