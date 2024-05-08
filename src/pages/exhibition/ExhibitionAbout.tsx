@@ -1,8 +1,8 @@
-import { SidebarLayout } from '../../components/global/SidebarLayout';
-import { BreadCrumbs } from '../../components/ui/BreadCrumbs';
-import { Button } from '../../components/ui/Button';
-import { Title } from '../../components/ui/Title';
-import useGetAboutExhibition from '../../hooks/useGetAboutExhibition';
+import { SidebarLayout } from "../../components/global/SidebarLayout";
+import { BreadCrumbs } from "../../components/ui/BreadCrumbs";
+import { Button } from "../../components/ui/Button";
+import { Title } from "../../components/ui/Title";
+import useGetAboutExhibition from "../../hooks/useGetAboutExhibition";
 
 const ExhibitionAbout = () => {
   const {
@@ -24,7 +24,7 @@ const ExhibitionAbout = () => {
   if (aboutExhibitionIsSuccess) {
     return (
       <SidebarLayout>
-        <div className="section-mb w-full">
+        <div className="w-full">
           <BreadCrumbs second="О Выставке" />
 
           <Title title="О выставке" mb24 />
@@ -32,7 +32,8 @@ const ExhibitionAbout = () => {
           {aboutExhibitionData ? (
             <div
               className="flex flex-col gap-6 exibition-about-wrapper"
-              dangerouslySetInnerHTML={{ __html: aboutExhibitionData.data }}>
+              dangerouslySetInnerHTML={{ __html: aboutExhibitionData.data }}
+            >
               {/* <p className="text-[22px] font-light leading-[150%]">
               Впервые в истории с 19 по 22 августа 2024 года в Ашхабаде пройдет Международная
               универсальная выставка-ярмарка «Kids Expo: Всё для детей».
