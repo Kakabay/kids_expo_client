@@ -34,12 +34,9 @@ const ParticipantsApply = () => {
       .min(2, 'Минимальная длина 2 символа'),
     web_site: z.string().optional(),
     what_demonstrated: z.string().optional(),
-    area: z
-      .string()
-      .refine((value) => /^\d+$/.test(value), {
-        message: 'The string must consist only of numbers',
-      })
-      .optional(),
+    area: z.string().refine((value) => (value === '' ? true : /^-?\d+(\.\d+)?$/.test(value)), {
+      message: 'Площадь должна быть указана в цифрах',
+    }),
     phone: z
       .string({ message: 'Заполните поле!' })
       .refine((value) => phoneNumberRegex.test(value), {
@@ -64,12 +61,11 @@ const ParticipantsApply = () => {
     resolver: zodResolver(formSchema),
   });
 
-  const localization = useLang((state) => state.activeLang.localization);
   const activeresponseMethod = useParticipantsForm((state) => state.activeMethod.id);
 
   const onSubmit = (data: FormFields) => {
     console.log(data);
-    expoService.postParticipantForm(localization, {
+    expoService.postParticipantForm({
       company_name: data.company_name,
       phone: data.phone,
       email: data.email,
@@ -152,14 +148,7 @@ const ParticipantsApply = () => {
           <label htmlFor="area" className="form-label">
             Требуемая площадь, м2
           </label>
-          <input
-            {...register('area')}
-            name="area"
-            id="area"
-            type="string"
-            className="form-input"
-            defaultValue={'0'}
-          />
+          <input {...register('area')} name="area" id="area" type="text" className="form-input" />
           {errors.area && <span className="text-lightRed">{errors.area.message}</span>}
         </div>
 
