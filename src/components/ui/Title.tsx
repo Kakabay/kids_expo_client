@@ -1,3 +1,13 @@
-export const Title = ({ title }: { title: string }) => {
-  return <h1 className="text-[34px] font-semibold leading-[100%] text-black1">{title}</h1>;
+import clsx from "clsx";
+
+export const Title = ({ title, mb24 }: { title: string; mb24?: boolean }) => {
+  return (
+    <h1
+      className={clsx("text-[34px] font-semibold leading-[100%] text-black1", {
+        "mb-6": mb24,
+      })}
+    >
+      {title}
+    </h1>
+  );
 };
