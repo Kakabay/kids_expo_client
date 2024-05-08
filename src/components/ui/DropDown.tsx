@@ -4,6 +4,7 @@ import { v4 } from "uuid";
 import { useParticipantsForm } from "../../services/zustand/zusForm";
 import { useState } from "react";
 import { responseMethod } from "../../pages/participants/ParticipantsApply";
+import { useLang } from "../../services/zustand/zusLang";
 
 interface IProps {
   responseMethod: {
@@ -15,7 +16,9 @@ interface IProps {
 const DropDown = () => {
   const [active, setActive] = useState(false);
 
-  const activeMethod = useParticipantsForm((state) => state.activeMethod.title);
+  const localization = useLang((state) => state.activeLang.localization);
+
+  const { title, titleEn } = useParticipantsForm((state) => state.activeMethod);
   const setActiveMethod = useParticipantsForm((state) => state.setActiveMethod);
 
   return (
@@ -27,7 +30,7 @@ const DropDown = () => {
         className="h-[43px] flex cursor-pointer items-center justify-between bid-drop py-[15px]"
       >
         <div className="form-input w-full flex items-center justify-between">
-          <div className="">{activeMethod}</div>
+          <div className="">{localization === "en" ? titleEn : title}</div>
         </div>
       </div>
       <div className="relative">
@@ -63,7 +66,7 @@ const DropDown = () => {
                     }
                   )}
                 >
-                  {item.title}
+                  {localization === "en" ? item.titleEn : item.title}
                 </div>
               ))}
             </motion.div>
