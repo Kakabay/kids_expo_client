@@ -13,7 +13,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import FaqPage from "./pages/FaqPage.tsx";
 import HomePage from "./pages/HomePage.tsx";
 import ExhibitionAbout from "./pages/exhibition/ExhibitionAbout.tsx";
-import ExhibitionForm from "./pages/exhibition/ExhibitionForm.tsx";
+import ParticipantsApply from "./pages/participants/ParticipantsApply.tsx";
 
 const router = createBrowserRouter([
   {
@@ -33,8 +33,8 @@ const router = createBrowserRouter([
         element: <ExhibitionAbout />,
       },
       {
-        path: "/participants-exhibition",
-        element: <ExhibitionForm />,
+        path: "/participants-apply",
+        element: <ParticipantsApply />,
       },
     ],
   },

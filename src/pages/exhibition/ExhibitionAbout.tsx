@@ -1,6 +1,5 @@
 import { SidebarLayout } from "../../components/global/SidebarLayout";
 import { BreadCrumbs } from "../../components/ui/BreadCrumbs";
-import { Button } from "../../components/ui/Button";
 import { Title } from "../../components/ui/Title";
 import useGetAboutExhibition from "../../hooks/useGetAboutExhibition";
 
@@ -18,8 +17,6 @@ const ExhibitionAbout = () => {
   if (aboutExhibitionIsLoading) {
     <h1>Loading...</h1>;
   }
-
-  console.log(aboutExhibitionData);
 
   if (aboutExhibitionIsSuccess) {
     return (

@@ -15,11 +15,11 @@ export const headerMenu = [
 
 export const headerMenu2 = [
   { title: "Выставка", link: "/about-exhibition" },
-  { title: "Участникам", link: "/participants" },
+  { title: "Участникам", link: "/participants-apply" },
   { title: "Посетителям", link: "/visitors" },
 
   { en: true, title: "Exhibition", link: "/about-exhibition" },
-  { en: true, title: "Participants", link: "/participants-exhibition" },
+  { en: true, title: "Participants", link: "/participants-apply" },
   { en: true, title: "For visitors", link: "/visitors" },
 ];
 

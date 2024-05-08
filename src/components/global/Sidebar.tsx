@@ -13,7 +13,7 @@ export const Sidebar = () => {
         .filter(
           (obj) =>
             (pathname === "/about-exhibition" && obj.exhibition) ||
-            (pathname === "/participants-exhibition" && obj.members)
+            (pathname === "/participants-apply" && obj.members)
         )
         .map((item) => (
           <div key={v4()}>
