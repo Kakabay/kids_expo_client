@@ -15,6 +15,7 @@ export default {
         gray: "#8D9399",
         gray3: "#8E9499",
         purple: "#61378A",
+        lightRed: "#F06C74",
       },
       dropShadow: {
         cardShadow: "0 4px 20px rgba(0, 0, 0, 0.25)",
