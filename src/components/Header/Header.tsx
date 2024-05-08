@@ -1,26 +1,26 @@
-import clsx from 'clsx';
-import { Link } from 'react-router-dom';
-import { LangMenu } from './LangMenu';
-import { useLang } from '../../services/zustand/zusLang';
+import clsx from "clsx";
+import { Link } from "react-router-dom";
+import { LangMenu } from "./LangMenu";
+import { useLang } from "../../services/zustand/zusLang";
 
 export const headerMenu = [
-  { title: 'Новости', titleEn: 'News', link: '/news' },
-  { title: 'FAQ', titleEn: 'FAQ', link: '/faq' },
-  { title: 'Контакты', titleEn: 'Contacts', link: '/contacts' },
+  { title: "Новости", titleEn: "News", link: "/news" },
+  { title: "FAQ", titleEn: "FAQ", link: "/faq" },
+  { title: "Контакты", titleEn: "Contacts", link: "/contacts" },
 
-  { en: true, title: 'News', link: '/news' },
-  { en: true, title: 'FAQ', link: '/faq' },
-  { en: true, title: 'Contacts', link: '/contacts' },
+  { en: true, title: "News", link: "/news" },
+  { en: true, title: "FAQ", link: "/faq" },
+  { en: true, title: "Contacts", link: "/contacts" },
 ];
 
 export const headerMenu2 = [
-  { title: 'Выставка', link: '/about-exebition' },
-  { title: 'Участникам', link: '/participants' },
-  { title: 'Посетителям', link: '/visitors' },
+  { title: "Выставка", link: "/about-exebition" },
+  { title: "Участникам", link: "/participants" },
+  { title: "Посетителям", link: "/visitors" },
 
-  { en: true, title: 'Exhibition', link: '/about-exebition' },
-  { en: true, title: 'Participants', link: '/participants' },
-  { en: true, title: 'For visitors', link: '/visitors' },
+  { en: true, title: "Exhibition", link: "/about-exebition" },
+  { en: true, title: "Participants", link: "/participants" },
+  { en: true, title: "For visitors", link: "/visitors" },
 ];
 
 export const headerMenu2En = [];
@@ -28,32 +28,34 @@ export const headerMenu2En = [];
 export const Header = () => {
   const localization = useLang((state) => state.activeLang.localization);
 
-  const chooseDataLang = (en: string, ru: string) => (localization === 'en' ? en : ru);
+  const chooseDataLang = (en: string, ru: string) =>
+    localization === "en" ? en : ru;
 
   return (
     <header className="relative z-[3000] flex-col">
       <div className="hidden tab:flex items-center bg-purple text-white py-[12px] font-regular text-extraSm">
         <div className="container flex items-center justify-between">
           <p className="text-[13px] leading-[115%]">
-            {chooseDataLang('Phone: +99363006200', 'Тел.: +99362006200')}
+            {chooseDataLang("Phone: +99363006200", "Тел.: +99362006200")}
           </p>
           <div className="flex items-center gap-[6px]">
             <div className="hidden tab:flex items-center gap-x-[20px]">
               {headerMenu
-                .filter((item) => (localization === 'en' ? item.en : !item.en))
+                .filter((item) => (localization === "en" ? item.en : !item.en))
                 .map((item) => (
                   <div key={item.link}>
                     <Link
-                      to={''}
+                      to={""}
                       className={clsx(
-                        'after:transition-all cursor-pointer duration-1000 relative leading-[130%]',
+                        "after:transition-all cursor-pointer duration-1000 relative leading-[130%]",
                         {
                           // 'link-border-bottom cursor-default hover:after:bg-green':
                           //   // item.link === pathname,
-                          'hover:link-border-bottom text-[16px] hover:after:bg-[#738799]':
+                          "hover:link-border-bottom text-[16px] hover:after:bg-[#738799]":
                             item.title === item.title,
-                        },
-                      )}>
+                        }
+                      )}
+                    >
                       {item.title}
                     </Link>
                   </div>
@@ -66,7 +68,7 @@ export const Header = () => {
         </div>
       </div>
 
-      <div className="bg-white text-black">
+      <div className="bg-white text-black drop-shadow-headerShadow">
         <div className="container py-[5px] flex items-center justify-between">
           <Link to="/" className="flex">
             <img
@@ -78,14 +80,14 @@ export const Header = () => {
             />
             <div className="">
               <p className="text-#050505 font-bold text-[12px]">
-                {chooseDataLang('19-22 August, 2024', '19–22 августа 2024')}
+                {chooseDataLang("19-22 August, 2024", "19–22 августа 2024")}
               </p>
               <img src="/assets/icons/kids-expo.svg" alt="" />
             </div>
           </Link>
           <div className="hidden tab:flex text-[16px] items-center gap-x-[20px] font-medium">
             {headerMenu2
-              .filter((item) => (localization === 'en' ? item.en : !item.en))
+              .filter((item) => (localization === "en" ? item.en : !item.en))
               .map((item) => (
                 <Link to={item.link} className="cursor-pointer" key={item.link}>
                   {item.title}
@@ -95,23 +97,30 @@ export const Header = () => {
 
           <div
             // onClick={toggleMenu}
-            className="flex flex-col tab:hidden cursor-pointer h-8 w-8 p-1 justify-between items-center">
+            className="flex flex-col tab:hidden cursor-pointer h-8 w-8 p-1 justify-between items-center"
+          >
             <span
-              className={clsx('block transition-all rounded-full bg-purple w-6 h-[2px]', {
-                // "rotate-[45deg] translate-y-[9px]": burgerMenu,
-              })}
-            />
-            <span
-              className={clsx('block transition-all rounded-full bg-purple w-6 h-[2px]', {
-                // "opacity-0 hidden": burgerMenu,
-              })}
+              className={clsx(
+                "block transition-all rounded-full bg-purple w-6 h-[2px]",
+                {
+                  // "rotate-[45deg] translate-y-[9px]": burgerMenu,
+                }
+              )}
             />
             <span
               className={clsx(
-                'block transition-all duration-300 rounded-full bg-purple w-6 h-[2px]',
+                "block transition-all rounded-full bg-purple w-6 h-[2px]",
+                {
+                  // "opacity-0 hidden": burgerMenu,
+                }
+              )}
+            />
+            <span
+              className={clsx(
+                "block transition-all duration-300 rounded-full bg-purple w-6 h-[2px]",
                 {
                   // "rotate-[-45deg] translate-y-[-10px]": burgerMenu,
-                },
+                }
               )}
             />
           </div>
