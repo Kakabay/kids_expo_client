@@ -1,8 +1,8 @@
-import { create } from "zustand";
+import { create } from 'zustand';
 
 type MethodType = {
   title: string;
-  id: string;
+  id: number;
 };
 
 type FormStore = {
@@ -12,8 +12,8 @@ type FormStore = {
 
 export const useParticipantsForm = create<FormStore>((set) => ({
   activeMethod: {
-    title: "телефон",
-    id: "phone",
+    title: 'телефон',
+    id: 1,
   },
   setActiveMethod: (name) => {
     set((state) => ({ activeMethod: (state.activeMethod = name) }));
