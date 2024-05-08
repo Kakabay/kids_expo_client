@@ -11,8 +11,12 @@
     @apply w-full mx-auto max-w-[1290px] lg:px-10 md:px-6 px-4;
   }
 
+  .section-mb {
+    @apply mb-[100px];
+  }
+
   .main-abs-bg::before {
-    content: '';
+    content: "";
     position: absolute;
     left: 100%;
     width: 100vw;
