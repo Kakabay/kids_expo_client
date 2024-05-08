@@ -5,7 +5,6 @@ import { v4 } from 'uuid';
 
 import useGetBanners from '../../hooks/useGetBanners';
 import { useLang } from '../../services/zustand/zusLang';
-import useGetAboutExhibition from '../../hooks/useGetAboutExhibition';
 
 // const bannersData = ['/assets/images/banner3.png', '/assets/images/test_banner.png'];
 
