@@ -22,6 +22,7 @@ export const Sidebar = () => {
             <p className={'text-bgWhite mb-[16px] text-[16px] font-bold leading-[1.5]'}>
               {localization === 'en' ? item.pathnameEn : item.pathname}
             </p>
+
             <div className="flex flex-col items-start gap-y-[8px]">
               <div className="flex flex-col gap-[10px] px-[16px]">
                 {item.info

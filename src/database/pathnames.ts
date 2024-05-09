@@ -37,14 +37,14 @@ export const sidebarData: MenuType[] = [
 
     info: [
       { title: 'Информация для участников', link: '/participants-info' },
-      // { title: "Преимущества участия", link: "" },
+      { title: 'Преимущества участия', link: '/participants-benefits' },
       { title: 'Заявка на участие', link: '/participants-apply' },
       // { title: "Участие в выставке", link: "" },
       // { title: "Получите максимум", link: "" },
       // { title: "Услуги и реклама", link: "" },
 
       { en: true, title: 'Information for participants', link: '/participants-info' },
-      // { en: true, title: "Benefits of participation", link: "" },
+      { en: true, title: 'Benefits of participation', link: '/participants-benefits' },
       { en: true, title: 'Application for participation', link: '/participants-apply' },
       //   { en: true, title: "participation in the exhibition", link: "" },
       //   { en: true, title: "get the maximum", link: "" },

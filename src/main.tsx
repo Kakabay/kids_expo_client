@@ -17,6 +17,7 @@ import ParticipantsApply from './pages/participants/ParticipantsApply.tsx';
 import { ExhibitionTheme } from './pages/exhibition/ExhibitionTheme.tsx';
 import ExhibitionPlace from './pages/exhibition/ExhibitionPlace.tsx';
 import { ParticipantsInfo } from './pages/participants/ParticipantsInfo.tsx';
+import { ParticipantsBenefits } from './pages/participants/ParticipantsBenefits.tsx';
 
 const router = createBrowserRouter([
   {
@@ -44,12 +45,16 @@ const router = createBrowserRouter([
         element: <ExhibitionPlace />,
       },
       {
-        path: '/participants-apply',
-        element: <ParticipantsApply />,
-      },
-      {
         path: '/participants-info',
         element: <ParticipantsInfo />,
+      },
+      {
+        path: '/participants-benefits',
+        element: <ParticipantsBenefits />,
+      },
+      {
+        path: '/participants-apply',
+        element: <ParticipantsApply />,
       },
     ],
   },

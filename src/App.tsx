@@ -4,10 +4,10 @@ import { Footer } from './components/Footer/Footer';
 
 const App = () => {
   return (
-    <div className="flex flex-col overflow-x-hidden h-full">
+    <div className="flex flex-col min-h-screen overflow-x-hidden">
       <Header />
 
-      <div className="flex-auto min-h-[100%]">
+      <div className="flex-auto">
         <Outlet />
       </div>
 

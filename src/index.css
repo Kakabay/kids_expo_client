@@ -4,7 +4,7 @@
 
 @layer utilities {
   body {
-    @apply text-[16px] bg-[#FAFAFA] leading-[100%] font-normal text-black2;
+    @apply text-[16px] bg-[#FAFAFA] leading-[100%] font-normal text-black2 h-full;
   }
 
   .container {

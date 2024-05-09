@@ -57,7 +57,7 @@ export const cardsRectData: CardsType[] = [
   {
     path: '/assets/icons/rect-icon.svg',
     title: 'Участники',
-    link: '',
+    link: '/participants-info',
   },
   {
     path: '/assets/icons/rect-icon2.svg',
@@ -67,14 +67,14 @@ export const cardsRectData: CardsType[] = [
   {
     path: '/assets/icons/rect-icon3.svg',
     title: 'Преимущества участия',
-    link: '',
+    link: '/participants-benefits',
   },
 
   {
     en: true,
     path: '/assets/icons/rect-icon.svg',
     title: 'Participants',
-    link: '',
+    link: '/participants-info',
   },
   {
     en: true,
@@ -86,6 +86,6 @@ export const cardsRectData: CardsType[] = [
     en: true,
     path: '/assets/icons/rect-icon3.svg',
     title: 'Benefits of participation',
-    link: '',
+    link: '/participants-benefits',
   },
 ];
