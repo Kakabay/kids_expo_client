@@ -1,14 +1,17 @@
 import clsx from 'clsx';
+import { Link } from 'react-router-dom';
 
 interface IProps {
   title: string;
   path: string;
   rect?: boolean;
+  link: string;
 }
 
-export const Card = ({ title, path, rect = false }: IProps) => {
+export const Card = ({ title, path, link, rect = false }: IProps) => {
   return (
-    <div
+    <Link
+      to={link}
       className={clsx('bg-white rounded-[10px] drop-shadow-cardShadow', {
         'px-5 pt-5 h-[156px] pb-[50px] gap-[10px] flex flex-col items-center bg-white rounded-[10px] drop-shadow-cardShadow':
           !rect,
@@ -22,6 +25,6 @@ export const Card = ({ title, path, rect = false }: IProps) => {
         })}>
         {title}
       </h3>
-    </div>
+    </Link>
   );
 };

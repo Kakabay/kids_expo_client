@@ -17,15 +17,15 @@ export const sidebarData: MenuType[] = [
     pathname: 'Выставка',
     pathnameEn: 'About',
     info: [
-      { title: 'О выставке', link: '/about-exhibition' },
-      // { title: 'Тематика', link: '/theme-exhibition' },
-      // { title: 'Место проведения', link: '/avenue-exhibition' },
+      { title: 'О выставке', link: '/exhibition-about' },
+      { title: 'Тематика', link: '/exhibition-theme' },
+      { title: 'Место проведения', link: '/exhibition-avenue' },
       // { title: "Участники", link: "/participants-exhibition" },
       // { title: 'Информационная поддержка', link: '/info-exhibition' },
 
-      { en: true, title: 'About', link: '/about-exhibition' },
-      // { en: true, title: 'Theme', link: '/theme-exhibition' },
-      // { en: true, title: 'Venue', link: '/avenue-exhibition' },
+      { en: true, title: 'About', link: '/exhibition-about' },
+      { en: true, title: 'Theme', link: '/exhibition-theme' },
+      { en: true, title: 'Venue', link: '/exhibition-avenue' },
       // { en: true, title: "Participants", link: "/participants-exhibition" },
       // { en: true, title: 'Information support', link: '/info-exhibition' },
     ],
@@ -36,14 +36,14 @@ export const sidebarData: MenuType[] = [
     pathnameEn: 'Participants',
 
     info: [
-      // { title: "Информация для участников", link: "" },
+      { title: 'Информация для участников', link: '/participants-info' },
       // { title: "Преимущества участия", link: "" },
       { title: 'Заявка на участие', link: '/participants-apply' },
       // { title: "Участие в выставке", link: "" },
       // { title: "Получите максимум", link: "" },
       // { title: "Услуги и реклама", link: "" },
 
-      // { en: true, title: "Information for participants", link: "" },
+      { en: true, title: 'Information for participants', link: '/participants-info' },
       // { en: true, title: "Benefits of participation", link: "" },
       { en: true, title: 'Application for participation', link: '/participants-apply' },
       //   { en: true, title: "participation in the exhibition", link: "" },

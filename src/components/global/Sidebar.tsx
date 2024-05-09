@@ -1,9 +1,9 @@
-import clsx from "clsx";
+import clsx from 'clsx';
 
-import { sidebarData } from "../../database/pathnames";
-import { v4 } from "uuid";
-import { Link, useLocation } from "react-router-dom";
-import { useLang } from "../../services/zustand/zusLang";
+import { sidebarData } from '../../database/pathnames';
+import { v4 } from 'uuid';
+import { Link, useLocation } from 'react-router-dom';
+import { useLang } from '../../services/zustand/zusLang';
 
 export const Sidebar = () => {
   const pathname = useLocation().pathname;
@@ -14,36 +14,29 @@ export const Sidebar = () => {
       {sidebarData
         .filter(
           (obj) =>
-            (pathname === "/about-exhibition" && obj.exhibition) ||
-            (pathname === "/participants-apply" && obj.members)
+            (pathname.includes('/exhibition-') && obj.exhibition) ||
+            (pathname.includes('/participants-') && obj.members),
         )
         .map((item) => (
           <div key={v4()}>
-            <p
-              className={
-                "text-bgWhite mb-[16px] text-[16px] font-bold leading-[1.5]"
-              }
-            >
-              {localization === "en" ? item.pathnameEn : item.pathname}
+            <p className={'text-bgWhite mb-[16px] text-[16px] font-bold leading-[1.5]'}>
+              {localization === 'en' ? item.pathnameEn : item.pathname}
             </p>
             <div className="flex flex-col items-start gap-y-[8px]">
               <div className="flex flex-col gap-[10px] px-[16px]">
                 {item.info
-                  .filter((item) =>
-                    localization === "en" ? item.en : !item.en
-                  )
+                  .filter((item) => (localization === 'en' ? item.en : !item.en))
                   .map((obj) => (
                     <Link
                       to={obj.link}
                       className={clsx(
-                        "cursor-pointer py-1 leading-[130%] text-[14px] transition-all hover:text-purple",
+                        'cursor-pointer py-1 leading-[130%] text-[14px] transition-all hover:text-purple',
                         {
-                          "hover:text-purple text-purple hover:cursor-default":
+                          'hover:text-purple text-purple hover:cursor-default':
                             obj.link === pathname,
-                        }
+                        },
                       )}
-                      key={v4()}
-                    >
+                      key={v4()}>
                       {obj.title}
                     </Link>
                   ))}

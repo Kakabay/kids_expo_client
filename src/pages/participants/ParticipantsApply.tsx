@@ -168,7 +168,7 @@ const ParticipantsApply = () => {
         <div className="flex flex-col gap-4">
           <label htmlFor="what_demonstrated" className="form-label">
             {chooseDataLang(
-              'Products  /equipment / services demonstrated',
+              'Products / equipment / services demonstrated',
               'Демонстрируемая продукция / оборудование / услуги',
             )}
           </label>

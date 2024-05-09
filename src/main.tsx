@@ -1,40 +1,55 @@
 // Mo
-import React from "react";
+import React from 'react';
 // Styles
-import "./index.css";
+import './index.css';
 // ReactDOM
-import ReactDOM from "react-dom/client";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import ReactDOM from 'react-dom/client';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 // Components
-import App from "./App.tsx";
+import App from './App.tsx';
 // Tanstack query
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 // Pages
-import FaqPage from "./pages/FaqPage.tsx";
-import HomePage from "./pages/HomePage.tsx";
-import ExhibitionAbout from "./pages/exhibition/ExhibitionAbout.tsx";
-import ParticipantsApply from "./pages/participants/ParticipantsApply.tsx";
+import FaqPage from './pages/FaqPage.tsx';
+import HomePage from './pages/HomePage.tsx';
+import ExhibitionAbout from './pages/exhibition/ExhibitionAbout.tsx';
+import ParticipantsApply from './pages/participants/ParticipantsApply.tsx';
+import { ExhibitionTheme } from './pages/exhibition/ExhibitionTheme.tsx';
+import ExhibitionPlace from './pages/exhibition/ExhibitionPlace.tsx';
+import { ParticipantsInfo } from './pages/participants/ParticipantsInfo.tsx';
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <App />,
     children: [
       {
-        path: "/",
+        path: '/',
         element: <HomePage />,
       },
       {
-        path: "/faq",
+        path: '/faq',
         element: <FaqPage />,
       },
       {
-        path: "/about-exhibition",
+        path: '/exhibition-about',
         element: <ExhibitionAbout />,
       },
       {
-        path: "/participants-apply",
+        path: '/exhibition-theme',
+        element: <ExhibitionTheme />,
+      },
+      {
+        path: '/exhibition-avenue',
+        element: <ExhibitionPlace />,
+      },
+      {
+        path: '/participants-apply',
         element: <ParticipantsApply />,
+      },
+      {
+        path: '/participants-info',
+        element: <ParticipantsInfo />,
       },
     ],
   },
@@ -42,10 +57,10 @@ const router = createBrowserRouter([
 
 const queryClient = new QueryClient();
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
+ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <QueryClientProvider client={queryClient}>
       <RouterProvider router={router} />
     </QueryClientProvider>
-  </React.StrictMode>
+  </React.StrictMode>,
 );

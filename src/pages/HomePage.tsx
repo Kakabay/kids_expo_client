@@ -49,7 +49,10 @@ export default function HomePage() {
                   профессионалов, производящих и закупающих качественную продукцию.`,
                 )}
               </p>
-              <LinkSeeMore text={chooseDataLang('To learn more', 'Узнать больше')} path="" />
+              <LinkSeeMore
+                text={chooseDataLang('To learn more', 'Узнать больше')}
+                path="/exhibition-about"
+              />
             </div>
           </div>
         </div>

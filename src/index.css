@@ -12,7 +12,7 @@
   }
 
   .section-mb {
-    @apply mb-[100px];
+    @apply pb-[100px];
   }
 
   .form-input {
@@ -32,7 +32,7 @@
   }
 
   .main-abs-bg::before {
-    content: "";
+    content: '';
     position: absolute;
     left: 100%;
     width: 100vw;

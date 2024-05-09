@@ -29,6 +29,7 @@ const NewsSection = () => {
       <section className="container pt-[100px] pb-[50px]">
         <div className="flex items-center justify-between mb-10">
           <Title title={chooseDataLang('News', 'Новости')} />
+
           <div className="flex gap-5">
             <NavBtn left />
             <NavBtn />
