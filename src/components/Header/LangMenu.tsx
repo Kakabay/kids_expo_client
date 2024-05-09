@@ -1,5 +1,3 @@
-'use client';
-
 import React, { useRef, useState } from 'react';
 import clsx from 'clsx';
 import { v4 } from 'uuid';
@@ -16,10 +14,6 @@ export const lang: activeLangType[] = [
     title: 'Ру',
     localization: 'ru',
   },
-  // {
-  //   title: 'Tm',
-  //   localization: 'tm',
-  // },
   {
     title: 'En',
     localization: 'en',
