@@ -8,9 +8,13 @@ import { Navigation } from 'swiper/modules';
 import useGetNews from '../../hooks/useGetNews';
 import { useLang } from '../../services/zustand/zusLang';
 import { newsDataEn } from '../../database/news.data';
+import { Link } from 'react-router-dom';
 
 const NewsSection = () => {
-  const { newsIsError, newsIsLoading, newsData, newsIsSuccess } = useGetNews();
+  const { newsIsError, newsIsLoading, newsData, newsIsSuccess } = useGetNews({
+    page: 1,
+    perPage: 7,
+  });
 
   if (newsIsError) {
     <h1>Error...</h1>;
@@ -55,6 +59,7 @@ const NewsSection = () => {
               <SwiperSlide key={v4()}>
                 <NewsCard
                   path={item.path}
+                  id={1}
                   title={item.title}
                   published_at={item.published_at}
                   key={v4()}
@@ -65,6 +70,7 @@ const NewsSection = () => {
             newsData.data.map((item) => (
               <SwiperSlide key={v4()}>
                 <NewsCard
+                  id={item.id}
                   path={item.featured_images[0].path}
                   title={item.title}
                   published_at={item.published_at}
@@ -77,7 +83,9 @@ const NewsSection = () => {
           )}
         </Swiper>
 
-        <Button news text={chooseDataLang('All news', 'Все новости')} />
+        <Link to={'/news'}>
+          <Button news text={chooseDataLang('All news', 'Все новости')} />
+        </Link>
       </section>
     );
   }

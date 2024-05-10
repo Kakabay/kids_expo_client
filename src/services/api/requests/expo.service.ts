@@ -11,6 +11,11 @@ type PostParticipantFormTypes = {
   what_demonstrated: string;
   web_site: string;
 };
+type GetNewsParamsTypes = {
+  localization: string;
+  page: number;
+  perPage: number;
+};
 
 class ExpoService {
   private URL = 'https://editor.turkmenexpo.com/api/v1';
@@ -24,13 +29,16 @@ class ExpoService {
     });
   }
 
-  async getNews(localiztion: string) {
-    return await axios.get<GetNewsTypes>(`${this.URL}/news`, {
-      headers: {
-        'Accept-Language': localiztion,
-        // 'X-Localization': localiztion,
+  async getNews({ localization, page, perPage }: GetNewsParamsTypes) {
+    return await axios.get<GetNewsTypes>(
+      `${this.URL}/news?current_page=${page ? page : 1}&per_page=${perPage}`,
+      {
+        headers: {
+          'Accept-Language': localization,
+          // 'X-Localization': localiztion,
+        },
       },
-    });
+    );
   }
 
   async getAboutExhibition(localiztion: string) {

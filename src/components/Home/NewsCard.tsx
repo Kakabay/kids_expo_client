@@ -4,9 +4,10 @@ interface IProps {
   title: string;
   published_at: string;
   path: string;
+  id: number;
 }
 
-export const NewsCard = ({ title, published_at, path }: IProps) => {
+export const NewsCard = ({ title, published_at, path, id }: IProps) => {
   return (
     <div className="bg-bgWhite rounded-sm mx-auto sm:max-w-[290px] w-full transition-all hover:hover-shadow cursor-pointer h-full">
       <Link to={''} className="h-full">
