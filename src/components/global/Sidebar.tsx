@@ -10,7 +10,7 @@ export const Sidebar = () => {
   const localization = useLang((state) => state.activeLang.localization);
 
   return (
-    <aside className="flex flex-col items-start gap-y-[12px] py-[20px] sticky top-0 left-0 overflow-hidden min-w-[230px]">
+    <aside className="tab:flex hidden flex-col items-start gap-y-[12px] py-[20px] sticky top-0 left-0 overflow-hidden min-w-[230px]">
       {sidebarData
         .filter(
           (obj) =>
