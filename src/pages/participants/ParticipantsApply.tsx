@@ -47,9 +47,9 @@ const ParticipantsApply = () => {
       }),
     email: z.string().email('Недействительный адрес электронной почты'),
     contact_person: z.string({ message: 'Заполните поле!' }).min(5, 'Минимальная длина 5 символов'),
-    equipment: z.enum(['not-equipment', 'equipment'], {
-      message: 'Выберите один из параметров',
-    }),
+    // equipment: z.enum(['not-equipment', 'equipment'], {
+    //   message: 'Выберите один из параметров',
+    // }),
     agree: z.boolean().refine((value) => value === true, {
       message: 'Вы должны принять условия использования',
     }),
@@ -69,17 +69,18 @@ const ParticipantsApply = () => {
   const chooseDataLang = (en: string, ru: string) => (localization === 'en' ? en : ru);
 
   const localization = useLang((state) => state.activeLang.localization);
-  const activeresponseMethod = useParticipantsForm((state) => state.activeMethod.id);
+  // const activeresponseMethod = useParticipantsForm((state) => state.activeMethod.id);
 
   const onSubmit = (data: FormFields) => {
+    console.log(data);
     expoService.postParticipantForm({
       company_name: data.company_name,
       phone: data.phone,
       email: data.email,
       area: data.area ? parseFloat(data.area) : 0,
-      response_method: activeresponseMethod,
+      // response_method: activeresponseMethod,
       contact_person: data.contact_person,
-      area_is_equipped: data.equipment === 'equipment' ? true : false,
+      // area_is_equipped: data.equipment === 'equipment' ? true : false,
       what_demonstrated: data.what_demonstrated ? data.what_demonstrated : '',
       web_site: data.web_site ? data.web_site : '',
     });
@@ -200,9 +201,9 @@ const ParticipantsApply = () => {
           )}
         </div>
 
-        <DropDown />
+        {/* <DropDown /> */}
 
-        <div className="flex flex-col gap-4">
+        {/* <div className="flex flex-col gap-4">
           <p className="text-[14px] leading-[140%] w-full">
             {chooseDataLang(
               'Products  /equipment / services demonstrated',
@@ -237,7 +238,7 @@ const ParticipantsApply = () => {
             </label>
           </div>
           {errors.equipment && <span className="text-lightRed">{errors.equipment.message}</span>}
-        </div>
+        </div> */}
 
         <div className="flex flex-col gap-4">
           <div className="flex items-center gap-4">

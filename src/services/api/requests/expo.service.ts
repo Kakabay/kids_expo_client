@@ -7,9 +7,7 @@ type PostParticipantFormTypes = {
   phone: string;
   email: string;
   area: number;
-  response_method: number;
   contact_person: string;
-  area_is_equipped: boolean;
   what_demonstrated: string;
   web_site: string;
 };
@@ -49,9 +47,9 @@ class ExpoService {
     phone,
     email,
     area,
-    response_method,
+    // response_method,
     contact_person,
-    area_is_equipped,
+    // area_is_equipped,
     what_demonstrated,
     web_site,
   }: PostParticipantFormTypes) {
@@ -63,9 +61,9 @@ class ExpoService {
         phone,
         email,
         area,
-        response_method,
+        response_method: 1,
         contact_person,
-        area_is_equipped,
+        area_is_equipped: true,
         what_demonstrated,
         web_site,
       },
