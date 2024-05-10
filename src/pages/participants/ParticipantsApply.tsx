@@ -72,7 +72,6 @@ const ParticipantsApply = () => {
   const activeresponseMethod = useParticipantsForm((state) => state.activeMethod.id);
 
   const onSubmit = (data: FormFields) => {
-    console.log(data);
     expoService.postParticipantForm({
       company_name: data.company_name,
       phone: data.phone,
