@@ -2,6 +2,7 @@ import clsx from 'clsx';
 import { Link } from 'react-router-dom';
 import { LangMenu } from './LangMenu';
 import { useLang } from '../../services/zustand/zusLang';
+import { v4 } from 'uuid';
 
 export const headerMenu = [
   { title: 'Новости', titleEn: 'News', link: '/' },
@@ -42,7 +43,7 @@ export const Header = () => {
               {headerMenu
                 .filter((item) => (localization === 'en' ? item.en : !item.en))
                 .map((item) => (
-                  <div key={item.link}>
+                  <div key={v4()}>
                     <Link
                       to={''}
                       className={clsx(
@@ -87,7 +88,7 @@ export const Header = () => {
             {headerMenu2
               .filter((item) => (localization === 'en' ? item.en : !item.en))
               .map((item) => (
-                <Link to={item.link} className="cursor-pointer" key={item.link}>
+                <Link to={item.link} className="cursor-pointer" key={v4()}>
                   {item.title}
                 </Link>
               ))}

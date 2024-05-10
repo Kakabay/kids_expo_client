@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { headerMenu, headerMenu2 } from '../Header/Header';
 import { useLang } from '../../services/zustand/zusLang';
+import { v4 } from 'uuid';
 
 export const Footer = () => {
   const localization = useLang((state) => state.activeLang.localization);
@@ -29,7 +30,7 @@ export const Footer = () => {
             {headerMenu2
               .filter((item) => (localization === 'en' ? item.en : !item.en))
               .map((item) => (
-                <Link key={item.link} to={item.link}>
+                <Link key={v4()} to={item.link}>
                   {item.title}
                 </Link>
               ))}
@@ -39,7 +40,7 @@ export const Footer = () => {
             {headerMenu
               .filter((item) => (localization === 'en' ? item.en : !item.en))
               .map((item) => (
-                <Link key={item.link} to={item.link}>
+                <Link key={v4()} to={item.link}>
                   {item.title}
                 </Link>
               ))}
