@@ -49,7 +49,7 @@ export const VisitorsInfo = () => {
               "August 19–21: from 09:00 to 18:00",
               "19–21 августа: с 09:00 до 18:00"
             )}
-            <br />{" "}
+            <br />
             {chooseDataLang(
               "August 22: from 09:00 to 16:00",
               "22 августа: с 09:00 до 16:00"

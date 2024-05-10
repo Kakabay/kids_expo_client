@@ -1,16 +1,16 @@
-import clsx from 'clsx';
-import { useState } from 'react';
-import { v4 } from 'uuid';
-import { NewsCard } from '../components/Home/NewsCard';
-import { Button } from '../components/ui/Button';
-import { SidebarLayout } from '../components/global/SidebarLayout';
-import { BreadCrumbs } from '../components/ui/BreadCrumbs';
-import { Title } from '../components/ui/Title';
+import clsx from "clsx";
+import { useState } from "react";
+import { v4 } from "uuid";
+import { NewsCard } from "../components/Home/NewsCard";
+import { Button } from "../components/ui/Button";
+import { SidebarLayout } from "../components/global/SidebarLayout";
+import { BreadCrumbs } from "../components/ui/BreadCrumbs";
+import { Title } from "../components/ui/Title";
 
 export const NewsPage = () => {
   const [grid, setGrid] = useState(false);
 
-  const menu = ['Новости', 'СМИ о нас'];
+  const menu = ["Новости", "СМИ о нас"];
 
   return (
     <SidebarLayout>
@@ -30,7 +30,11 @@ export const NewsPage = () => {
           <img
             onClick={() => setGrid(!grid)}
             className="hidden sm:block cursor-pointer"
-            src={!grid ? '/assets/icons/news/col.svg' : '/assets/icons/news/grid.svg'}
+            src={
+              !grid
+                ? "/assets/icons/news/col.svg"
+                : "/assets/icons/news/grid.svg"
+            }
             alt="сетка"
           />
         </div>
@@ -66,7 +70,7 @@ export const NewsPage = () => {
         <div className="hidden sm:flex flex-col gap-6 w-full max-w-[180px] mx-auto justify-center items-center">
           {/* {newsData && totalNews > perPage && perPage >= totalNews && ( */}
           <div>
-            <Button text={'Показать ещё'} />
+            <Button text={"Показать ещё"} little />
           </div>
           {/* )} */}
           {/* {newsData?.meta ? (

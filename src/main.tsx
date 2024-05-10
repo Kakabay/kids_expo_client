@@ -21,6 +21,8 @@ import { ParticipantsBenefits } from "./pages/participants/ParticipantsBenefits.
 import { ExhibitionSupport } from "./pages/exhibition/ExhibitionSupport.tsx";
 import { VisitorsInfo } from "./pages/visitors/VisitorsInfo.tsx";
 import { VisitorsVisit } from "./pages/visitors/VisitorsVisit.tsx";
+import { ContactsPage } from "./pages/ContactsPage.tsx";
+import { NewsPage } from "./pages/NewsPage.tsx";
 
 const router = createBrowserRouter([
   {
@@ -35,6 +37,16 @@ const router = createBrowserRouter([
       {
         path: "/faq",
         element: <FaqPage />,
+      },
+
+      {
+        path: "/news",
+        element: <NewsPage />,
+      },
+
+      {
+        path: "/contacts",
+        element: <ContactsPage />,
       },
 
       {

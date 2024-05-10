@@ -5,13 +5,13 @@ import { useLang } from "../../services/zustand/zusLang";
 import { v4 } from "uuid";
 
 export const headerMenu = [
-  { title: "Новости", titleEn: "News", link: "/" },
+  { title: "Новости", titleEn: "News", link: "/news" },
   { title: "FAQ", titleEn: "FAQ", link: "/faq" },
-  { title: "Контакты", titleEn: "Contacts", link: "/" },
+  { title: "Контакты", titleEn: "Contacts", link: "/contacts" },
 
-  { en: true, title: "News", link: "/" },
+  { en: true, title: "News", link: "/news" },
   { en: true, title: "FAQ", link: "/faq" },
-  { en: true, title: "Contacts", link: "/" },
+  { en: true, title: "Contacts", link: "/contacts" },
 ];
 
 export const headerMenu2 = [
