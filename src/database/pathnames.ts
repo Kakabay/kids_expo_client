@@ -80,9 +80,12 @@ export const sidebarData: MenuType[] = [
   {
     news: true,
     pathname: "Новости",
+    pathnameEn: "News",
     info: [
       { title: "Новости", link: "/news" },
       // { title: 'Пресс-релизы', link: '' },
+
+      { en: true, title: "News", link: "/news" },
     ],
   },
 ];

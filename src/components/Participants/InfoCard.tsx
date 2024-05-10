@@ -17,7 +17,7 @@ export const InfoCard = ({
   const localization = useLang((state) => state.activeLang.localization);
 
   return (
-    <div className="leading-[120%] py-[10px] bg-white text-center rounded-sm drop-shadow-participantsCardShadow">
+    <div className="leading-[120%] bg-white text-center rounded-sm drop-shadow-participantsCardShadow">
       <div
         className={clsx(
           "py-[10px] text-white text-[24px] leading-[135%] font-medium rounded-t-sm",

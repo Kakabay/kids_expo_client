@@ -16,7 +16,8 @@ export const Sidebar = () => {
           (obj) =>
             (pathname.includes("/exhibition-") && obj.exhibition) ||
             (pathname.includes("/participants-") && obj.members) ||
-            (pathname.includes("/visitors-") && obj.visitors)
+            (pathname.includes("/visitors-") && obj.visitors) ||
+            (pathname.includes("/news") && obj.news)
         )
         .map((item) => (
           <div key={v4()}>

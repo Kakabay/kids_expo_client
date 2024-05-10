@@ -79,7 +79,7 @@ export const ParticipantsInfo = () => {
           </span>
           {chooseDataLang(
             "and our manager will contact you, who will supervise all questions regarding your company’s participation in the exhibition.",
-            "и с Вами свяжется наш менеджер, который будет курировать все вопросы по участию Вашейкомпании в выставке."
+            "и с Вами свяжется наш менеджер, который будет курировать все вопросы по участию Вашей компании в выставке."
           )}
            
         </div>
