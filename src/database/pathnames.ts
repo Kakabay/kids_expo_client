@@ -4,6 +4,7 @@ interface MenuType {
   exhibition?: boolean;
   members?: boolean;
   news?: boolean;
+  visitors?: boolean;
   info: {
     en?: boolean;
     title: string;
@@ -61,6 +62,19 @@ export const sidebarData: MenuType[] = [
       //   { en: true, title: "participation in the exhibition", link: "" },
       //   { en: true, title: "get the maximum", link: "" },
       //   { en: true, title: "Services and advertising", link: "" },
+    ],
+  },
+  {
+    visitors: true,
+    pathname: "Посетителям",
+    pathnameEn: "For visitors",
+
+    info: [
+      { title: "Информация для посетителей", link: "/visitors-info" },
+      { title: "Зачем посещать", link: "/visitors-visit" },
+
+      { en: true, title: "Information for visitors", link: "/visitors-info" },
+      { en: true, title: "Why visit", link: "/visitors-visit" },
     ],
   },
   {
