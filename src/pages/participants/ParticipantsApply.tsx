@@ -37,9 +37,9 @@ const ParticipantsApply = () => {
       .min(2, 'Минимальная длина 2 символа'),
     web_site: z.string().optional(),
     what_demonstrated: z.string().optional(),
-    area: z.string().refine((value) => (value === '' ? true : /^-?\d+(\.\d+)?$/.test(value)), {
-      message: 'Площадь должна быть указана в цифрах',
-    }),
+    // area: z.string().refine((value) => (value === '' ? true : /^-?\d+(\.\d+)?$/.test(value)), {
+    //   message: 'Площадь должна быть указана в цифрах',
+    // }),
     phone: z
       .string({ message: 'Заполните поле!' })
       .refine((value) => phoneNumberRegex.test(value), {
@@ -77,7 +77,7 @@ const ParticipantsApply = () => {
       company_name: data.company_name,
       phone: data.phone,
       email: data.email,
-      area: data.area ? parseFloat(data.area) : 0,
+      area: 0,
       // response_method: activeresponseMethod,
       contact_person: data.contact_person,
       // area_is_equipped: data.equipment === 'equipment' ? true : false,
