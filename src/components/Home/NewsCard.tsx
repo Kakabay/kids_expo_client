@@ -9,11 +9,11 @@ interface IProps {
   grid?: boolean;
 }
 
-export const NewsCard = ({ title, published_at, path, id, grid = false }: IProps) => {
+export const NewsCard = ({ title, published_at, path, id }: IProps) => {
   return (
     <div
       className={clsx('rounded-sm w-full transition-all hover:hover-shadow cursor-pointer h-full')}>
-      <Link to={''} className={clsx('h-full')}>
+      <Link to={`/news/:${id}`} className={clsx('h-full')}>
         {/* Aspect ration 1.8:1 */}
         <img src={path} alt="photo" className="h-[160px] w-full object-cover mb-[25px]" />
         <div className={clsx('')}>
@@ -35,11 +35,11 @@ interface IProps {
   grid?: boolean;
 }
 
-export const NewsCardFlex = ({ title, published_at, path, id, grid = false }: IProps) => {
+export const NewsCardFlex = ({ title, published_at, path, id }: IProps) => {
   return (
     <div
       className={clsx('rounded-sm w-full transition-all hover:hover-shadow cursor-pointer h-full')}>
-      <Link to={''} className={clsx('h-full grid grid-cols-2')}>
+      <Link to={`/news/:${id}`} className={clsx('h-full grid grid-cols-2')}>
         {/* Aspect ration 1.8:1 */}
         <img src={path} alt="photo" className="h-[160px] w-[400px] object-cover mb-[25px]" />
         <div className="pl-4 py-6">

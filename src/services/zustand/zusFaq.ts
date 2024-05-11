@@ -13,7 +13,7 @@ export const useFaq = create<FaqStore>((set) => ({
   filter: (name) => {
     set((state) => ({ activeRadio: (state.activeRadio = name) }));
   },
-  setTitles: (title) => {
+  setTitles: () => {
     // set((state) => ({ titles: state.titles.push(title) }));
   },
 }));

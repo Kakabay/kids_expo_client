@@ -1,5 +1,5 @@
 import clsx from 'clsx';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { v4 } from 'uuid';
 import { NewsCard, NewsCardFlex } from '../components/Home/NewsCard';
 import { Button } from '../components/ui/Button';
@@ -18,7 +18,7 @@ export const NewsPage = () => {
 
   const menu = ['Новости', 'СМИ о нас'];
 
-  const [page, setPage] = useState(0);
+  const [page] = useState(0);
   const [perPage, setPerPage] = useState(6);
 
   const { newsData, newsIsError, newsIsLoading, newsIsSuccess } = useGetNews({
