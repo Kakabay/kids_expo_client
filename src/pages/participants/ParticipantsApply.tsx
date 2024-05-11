@@ -91,15 +91,18 @@ const ParticipantsApply = () => {
     <SidebarLayout>
       <BreadCrumbs
         second={chooseDataLang('Participants', 'Участникам')}
-        third={chooseDataLang('Application for participation', 'Заявка на участие')}
+        third={chooseDataLang('Application for participation', 'Онлайн-заявка для участников')}
       />
 
-      <Title title={chooseDataLang('Application for participation', 'Заявка на участие')} mb32 />
+      <Title
+        title={chooseDataLang('Application for participation', 'Онлайн-заявка для участников')}
+        mb32
+      />
 
       <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6 w-[540px]">
         <div className="flex flex-col gap-4">
           <label htmlFor="company_name" className="form-label">
-            {chooseDataLang('Company name', 'Название фирмы')}
+            {chooseDataLang('Company name:', 'Название компании:')}
             <span className="text-lightRed">*</span>
           </label>
           <input
@@ -111,76 +114,6 @@ const ParticipantsApply = () => {
           />
           {errors.company_name && (
             <span className="text-lightRed">{errors.company_name.message}</span>
-          )}
-        </div>
-
-        <div className="flex flex-col gap-4">
-          <label htmlFor="web_site" className="form-label">
-            {chooseDataLang('Web site', 'Сайт')}
-          </label>
-          <input
-            {...register('web_site')}
-            name="web_site"
-            id="web_site"
-            type="text"
-            className="form-input"
-          />
-          {errors.web_site && <span className="text-lightRed">{errors.web_site.message}</span>}
-        </div>
-
-        <div className="flex flex-col gap-4">
-          <label htmlFor="phone" className="form-label">
-            {chooseDataLang('Phone', 'Телефон')}
-            <span className="text-lightRed">*</span>
-          </label>
-          <input
-            {...register('phone')}
-            name="phone"
-            id="phone"
-            type="text"
-            className="form-input"
-          />
-          {errors.phone && <span className="text-lightRed">{errors.phone.message}</span>}
-        </div>
-
-        <div className="flex flex-col gap-4">
-          <label htmlFor="email" className="form-label">
-            E-mail:<span className="text-lightRed">*</span>
-          </label>
-          <input
-            {...register('email')}
-            name="email"
-            id="email"
-            type="text"
-            className="form-input"
-          />
-          {errors.email && <span className="text-lightRed">{errors.email.message}</span>}
-        </div>
-
-        <div className="flex flex-col gap-4">
-          <label htmlFor="area" className="form-label">
-            {chooseDataLang('Required area, m2', 'Требуемая площадь, м2')}
-          </label>
-          <input {...register('area')} name="area" id="area" type="string" className="form-input" />
-          {errors.area && <span className="text-lightRed">{errors.area.message}</span>}
-        </div>
-
-        <div className="flex flex-col gap-4">
-          <label htmlFor="what_demonstrated" className="form-label">
-            {chooseDataLang(
-              'Products / equipment / services demonstrated',
-              'Демонстрируемая продукция / оборудование / услуги',
-            )}
-          </label>
-          <textarea
-            {...register('what_demonstrated')}
-            rows={7}
-            name="what_demonstrated"
-            id="what_demonstrated"
-            className="form-input"
-          />
-          {errors.what_demonstrated && (
-            <span className="text-lightRed">{errors.what_demonstrated.message}</span>
           )}
         </div>
 
@@ -199,6 +132,76 @@ const ParticipantsApply = () => {
           {errors.contact_person && (
             <span className="text-lightRed">{errors.contact_person.message}</span>
           )}
+
+          <div className="flex flex-col gap-4">
+            <label htmlFor="web_site" className="form-label">
+              {chooseDataLang('Web site:', 'Веб-сайт:')}
+            </label>
+            <input
+              {...register('web_site')}
+              name="web_site"
+              id="web_site"
+              type="text"
+              className="form-input"
+            />
+            {errors.web_site && <span className="text-lightRed">{errors.web_site.message}</span>}
+          </div>
+
+          <div className="flex flex-col gap-4">
+            <label htmlFor="phone" className="form-label">
+              {chooseDataLang('Phone:', 'Телефон:')}
+              <span className="text-lightRed">*</span>
+            </label>
+            <input
+              {...register('phone')}
+              name="phone"
+              id="phone"
+              type="text"
+              className="form-input"
+            />
+            {errors.phone && <span className="text-lightRed">{errors.phone.message}</span>}
+          </div>
+
+          <div className="flex flex-col gap-4">
+            <label htmlFor="email" className="form-label">
+              E-mail:<span className="text-lightRed">*</span>
+            </label>
+            <input
+              {...register('email')}
+              name="email"
+              id="email"
+              type="text"
+              className="form-input"
+            />
+            {errors.email && <span className="text-lightRed">{errors.email.message}</span>}
+          </div>
+
+          {/* <div className="flex flex-col gap-4">
+          <label htmlFor="area" className="form-label">
+            {chooseDataLang('Required area, m2', 'Требуемая площадь, м2')}
+          </label>
+          <input {...register('area')} name="area" id="area" type="string" className="form-input" />
+          {errors.area && <span className="text-lightRed">{errors.area.message}</span>}
+        </div> */}
+
+          <div className="flex flex-col gap-4">
+            <label htmlFor="what_demonstrated" className="form-label">
+              {chooseDataLang(
+                'Products / equipment / services demonstrated:',
+                'Демонстрируемая продукция / оборудование / услуги:',
+              )}
+            </label>
+            <textarea
+              {...register('what_demonstrated')}
+              rows={7}
+              name="what_demonstrated"
+              id="what_demonstrated"
+              className="form-input"
+            />
+            {errors.what_demonstrated && (
+              <span className="text-lightRed">{errors.what_demonstrated.message}</span>
+            )}
+          </div>
         </div>
 
         {/* <DropDown /> */}

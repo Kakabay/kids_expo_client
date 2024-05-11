@@ -12,7 +12,7 @@
   }
 
   .section-mb {
-    @apply pb-[100px];
+    @apply pb-[60px] lg:pb-[160px] md:pb-[100px];
   }
 
   .form-input {
@@ -28,11 +28,55 @@
   }
 
   .exibition-about-wrapper img {
-    @apply h-[462px] w-full object-cover !important;
+    @apply h-full w-full object-cover !important;
+  }
+
+  .select-inner h3:not(:first-child) {
+    @apply text-[18px] mb-2 mt-5 font-semibold leading-[150%];
+  }
+
+  .select-inner h3:first-child {
+    @apply text-[18px] font-semibold mb-2 leading-[150%];
+  }
+
+  .select-inner p {
+    @apply leading-[150%] mb-6;
+  }
+
+  .select-inner ul {
+    @apply ml-8 leading-[150%];
+  }
+
+  .select-inner li {
+    @apply relative list-disc mb-1;
+  }
+
+  .select-inner ul li em {
+    @apply my-10;
+  }
+
+  .select-inner ol {
+    @apply ml-8;
+  }
+
+  .select-inner ol li {
+    @apply my-3 leading-[150%];
+  }
+
+  .select-inner strong {
+    @apply text-[16px];
+  }
+
+  .select-inner u {
+    @apply block mb-3 mt-5;
+  }
+
+  .event-topic p {
+    @apply before:content-["•"] before:px-2 before:text-green;
   }
 
   .main-abs-bg::before {
-    content: "";
+    content: '';
     position: absolute;
     left: 100%;
     width: 100vw;
@@ -42,7 +86,7 @@
   }
 
   .main-abs::after {
-    content: "";
+    content: '';
     position: absolute;
     bottom: 0;
     left: 100%;

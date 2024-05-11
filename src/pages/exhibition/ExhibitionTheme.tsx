@@ -1,3 +1,4 @@
+import { v4 } from 'uuid';
 import { SidebarLayout } from '../../components/global/SidebarLayout';
 import { ThemeCard } from '../../components/Theme/ThemeCard';
 import { BreadCrumbs } from '../../components/ui/BreadCrumbs';
@@ -21,7 +22,7 @@ export const ExhibitionTheme = () => {
 
       <div className="border-b-[1px] border-b-[#DADADA]">
         {themeData.map((item) => (
-          <ThemeCard {...item} />
+          <ThemeCard key={v4()} {...item} />
         ))}
       </div>
     </SidebarLayout>

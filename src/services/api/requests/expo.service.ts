@@ -1,7 +1,8 @@
-import axios from "axios";
-import { GetBannersTypes } from "../types/getBannersTypes";
-import { GetNewsTypes } from "../types/getNewsTypes";
-import { ContactsType } from "../types/getContactsTypes";
+import axios from 'axios';
+import { GetBannersTypes } from '../types/getBannersTypes';
+import { GetNewsTypes } from '../types/getNewsTypes';
+import { ContactsType } from '../types/getContactsTypes';
+import { GetFAQTypes } from '../types/getFaqTypes';
 
 type PostParticipantFormTypes = {
   company_name: string;
@@ -19,12 +20,12 @@ type GetNewsParamsTypes = {
 };
 
 class ExpoService {
-  private URL = "https://editor.turkmenexpo.com/api/v1";
+  private URL = 'https://editor.turkmenexpo.com/api/v1';
 
   async getBanners(localiztion: string) {
     return await axios.get<GetBannersTypes>(`${this.URL}/banners`, {
       headers: {
-        "Accept-Language": localiztion,
+        'Accept-Language': localiztion,
         // 'X-Localization': localiztion,
       },
     });
@@ -35,17 +36,25 @@ class ExpoService {
       `${this.URL}/news?current_page=${page ? page : 1}&per_page=${perPage}`,
       {
         headers: {
-          "Accept-Language": localization,
+          'Accept-Language': localization,
           // 'X-Localization': localiztion,
         },
-      }
+      },
     );
   }
 
   async getContacts(localization: string) {
     return await axios.get<ContactsType>(`${this.URL}/contacts`, {
       headers: {
-        "Accept-Language": localization,
+        'Accept-Language': localization,
+      },
+    });
+  }
+
+  async geFaq(localization: string) {
+    return await axios.get<GetFAQTypes>(`${this.URL}/participants-page-items`, {
+      headers: {
+        'Accept-Language': localization,
       },
     });
   }
@@ -53,8 +62,7 @@ class ExpoService {
   async getAboutExhibition(localiztion: string) {
     return await axios.get<string>(`${this.URL}/settings/about_us`, {
       headers: {
-        "Accept-Language": localiztion,
-        // 'X-Localization': localiztion,
+        'Accept-Language': localiztion,
       },
     });
   }
@@ -86,9 +94,9 @@ class ExpoService {
       },
       {
         headers: {
-          "Access-Control-Allow-Origin": "*",
+          'Access-Control-Allow-Origin': '*',
         },
-      }
+      },
     );
   }
 }

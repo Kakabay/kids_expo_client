@@ -11,11 +11,10 @@ export const Footer = () => {
   return (
     <footer className="bg-purple text-white2">
       <div className="container py-10">
-        <div className="flex sm:flex-row flex-col justify-between mb-[60px]">
-          <div className="text-[14px] font-medium mb-10 md:mb-0">
-            <p className="mb-5">{chooseDataLang('Organizers: ', 'Организаторы: ')}</p>
-            <img src="../assets/icons/text-logo.svg" className="mb-[10px]" alt="" />
-            <div className="flex items-center gap-[10px] w-[260px]">
+        <div className="flex md:flex-row flex-col justify-between mb-8 md:mb-[60px]">
+          <div className="text-[14px] font-medium">
+            <p className="mb-2">{chooseDataLang('Organizer: ', 'Организатор: ')}</p>
+            <div className="flex items-center mb-6 gap-[10px] w-[260px]">
               <img src="../assets/icons/footer-logo.png" alt="" />
               <p className="leading-[120%] font-medium">
                 {chooseDataLang(
@@ -24,9 +23,16 @@ export const Footer = () => {
                 )}
               </p>
             </div>
+
+            <div className="flex flex-col gap-2">
+              <p>{chooseDataLang('Co-organizer:', 'Со-организатор:')}</p>
+              <img width={161} height={26} src="../assets/icons/text-logo.svg" alt="" />
+            </div>
           </div>
 
-          <div className="w-full mb-10 md:mb-0 max-w-[290px] flex flex-col gap-[10px]">
+          <hr className="block md:hidden my-6  border-[1px] border-gray3" />
+
+          <div className="w-full mb-6 md:mb-0 max-w-[290px] flex flex-col gap-[10px]">
             {headerMenu2
               .filter((item) => (localization === 'en' ? item.en : !item.en))
               .map((item) => (
@@ -35,6 +41,8 @@ export const Footer = () => {
                 </Link>
               ))}
           </div>
+
+          <hr className="block md:hidden border-[1px] mb-6 border-gray3" />
 
           <div className="w-full max-w-[290px] flex flex-col gap-[10px]">
             {headerMenu
@@ -47,9 +55,9 @@ export const Footer = () => {
           </div>
         </div>
 
-        <hr className="w-full border-[1px] border-[#AAAAAA] mb-[17px]" />
+        <hr className="w-full border-[1px] border-gray3 mt-8 md:border-[#AAAAAA] mb-[17px]" />
 
-        <p className="text-center text-white text-[12px]">
+        <p className="text-left md:text-center text-white text-[14px] md:text-[12px]">
           {chooseDataLang('©2024 IE «TurkmenExpo» ', '© 2024 ИП “ТуркменЭкспо”')}
         </p>
       </div>
