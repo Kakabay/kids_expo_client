@@ -1,39 +1,21 @@
-import { v4 } from "uuid";
 import { SidebarLayout } from "../../components/global/SidebarLayout";
 import { InfoCard } from "../../components/Participants/InfoCard";
 import { BreadCrumbs } from "../../components/ui/BreadCrumbs";
 import { Title } from "../../components/ui/Title";
 import { useLang } from "../../services/zustand/zusLang";
-
-const cardData = [
-  {
-    header: "Монтаж",
-    headerEn: "Assembly",
-
-    footer: "C 1-го августа",
-    footerEn: "August – 01",
-  },
-  {
-    orang: true,
-    header: "Работа",
-    headerEn: "Work",
-
-    footer: "19–22 августа",
-    footerEn: "August 19–22",
-  },
-  {
-    header: "Демонтаж",
-    headerEn: "Dismantling",
-
-    footer: "23–24 августа",
-    footerEn: "August 23–24",
-  },
-];
+import useGetEventDates from "../../hooks/participants/useGetEventDates";
 
 export const ParticipantsInfo = () => {
   const localization = useLang((state) => state.activeLang.localization);
   const chooseDataLang = (en: string, ru: string) =>
     localization === "en" ? en : ru;
+
+  const {
+    eventDatesIsError,
+    eventDatesIsSuccess,
+    eventDatesIsloading,
+    eventsDatesData,
+  } = useGetEventDates();
 
   return (
     <SidebarLayout>
@@ -54,9 +36,19 @@ export const ParticipantsInfo = () => {
       />
 
       <div className="grid grid-cols-3 gap-[45px]">
-        {cardData.map((item) => (
-          <InfoCard key={v4()} {...item} />
-        ))}
+        <InfoCard
+          title={chooseDataLang("Assembly", "Монтаж")}
+          date={eventsDatesData ? eventsDatesData.installation_date : ""}
+        />
+        <InfoCard
+          date={eventsDatesData ? eventsDatesData.dismantling_date : ""}
+          title={chooseDataLang("Work", "Работа")}
+          orang
+        />
+        <InfoCard
+          date={eventsDatesData ? eventsDatesData.work_date : ""}
+          title={chooseDataLang("Dismantling", "Демонтаж")}
+        />
       </div>
 
       <hr className="border-[1px] my-6 border-pureWhite" />

@@ -71,12 +71,20 @@
     @apply block mb-3 mt-5;
   }
 
+  .seperate-news p {
+    @apply leading-[150%];
+  }
+
+  .seperate-news img {
+    @apply py-5;
+  }
+
   .event-topic p {
     @apply before:content-["•"] before:px-2 before:text-green;
   }
 
   .main-abs-bg::before {
-    content: '';
+    content: "";
     position: absolute;
     left: 100%;
     width: 100vw;
@@ -86,7 +94,7 @@
   }
 
   .main-abs::after {
-    content: '';
+    content: "";
     position: absolute;
     bottom: 0;
     left: 100%;

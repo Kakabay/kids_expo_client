@@ -1,8 +1,12 @@
-import axios from 'axios';
-import { GetBannersTypes } from '../types/getBannersTypes';
-import { GetNewsTypes } from '../types/getNewsTypes';
-import { ContactsType } from '../types/getContactsTypes';
-import { GetFAQTypes } from '../types/getFaqTypes';
+import axios from "axios";
+import { GetBannersTypes } from "../types/getBannersTypes";
+import { GetNewsTypes } from "../types/getNewsTypes";
+import { ContactsType } from "../types/getContactsTypes";
+import { GetFAQTypes } from "../types/getFaqTypes";
+import { SeperateNewsTypes } from "../types/getSeperateNews";
+import { TopicsTypes } from "../types/getTopicsType";
+import { EventsDateTypes } from "../types/getEventsDate";
+import { BenefitsTypes } from "../types/getBenefitsType";
 
 type PostParticipantFormTypes = {
   company_name: string;
@@ -15,17 +19,18 @@ type PostParticipantFormTypes = {
 };
 type GetNewsParamsTypes = {
   localization: string;
+  id?: string;
   page: number;
   perPage: number;
 };
 
 class ExpoService {
-  private URL = 'https://editor.turkmenexpo.com/api/v1';
+  private URL = "https://editor.turkmenexpo.com/api/v1";
 
   async getBanners(localiztion: string) {
     return await axios.get<GetBannersTypes>(`${this.URL}/banners`, {
       headers: {
-        'Accept-Language': localiztion,
+        "Accept-Language": localiztion,
         // 'X-Localization': localiztion,
       },
     });
@@ -36,25 +41,39 @@ class ExpoService {
       `${this.URL}/news?current_page=${page ? page : 1}&per_page=${perPage}`,
       {
         headers: {
-          'Accept-Language': localization,
+          "Accept-Language": localization,
           // 'X-Localization': localiztion,
         },
-      },
+      }
     );
+  }
+
+  async getSeperateNews({
+    localization,
+    id,
+  }: {
+    localization: string;
+    id: string;
+  }) {
+    return await axios.get<SeperateNewsTypes>(`${this.URL}/news/${id}`, {
+      headers: {
+        "Accept-Language": localization,
+      },
+    });
   }
 
   async getContacts(localization: string) {
     return await axios.get<ContactsType>(`${this.URL}/contacts`, {
       headers: {
-        'Accept-Language': localization,
+        "Accept-Language": localization,
       },
     });
   }
 
-  async geFaq(localization: string) {
+  async getFaq(localization: string) {
     return await axios.get<GetFAQTypes>(`${this.URL}/participants-page-items`, {
       headers: {
-        'Accept-Language': localization,
+        "Accept-Language": localization,
       },
     });
   }
@@ -62,9 +81,39 @@ class ExpoService {
   async getAboutExhibition(localiztion: string) {
     return await axios.get<string>(`${this.URL}/settings/about_us`, {
       headers: {
-        'Accept-Language': localiztion,
+        "Accept-Language": localiztion,
       },
     });
+  }
+
+  async getTopics(localization: string) {
+    return await axios.get<TopicsTypes>(`${this.URL}/topics`, {
+      headers: {
+        "Accept-Language": localization,
+      },
+    });
+  }
+
+  async getEventDates(localization: string) {
+    return await axios.get<EventsDateTypes>(
+      `${this.URL}/settings/event-dates`,
+      {
+        headers: {
+          "Accept-Language": localization,
+        },
+      }
+    );
+  }
+
+  async getBenefits(localization: string) {
+    return await axios.get<BenefitsTypes>(
+      `${this.URL}/settings/benefit-items`,
+      {
+        headers: {
+          "Accept-Language": localization,
+        },
+      }
+    );
   }
 
   async postParticipantForm({
@@ -94,9 +143,9 @@ class ExpoService {
       },
       {
         headers: {
-          'Access-Control-Allow-Origin': '*',
+          "Access-Control-Allow-Origin": "*",
         },
-      },
+      }
     );
   }
 }

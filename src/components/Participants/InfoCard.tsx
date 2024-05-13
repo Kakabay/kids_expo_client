@@ -1,21 +1,18 @@
 import clsx from "clsx";
-import { useLang } from "../../services/zustand/zusLang";
 
 export const InfoCard = ({
   orang,
-  header,
-  headerEn,
-  footerEn,
-  footer,
+  title,
+  // headerEn,
+  // footerEn,
+  date,
 }: {
   orang?: boolean;
-  header: string;
-  headerEn: string;
-  footer: string;
-  footerEn: string;
+  title: string;
+  // headerEn?: string;
+  date: string;
+  // footerEn: string;
 }) => {
-  const localization = useLang((state) => state.activeLang.localization);
-
   return (
     <div className="leading-[120%] bg-white text-center rounded-sm drop-shadow-participantsCardShadow">
       <div
@@ -27,14 +24,12 @@ export const InfoCard = ({
           }
         )}
       >
-        {localization === "en" ? headerEn : header}
+        {title}
       </div>
 
       <div className="py-[14px] text-center justify-center flex items-center gap-[10px]">
         <img src="/assets/icons/calendar.svg" alt="calendar" />
-        <div className="text-[20px] font-medium">
-          {localization === "en" ? footerEn : footer}
-        </div>
+        <div className="text-[20px] font-medium">{date}</div>
       </div>
     </div>
   );

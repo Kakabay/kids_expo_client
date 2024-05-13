@@ -23,6 +23,8 @@ import { VisitorsInfo } from "./pages/visitors/VisitorsInfo.tsx";
 import { VisitorsVisit } from "./pages/visitors/VisitorsVisit.tsx";
 import { ContactsPage } from "./pages/ContactsPage.tsx";
 import { NewsPage } from "./pages/NewsPage.tsx";
+import { ParticipantsDocs } from "./pages/participants/ParticipantsDocs.tsx";
+import { NewsSeperatePage } from "./pages/NewsSeperatePage.tsx";
 
 const router = createBrowserRouter([
   {
@@ -42,6 +44,10 @@ const router = createBrowserRouter([
       {
         path: "/news",
         element: <NewsPage />,
+      },
+      {
+        path: "/news/:id",
+        element: <NewsSeperatePage />,
       },
 
       {
@@ -76,6 +82,10 @@ const router = createBrowserRouter([
       {
         path: "/participants-apply",
         element: <ParticipantsApply />,
+      },
+      {
+        path: "/participants-docs",
+        element: <ParticipantsDocs />,
       },
 
       {
