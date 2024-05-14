@@ -1,4 +1,4 @@
-import clsx from "clsx";
+import clsx from 'clsx';
 
 export const InfoCard = ({
   orang,
@@ -17,13 +17,12 @@ export const InfoCard = ({
     <div className="leading-[120%] bg-white text-center rounded-sm drop-shadow-participantsCardShadow">
       <div
         className={clsx(
-          "py-[10px] text-white text-[24px] leading-[135%] font-medium rounded-t-sm",
+          'py-[10px] text-white text-[24px] leading-[135%] font-medium rounded-t-sm',
           {
-            "bg-[#ED5417]": orang,
-            "bg-purple": !orang,
-          }
-        )}
-      >
+            'bg-[#ED5417] row-span-2': orang,
+            'bg-purple': !orang,
+          },
+        )}>
         {title}
       </div>
 

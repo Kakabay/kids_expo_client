@@ -91,6 +91,7 @@ const ParticipantsApply = () => {
     <SidebarLayout>
       <BreadCrumbs
         second={chooseDataLang('Participants', 'Участникам')}
+        path="/participants-info"
         third={chooseDataLang('Application for participation', 'Онлайн-заявка для участников')}
       />
 
@@ -99,7 +100,9 @@ const ParticipantsApply = () => {
         mb32
       />
 
-      <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6 w-[540px]">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        className="flex flex-col gap-6 w-full tab:max-w-[540px]">
         <div className="flex flex-col gap-4">
           <label htmlFor="company_name" className="form-label">
             {chooseDataLang('Company name:', 'Название компании:')}

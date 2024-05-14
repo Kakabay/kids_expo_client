@@ -36,7 +36,7 @@ export default function HomePage() {
             </div>
 
             <div className="flex flex-col tab:items-end justify-between">
-              <p className="text-[20px] md:text-[24px] leading-[130%] font-light tab:mb-0 mb-8">
+              <p className="sm-[16px] md:text-[24px] leading-[130%] font-light tab:mb-0 mb-8">
                 {chooseDataLang(
                   `“Everything for Children”
                   is the largest congress and exhibition B2B event in the

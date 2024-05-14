@@ -3,7 +3,7 @@ import { Sidebar } from './Sidebar';
 
 export const SidebarLayout = ({ children }: { children: ReactNode }) => {
   return (
-    <section className=" h-full">
+    <section className="h-full">
       <div className="container h-full">
         <div className="flex w-full h-full gap-0 tab:gap-[65px]">
           <Sidebar />

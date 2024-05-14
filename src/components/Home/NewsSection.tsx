@@ -51,8 +51,9 @@ const NewsSection = () => {
           breakpoints={{
             1024: { slidesPerView: 4 },
             850: { slidesPerView: 3.5 },
-            640: { slidesPerView: 2.5 },
+            640: { slidesPerView: 2 },
             440: { slidesPerView: 1.5 },
+            0: { slidesPerView: 1 },
           }}>
           {localization === 'en' ? (
             newsDataEn.map((item) => (
