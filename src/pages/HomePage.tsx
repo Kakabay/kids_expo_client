@@ -16,7 +16,7 @@ export default function HomePage() {
         <Slider />
       </section>
 
-      <section className="pb-10 bg-white2 relative z-10">
+      <section className="pb-10 relative z-10">
         <div className="container">
           <div className="grid translate-y-[-50px] gap-y-3 grid-cols-1 tab:grid-cols-4 gap-5 tab:gap-[30px]">
             {cardsData

@@ -81,6 +81,14 @@ class ExpoService {
     });
   }
 
+  async getVenueExhibition(localiztion: string) {
+    return await axios.get<string>(`${this.URL}/settings/location`, {
+      headers: {
+        'Accept-Language': localiztion,
+      },
+    });
+  }
+
   async getTopics(localization: string) {
     return await axios.get<TopicsTypes>(`${this.URL}/topics`, {
       headers: {

@@ -4,13 +4,13 @@ import { BreadCrumbs } from '../../components/ui/BreadCrumbs';
 import { Title } from '../../components/ui/Title';
 import { useLang } from '../../services/zustand/zusLang';
 import useGetEventDates from '../../hooks/participants/useGetEventDates';
+import { Link } from 'react-router-dom';
 
 export const ParticipantsInfo = () => {
   const localization = useLang((state) => state.activeLang.localization);
   const chooseDataLang = (en: string, ru: string) => (localization === 'en' ? en : ru);
 
-  const { eventDatesIsError, eventDatesIsSuccess, eventDatesIsloading, eventsDatesData } =
-    useGetEventDates();
+  const { eventsDatesData } = useGetEventDates();
 
   return (
     <SidebarLayout>
@@ -70,12 +70,12 @@ export const ParticipantsInfo = () => {
       <div className="py-6 px-4 bg-pureWhite rounded-sm flex items-start gap-[10px]">
         <img src="/assets/icons/calendar2.svg" alt="" className="" />
         <div className="text-[#191919] leading-[130%]">
-          <span className="text-purple">
-            {chooseDataLang('Fill out the online application', 'Заполните онлайн-заявку')}
-          </span>
+          <Link to="/participants-apply" className="text-purple">
+            {chooseDataLang('Fill out the online application ', 'Заполните онлайн-заявку')}
+          </Link>
           {chooseDataLang(
-            'and our manager will contact you, who will supervise all questions regarding your company’s participation in the exhibition.',
-            'и с Вами свяжется наш менеджер, который будет курировать все вопросы по участию Вашей компании в выставке.',
+            ' and our manager will contact you, who will supervise all questions regarding your company’s participation in the exhibition. ',
+            ' и с Вами свяжется наш менеджер, который будет курировать все вопросы по участию Вашей компании в выставке.',
           )}
            
         </div>

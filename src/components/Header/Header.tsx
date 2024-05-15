@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 import { LangMenu } from './LangMenu';
 import { useLang } from '../../services/zustand/zusLang';
 import { v4 } from 'uuid';
-import { BurgerMenu } from '../Home/BurgerMenu';
 import { useState } from 'react';
 
 export const headerMenu = [
@@ -32,8 +31,6 @@ export const Header = () => {
   const chooseDataLang = (en: string, ru: string) => (localization === 'en' ? en : ru);
 
   const [burgerOpen, setBurgerOpen] = useState(false);
-
-  const { pathname } = window.location;
 
   return (
     <header className="relative z-[3000] flex-col">
@@ -72,8 +69,8 @@ export const Header = () => {
       </div>
 
       <div
-        className={clsx('bg-white text-black drop-shadow-headerShadow sticky z-50', {
-          'fixed w-full top-0': burgerOpen,
+        className={clsx('bg-white text-black drop-shadow-headerShadow', {
+          // 'fixed w-full top-0': burgerOpen,
         })}>
         <div className="container py-[15px] tab:py-[5px] flex items-center justify-between">
           <Link to="/" className="flex">

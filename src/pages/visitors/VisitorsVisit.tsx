@@ -37,10 +37,7 @@ export const VisitorsVisit = () => {
         third={chooseDataLang('Why visit', 'Зачем посещать')}
       />
 
-      <Title
-        title={chooseDataLang('Information for visitors', 'Информация для посетителей')}
-        mb24
-      />
+      <Title title={chooseDataLang('Why visit', 'Зачем посещать')} mb24 />
 
       <div className="grid min-[1150px]:grid-cols-2 grid-cols-1 grid-rows-2 gap-6 min-[1150px]:gap-[42px]">
         {benefitsData.map((item) => (

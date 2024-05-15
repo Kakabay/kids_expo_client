@@ -23,24 +23,23 @@ const ExhibitionAbout = () => {
     <h1>Loading...</h1>;
   }
 
-  if (aboutExhibitionIsSuccess) {
-    return (
-      <SidebarLayout>
-        <div className="w-full">
-          <BreadCrumbs second={chooseDataLang('About', 'О Выставке')} />
+  return (
+    <SidebarLayout>
+      <div className="w-full h-full">
+        <BreadCrumbs second={chooseDataLang('About', 'О Выставке')} />
 
-          <Title title={chooseDataLang('About', 'О выставке')} mb24 />
-
+        <Title title={chooseDataLang('About', 'О выставке')} mb24 />
+        {aboutExhibitionIsSuccess ? (
           <div
             className="flex flex-col gap-6 exibition-about-wrapper"
             dangerouslySetInnerHTML={{
               __html: aboutExhibitionData ? aboutExhibitionData.data : '',
             }}
           />
-        </div>
-      </SidebarLayout>
-    );
-  }
+        ) : null}
+      </div>
+    </SidebarLayout>
+  );
 };
 
 export default ExhibitionAbout;

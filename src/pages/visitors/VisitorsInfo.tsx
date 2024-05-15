@@ -33,17 +33,19 @@ export const VisitorsInfo = () => {
           <h4 className="font-bold leading-[125%] mb-2">
             {chooseDataLang('Opening hours:', 'Часы работы:')}
           </h4>
-          <p className="leading-[150%]">
+          <div className="leading-[150%]">
             {chooseDataLang('August 19–21: from 09:00 to 18:00', '19–21 августа: с 09:00 до 18:00')}
+
             <br />
+
             {chooseDataLang('August 22: from 09:00 to 16:00', '22 августа: с 09:00 до 16:00')}
-          </p>
+          </div>
         </div>
 
         <div className="px-4 py-6 bg-pureWhite text-center w-full h-full rounded-sm">
           <img src="/assets/icons/visitors/location.svg" alt="" className="mb-4 mx-auto" />
           <h4 className="font-bold leading-[125%] mb-2">
-            {chooseDataLang('Opening hours:', 'Часы работы:')}
+            {chooseDataLang('Venue:', 'Место проведения:')}
           </h4>
           <p className="leading-[150%]">
             {chooseDataLang(

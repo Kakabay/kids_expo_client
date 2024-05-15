@@ -25,21 +25,18 @@ export const ExhibitionSupport = () => {
         )}
       </h3>
 
-      <div className="flex flex-col gap-4 sm:gap-2">
+      <div className="flex flex-col gap-4 sm:gap-3">
         <p className="leading-[125%]">
-          {chooseDataLang(
-            'Khojamuradov Magtymguly, director of Turkmen Expo',
-            'Ходжамурадов Махтумкули, директор Turkmen Expo',
-          )}
+          {chooseDataLang('Khojamuradov Magtymguly', 'Ходжамурадов Махтумкули')}
         </p>
         <div className="flex flex-col gap-[10px] leading-[125%]">
           <div className="flex items-center">
             <img src="/assets/icons/exhibition-support/phone.svg" alt="" />
             <p>+993 62 00-62-00</p>
           </div>
-          <div className="flex items-center">
+          <div className="flex items-center gap-2">
             <img src="/assets/icons/exhibition-support/mail.svg" alt="" />
-            <p>+993 62 00-62-00</p>
+            <p className="text-purple">magtymguly.hojamyradov@turkmenexpo.com</p>
           </div>
         </div>
       </div>

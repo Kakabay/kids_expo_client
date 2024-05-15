@@ -9,7 +9,7 @@ export const ParticipantsBenefits = () => {
   const localization = useLang((state) => state.activeLang.localization);
   const chooseDataLang = (en: string, ru: string) => (localization === 'en' ? en : ru);
 
-  const { benefitsData, benefitsIsError, benefitsIsLoading, benefitsIsSuccess } = useGetBenefits();
+  const { benefitsData } = useGetBenefits();
 
   return (
     <SidebarLayout>

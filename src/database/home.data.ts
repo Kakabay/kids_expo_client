@@ -8,8 +8,8 @@ interface CardsType {
 export const cardsData: CardsType[] = [
   {
     path: '/assets/icons/card-icon.svg',
-    title: 'Брошюра',
-    link: '',
+    title: 'Документы',
+    link: '/participants-docs',
   },
   {
     path: '/assets/icons/card-icon2.svg',
@@ -30,8 +30,8 @@ export const cardsData: CardsType[] = [
   {
     en: true,
     path: '/assets/icons/card-icon.svg',
-    title: 'Brochure',
-    link: '',
+    title: 'Documents',
+    link: '/participants-docs',
   },
   {
     en: true,

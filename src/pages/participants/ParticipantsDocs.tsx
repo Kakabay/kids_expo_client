@@ -1,7 +1,7 @@
+import { v4 } from 'uuid';
 import { SidebarLayout } from '../../components/global/SidebarLayout';
 import { BreadCrumbs } from '../../components/ui/BreadCrumbs';
 import { Title } from '../../components/ui/Title';
-import { docs } from '../../database/docs.data';
 import useGetDocs from '../../hooks/participants/useGetDocs';
 import { useLang } from '../../services/zustand/zusLang';
 
@@ -9,7 +9,7 @@ export const ParticipantsDocs = () => {
   const localization = useLang((state) => state.activeLang.localization);
   const chooseDataLang = (en: string, ru: string) => (localization === 'en' ? en : ru);
 
-  const { docsData, docsIsError, docsIsLoading, docsIsSuccess } = useGetDocs();
+  const { docsData, docsIsSuccess } = useGetDocs();
 
   return (
     <SidebarLayout>
@@ -29,6 +29,7 @@ export const ParticipantsDocs = () => {
         {docsIsSuccess ? (
           docsData?.map((item) => (
             <a
+              key={v4()}
               href={item.doc_path}
               target="_blank"
               className="p-2 md:p-4 lg:p-6 text-[15px] leading-[150%] mx-auto w-full rounded-[5px] text-center border-[1px] border-[#DADADA]">
