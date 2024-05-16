@@ -2,13 +2,15 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Link } from 'react-router-dom';
 import { Autoplay, Navigation, Pagination } from 'swiper/modules';
 import { v4 } from 'uuid';
+import { useMediaQuery } from 'usehooks-ts';
 
 import useGetBanners from '../../hooks/useGetBanners';
 import { useLang } from '../../services/zustand/zusLang';
 
-// const bannersData = ['/assets/images/banner3.png', '/assets/images/test_banner.png'];
-
 export const Slider = () => {
+  const tab = useMediaQuery('(min-width: 1250px)');
+  const md = useMediaQuery('(min-width: 768px)');
+
   const { bannersIsError, bannersIsLoading, bannersData, bannersIsSuccess } = useGetBanners();
 
   if (bannersIsError) {
@@ -20,6 +22,16 @@ export const Slider = () => {
   }
 
   const localization = useLang((state) => state.activeLang.localization);
+
+  const chooseBanner = () => {
+    if (tab) {
+      return 'main-surat';
+    } else if (md) {
+      return 'medium-surat';
+    } else {
+      return 'small-surat';
+    }
+  };
 
   if (bannersIsSuccess) {
     return (
@@ -61,7 +73,7 @@ export const Slider = () => {
           </SwiperSlide>
         ) : bannersData ? (
           bannersData.map((item) =>
-            item.code.includes('main-banner') ? (
+            item.code.includes(chooseBanner()) ? (
               <SwiperSlide key={v4()}>
                 <Link to={''}>
                   <div className="h-[490px] w-full">

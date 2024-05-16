@@ -18,7 +18,7 @@ export default function HomePage() {
 
       <section className="pb-10 relative z-10">
         <div className="container">
-          <div className="grid translate-y-[-50px] gap-y-3 grid-cols-1 tab:grid-cols-4 gap-5 tab:gap-[30px]">
+          <div className="grid translate-y-[-50px] gap-y-4 grid-cols-1 tab:grid-cols-4 gap-5 tab:gap-[30px]">
             {cardsData
               .filter((item) => (localization === 'en' ? item.en : !item.en))
               .map((item) => (

@@ -62,39 +62,24 @@ export const NewsPage = () => {
     </div> */}
 
           <div
-            className={clsx('grid', {
-              'md:grid-cols-3 gap-8 sm:grid-cols-2 grid-cols-1': !grid,
+            className={clsx('grid gap-8', {
+              'min-[1200px]:grid-cols-3 gap-8 sm:grid-cols-2 grid-cols-1': !grid,
             })}>
             {newsData
-              ? newsData.data.map((item) =>
-                  !grid ? (
-                    <NewsCard
-                      key={v4()}
-                      id={item.id}
-                      title={item.title}
-                      published_at={item.published_at}
-                      path={
-                        item.featured_images.length > 0
-                          ? item.featured_images[0].path
-                          : newsData.data[0].featured_images[0].path
-                      }
-                      grid={grid}
-                    />
-                  ) : (
-                    <NewsCardFlex
-                      key={v4()}
-                      id={item.id}
-                      title={item.title}
-                      published_at={item.published_at}
-                      path={
-                        item.featured_images.length > 0
-                          ? item.featured_images[0].path
-                          : newsData.data[0].featured_images[0].path
-                      }
-                      grid={grid}
-                    />
-                  ),
-                )
+              ? newsData.data.map((item) => (
+                  <NewsCard
+                    key={v4()}
+                    id={item.id}
+                    title={item.title}
+                    published_at={item.published_at}
+                    path={
+                      item.featured_images.length > 0
+                        ? item.featured_images[0].path
+                        : newsData.data[0].featured_images[0].path
+                    }
+                    grid={grid}
+                  />
+                ))
               : 'Loading'}
           </div>
 

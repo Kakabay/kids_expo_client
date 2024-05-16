@@ -37,7 +37,7 @@ export const ContactsPage = () => {
         <div className="mt-[35px] flex flex-col gap-2 leading-[130%]">
           {contactsData?.map((item) => (
             <div key={v4()}>
-              <h4 className="font-bold leading-[125%]">Ходжамурадов Махтумкули</h4>
+              <h4 className="font-bold leading-[125%] mb-2">Ходжамурадов Махтумкули</h4>
               <p className="text-[14px]">{item.services[0].phone}</p>
               <p className="text-[14px] text-purple">{item.services[0].email}</p>
             </div>

@@ -4,6 +4,8 @@ import { LangMenu } from './LangMenu';
 import { useLang } from '../../services/zustand/zusLang';
 import { v4 } from 'uuid';
 import { useState } from 'react';
+import { BurgerMenu } from '../Home/BurgerMenu';
+import { AnimatePresence } from 'framer-motion';
 
 export const headerMenu = [
   { title: 'Новости', titleEn: 'News', link: '/news' },
@@ -120,7 +122,7 @@ export const Header = () => {
               )}
             />
 
-            {/* {burgerOpen && <BurgerMenu />} */}
+            <AnimatePresence>{burgerOpen && <BurgerMenu />}</AnimatePresence>
           </div>
         </div>
       </div>

@@ -15,7 +15,7 @@ export const Card = ({ title, path, link, rect = false }: IProps) => {
       className={clsx('bg-white rounded-[10px] drop-shadow-cardShadow', {
         'px-5 pt-5 h-[156px] pb-[50px] gap-[10px] flex flex-col items-center bg-white rounded-[10px] drop-shadow-cardShadow':
           !rect,
-        'px-10 flex items-center gap-5 w-[350px] py-5': rect,
+        'px-10 flex items-center gap-5 w-[350px] py-5 drop-shadow-rectCardShadow': rect,
       })}>
       <img src={path} alt="" />
       <h3

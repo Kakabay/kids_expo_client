@@ -32,7 +32,6 @@ class ExpoService {
     return await axios.get<GetBannersTypes>(`${this.URL}/banners`, {
       headers: {
         'Accept-Language': localiztion,
-        // 'X-Localization': localiztion,
       },
     });
   }
@@ -43,7 +42,6 @@ class ExpoService {
       {
         headers: {
           'Accept-Language': localization,
-          // 'X-Localization': localiztion,
         },
       },
     );

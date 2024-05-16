@@ -22,6 +22,7 @@ export default {
         cardShadow: '0 4px 20px rgba(0, 0, 0, 0.25)',
         headerShadow: '0 1px 2px rgba(0, 0, 0, 0.10)',
         participantsCardShadow: '0 2px 8px rgba(0, 0, 0, 0.16)',
+        rectCardShadow: '0 2px 4px rgba(0, 0, 0, 0.10)',
       },
       screens: {
         mob: '440px',
