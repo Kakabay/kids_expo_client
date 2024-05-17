@@ -5,7 +5,6 @@ import { v4 } from 'uuid';
 import { useMediaQuery } from 'usehooks-ts';
 
 import useGetBanners from '../../hooks/useGetBanners';
-import { useLang } from '../../services/zustand/zusLang';
 
 export const Slider = () => {
   const tab = useMediaQuery('(min-width: 1250px)');
@@ -20,8 +19,6 @@ export const Slider = () => {
   if (bannersIsLoading) {
     <h1>Loading...</h1>;
   }
-
-  const localization = useLang((state) => state.activeLang.localization);
 
   const chooseBanner = () => {
     if (tab) {
@@ -59,38 +56,23 @@ export const Slider = () => {
               ) : null,
             )
           : null} */}
-        {localization === 'en' ? (
-          <SwiperSlide key={v4()}>
-            <Link to={''}>
-              <div className="h-[490px] w-full">
-                <img
-                  src={'/assets/images/banner-en.png'}
-                  alt={'banner'}
-                  className="h-full w-full object-cover object-center"
-                />
-              </div>
-            </Link>
-          </SwiperSlide>
-        ) : bannersData ? (
-          bannersData.map((item) =>
-            item.code.includes(chooseBanner()) ? (
-              <SwiperSlide key={v4()}>
-                <Link to={''}>
-                  <div className="h-[490px] w-full">
-                    <img
-                      src={item.banner_items[0].image}
-                      alt={item.banner_items[0].title}
-                      className="h-full w-full object-cover object-center"
-                    />
-                  </div>
-                </Link>
-              </SwiperSlide>
-            ) : null,
-          )
-        ) : (
-          <div className="h-[490px] w-full"></div>
-        )}
-
+        {bannersData
+          ? bannersData.map((item) =>
+              item.code.includes(chooseBanner()) ? (
+                <SwiperSlide key={v4()}>
+                  <Link to={''}>
+                    <div className="h-[490px] w-full">
+                      <img
+                        src={item.banner_items[0].image}
+                        alt={item.banner_items[0].title}
+                        className="h-full w-full object-cover object-center"
+                      />
+                    </div>
+                  </Link>
+                </SwiperSlide>
+              ) : null,
+            )
+          : null}
         {/* <div className="container absolute right-0 bottom-[25px] swiper-pagination swiper-pagination-horizontal">
           <div className="swiper-pagination-fraction items-center justify-end gap-4">
             <div className="autoplay-progress w-[200px] flex items-center gap-5 bg-bgWhite rounded-full">
