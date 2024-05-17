@@ -1,15 +1,15 @@
-import { motion } from "framer-motion";
-import { headerMenu, headerMenu2 } from "../Header/Header";
-import { Link } from "react-router-dom";
-import { useLang } from "../../services/zustand/zusLang";
-import { useBurger } from "../../services/zustand/zusBurger";
-import { activeLangType } from "../Header/LangMenu";
-import { useState } from "react";
+import { motion } from 'framer-motion';
+import { headerMenu, headerMenu2 } from '../Header/Header';
+import { Link } from 'react-router-dom';
+import { useLang } from '../../services/zustand/zusLang';
+import { useBurger } from '../../services/zustand/zusBurger';
+import { activeLangType } from '../Header/LangMenu';
+import { useEffect, useState } from 'react';
 
 export const BurgerMenu = () => {
   const localization = useLang((state) => state.activeLang.localization);
 
-  const [activeMenu, setActiveMenu] = useState<string>("");
+  const [activeMenu, setActiveMenu] = useState<string>('');
 
   const burgerLangs: activeLangType[] = [
     // {
@@ -17,14 +17,20 @@ export const BurgerMenu = () => {
     //   localization: "tm",
     // },
     {
-      title: "Ру",
-      localization: "ru",
+      title: 'Ру',
+      localization: 'ru',
     },
     {
-      title: "En",
-      localization: "en",
+      title: 'En',
+      localization: 'en',
     },
   ];
+
+  useEffect(() => {
+    document.body.classList.add('overflow-hidden');
+
+    return () => document.body.classList.remove('overflow-hidden');
+  }, []);
 
   const burger = useBurger((state) => state.burger);
   const setBurger = useBurger((state) => state.setBurger);
@@ -33,50 +39,59 @@ export const BurgerMenu = () => {
 
   return (
     <motion.div
-      initial={{ x: "100%" }}
+      initial={{ x: '100%' }}
       animate={{ x: 0 }}
       transition={{
         duration: 0.3,
-        ease: "circOut",
+        ease: 'circOut',
       }}
       exit={{
-        x: "100%",
+        x: '100%',
       }}
-      className="bg-white3 overflow-auto fixed w-full z-[900] top-[97px] bottom-0 left-0 min-h-[100vh] h-full px-4 py-10 flex flex-col gap-10 overflow-y-auto"
-    >
+      className="bg-purple overflow-auto text-white fixed w-full z-[900] top-[97px] bottom-0 left-0 min-h-[100vh] h-full px-4 py-10 flex flex-col gap-10 overflow-y-auto">
       <div className="leading-[135%] text-[18px] mb-10 flex flex-col gap-5">
         {!activeMenu &&
           headerMenu2
-            .filter((item) => (localization === "en" ? item.en : !item.en))
+            .filter((item) => (localization === 'en' ? item.en : !item.en))
             .map((item) => (
-              <div
-                className="cursor-pointer"
-                onClick={() => setActiveMenu(item.link)}
-              >
+              <div className="cursor-pointer" onClick={() => setActiveMenu(item.link)}>
                 {item.title}
               </div>
             ))}
       </div>
 
-      {activeMenu.includes("/ex") &&
+      {(activeMenu.includes('/ex') &&
         headerMenu2
           .filter((item) => item.ex)
           .map((item) =>
-            item.dropDown?.map((obj) => <Link to={""}>{obj.title}</Link>)
-          )}
+            item.dropDown?.map((obj) => (
+              <Link onClick={() => setBurger(false)} to={obj.link}>
+                {obj.title}
+              </Link>
+            )),
+          )) ||
+        (activeMenu.includes('/pa') &&
+          headerMenu2
+            .filter((item) => item.partic)
+            .map((obj) =>
+              obj.dropDown?.map((item) => (
+                <Link onClick={() => setBurger(false)} to={item.link}>
+                  {item.title}
+                </Link>
+              )),
+            ))}
 
       <hr />
 
       <div className="leading-[135%] text-[14px] mb-10 flex flex-col gap-5">
         {headerMenu
-          .filter((item) => (localization === "en" ? item.en : !item.en))
+          .filter((item) => (localization === 'en' ? item.en : !item.en))
           .map((item) => (
             <Link
               to={item.link}
               onClick={() => {
                 setBurger(!burger);
-              }}
-            >
+              }}>
               {item.title}
             </Link>
           ))}
@@ -86,12 +101,8 @@ export const BurgerMenu = () => {
         {burgerLangs.map((item) => (
           <div
             onClick={() => setLang(item)}
-            className="flex cursor-pointer items-center gap-[10px]"
-          >
-            <img
-              src={`/assets/icons/burgerMenu/${item.localization}.svg`}
-              alt="flag"
-            />
+            className="flex cursor-pointer items-center gap-[10px]">
+            <img src={`/assets/icons/burgerMenu/${item.localization}.svg`} alt="flag" />
             <p>{item.title}</p>
           </div>
         ))}

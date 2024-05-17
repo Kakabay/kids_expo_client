@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 import { useState } from 'react';
 import { v4 } from 'uuid';
-import { NewsCard, NewsCardFlex } from '../components/Home/NewsCard';
+import { NewsCard } from '../components/Home/NewsCard';
 import { Button } from '../components/ui/Button';
 import { SidebarLayout } from '../components/global/SidebarLayout';
 import { BreadCrumbs } from '../components/ui/BreadCrumbs';
