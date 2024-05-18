@@ -140,7 +140,10 @@ export const BurgerMenu = () => {
         {burgerLangs.map((item) => (
           <div
             key={v4()}
-            onClick={() => setLang(item)}
+            onClick={() => {
+              setLang(item);
+              setBurger(false);
+            }}
             className="flex cursor-pointer items-center gap-[10px]">
             <img src={`/assets/icons/burgerMenu/${item.localization}.svg`} alt="flag" />
             <p>{item.title}</p>
