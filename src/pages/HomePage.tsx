@@ -1,14 +1,20 @@
-import { Card } from '../components/Home/Card';
-import { LinkSeeMore } from '../components/ui/LinkSeeMore';
-import { cardsData, cardsRectData } from '../database/home.data';
-import { Slider } from '../components/Home/Slider';
-import NewsSection from '../components/Home/NewsSection';
-import { useLang } from '../services/zustand/zusLang';
+import { Card } from "../components/Home/Card";
+import { LinkSeeMore } from "../components/ui/LinkSeeMore";
+import { cardsData, cardsRectData } from "../database/home.data";
+import { Slider } from "../components/Home/Slider";
+import NewsSection from "../components/Home/NewsSection";
+import { useLang } from "../services/zustand/zusLang";
+import { useEffect } from "react";
 
 export default function HomePage() {
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
+
   const localization = useLang((state) => state.activeLang.localization);
 
-  const chooseDataLang = (en: string, ru: string) => (localization === 'en' ? en : ru);
+  const chooseDataLang = (en: string, ru: string) =>
+    localization === "en" ? en : ru;
 
   return (
     <>
@@ -20,7 +26,7 @@ export default function HomePage() {
         <div className="container">
           <div className="grid translate-y-[-50px] gap-y-4 grid-cols-1 tab:grid-cols-4 gap-5 tab:gap-[30px]">
             {cardsData
-              .filter((item) => (localization === 'en' ? item.en : !item.en))
+              .filter((item) => (localization === "en" ? item.en : !item.en))
               .map((item) => (
                 <Card {...item} key={item.path} />
               ))}
@@ -29,7 +35,7 @@ export default function HomePage() {
           <div className="flex tab:flex-row flex-col-reverse gap-[30px]">
             <div className="flex tab:flex-col flex-wrap gap-3">
               {cardsRectData
-                .filter((item) => (localization === 'en' ? item.en : !item.en))
+                .filter((item) => (localization === "en" ? item.en : !item.en))
                 .map((item) => (
                   <Card {...item} rect key={item.path} />
                 ))}
@@ -46,11 +52,11 @@ export default function HomePage() {
                   purchase quality products.`,
                   `«Все для детей» - крупнейшее конгресно-выставочное В2В-мероприятие в сфере индустрии
                   детских товаров на территории Туркменистана, стран ЦА и СНГ, объединяющее
-                  профессионалов, производящих и закупающих качественную продукцию.`,
+                  профессионалов, производящих и закупающих качественную продукцию.`
                 )}
               </p>
               <LinkSeeMore
-                text={chooseDataLang('To learn more', 'Узнать больше')}
+                text={chooseDataLang("To learn more", "Узнать больше")}
                 path="/exhibition-about"
               />
             </div>

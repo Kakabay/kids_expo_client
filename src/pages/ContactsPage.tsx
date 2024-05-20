@@ -3,8 +3,13 @@ import { BreadCrumbs } from "../components/ui/BreadCrumbs";
 import { Title } from "../components/ui/Title";
 import useGetContacts from "../hooks/useGetContacts";
 import { useLang } from "../services/zustand/zusLang";
+import { useEffect } from "react";
 
 export const ContactsPage = () => {
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
+
   const chooseDataLang = (en: string, ru: string) =>
     localization === "en" ? en : ru;
 

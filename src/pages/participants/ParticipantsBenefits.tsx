@@ -1,30 +1,45 @@
-import { v4 } from 'uuid';
-import { SidebarLayout } from '../../components/global/SidebarLayout';
-import { BreadCrumbs } from '../../components/ui/BreadCrumbs';
-import { Title } from '../../components/ui/Title';
-import { useLang } from '../../services/zustand/zusLang';
-import useGetBenefits from '../../hooks/participants/useGetBenefits';
+import { v4 } from "uuid";
+import { SidebarLayout } from "../../components/global/SidebarLayout";
+import { BreadCrumbs } from "../../components/ui/BreadCrumbs";
+import { Title } from "../../components/ui/Title";
+import { useLang } from "../../services/zustand/zusLang";
+import useGetBenefits from "../../hooks/participants/useGetBenefits";
+import { useEffect } from "react";
 
 export const ParticipantsBenefits = () => {
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
+
   const localization = useLang((state) => state.activeLang.localization);
-  const chooseDataLang = (en: string, ru: string) => (localization === 'en' ? en : ru);
+  const chooseDataLang = (en: string, ru: string) =>
+    localization === "en" ? en : ru;
 
   const { benefitsData } = useGetBenefits();
 
   return (
     <SidebarLayout>
       <BreadCrumbs
-        second={chooseDataLang('Participations', 'Участникам')}
+        second={chooseDataLang("Participations", "Участникам")}
         path="/participants-info"
-        third={chooseDataLang('Benefits of participations', 'Преимущества участия')}
+        third={chooseDataLang(
+          "Benefits of participations",
+          "Преимущества участия"
+        )}
       />
 
-      <Title title={chooseDataLang('Benefits of participations', 'Преимущества участия')} mb24 />
+      <Title
+        title={chooseDataLang(
+          "Benefits of participations",
+          "Преимущества участия"
+        )}
+        mb24
+      />
 
       <h3 className="text-[21px] md:leading-[100%] leading-[115%] font-semibold mb-[42px]">
         {chooseDataLang(
-          'By taking part in “Kids Expo: Everything for Children”, companies will have:',
-          'Приняв участие на «Kids Expo: всё для детей» у компаний появятся:',
+          "By taking part in “Kids Expo: Everything for Children”, companies will have:",
+          "Приняв участие на «Kids Expo: всё для детей» у компаний появятся:"
         )}
       </h3>
 
@@ -33,7 +48,8 @@ export const ParticipantsBenefits = () => {
           ? benefitsData.map((item) => (
               <div
                 key={v4()}
-                className="flex items-start px-4 py-6 bg-pureWhite rounded-sm gap-[10px] text-[14px] leading-[130%]">
+                className="flex items-start px-4 py-6 bg-pureWhite rounded-sm gap-[10px] text-[14px] leading-[130%]"
+              >
                 <img src="/assets/icons/benefits-star.svg" alt="" />
                 <p>{item.text}</p>
               </div>

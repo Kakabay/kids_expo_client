@@ -5,6 +5,7 @@ import { Title } from "../components/ui/Title";
 import { useFaq } from "../services/zustand/zusFaq";
 import useGetFaq from "../hooks/useGetFaq";
 import { Select } from "../components/Faq/Select";
+import { useEffect } from "react";
 
 const faqRadio = [
   {
@@ -19,6 +20,10 @@ const faqRadio = [
 ];
 
 export default function FaqPage() {
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
+
   const activeRadio = useFaq((state) => state.activeRadio);
 
   const { faqData, faqIsError, faqIsLoading, faqIsSuccess } = useGetFaq();
