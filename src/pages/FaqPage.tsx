@@ -1,21 +1,21 @@
-import { v4 } from "uuid";
-import { BreadCrumbs } from "../components/ui/BreadCrumbs";
-import { Radio } from "../components/ui/Radio";
-import { Title } from "../components/ui/Title";
-import { useFaq } from "../services/zustand/zusFaq";
-import useGetFaq from "../hooks/useGetFaq";
-import { Select } from "../components/Faq/Select";
-import { useEffect } from "react";
+import { v4 } from 'uuid';
+import { BreadCrumbs } from '../components/ui/BreadCrumbs';
+import { Radio } from '../components/ui/Radio';
+import { Title } from '../components/ui/Title';
+import { useFaq } from '../services/zustand/zusFaq';
+import useGetFaq from '../hooks/useGetFaq';
+import { Select } from '../components/Faq/Select';
+import { useEffect } from 'react';
 
 const faqRadio = [
   {
-    name: "Все",
+    name: 'Все',
   },
   {
-    name: "Посетителям",
+    name: 'Посетителям',
   },
   {
-    name: "Участники",
+    name: 'Участники',
   },
 ];
 
@@ -42,7 +42,7 @@ export default function FaqPage() {
         </div>
 
         {faqIsSuccess && (
-          <div>
+          <div className="border-b-[1px] border-black2">
             {faqData?.map((item) => (
               <Select key={v4()} {...item} />
             ))}
