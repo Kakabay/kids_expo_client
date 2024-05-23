@@ -87,6 +87,44 @@
     @apply after:content-[''] after:absolute after:top-[20px] after:left-0 after:h-[2px] after:bg-white after:w-full hover:text-white;
   }
 
+  .real-checkbox {
+    width: 16px;
+    height: 16px;
+    opacity: 0;
+    cursor: pointer;
+    position: absolute;
+    z-index: 10;
+  }
+
+  .fake-checkbox {
+    position: relative;
+    cursor: pointer;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border-radius: 2px;
+    border: 1px #b3b3b3 solid;
+  }
+
+  .fake-checkbox::before {
+    content: '';
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: all 0.1s ease-in;
+    background-image: url('/assets/icons/apply/check.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  .real-checkbox:checked + .fake-checkbox::before {
+    transform: translate(-50%, -50%) scale(1);
+  }
+
   .main-abs-bg::before {
     content: '';
     position: absolute;
