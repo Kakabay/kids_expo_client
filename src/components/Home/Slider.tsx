@@ -39,23 +39,6 @@ export const Slider = () => {
         loop
         speed={1500}
         autoplay={{ delay: 5000 }}>
-        {/* {bannersData
-          ? bannersData.map((item) =>
-              item.code.includes('main-banner') ? (
-                <SwiperSlide key={v4()}>
-                  <Link to={''}>
-                    <div className="h-[490px] w-full">
-                      <img
-                        src={item.banner_items[0].image}
-                        alt={item.banner_items[0].title}
-                        className="h-full w-full object-cover object-center"
-                      />
-                    </div>
-                  </Link>
-                </SwiperSlide>
-              ) : null,
-            )
-          : null} */}
         {bannersData
           ? bannersData.map((item) =>
               item.code.includes(chooseBanner()) ? (
