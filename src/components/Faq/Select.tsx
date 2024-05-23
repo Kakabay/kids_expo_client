@@ -23,7 +23,10 @@ export const Select = ({ title, content }: IProps) => {
       <motion.div
         onClick={() => onTitle(title)}
         className={clsx(
-          'w-full flex items-center justify-between border-y-[1px] border-y-black2 cursor-pointer',
+          'w-full flex items-center justify-between border-t-[1px] border-y-black2 cursor-pointer',
+          {
+            'border-b-[1px]': openTitles.includes(title),
+          },
         )}>
         <h2 className="sm:text-[21px] text-[16px] sm:leading-[100%] leading-[120%] sm:font-semibold font-[400] py-4 sm:py-5">
           {title}
