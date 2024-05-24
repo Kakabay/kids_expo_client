@@ -7,7 +7,6 @@ import { zodResolver } from '@hookform/resolvers/zod';
 // import DropDown from '../../components/ui/DropDown';
 import expoService from '../../services/api/requests/expo.service';
 import { useLang } from '../../services/zustand/zusLang';
-import { useState } from 'react';
 import { SubmitModal } from '../../components/Participants/SubmitModal';
 import { useParticipantsForm } from '../../services/zustand/zusForm';
 // import { useParticipantsForm } from '../../services/zustand/zusForm';
