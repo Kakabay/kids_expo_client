@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { headerMenu, headerMenu2 } from '../Header/Header';
+import { headerMenu, headerMenu2 } from '../../database/header.data';
 import { useLang } from '../../services/zustand/zusLang';
 import { v4 } from 'uuid';
 
