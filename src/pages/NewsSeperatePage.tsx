@@ -35,6 +35,16 @@ export const NewsSeperatePage = () => {
 
           <p className="mb-8">{newsSeperateData?.published_at}</p>
 
+          {newsSeperateData?.featured_images[0].path && (
+            <img
+              height={480}
+              width={833}
+              src={newsSeperateData?.featured_images[0].path}
+              alt="картинка"
+              className="mb-6 max-h-[480px] object-cover w-full"
+            />
+          )}
+
           <div
             className="seperate-news flex flex-col gap-6"
             dangerouslySetInnerHTML={{
