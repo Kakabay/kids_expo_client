@@ -8,6 +8,7 @@ import { BreadCrumbs } from "../components/ui/BreadCrumbs";
 import { Title } from "../components/ui/Title";
 import useGetNews from "../hooks/useGetNews";
 import { useLang } from "../services/zustand/zusLang";
+import { Pagination } from "../components/ui/Pagination";
 
 export const NewsPage = () => {
   useEffect(() => {
@@ -23,11 +24,13 @@ export const NewsPage = () => {
 
   const menu = ["Новости", "СМИ о нас"];
 
+  const [current, setCurrent] = useState(1);
+
   const [page] = useState(0);
   const [perPage, setPerPage] = useState(6);
 
   const { newsData, newsIsError, newsIsLoading, newsIsSuccess } = useGetNews({
-    page,
+    current,
     perPage,
   });
 
@@ -65,11 +68,6 @@ export const NewsPage = () => {
             />
           </div>
 
-          {/* <div className="hidden sm:flex w-full max-w-[184px] items-center cursor-pointer justify-center mx-auto mb-10 md:mb-[24px] gap-[10px]">
-      <Image src={message} alt="Письмо" />
-      <p className="leading-[125%] text-extraSm">подписаться на новости</p>
-    </div> */}
-
           <div
             className={clsx("grid gap-8", {
               "min-[1400px]:grid-cols-3 gap-8 sm:grid-cols-2 grid-cols-1":
@@ -102,15 +100,15 @@ export const NewsPage = () => {
                   <Button text={"Показать ещё"} little />
                 </div>
               )}
-            {/* {newsData?.meta ? (
-            <Pagination
-              current={current}
-              setCurrent={setCurrent}
-              totalPage={newsData?.meta.total}
-              lastPage={newsData?.meta.last_page}
-              currentPage={newsData?.meta.current_page}
-            />
-          ) : null} */}
+            {newsData?.meta ? (
+              <Pagination
+                current={current}
+                setCurrent={setCurrent}
+                totalPage={newsData?.meta.total}
+                lastPage={newsData?.meta.last_page}
+                currentPage={newsData?.meta.current_page}
+              />
+            ) : null}
           </div>
         </div>
       </SidebarLayout>

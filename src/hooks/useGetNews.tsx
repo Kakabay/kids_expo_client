@@ -1,13 +1,13 @@
-import { useQuery } from '@tanstack/react-query';
-import expoService from '../services/api/requests/expo.service';
-import { useLang } from '../services/zustand/zusLang';
+import { useQuery } from "@tanstack/react-query";
+import expoService from "../services/api/requests/expo.service";
+import { useLang } from "../services/zustand/zusLang";
 
 type PropsType = {
-  page: number;
+  current: number;
   perPage: number;
 };
 
-const useGetNews = ({ page, perPage }: PropsType) => {
+const useGetNews = ({ current, perPage }: PropsType) => {
   const localization = useLang((state) => state.activeLang.localization);
 
   const {
@@ -16,9 +16,8 @@ const useGetNews = ({ page, perPage }: PropsType) => {
     data: newsData,
     isSuccess: newsIsSuccess,
   } = useQuery({
-    queryKey: ['newsData', localization, page, perPage],
-    queryFn: () => expoService.getNews({ localization, page, perPage }),
-
+    queryKey: ["newsData", localization, current, perPage],
+    queryFn: () => expoService.getNews({ localization, current, perPage }),
     select: ({ data }) => data,
   });
 
