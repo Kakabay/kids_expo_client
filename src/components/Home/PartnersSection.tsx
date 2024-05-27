@@ -15,8 +15,13 @@ export const PartnersSection = () => {
         modules={[Autoplay]}
         autoplay={{ delay: 0 }}
         speed={5000}
+        spaceBetween={45}
         loop
-        slidesPerView={4}
+        breakpoints={{
+          768: { slidesPerView: 4 },
+          630: { slidesPerView: 3 },
+          0: { slidesPerView: 2.5 },
+        }}
       >
         {partnersData
           ? partnersData.map((item) => (
