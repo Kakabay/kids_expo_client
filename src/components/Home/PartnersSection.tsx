@@ -3,6 +3,7 @@ import { useGetEn } from "../../hooks/language/useGetEn";
 import useGetPartners from "../../hooks/useGetPartners";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
+import { v4 } from "uuid";
 
 export const PartnersSection = () => {
   const { partnersData } = useGetPartners();
@@ -19,7 +20,7 @@ export const PartnersSection = () => {
       >
         {partnersData
           ? partnersData.map((item) => (
-              <SwiperSlide>
+              <SwiperSlide key={v4()}>
                 <img src={item.images[0].path ? item.images[0].path : ""} />
               </SwiperSlide>
             ))
