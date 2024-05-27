@@ -1,32 +1,28 @@
-import clsx from 'clsx';
-import { useRef } from 'react';
+import clsx from "clsx";
+import { useRef } from "react";
 
-import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
-import 'swiper/css/scrollbar';
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 
-export const NavBtn = ({
-  left = false,
-  onNext,
-  onPrev,
-}: {
-  left?: boolean;
-  onNext?: () => void;
-  onPrev?: () => void;
-}) => {
+export const NavBtn = ({ left = false }: { left?: boolean }) => {
   const btnRef = useRef<HTMLButtonElement>(null);
 
   return (
     <button
       ref={btnRef}
-      className={`${!left ? 'next-btn' : 'prev-btn'} `}
-      onClick={!left ? onNext : onPrev}>
+      className={clsx("", {
+        "next-btn": !left,
+        "prev-btn": left,
+      })}
+    >
       <img
-        src={'../assets/icons/nav-btn.svg'}
+        src={"../assets/icons/nav-btn.svg"}
         alt="arrow"
-        className={clsx('img-auto', {
-          'rotate-180': left,
+        className={clsx("img-auto transition-all", {
+          "rotate-180": left,
+          // "hover:opacity-90": btnRef.current?.disabled,
         })}
       />
     </button>

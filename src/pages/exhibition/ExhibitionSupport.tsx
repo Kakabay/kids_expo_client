@@ -3,6 +3,7 @@ import { SidebarLayout } from "../../components/global/SidebarLayout";
 import { BreadCrumbs } from "../../components/ui/BreadCrumbs";
 import { Title } from "../../components/ui/Title";
 import { useLang } from "../../services/zustand/zusLang";
+import { useGetEn } from "../../hooks/language/useGetEn";
 
 export const ExhibitionSupport = () => {
   useEffect(() => {
@@ -11,30 +12,21 @@ export const ExhibitionSupport = () => {
 
   const localization = useLang((state) => state.activeLang.localization);
 
-  const chooseDataLang = (en: string, ru: string) =>
-    localization === "en" ? en : ru;
-
   return (
     <SidebarLayout>
       <BreadCrumbs
-        second={chooseDataLang("Exhibition", "Выставка")}
+        second={useGetEn("Exhibition", "Выставка")}
         path="/exhibition-about"
-        third={chooseDataLang(
-          "Information support",
-          "Информационная поддержка"
-        )}
+        third={useGetEn("Information support", "Информационная поддержка")}
       />
 
       <Title
-        title={chooseDataLang(
-          "Information support",
-          "Информационная поддержка"
-        )}
+        title={useGetEn("Information support", "Информационная поддержка")}
         mb24
       />
 
       <h3 className="text-[18px] font-semibold leading-[120%] mb-[22px]">
-        {chooseDataLang(
+        {useGetEn(
           "We invite you to become our partners",
           "Приглашаем Вас стать нашими партнерами"
         )}
@@ -42,7 +34,7 @@ export const ExhibitionSupport = () => {
 
       <div className="flex flex-col gap-4 sm:gap-3">
         <p className="leading-[125%]">
-          {chooseDataLang("Khojamuradov Magtymguly", "Ходжамурадов Махтумкули")}
+          {useGetEn("Khojamuradov Magtymguly", "Ходжамурадов Махтумкули")}
         </p>
         <div className="flex flex-col gap-[10px] leading-[125%]">
           <div className="flex items-center">

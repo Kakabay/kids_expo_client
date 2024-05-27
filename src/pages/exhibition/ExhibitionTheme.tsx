@@ -6,27 +6,24 @@ import { Title } from "../../components/ui/Title";
 import { useLang } from "../../services/zustand/zusLang";
 import useGetTopics from "../../hooks/exhibition/useGetTopics";
 import { useEffect } from "react";
+import { useGetEn } from "../../hooks/language/useGetEn";
 
 export const ExhibitionTheme = () => {
   useEffect(() => {
     window.scroll(0, 0);
   }, []);
 
-  const localization = useLang((state) => state.activeLang.localization);
-  const chooseDataLang = (en: string, ru: string) =>
-    localization === "en" ? en : ru;
-
   const { topicsData, topicsIsSuccess } = useGetTopics();
 
   return (
     <SidebarLayout>
       <BreadCrumbs
-        second={chooseDataLang("Exhibition", "Выставка")}
-        third={chooseDataLang("Venue", "Место проведения")}
+        second={useGetEn("Exhibition", "Выставка")}
+        third={useGetEn("Venue", "Место проведения")}
         path="/exhibition-about"
       />
 
-      <Title title={chooseDataLang("Theme", "Тематика")} mb24 />
+      <Title title={useGetEn("Theme", "Тематика")} mb24 />
 
       <div className="border-b-[1px] border-b-[#DADADA]">
         {topicsIsSuccess

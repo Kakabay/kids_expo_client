@@ -1,16 +1,17 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Link } from 'react-router-dom';
-import { Autoplay, Navigation, Pagination } from 'swiper/modules';
-import { v4 } from 'uuid';
-import { useMediaQuery } from 'usehooks-ts';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Link } from "react-router-dom";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { v4 } from "uuid";
+import { useMediaQuery } from "usehooks-ts";
 
-import useGetBanners from '../../hooks/useGetBanners';
+import useGetBanners from "../../hooks/useGetBanners";
 
 export const Slider = () => {
-  const tab = useMediaQuery('(min-width: 1250px)');
-  const md = useMediaQuery('(min-width: 768px)');
+  const tab = useMediaQuery("(min-width: 1250px)");
+  const md = useMediaQuery("(min-width: 768px)");
 
-  const { bannersIsError, bannersIsLoading, bannersData, bannersIsSuccess } = useGetBanners();
+  const { bannersIsError, bannersIsLoading, bannersData, bannersIsSuccess } =
+    useGetBanners();
 
   if (bannersIsError) {
     <h1>Error...</h1>;
@@ -22,11 +23,11 @@ export const Slider = () => {
 
   const chooseBanner = () => {
     if (tab) {
-      return 'main-surat';
+      return "main-surat";
     } else if (md) {
-      return 'medium-surat';
+      return "medium-surat";
     } else {
-      return 'small-surat';
+      return "small-surat";
     }
   };
 
@@ -38,12 +39,13 @@ export const Slider = () => {
         // onAutoplayTimeLeft={onAutoplayTimeLeft}
         loop
         speed={1500}
-        autoplay={{ delay: 5000 }}>
+        autoplay={{ delay: 5000 }}
+      >
         {bannersData
           ? bannersData.map((item) =>
               item.code.includes(chooseBanner()) ? (
                 <SwiperSlide key={v4()}>
-                  <Link to={''}>
+                  <Link to={""}>
                     <div className="h-[490px] w-full">
                       <img
                         src={item.banner_items[0].image}
@@ -53,7 +55,7 @@ export const Slider = () => {
                     </div>
                   </Link>
                 </SwiperSlide>
-              ) : null,
+              ) : null
             )
           : null}
         {/* <div className="container absolute right-0 bottom-[25px] swiper-pagination swiper-pagination-horizontal">

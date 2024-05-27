@@ -8,6 +8,7 @@ import { TopicsTypes } from "../types/getTopicsType";
 import { EventsDateTypes } from "../types/getEventsDate";
 import { BenefitsTypes } from "../types/getBenefitsType";
 import { DocsTypes } from "../types/getDocsType";
+import { PartnersType } from "../types/getPartnersType";
 
 type PostParticipantFormTypes = {
   company_name: string;
@@ -33,6 +34,14 @@ class ExpoService {
     return await axios.get<GetBannersTypes>(`${this.URL}/banners`, {
       headers: {
         "Accept-Language": localiztion,
+      },
+    });
+  }
+
+  async getPartners(localization: string) {
+    return await axios.get<PartnersType>(`${this.URL}/partners`, {
+      headers: {
+        "Accept-Language": localization,
       },
     });
   }

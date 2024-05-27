@@ -7,9 +7,17 @@ interface IProps {
   path: string;
   id: number;
   grid?: boolean;
+  page?: boolean;
 }
 
-export const NewsCard = ({ title, published_at, path, id, grid }: IProps) => {
+export const NewsCard = ({
+  title,
+  published_at,
+  path,
+  id,
+  grid,
+  page,
+}: IProps) => {
   return (
     <div
       className={clsx(
@@ -26,9 +34,11 @@ export const NewsCard = ({ title, published_at, path, id, grid }: IProps) => {
         <img
           src={path}
           alt="photo"
-          className={clsx("h-[270px] sm:h-[200px] w-full object-cover", {
+          className={clsx(" w-full object-cover", {
             "mb-0 w-[40%]": grid,
             "mb-6": !grid,
+            "h-[230px] sm:h-[160px]": !page,
+            "h-[210px]": page,
           })}
         />
         <div

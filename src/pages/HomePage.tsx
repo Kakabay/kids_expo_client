@@ -5,6 +5,8 @@ import { Slider } from "../components/Home/Slider";
 import NewsSection from "../components/Home/NewsSection";
 import { useLang } from "../services/zustand/zusLang";
 import { useEffect } from "react";
+import { useGetEn } from "../hooks/language/useGetEn";
+import { PartnersSection } from "../components/Home/PartnersSection";
 
 export default function HomePage() {
   useEffect(() => {
@@ -12,9 +14,6 @@ export default function HomePage() {
   }, []);
 
   const localization = useLang((state) => state.activeLang.localization);
-
-  const chooseDataLang = (en: string, ru: string) =>
-    localization === "en" ? en : ru;
 
   return (
     <>
@@ -43,7 +42,7 @@ export default function HomePage() {
 
             <div className="flex flex-col tab:items-end justify-between">
               <p className="sm-[16px] md:text-[24px] leading-[130%] font-light tab:mb-0 mb-8">
-                {chooseDataLang(
+                {useGetEn(
                   `“Everything for Children”
                   is the largest congress and exhibition B2B event in the
                   field of children's goods industry in Turkmenistan,
@@ -56,7 +55,7 @@ export default function HomePage() {
                 )}
               </p>
               <LinkSeeMore
-                text={chooseDataLang("To learn more", "Узнать больше")}
+                text={useGetEn("To learn more", "Узнать больше")}
                 path="/exhibition-about"
               />
             </div>
@@ -65,6 +64,8 @@ export default function HomePage() {
       </section>
 
       <NewsSection />
+
+      <PartnersSection />
 
       <section className="relative w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[480px] mb-[50px]">
         <iframe
