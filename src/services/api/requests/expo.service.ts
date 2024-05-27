@@ -38,12 +38,8 @@ class ExpoService {
     });
   }
 
-  async getPartners(localization: string) {
-    return await axios.get<PartnersType>(`${this.URL}/partners`, {
-      headers: {
-        "Accept-Language": localization,
-      },
-    });
+  async getPartners() {
+    return await axios.get<PartnersType>(`${this.URL}/partners`);
   }
 
   async getNews({ localization, current, perPage }: GetNewsParamsTypes) {
