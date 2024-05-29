@@ -17,7 +17,7 @@ export const PartnersSection = () => {
       <Swiper
         modules={[Autoplay]}
         autoplay={{ delay: 0 }}
-        speed={5000}
+        speed={2000}
         spaceBetween={45}
         slidesPerGroup={4}
         slidesPerView={2.5}

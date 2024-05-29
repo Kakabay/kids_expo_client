@@ -1,5 +1,6 @@
-import clsx from "clsx";
-import { Link } from "react-router-dom";
+import clsx from 'clsx';
+import { Link } from 'react-router-dom';
+import { useMediaQuery } from 'usehooks-ts';
 
 interface IProps {
   title: string;
@@ -10,56 +11,35 @@ interface IProps {
   page?: boolean;
 }
 
-export const NewsCard = ({
-  title,
-  published_at,
-  path,
-  id,
-  grid,
-  page,
-}: IProps) => {
-  return (
-    <div
-      className={clsx(
-        "rounded-sm w-full transition-all hover:hover-shadow cursor-pointer h-full"
-      )}
-    >
-      <Link
-        to={`/news/${id}`}
-        className={clsx("h-full", {
-          "flex flex-col sm:flex-row border-[1px] border-[#DADADA]": grid,
-        })}
-      >
-        {/* Aspect ration 1.8:1 */}
-        <img
-          src={path}
-          alt="photo"
-          className={clsx(" w-full object-cover", {
-            "mb-0 w-[40%]": grid,
-            "mb-6": !grid,
-            "h-[230px] sm:h-[160px]": !page,
-            "h-[210px]": page,
-          })}
-        />
-        <div
-          className={clsx("w-full", {
-            "w-[55%] p-6": grid,
-          })}
-        >
-          <p className="font-bold leading-[125%] text-[16px] news-text mb-[10px]">
-            {title}
-          </p>
-          <p
-            className={clsx(
-              "text-[13px] leading-[125%] text-gray news-text",
-              {}
-            )}
-          >
-            {published_at}
-          </p>
+export const NewsCard = ({ path, published_at, grid, id, title }: IProps) => {
+  const small = useMediaQuery('(min-width: 630px)');
+
+  return grid || !small ? (
+    <Link to={`/news/${id}`} className="border-[1px] border-gray/30 cursor-pointer">
+      <img
+        width={430}
+        height={160}
+        src={path}
+        alt="событие"
+        className="h-[160px] w-full object-cover"
+      />
+      <div className="px-[16px] py-[25px] sm:p-[25px]">
+        <p className="text-extraSm text-gray4 mb-[10px]">{published_at}</p>
+        <p className="font-bold text-[16px] leading-[125%] w-full max-w-[355px] news-text">
+          {title}
+        </p>
+      </div>
+    </Link>
+  ) : (
+    <>
+      <Link to={`/news/${id}`} className="flex">
+        <img src={path} alt="" width={300} height={160} className="object-cover" />
+        <div className="p-6 w-full border-y-[1px] border-r-[1px] border-y-gray/30 border-r-gray/30">
+          <div className="text-gray4 mb-[10px]">{published_at}</div>
+          <div className="font-bold leading-[125%] text-[16px]">{title}</div>
         </div>
       </Link>
-    </div>
+    </>
   );
 };
 
@@ -69,31 +49,23 @@ interface IProps {
   path: string;
   id: number;
   grid?: boolean;
+  page?: boolean;
 }
 
-export const NewsCardFlex = ({ title, published_at, path, id }: IProps) => {
+export const HomeNewsCard = ({ path, published_at, id, title }: IProps) => {
+  const mobile = useMediaQuery('(min-width: 500px)');
+
   return (
-    <div
-      className={clsx(
-        "rounded-sm w-full border-[1px] border-[#DADADA] transition-all hover:hover-shadow cursor-pointer h-full"
-      )}
-    >
-      <Link to={`/news/${id}`} className={clsx(" h-full flex")}>
-        {/* Aspect ration 1.8:1 */}
-        <img
-          src={path}
-          alt="photo"
-          className="h-[160px] w-[40%] object-cover mb-[25px]"
-        />
-        <div className="pl-4 py-6">
-          <p className="font-bold leading-[125%] text-[16px] news-text mb-[10px]">
-            {title}
-          </p>
-          <p className={clsx("text-[13px] leading-[125%] text-gray news-text")}>
-            {published_at}
-          </p>
-        </div>
-      </Link>
-    </div>
+    <Link to={`/news/${id}`}>
+      <img src={path} alt="news_image" width={mobile ? 290 : 500} height={160} />
+      <div
+        className={clsx('py-6', {
+          'max-w-[250px]': mobile,
+          'w-[500px]': !mobile,
+        })}>
+        <div className="leading-[125%] font-medium news-text mb-[10px]">{title}</div>
+        <div className="text-[#8D9399] text-[13px]">{published_at}</div>
+      </div>
+    </Link>
   );
 };
