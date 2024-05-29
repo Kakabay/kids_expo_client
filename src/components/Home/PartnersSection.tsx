@@ -30,7 +30,9 @@ export const PartnersSection = () => {
           ? partnersData.map((item) =>
               item.images[0].path ? (
                 <SwiperSlide key={v4()}>
-                  <img src={item.images[0].path} alt="" />
+                  <a href={item.link} target="_blank">
+                    <img src={item.images[0].path} alt="" />
+                  </a>
                 </SwiperSlide>
               ) : null,
             )
