@@ -1,6 +1,6 @@
-import { create } from 'zustand';
-import { activeLangType } from '../../components/Header/LangMenu';
-import { useStorage } from '../../hooks/localStorage/useStorage';
+import { create } from "zustand";
+import { activeLangType } from "../../components/Header/LangMenu";
+import { useStorage } from "../../hooks/localStorage/useStorage";
 
 type LangStore = {
   activeLang: {
@@ -10,9 +10,7 @@ type LangStore = {
   setLang: (obj: activeLangType) => void;
 };
 
-const { getItem } = useStorage('lang');
-
-console.log(getItem());
+const { getItem } = useStorage("lang");
 
 export const useLang = create<LangStore>((set) => ({
   activeLang: getItem(),
