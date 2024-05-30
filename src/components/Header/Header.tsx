@@ -8,18 +8,23 @@ import { AnimatePresence } from "framer-motion";
 import { useBurger } from "../../services/zustand/zusBurger";
 import { headerMenu, headerMenu2 } from "../../database/header.data";
 import { useGetEn } from "../../hooks/language/useGetEn";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useStorage } from "../../hooks/localStorage/useStorage";
 
 export const Header = () => {
   const activeLang = useLang((state) => state.activeLang);
   const burger = useBurger((state) => state.burger);
   const setBurger = useBurger((state) => state.setBurger);
+  const isMounted = useRef(false);
 
   const { setItem } = useStorage("lang");
 
   useEffect(() => {
-    setItem(activeLang);
+    if (isMounted.current) {
+      setItem(activeLang);
+    }
+
+    isMounted.current = true;
   }, [activeLang]);
 
   return (
