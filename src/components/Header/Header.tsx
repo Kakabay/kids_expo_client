@@ -13,7 +13,6 @@ import { useStorage } from "../../hooks/localStorage/useStorage";
 
 export const Header = () => {
   const activeLang = useLang((state) => state.activeLang);
-
   const burger = useBurger((state) => state.burger);
   const setBurger = useBurger((state) => state.setBurger);
 
