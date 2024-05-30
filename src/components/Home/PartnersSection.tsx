@@ -1,18 +1,16 @@
-import { Title } from '../ui/Title';
-import { useGetEn } from '../../hooks/language/useGetEn';
-import useGetPartners from '../../hooks/useGetPartners';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Autoplay } from 'swiper/modules';
-import { v4 } from 'uuid';
+import { Title } from "../ui/Title";
+import { useGetEn } from "../../hooks/language/useGetEn";
+import useGetPartners from "../../hooks/useGetPartners";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
+import { v4 } from "uuid";
 
 export const PartnersSection = () => {
   const { partnersData } = useGetPartners();
 
-  console.log(partnersData);
-
   return (
     <div className="container mb-[50px]">
-      <Title title={useGetEn('Partners', 'Партнёры')} />
+      <Title title={useGetEn("Partners", "Партнёры")} />
 
       <Swiper
         modules={[Autoplay]}
@@ -25,16 +23,21 @@ export const PartnersSection = () => {
         breakpoints={{
           768: { slidesPerView: 4 },
           630: { slidesPerView: 3 },
-        }}>
+        }}
+      >
         {partnersData
           ? partnersData.map((item) =>
               item.images[0].path ? (
                 <SwiperSlide key={v4()}>
-                  <a href={item.link} target="_blank">
-                    <img src={item.images[0].path} alt="" />
-                  </a>
+                  {!item.images[0].path ? (
+                    <img src={item.images[0].path} />
+                  ) : (
+                    <a href={item.link} target="_blank">
+                      <img src={item.images[0].path} alt="" />
+                    </a>
+                  )}
                 </SwiperSlide>
-              ) : null,
+              ) : null
             )
           : null}
       </Swiper>
