@@ -42,12 +42,12 @@ export const ParticipantsInfo = () => {
           date={eventsDatesData ? eventsDatesData.installation_date : ""}
         />
         <InfoCard
-          date={eventsDatesData ? eventsDatesData.dismantling_date : ""}
+          date={eventsDatesData ? eventsDatesData.work_date : ""}
           title={chooseDataLang("Work", "Работа")}
           orang
         />
         <InfoCard
-          date={eventsDatesData ? eventsDatesData.work_date : ""}
+          date={eventsDatesData ? eventsDatesData.dismantling_date : ""}
           title={chooseDataLang("Dismantling", "Демонтаж")}
         />
       </div>

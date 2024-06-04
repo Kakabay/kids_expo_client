@@ -33,7 +33,7 @@ export const NewsCard = ({ path, published_at, grid, id, title }: IProps) => {
   ) : (
     <>
       <Link to={`/news/${id}`} className="flex">
-        <img src={path} alt="" width={300} height={160} className="object-cover" />
+        <img src={path} alt="" className="object-cover flex-[0_0_300px] h-[160px]" />
         <div className="p-6 w-full border-y-[1px] border-r-[1px] border-y-gray/30 border-r-gray/30">
           <div className="text-gray4 mb-[10px]">{published_at}</div>
           <div className="font-bold leading-[125%] text-[16px]">{title}</div>
