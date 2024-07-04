@@ -1,8 +1,13 @@
-export interface GetFAQTypes {
+export interface FaqDataType {
   data: Datum[];
 }
 
 export interface Datum {
-  title: string;
-  content: string;
+  header: string;
+  faq_items: FaqItemsType[];
+}
+
+export interface FaqItemsType {
+  answer: string;
+  question: string;
 }

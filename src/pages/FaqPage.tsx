@@ -1,32 +1,32 @@
-import { v4 } from 'uuid';
-import { BreadCrumbs } from '../components/ui/BreadCrumbs';
-import { Radio } from '../components/ui/Radio';
-import { Title } from '../components/ui/Title';
-import { useFaq } from '../services/zustand/zusFaq';
-import useGetFaq from '../hooks/useGetFaq';
-import { Select } from '../components/Faq/Select';
-import { useEffect } from 'react';
+import { BreadCrumbs } from "../components/ui/BreadCrumbs";
+import { Radio } from "../components/ui/Radio";
+import { Title } from "../components/ui/Title";
+import { useFaq } from "../services/zustand/zusFaq";
+import useGetFaq from "../hooks/useGetFaq";
+import { Select } from "../components/Faq/Select";
+import { useEffect } from "react";
 
 const faqRadio = [
   {
-    name: 'Все',
+    name: "Все",
   },
   {
-    name: 'Посетителям',
+    name: "Посетителям",
   },
   {
-    name: 'Участники',
+    name: "Участники",
   },
 ];
 
 export default function FaqPage() {
-  useEffect(() => {
-    window.scroll(0, 0);
-  }, []);
-
   const activeRadio = useFaq((state) => state.activeRadio);
+  const currentRadio = useFaq((state) => state.currentRadio);
+  const setCurrentRadio = useFaq((state) => state.setCurrentRadio);
 
   const { faqData, faqIsError, faqIsLoading, faqIsSuccess } = useGetFaq();
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, [currentRadio]);
 
   return (
     <div className="bg-white2 pt-5">
@@ -36,15 +36,17 @@ export default function FaqPage() {
         <Title title="«Вопросы-ответы»" />
 
         <div className="flex items-center gap-6 mb-11 mt-6">
-          {faqRadio.map((item) => (
-            <Radio key={v4()} {...item} active={activeRadio === item.name} />
+          {faqRadio.map((item, i) => (
+            <div key={i} onClick={() => setCurrentRadio(i)}>
+              <Radio {...item} active={activeRadio === item.name} />
+            </div>
           ))}
         </div>
 
         {faqIsSuccess && (
           <div className="border-b-[1px] border-black2">
-            {faqData?.map((item) => (
-              <Select key={v4()} {...item} />
+            {faqData?.map((item, i) => (
+              <Select key={i} {...item} />
             ))}
           </div>
         )}

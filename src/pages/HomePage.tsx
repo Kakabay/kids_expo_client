@@ -72,7 +72,7 @@ export default function HomePage() {
           <a href="https://exposale.net/ru" target="_blank">
             <img
               src="https://exposale.net/template-admin/assets/elFinder/files/banners/728x90rus.png"
-              title="Найди свою выставку на EXPOSALE.net "
+              title="Найди свою выставку на EXPOSALE.net"
             />
           </a>
         </div>

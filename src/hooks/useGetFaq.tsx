@@ -1,9 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
 import { useLang } from "../services/zustand/zusLang";
 import expoService from "../services/api/requests/expo.service";
+import { useFaq } from "../services/zustand/zusFaq";
 
 const useGetFaq = () => {
   const localization = useLang((state) => state.activeLang.localization);
+  const currentRadio = useFaq((state) => state.currentRadio);
 
   const {
     isError: faqIsError,
@@ -12,7 +14,7 @@ const useGetFaq = () => {
     data: faqData,
   } = useQuery({
     queryKey: ["faqData", localization],
-    queryFn: () => expoService.getFaq(localization),
+    queryFn: () => expoService.getFaq(localization, currentRadio),
     select: ({ data }) => data.data,
   });
 

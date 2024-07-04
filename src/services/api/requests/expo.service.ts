@@ -2,7 +2,7 @@ import axios from "axios";
 import { GetBannersTypes } from "../types/getBannersTypes";
 import { GetNewsTypes } from "../types/getNewsTypes";
 import { ContactsType } from "../types/getContactsTypes";
-import { GetFAQTypes } from "../types/getFaqTypes";
+import { FaqDataType } from "../types/getFaqTypes";
 import { SeperateNewsTypes } from "../types/getSeperateNews";
 import { TopicsTypes } from "../types/getTopicsType";
 import { EventsDateTypes } from "../types/getEventsDate";
@@ -75,12 +75,17 @@ class ExpoService {
     });
   }
 
-  async getFaq(localization: string) {
-    return await axios.get<GetFAQTypes>(`${this.URL}/participants-page-items`, {
-      headers: {
-        "Accept-Language": localization,
-      },
-    });
+  async getFaq(localization: string, currentRadio: number) {
+    return await axios.get<FaqDataType>(
+      `${this.URL}/faq-headers${
+        currentRadio !== 0 ? "?faq_user_group_id=" + currentRadio : ""
+      }`,
+      {
+        headers: {
+          "Accept-Language": localization,
+        },
+      }
+    );
   }
 
   async getAboutExhibition(localiztion: string) {

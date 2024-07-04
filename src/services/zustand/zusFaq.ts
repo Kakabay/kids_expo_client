@@ -1,19 +1,20 @@
-import { create } from 'zustand';
+import { create } from "zustand";
 
 interface FaqStore {
   activeRadio: string;
-  titles: string[];
+  currentRadio: number;
+  setCurrentRadio: (value: number) => void;
   filter: (name: string) => void;
-  setTitles: (title: string) => void;
 }
 
 export const useFaq = create<FaqStore>((set) => ({
-  activeRadio: 'Все',
+  activeRadio: "Все",
+  currentRadio: 0,
   titles: [],
   filter: (name) => {
     set((state) => ({ activeRadio: (state.activeRadio = name) }));
   },
-  setTitles: () => {
-    // set((state) => ({ titles: state.titles.push(title) }));
+  setCurrentRadio: (value) => {
+    set((state) => ({ currentRadio: (state.currentRadio = value) }));
   },
 }));
