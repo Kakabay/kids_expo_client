@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import { sidebarData } from '../../database/pathnames';
 import { Link, useLocation } from 'react-router-dom';
 import { useLang } from '../../services/zustand/zusLang';
-import { motion } from 'framer-motion';
+// import { motion } from 'framer-motion';
 
 export const Sidebar = () => {
   const pathname = useLocation().pathname;
@@ -41,7 +41,7 @@ export const Sidebar = () => {
                       key={i}>
                       {obj.title}
                     </Link>
-                    {obj.items?.map((item, i) => (
+                    {/* {obj.items?.map((item, i) => (
                       <motion.div
                         key={i}
                         initial={{
@@ -63,7 +63,7 @@ export const Sidebar = () => {
                           {item.title}
                         </Link>
                       </motion.div>
-                    ))}
+                    ))} */}
                   </>
                 ))}
             </div>
