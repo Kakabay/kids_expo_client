@@ -1,16 +1,16 @@
 import clsx from 'clsx';
 
 import { sidebarData } from '../../database/pathnames';
-import { v4 } from 'uuid';
 import { Link, useLocation } from 'react-router-dom';
 import { useLang } from '../../services/zustand/zusLang';
+import { motion } from 'framer-motion';
 
 export const Sidebar = () => {
   const pathname = useLocation().pathname;
-  const localization = useLang((state) => state.activeLang.localization);
+  const lang = useLang((state) => state.activeLang.localization);
 
   return (
-    <aside className="tab:flex hidden flex-col items-start gap-y-[12px] py-[20px] sticky top-0 left-0 overflow-hidden min-w-[230px]">
+    <aside className="tab:flex hidden flex-col items-start gap-y-4 py-5 sticky top-0 left-0 overflow-hidden min-w-[230px]">
       {sidebarData
         .filter(
           (obj) =>
@@ -19,31 +19,53 @@ export const Sidebar = () => {
             (pathname.includes('/visitors-') && obj.visitors) ||
             (pathname.includes('/news') && obj.news),
         )
-        .map((item) => (
-          <div key={v4()}>
+        .map((item, i) => (
+          <div key={i} className="">
             <p className={'mb-[16px] text-[16px] font-bold leading-[1.5]'}>
-              {localization === 'en' ? item.pathnameEn : item.pathname}
+              {lang === 'en' ? item.pathnameEn : item.pathname}
             </p>
-
-            <div className="flex flex-col items-start gap-y-[8px]">
-              <div className="flex flex-col gap-[10px] px-[16px]">
-                {item.info
-                  .filter((item) => (localization === 'en' ? item.en : !item.en))
-                  .map((obj) => (
+            <div className="flex flex-col">
+              {item.info
+                .filter((item) => (lang === 'en' ? item.en : !item.en))
+                .map((obj, i) => (
+                  <>
                     <Link
                       to={obj.link}
                       className={clsx(
-                        'cursor-pointer py-1 leading-[130%] text-[14px] transition-all hover:text-purple',
+                        'cursor-pointer leading-[130%] text-[14px] transition-all hover:text-purple h-6 mb-2',
                         {
                           'hover:text-purple text-purple hover:cursor-default':
                             obj.link === pathname,
                         },
                       )}
-                      key={v4()}>
+                      key={i}>
                       {obj.title}
                     </Link>
-                  ))}
-              </div>
+                    {obj.items?.map((item, i) => (
+                      <motion.div
+                        key={i}
+                        initial={{
+                          height: 0,
+                          opacity: 0,
+                          pointerEvents: 'none',
+                        }}
+                        animate={
+                          pathname === '/participants-services'
+                            ? { height: '100%', opacity: 1, pointerEvents: 'all' }
+                            : {}
+                        }
+                        className="flex flex-col gap-2 text-[13px] leading-[125%] mt-2 ml-4">
+                        <Link
+                          to={item.link}
+                          className={clsx('text-[#808080] h-6', {
+                            'text-[#61378A]': item.link === pathname,
+                          })}>
+                          {item.title}
+                        </Link>
+                      </motion.div>
+                    ))}
+                  </>
+                ))}
             </div>
           </div>
         ))}

@@ -5,10 +5,16 @@ interface MenuType {
   members?: boolean;
   news?: boolean;
   visitors?: boolean;
+
   info: {
     en?: boolean;
     title: string;
     link: string;
+    items?: {
+      en?: boolean;
+      title: string;
+      link: string;
+    }[];
   }[];
 }
 
@@ -21,13 +27,11 @@ export const sidebarData: MenuType[] = [
       { title: 'О выставке', link: '/exhibition-about' },
       { title: 'Тематика', link: '/exhibition-theme' },
       { title: 'Место проведения', link: '/exhibition-avenue' },
-      // { title: "Участники", link: "/participants-exhibition" },
       { title: 'Информационная поддержка', link: '/exhibition-support' },
 
       { en: true, title: 'About', link: '/exhibition-about' },
       { en: true, title: 'Theme', link: '/exhibition-theme' },
       { en: true, title: 'Venue', link: '/exhibition-avenue' },
-      // { en: true, title: "Participants", link: "/participants-exhibition" },
       { en: true, title: 'Information support', link: '/exhibition-support' },
     ],
   },
@@ -41,9 +45,28 @@ export const sidebarData: MenuType[] = [
       { title: 'Преимущества участия', link: '/participants-benefits' },
       { title: 'Онлайн-заявка для участников', link: '/participants-apply' },
       { title: 'Документы', link: '/participants-docs' },
-      // { title: "Участие в выставке", link: "" },
-      // { title: "Получите максимум", link: "" },
-      // { title: "Услуги и реклама", link: "" },
+      {
+        title: 'Услуги для экспонентов',
+        link: '/participants-services',
+        items: [
+          {
+            title: 'Инженерные услуги',
+            link: '/participants-services',
+          },
+          {
+            title: 'Сервис на стендах',
+            link: '/participants-stend',
+          },
+          {
+            title: 'Размещение в гостиницах',
+            link: '/participants-hotels',
+          },
+          {
+            title: 'Полиграфия',
+            link: '/participants-poligraphy',
+          },
+        ],
+      },
 
       {
         en: true,
@@ -61,9 +84,6 @@ export const sidebarData: MenuType[] = [
         link: '/participants-apply',
       },
       { en: true, title: 'Documents', link: '/participants-docs' },
-      //   { en: true, title: "participation in the exhibition", link: "" },
-      //   { en: true, title: "get the maximum", link: "" },
-      //   { en: true, title: "Services and advertising", link: "" },
     ],
   },
   {
@@ -85,7 +105,6 @@ export const sidebarData: MenuType[] = [
     pathnameEn: 'News',
     info: [
       { title: 'Новости', link: '/news' },
-      // { title: 'Пресс-релизы', link: '' },
 
       { en: true, title: 'News', link: '/news' },
     ],
@@ -163,24 +182,14 @@ export const burgerMenuData: BurgerDataTypes[] = [
     title: 'О компании',
     pathname: '/company/aboutus',
     drop: 'company',
-    info: [
-      { title: 'Коротко о нас', link: '/company/aboutus' },
-      // { title: "Выставочная деятельность", link: "" },
-      // { title: "История и награды", link: "" },
-      // { title: "Партнеры", link: "" },
-      // { title: "Работы в компании", link: "" },
-      // { title: "Наши издания", link: "" },
-    ],
+    info: [{ title: 'Коротко о нас', link: '/company/aboutus' }],
   },
   {
     news: true,
     title: 'Новости',
     pathname: '/news',
     drop: 'news',
-    info: [
-      { title: 'Новости', link: '/news' },
-      // { title: "Пресс-релизы", link: "/news" },
-    ],
+    info: [{ title: 'Новости', link: '/news' }],
   },
 ];
 
