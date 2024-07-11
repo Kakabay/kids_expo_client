@@ -4,7 +4,7 @@ import { Footer } from "./components/Footer/Footer";
 
 const App = () => {
   return (
-    <div className="flex flex-col overflow-x-hidden min-h-screen bg-white">
+    <div className="flex flex-col overflow-x-hidden min-h-screen bg-[#f9f9f1]">
       <Header />
 
       <div className="flex-auto">
