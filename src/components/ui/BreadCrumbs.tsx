@@ -1,32 +1,28 @@
 import { Link } from 'react-router-dom';
-import { useLang } from '../../services/zustand/zusLang';
+import { useTranslate } from '../../utils/useTranslate';
 
 export const BreadCrumbs = ({
   second,
   third,
   path,
 }: {
-  second: string;
-  third?: string;
+  second: string | boolean;
+  third?: string | boolean;
   path?: string;
   path2?: string;
   cursor?: boolean;
 }) => {
-  const localization = useLang((state) => state.activeLang.localization);
-
-  const chooseDataLang = (en: string, ru: string) => (localization === 'en' ? en : ru);
-
   return (
     <div className="text-[12px] text-[#8C8C8C] flex items-center mob:mb-6 mb-5">
-      <Link to={'/'}>{chooseDataLang('Home', 'Главная')}</Link>
+      <Link to={'/'}>{useTranslate('Главная', 'Home')}</Link>
 
       <p className="px-1">/</p>
 
-      {third ? <Link to={path ? path : ''}>{second}</Link> : <p>{second}</p>}
+      {third ? <Link to={path ? path : ''}>{second as string}</Link> : <p>{second as string}</p>}
 
       {third && <p className="px-1">/</p>}
 
-      {third && <p>{third}</p>}
+      {third && <p>{third as string}</p>}
     </div>
   );
 };

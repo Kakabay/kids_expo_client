@@ -45,28 +45,28 @@ export const sidebarData: MenuType[] = [
       { title: 'Преимущества участия', link: '/participants-benefits' },
       { title: 'Онлайн-заявка для участников', link: '/participants-apply' },
       { title: 'Документы', link: '/participants-docs' },
-      // {
-      //   title: 'Услуги для экспонентов',
-      //   link: '/participants-services',
-      //   items: [
-      //     {
-      //       title: 'Инженерные услуги',
-      //       link: '/participants-services',
-      //     },
-      //     {
-      //       title: 'Сервис на стендах',
-      //       link: '/participants-stend',
-      //     },
-      //     {
-      //       title: 'Размещение в гостиницах',
-      //       link: '/participants-hotels',
-      //     },
-      //     {
-      //       title: 'Полиграфия',
-      //       link: '/participants-poligraphy',
-      //     },
-      //   ],
-      // },
+      {
+        title: 'Услуги для экспонентов',
+        link: '/participants-services',
+        items: [
+          {
+            title: 'Инженерные услуги',
+            link: '/participants-services',
+          },
+          {
+            title: 'Сервис на стендах',
+            link: '/participants-services/stend',
+          },
+          {
+            title: 'Размещение в гостиницах',
+            link: '/participants-services/hotels',
+          },
+          {
+            title: 'Полиграфия',
+            link: '/participants-services/poligraphy',
+          },
+        ],
+      },
 
       {
         en: true,

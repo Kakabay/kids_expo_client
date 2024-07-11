@@ -3,11 +3,9 @@ import { SidebarLayout } from '../../components/global/SidebarLayout';
 
 const ParticipantsServices = () => {
   return (
-    <div className="">
-      <SidebarLayout>
-        <Outlet />
-      </SidebarLayout>
-    </div>
+    <SidebarLayout>
+      <Outlet />
+    </SidebarLayout>
   );
 };
 

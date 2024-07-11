@@ -3,7 +3,7 @@ import clsx from 'clsx';
 import { sidebarData } from '../../database/pathnames';
 import { Link, useLocation } from 'react-router-dom';
 import { useLang } from '../../services/zustand/zusLang';
-// import { motion } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 export const Sidebar = () => {
   const pathname = useLocation().pathname;
@@ -41,7 +41,7 @@ export const Sidebar = () => {
                       key={i}>
                       {obj.title}
                     </Link>
-                    {/* {obj.items?.map((item, i) => (
+                    {obj.items?.map((item, i) => (
                       <motion.div
                         key={i}
                         initial={{
@@ -50,20 +50,21 @@ export const Sidebar = () => {
                           pointerEvents: 'none',
                         }}
                         animate={
-                          pathname === '/participants-services'
+                          pathname.includes('/participants-services')
                             ? { height: '100%', opacity: 1, pointerEvents: 'all' }
                             : {}
                         }
                         className="flex flex-col gap-2 text-[13px] leading-[125%] mt-2 ml-4">
                         <Link
                           to={item.link}
-                          className={clsx('text-[#808080] h-6', {
+                          className={clsx(' h-6', {
                             'text-[#61378A]': item.link === pathname,
+                            'text-[#808080]': item.link !== pathname,
                           })}>
                           {item.title}
                         </Link>
                       </motion.div>
-                    ))} */}
+                    ))}
                   </>
                 ))}
             </div>

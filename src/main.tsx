@@ -97,19 +97,19 @@ const router = createBrowserRouter([
         element: <ParticipantsServices />,
         children: [
           {
-            path: 'participants-services',
+            path: '/participants-services',
             element: <ParticipantsServicesEngeener />,
           },
           {
-            path: 'participants-stend',
+            path: 'stend',
             element: <ParticipantsStend />,
           },
           {
-            path: 'participants-hotels',
+            path: 'hotels',
             element: <ParticipantsHotels />,
           },
           {
-            path: 'participants-poligraphy',
+            path: 'poligraphy',
             element: <ParticipantsPoligraphy />,
           },
         ],
