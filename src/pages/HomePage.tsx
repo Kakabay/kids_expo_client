@@ -26,8 +26,8 @@ export default function HomePage() {
           <div className="grid translate-y-[-50px] gap-y-4 grid-cols-1 tab:grid-cols-4 gap-5 tab:gap-[30px]">
             {cardsData
               .filter((item) => (localization === "en" ? item.en : !item.en))
-              .map((item) => (
-                <Card {...item} key={item.path} />
+              .map((item, i) => (
+                <Card {...item} key={i} />
               ))}
           </div>
 

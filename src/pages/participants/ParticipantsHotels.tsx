@@ -1,5 +1,4 @@
 import { BreadCrumbs } from "../../components/ui/BreadCrumbs";
-import { Button } from "../../components/ui/Button";
 import { Title } from "../../components/ui/Title";
 import { useTranslate } from "../../utils/useTranslate";
 
