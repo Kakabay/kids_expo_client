@@ -79,6 +79,10 @@
     @apply leading-[150%];
   }
 
+  .select-inner {
+    @apply text-purple underline;
+  }
+
   .event-topic p {
     @apply before:content-["•"] before:px-2 before:text-green;
   }
