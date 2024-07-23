@@ -27,7 +27,12 @@ export const ExhibitionTheme = () => {
       <div className="border-b-[1px] border-b-[#DADADA]">
         {topicsIsSuccess
           ? topicsData?.map((item) => (
-              <ThemeCard key={v4()} {...item} path={item.icon[0] ? item.icon[0].path : ''} />
+              <ThemeCard
+                key={v4()}
+                title={item.name}
+                {...item}
+                imageUrl={item.icon[0] ? item.icon[0].path : ''}
+              />
             ))
           : null}
       </div>

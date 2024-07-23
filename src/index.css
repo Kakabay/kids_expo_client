@@ -83,12 +83,32 @@
     @apply text-purple underline;
   }
 
+  .select-prints p img {
+    @apply !w-full;
+  }
+
+  .select-inner tbody {
+    @apply flex flex-col justify-between gap-3;
+  }
+
+  .select-inner tbody tr {
+    @apply flex justify-between items-center;
+  }
+
   .event-topic p {
     @apply before:content-["•"] before:px-2 before:text-green;
   }
 
   .link-border-bottom {
     @apply after:content-[''] after:absolute after:top-[20px] after:left-0 after:h-[2px] after:bg-white after:w-full hover:text-white;
+  }
+
+  .footer-serv p strong {
+    @apply text-[18px] font-semibold mb-3;
+  }
+
+  .footer-serv p {
+    @apply text-[14px];
   }
 
   :disabled {
