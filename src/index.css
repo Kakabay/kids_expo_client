@@ -79,8 +79,8 @@
     @apply leading-[150%];
   }
 
-  .select-inner {
-    @apply text-purple underline;
+  .select-inner a {
+    @apply text-purple underline font-semibold;
   }
 
   .select-prints p img {

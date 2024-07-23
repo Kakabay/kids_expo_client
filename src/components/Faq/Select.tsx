@@ -146,16 +146,12 @@ export const Select = ({ ...props }: IProps) => {
               openTitles.includes(header || "") ? { height: "100%" } : {}
             }
             key={i}
-            className="flex flex-col w-full max-w-[1000px] overflow-hidden"
+            className="flex flex-col w-full max-w-[1000px]"
           >
-            <h4 className="leading-[140%] font-semibold">{item.question}</h4>
-            <motion.p
-              initial={{ marginBottom: 0 }}
-              animate={
-                openTitles.includes(header || "") ? { marginBottom: 24 } : {}
-              }
-              className="text-gray4 mb-6 leading-[140%] overflow-hidden"
-            >
+            <motion.h4 className="leading-[140%] transition-all font-semibold">
+              {item.question}
+            </motion.h4>
+            <motion.p className="text-gray4 mb-6 leading-[140%] overflow-hidden">
               {item.answer}
             </motion.p>
           </motion.div>

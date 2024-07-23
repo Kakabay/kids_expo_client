@@ -1,9 +1,10 @@
-import { useEffect } from 'react';
-import { SidebarLayout } from '../../components/global/SidebarLayout';
-import { BreadCrumbs } from '../../components/ui/BreadCrumbs';
-import { Title } from '../../components/ui/Title';
-import useGetAboutExhibition from '../../hooks/useGetAboutExhibition';
-import { useGetEn } from '../../hooks/language/useGetEn';
+import { useEffect } from "react";
+import { SidebarLayout } from "../../components/global/SidebarLayout";
+import { BreadCrumbs } from "../../components/ui/BreadCrumbs";
+import { Title } from "../../components/ui/Title";
+import useGetAboutExhibition from "../../hooks/useGetAboutExhibition";
+import { useGetEn } from "../../hooks/language/useGetEn";
+import Loader from "../../components/Loader";
 
 const ExhibitionAbout = () => {
   useEffect(() => {
@@ -20,24 +21,23 @@ const ExhibitionAbout = () => {
   if (aboutExhibitionIsError) {
     <h1>Error...</h1>;
   }
-  if (aboutExhibitionIsLoading) {
-    <h1>Loading...</h1>;
-  }
 
   return (
     <SidebarLayout>
       <div className="w-full h-full">
-        <BreadCrumbs second={useGetEn('About', 'О Выставке')} />
+        <BreadCrumbs second={useGetEn("About", "О Выставке")} />
 
-        <Title title={useGetEn('About', 'О выставке')} mb24 />
+        <Title title={useGetEn("About", "О выставке")} mb24 />
         {aboutExhibitionIsSuccess ? (
           <div
             className="flex flex-col gap-6 exibition-about-wrapper"
             dangerouslySetInnerHTML={{
-              __html: aboutExhibitionData ? aboutExhibitionData.data : '',
+              __html: aboutExhibitionData ? aboutExhibitionData.data : "",
             }}
           />
         ) : null}
+
+        {aboutExhibitionIsLoading && <Loader />}
       </div>
     </SidebarLayout>
   );

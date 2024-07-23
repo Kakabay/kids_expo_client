@@ -1,22 +1,29 @@
-import { BreadCrumbs } from '../../components/ui/BreadCrumbs';
-import { Title } from '../../components/ui/Title';
-import useGetHotels from '../../hooks/participants/services/useGetHotels';
-import { useTranslate } from '../../utils/useTranslate';
+import Loader from "../../components/Loader";
+import { BreadCrumbs } from "../../components/ui/BreadCrumbs";
+import { Title } from "../../components/ui/Title";
+import useGetHotels from "../../hooks/participants/services/useGetHotels";
+import { useTranslate } from "../../utils/useTranslate";
 
 const ParticipantsHotels = () => {
-  const { data } = useGetHotels();
+  const { data, isLoading } = useGetHotels();
 
   return (
     <div>
       <BreadCrumbs
-        second={useTranslate('Участникам', 'Participants')}
-        third={useTranslate('Размещение в гостиницах', 'Услуги для экспонентов')}
+        second={useTranslate("Участникам", "Participants")}
+        third={useTranslate(
+          "Размещение в гостиницах",
+          "Услуги для экспонентов"
+        )}
       />
-      <Title title={useTranslate('Размещение в гостиницах', 'Инженерные услуги')} mb32 />
+      <Title
+        title={useTranslate("Размещение в гостиницах", "Инженерные услуги")}
+        mb32
+      />
 
       <div
         className="select-inner"
-        dangerouslySetInnerHTML={{ __html: data ? data[0].content : '' }}
+        dangerouslySetInnerHTML={{ __html: data ? data[0].content : "" }}
       />
 
       {/* <div className="flex flex-col gap-8">
@@ -28,6 +35,7 @@ const ParticipantsHotels = () => {
           </div>
         </div>
       </div> */}
+      {isLoading && <Loader />}
     </div>
   );
 };

@@ -5,6 +5,7 @@ import { Title } from "../../components/ui/Title";
 import { useLang } from "../../services/zustand/zusLang";
 import useGetBenefits from "../../hooks/participants/useGetBenefits";
 import { useEffect } from "react";
+import Loader from "../../components/Loader";
 
 export const ParticipantsBenefits = () => {
   useEffect(() => {
@@ -15,7 +16,7 @@ export const ParticipantsBenefits = () => {
   const chooseDataLang = (en: string, ru: string) =>
     localization === "en" ? en : ru;
 
-  const { benefitsData } = useGetBenefits();
+  const { benefitsData, benefitsIsLoading } = useGetBenefits();
 
   return (
     <SidebarLayout>
@@ -56,6 +57,7 @@ export const ParticipantsBenefits = () => {
             ))
           : null}
       </div>
+      {benefitsIsLoading && <Loader />}
     </SidebarLayout>
   );
 };

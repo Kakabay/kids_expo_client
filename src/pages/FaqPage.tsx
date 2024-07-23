@@ -5,6 +5,7 @@ import { useFaq } from "../services/zustand/zusFaq";
 import useGetFaq from "../hooks/useGetFaq";
 import { Select } from "../components/Faq/Select";
 import { useEffect } from "react";
+import Loader from "../components/Loader";
 
 const faqRadio = [
   {
@@ -51,7 +52,7 @@ export default function FaqPage() {
           </div>
         )}
 
-        {faqIsLoading && <h1>Loading...</h1>}
+        {faqIsLoading && <Loader />}
 
         {faqIsError && <h1>Error...</h1>}
       </div>

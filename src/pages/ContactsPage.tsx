@@ -4,6 +4,7 @@ import { Title } from "../components/ui/Title";
 import useGetContacts from "../hooks/useGetContacts";
 import { useLang } from "../services/zustand/zusLang";
 import { useEffect } from "react";
+import Loader from "../components/Loader";
 
 export const ContactsPage = () => {
   useEffect(() => {
@@ -31,11 +32,7 @@ export const ContactsPage = () => {
   }
 
   if (contactsIsLoading) {
-    return (
-      <div className="container">
-        <h1>Loading...</h1>
-      </div>
-    );
+    return <Loader />;
   }
 
   if (contactsIsSuccess) {
