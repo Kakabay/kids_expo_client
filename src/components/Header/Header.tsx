@@ -9,6 +9,7 @@ import { useBurger } from '../../services/zustand/zusBurger';
 import { headerMenu, headerMenu2 } from '../../database/header.data';
 import { useGetEn } from '../../hooks/language/useGetEn';
 import { GetTicketBtn } from './GetTicketBtn';
+import { motion } from 'framer-motion';
 
 export const Header = () => {
   const activeLang = useLang((state) => state.activeLang);
@@ -79,13 +80,15 @@ export const Header = () => {
 
           <div
             onClick={() => setBurger(!burger)}
-            className="flex flex-col tab:hidden cursor-pointer h-8 w-8 p-1 justify-between items-center">
+            className="flex flex-col tab:hidden cursor-pointer h-8 w-8 p-1 transition-all justify-between items-center">
             <span
               className={clsx('block transition-all rounded-full bg-purple w-6 h-[2px]', {
                 'rotate-[45deg] translate-y-[9px]': burger,
               })}
             />
-            <span
+            <motion.span
+              initial={{ opacity: 1 }}
+              animate={burger ? { opacity: 0 } : {}}
               className={clsx('block transition-all rounded-full bg-purple w-6 h-[2px]', {
                 'opacity-0 hidden': burger,
               })}

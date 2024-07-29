@@ -65,9 +65,9 @@
 //   );
 // };
 
-import { useState } from "react";
-import clsx from "clsx";
-import { motion } from "framer-motion";
+import { useState } from 'react';
+import clsx from 'clsx';
+import { motion } from 'framer-motion';
 
 interface IProps {
   header: string;
@@ -95,22 +95,21 @@ export const Select = ({ ...props }: IProps) => {
       <motion.div
         onClick={() => onTitle(header)}
         className={clsx(
-          "w-full flex items-center justify-between border-t-[1px] border-y-navyBlue cursor-pointer",
+          'w-full flex items-center justify-between border-t-[1px] border-y-navyBlue cursor-pointer',
           {
-            "border-b-[1px]": openTitles.includes(header || ""),
-          }
-        )}
-      >
+            'border-b-[1px]': openTitles.includes(header || ''),
+          },
+        )}>
         <h2 className="sm:text-[21px] text-[16px] sm:leading-[100%] leading-[120%] sm:font-semibold font-[400] py-4 sm:py-5">
           {header}
         </h2>
         <img
-          src={"/assets/icons/faq/select-arrow.svg"}
+          src={'/assets/icons/faq/select-arrow.svg'}
           width={30}
           height={30}
           alt="arrow"
-          className={clsx("rotate-[180deg] transition-all gap-4", {
-            "rotate-[360deg]": openTitles.includes(header || ""),
+          className={clsx('rotate-[180deg] transition-all gap-4', {
+            'rotate-[360deg]': openTitles.includes(header || ''),
           })}
         />
       </motion.div>
@@ -124,9 +123,9 @@ export const Select = ({ ...props }: IProps) => {
           opacity: 0,
         }}
         animate={
-          openTitles.includes(header || "")
+          openTitles.includes(header || '')
             ? {
-                height: "100%",
+                height: '100%',
                 paddingBottom: 32,
                 paddingTop: 32,
                 gap: 24,
@@ -134,20 +133,16 @@ export const Select = ({ ...props }: IProps) => {
               }
             : {}
         }
-        transition={{ duration: 0.3 }}
+        transition={{ duration: 0.3, ease: 'easeInOut' }}
         className={clsx(
-          "flex flex-col gap-6 last:border-b-[1px] last:border-b-navyBlue overflow-hidden"
-        )}
-      >
+          'flex flex-col gap-6 last:border-b-[1px] last:border-b-navyBlue overflow-hidden',
+        )}>
         {faq_items?.map((item, i) => (
           <motion.div
             initial={{ height: 0 }}
-            animate={
-              openTitles.includes(header || "") ? { height: "100%" } : {}
-            }
+            animate={openTitles.includes(header || '') ? { height: '100%' } : {}}
             key={i}
-            className="flex flex-col w-full max-w-[1000px]"
-          >
+            className="flex flex-col w-full max-w-[1000px]">
             <motion.h4 className="leading-[140%] transition-all font-semibold">
               {item.question}
             </motion.h4>

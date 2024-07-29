@@ -63,7 +63,6 @@ const NewsSection = () => {
                   id={1}
                   title={item.title}
                   published_at={item.published_at}
-                  key={v4()}
                 />
               </SwiperSlide>
             ))

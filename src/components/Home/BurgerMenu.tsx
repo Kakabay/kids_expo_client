@@ -48,14 +48,15 @@ export const BurgerMenu = () => {
 
   return (
     <motion.div
-      initial={{ x: '100%' }}
-      animate={{ x: 0 }}
+      initial={{ x: '100%', opacity: 0 }}
+      animate={{ x: 0, opacity: 1 }}
       transition={{
         duration: 0.3,
-        ease: 'circOut',
+        ease: 'circInOut',
       }}
       exit={{
         x: '100%',
+        opacity: 0,
       }}
       className="bg-purple overflow-auto text-white fixed w-full z-[900] top-[97px] bottom-0 left-0 min-h-[100vh] h-full px-4 py-10 flex flex-col overflow-y-auto">
       {activeMenu && (

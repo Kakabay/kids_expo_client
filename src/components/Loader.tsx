@@ -1,15 +1,10 @@
-import { TailSpin } from "react-loader-spinner";
+import clsx from 'clsx';
+import { TailSpin } from 'react-loader-spinner';
 
-const Loader = () => {
+const Loader = ({ className }: { className?: string }) => {
   return (
-    <div className="w-full h-[300px] mx-auto flex justify-center items-center">
-      <TailSpin
-        height="80"
-        width="80"
-        color="#61378A"
-        ariaLabel="loading"
-        wrapperClass=""
-      />
+    <div className={clsx('w-full h-[300px] mx-auto flex justify-center items-center', className)}>
+      <TailSpin height="80" width="80" color="#61378A" ariaLabel="loading" wrapperClass="" />
     </div>
   );
 };

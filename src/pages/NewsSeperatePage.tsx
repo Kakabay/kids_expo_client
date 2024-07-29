@@ -1,11 +1,12 @@
-import { Link, useParams } from "react-router-dom";
-import { SidebarLayout } from "../components/global/SidebarLayout";
-import { BreadCrumbs } from "../components/ui/BreadCrumbs";
-import { Title } from "../components/ui/Title";
-import useGetSeperateNews from "../hooks/useGetSeperateNews";
-import { useLang } from "../services/zustand/zusLang";
-import { Button } from "../components/ui/Button";
-import { useEffect } from "react";
+import { Link, useParams } from 'react-router-dom';
+import { SidebarLayout } from '../components/global/SidebarLayout';
+import { BreadCrumbs } from '../components/ui/BreadCrumbs';
+import { Title } from '../components/ui/Title';
+import useGetSeperateNews from '../hooks/useGetSeperateNews';
+import { useLang } from '../services/zustand/zusLang';
+import { Button } from '../components/ui/Button';
+import { useEffect } from 'react';
+import Loader from '../components/Loader';
 
 export const NewsSeperatePage = () => {
   useEffect(() => {
@@ -13,52 +14,49 @@ export const NewsSeperatePage = () => {
   }, []);
 
   const localization = useLang((state) => state.activeLang.localization);
-  const chooseDataLang = (en: string, ru: string) =>
-    localization === "en" ? en : ru;
+  const chooseDataLang = (en: string, ru: string) => (localization === 'en' ? en : ru);
 
   let { id } = useParams();
 
-  const { newsSeperateData, newsSeperateIsSuccess } = useGetSeperateNews(
-    id ? id : ""
-  );
+  const { newsSeperateData, newsSeperateIsLoading } = useGetSeperateNews(id ? id : '');
 
   return (
     <SidebarLayout>
-      {newsSeperateIsSuccess && (
-        <>
-          <BreadCrumbs
-            second={chooseDataLang("News", "Новости")}
-            path="/news"
-            third={chooseDataLang("", "")}
+      <>
+        <BreadCrumbs
+          second={chooseDataLang('News', 'Новости')}
+          path="/news"
+          third={chooseDataLang('', '')}
+        />
+        <Title title={newsSeperateData ? newsSeperateData.title : ''} mb32 />
+
+        <p className="mb-8">{newsSeperateData?.published_at}</p>
+
+        {newsSeperateData?.featured_images[0].path && (
+          <img
+            height={480}
+            width={833}
+            src={newsSeperateData?.featured_images[0].path}
+            alt="картинка"
+            className="mb-6 max-h-[480px] object-cover w-full"
           />
-          <Title title={newsSeperateData ? newsSeperateData.title : ""} mb32 />
+        )}
 
-          <p className="mb-8">{newsSeperateData?.published_at}</p>
+        <div
+          className="seperate-news flex flex-col gap-6"
+          dangerouslySetInnerHTML={{
+            __html: newsSeperateData ? newsSeperateData.content_html : '',
+          }}
+        />
 
-          {newsSeperateData?.featured_images[0].path && (
-            <img
-              height={480}
-              width={833}
-              src={newsSeperateData?.featured_images[0].path}
-              alt="картинка"
-              className="mb-6 max-h-[480px] object-cover w-full"
-            />
-          )}
+        {newsSeperateIsLoading && <Loader />}
 
-          <div
-            className="seperate-news flex flex-col gap-6"
-            dangerouslySetInnerHTML={{
-              __html: newsSeperateData ? newsSeperateData.content_html : "",
-            }}
-          />
-
-          <Link to="/news" className="">
-            <div className="mt-10">
-              <Button text={chooseDataLang("All news", "Все новости")} />
-            </div>
-          </Link>
-        </>
-      )}
+        <Link to="/news" className="">
+          <div className="mt-10">
+            <Button text={chooseDataLang('All news', 'Все новости')} />
+          </div>
+        </Link>
+      </>
     </SidebarLayout>
   );
 };

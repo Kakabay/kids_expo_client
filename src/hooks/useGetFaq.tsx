@@ -1,7 +1,7 @@
-import { useQuery } from "@tanstack/react-query";
-import { useLang } from "../services/zustand/zusLang";
-import expoService from "../services/api/requests/expo.service";
-import { useFaq } from "../services/zustand/zusFaq";
+import { useQuery } from '@tanstack/react-query';
+import { useLang } from '../services/zustand/zusLang';
+import expoService from '../services/api/requests/expo.service';
+import { useFaq } from '../services/zustand/zusFaq';
 
 const useGetFaq = () => {
   const localization = useLang((state) => state.activeLang.localization);
@@ -13,7 +13,7 @@ const useGetFaq = () => {
     isSuccess: faqIsSuccess,
     data: faqData,
   } = useQuery({
-    queryKey: ["faqData", localization],
+    queryKey: ['faqData', localization, currentRadio],
     queryFn: () => expoService.getFaq(localization, currentRadio),
     select: ({ data }) => data.data,
   });
