@@ -26,7 +26,7 @@ export const Pagination = ({ current, setCurrent, lastPage }: IProps) => {
           viewBox="0 0 32 32"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="cursor-pointer">
+          className="">
           <path d="M18 22L12 16L18 10L19.4 11.4L14.8 16L19.4 20.6L18 22Z" fill="#61378A" />
         </svg>
       </button>
@@ -39,7 +39,7 @@ export const Pagination = ({ current, setCurrent, lastPage }: IProps) => {
           viewBox="0 0 32 32"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="rotate-180 cursor-pointer">
+          className="rotate-180">
           <path d="M18 22L12 16L18 10L19.4 11.4L14.8 16L19.4 20.6L18 22Z" fill="#61378A" />
         </svg>
       </button>
