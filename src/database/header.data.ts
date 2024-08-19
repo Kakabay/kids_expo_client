@@ -1,4 +1,21 @@
 export const headerMenu = [
+  {
+    title: 'Медиа',
+    titleEn: 'Media',
+    link: '/media/photo',
+    dropDown: [
+      {
+        title: 'Фоторепортаж',
+        link: '/media/photo',
+        titleEn: 'Фоторепортаж',
+      },
+      {
+        title: 'Видеорепортаж',
+        link: '/media/video',
+        titleEn: 'Видеорепортаж',
+      },
+    ],
+  },
   { title: 'Новости', titleEn: 'News', link: '/news' },
   { title: 'FAQ', titleEn: 'FAQ', link: '/faq' },
   { title: 'Контакты', titleEn: 'Contacts', link: '/contacts' },

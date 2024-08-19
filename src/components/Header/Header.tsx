@@ -27,8 +27,8 @@ export const Header = () => {
             <div className="hidden tab:flex items-center gap-x-[20px]">
               {headerMenu
                 .filter((item) => (activeLang.localization === 'en' ? item.en : !item.en))
-                .map((item) => (
-                  <div key={v4()}>
+                .map((item, i) => (
+                  <div key={i}>
                     <Link
                       to={item.link}
                       className={clsx(

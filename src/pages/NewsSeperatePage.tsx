@@ -7,6 +7,7 @@ import { useLang } from '../services/zustand/zusLang';
 import { Button } from '../components/ui/Button';
 import { useEffect } from 'react';
 import Loader from '../components/Loader';
+import { CustomButton } from '../components/ui/CustomButton';
 
 export const NewsSeperatePage = () => {
   useEffect(() => {
@@ -53,7 +54,7 @@ export const NewsSeperatePage = () => {
 
         <Link to="/news" className="">
           <div className="mt-10">
-            <Button text={chooseDataLang('All news', 'Все новости')} />
+            <CustomButton text={chooseDataLang('All news', 'Все новости')} />
           </div>
         </Link>
       </>

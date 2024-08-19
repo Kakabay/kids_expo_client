@@ -5,6 +5,7 @@ interface MenuType {
   members?: boolean;
   news?: boolean;
   visitors?: boolean;
+  media?: boolean;
 
   info: {
     en?: boolean;
@@ -107,6 +108,18 @@ export const sidebarData: MenuType[] = [
       { title: 'Новости', link: '/news' },
 
       { en: true, title: 'News', link: '/news' },
+    ],
+  },
+  {
+    media: true,
+    pathname: 'Медиа',
+    pathnameEn: 'Media',
+    info: [
+      { title: 'Фоторепортаж', link: '/media/photo' },
+      { title: 'Видеорепортаж', link: '/media/video' },
+
+      { en: true, title: 'Фоторепортаж', link: '/media' },
+      { en: true, title: 'Видеорепортаж', link: '/media/video' },
     ],
   },
 ];

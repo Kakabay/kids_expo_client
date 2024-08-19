@@ -1,9 +1,9 @@
-import clsx from "clsx";
+import clsx from 'clsx';
 
-import { sidebarData } from "../../database/pathnames";
-import { Link, useLocation } from "react-router-dom";
-import { useLang } from "../../services/zustand/zusLang";
-import { motion } from "framer-motion";
+import { sidebarData } from '../../database/pathnames';
+import { Link, useLocation } from 'react-router-dom';
+import { useLang } from '../../services/zustand/zusLang';
+import { motion } from 'framer-motion';
 
 export const Sidebar = () => {
   const pathname = useLocation().pathname;
@@ -14,32 +14,32 @@ export const Sidebar = () => {
       {sidebarData
         .filter(
           (obj) =>
-            (pathname.includes("/exhibition-") && obj.exhibition) ||
-            (pathname.includes("/participants-") && obj.members) ||
-            (pathname.includes("/visitors-") && obj.visitors) ||
-            (pathname.includes("/news") && obj.news)
+            (pathname.includes('/exhibition-') && obj.exhibition) ||
+            (pathname.includes('/participants-') && obj.members) ||
+            (pathname.includes('/visitors-') && obj.visitors) ||
+            (pathname.includes('/news') && obj.news) ||
+            (pathname.includes('/media') && obj.media),
         )
         .map((item, i) => (
           <div key={i} className="">
-            <p className={"mb-[16px] text-[16px] font-bold leading-[1.5]"}>
-              {lang === "en" ? item.pathnameEn : item.pathname}
+            <p className={'mb-[16px] text-[16px] font-bold leading-[1.5]'}>
+              {lang === 'en' ? item.pathnameEn : item.pathname}
             </p>
-            <div className="flex flex-col">
+            <div className="flex flex-col ml-4">
               {item.info
-                .filter((item) => (lang === "en" ? item.en : !item.en))
+                .filter((item) => (lang === 'en' ? item.en : !item.en))
                 .map((obj, i) => (
                   <>
                     <Link
                       to={obj.link}
                       className={clsx(
-                        "cursor-pointer leading-[130%] text-[14px] transition-all hover:text-purple h-6 mb-2",
+                        'cursor-pointer leading-[130%] text-[14px] transition-all hover:text-purple h-6 mb-2',
                         {
-                          "hover:text-purple text-purple hover:cursor-default":
+                          'hover:text-purple text-purple hover:cursor-default':
                             obj.link === pathname,
-                        }
+                        },
                       )}
-                      key={i}
-                    >
+                      key={i}>
                       {obj.title}
                     </Link>
                     {obj.items?.map((item, i) => (
@@ -48,26 +48,24 @@ export const Sidebar = () => {
                         initial={{
                           height: 0,
                           opacity: 0,
-                          pointerEvents: "none",
+                          pointerEvents: 'none',
                         }}
                         animate={
-                          pathname.includes("/participants-services")
+                          pathname.includes('/participants-services')
                             ? {
-                                height: "100%",
+                                height: '100%',
                                 opacity: 1,
-                                pointerEvents: "all",
+                                pointerEvents: 'all',
                               }
                             : {}
                         }
-                        className="flex flex-col gap-2 text-[13px] leading-[125%] mt-2 ml-4"
-                      >
+                        className="flex flex-col gap-2 text-[13px] leading-[125%] mt-2 ml-4">
                         <Link
                           to={item.link}
-                          className={clsx(" h-6", {
-                            "text-[#61378A]": item.link === pathname,
-                            "text-[#808080]": item.link !== pathname,
-                          })}
-                        >
+                          className={clsx(' h-6', {
+                            'text-[#61378A]': item.link === pathname,
+                            'text-[#808080]': item.link !== pathname,
+                          })}>
                           {item.title}
                         </Link>
                       </motion.div>

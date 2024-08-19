@@ -1,5 +1,4 @@
 import { v4 } from 'uuid';
-import { Button } from '../ui/Button';
 import { NavBtn } from '../ui/NavBtn';
 import { Title } from '../ui/Title';
 import { HomeNewsCard } from './NewsCard';
@@ -9,6 +8,7 @@ import useGetNews from '../../hooks/useGetNews';
 import { useLang } from '../../services/zustand/zusLang';
 import { newsDataEn } from '../../database/news.data';
 import { Link } from 'react-router-dom';
+import { CustomButton } from '../ui/CustomButton';
 
 const NewsSection = () => {
   const { newsIsError, newsIsLoading, newsData, newsIsSuccess } = useGetNews({
@@ -84,7 +84,7 @@ const NewsSection = () => {
         </Swiper>
 
         <Link to={'/news'}>
-          <Button news text={chooseDataLang('All news', 'Все новости')} />
+          <CustomButton news text={chooseDataLang('All news', 'Все новости')} />
         </Link>
       </section>
     );

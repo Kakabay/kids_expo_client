@@ -30,6 +30,9 @@ import ParticipantsHotels from './pages/participants/ParticipantsHotels.tsx';
 import ParticipantsPoligraphy from './pages/participants/ParticipantsPoligraphy.tsx';
 import ParticipantsServices from './pages/participants/ParticipantsServices.tsx';
 import ParticipantsServicesEngeener from './pages/participants/ParticipantsServicesEngeener.tsx';
+import Photo from './pages/media/Photo.tsx';
+import Video from './pages/media/Video.tsx';
+import Media from './pages/media/Media.tsx';
 
 const router = createBrowserRouter([
   {
@@ -39,6 +42,22 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <HomePage />,
+      },
+
+      {
+        path: '/media',
+        element: <Media />,
+
+        children: [
+          {
+            path: 'photo',
+            element: <Photo />,
+          },
+          {
+            path: 'video',
+            element: <Video />,
+          },
+        ],
       },
 
       {

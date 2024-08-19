@@ -95,12 +95,12 @@ export const Select = ({ ...props }: IProps) => {
       <motion.div
         onClick={() => onTitle(header)}
         className={clsx(
-          'w-full flex items-center justify-between border-t-[1px] border-y-navyBlue cursor-pointer',
+          'w-full flex items-center justify-between border-t transition-all border-y-navyBlue cursor-pointer',
           {
             'border-b-[1px]': openTitles.includes(header || ''),
           },
         )}>
-        <h2 className="sm:text-[21px] text-[16px] sm:leading-[100%] leading-[120%] sm:font-semibold font-[400] py-4 sm:py-5">
+        <h2 className="sm:text-[21px] transition-all text-[16px] sm:leading-[100%] leading-[120%] sm:font-semibold font-[400] py-4 sm:py-5">
           {header}
         </h2>
         <img
@@ -119,34 +119,27 @@ export const Select = ({ ...props }: IProps) => {
           height: 0,
           paddingTop: 0,
           paddingBottom: 0,
-          gap: 0,
           opacity: 0,
         }}
         animate={
           openTitles.includes(header || '')
             ? {
-                height: '100%',
-                paddingBottom: 32,
+                height: 'fit-content',
                 paddingTop: 32,
-                gap: 24,
+                paddingBottom: 32,
                 opacity: 1,
               }
             : {}
         }
-        transition={{ duration: 0.3, ease: 'easeInOut' }}
-        className={clsx(
-          'flex flex-col gap-6 last:border-b-[1px] last:border-b-navyBlue overflow-hidden',
-        )}>
+        transition={{ duration: 0.3 }}
+        className={clsx('flex flex-col overflow-hidden')}>
         {faq_items?.map((item, i) => (
-          <motion.div
-            initial={{ height: 0 }}
-            animate={openTitles.includes(header || '') ? { height: '100%' } : {}}
-            key={i}
-            className="flex flex-col w-full max-w-[1000px]">
-            <motion.h4 className="leading-[140%] transition-all font-semibold">
-              {item.question}
-            </motion.h4>
-            <motion.p className="text-gray4 mb-6 leading-[140%] overflow-hidden">
+          <motion.div key={i} className="flex flex-col w-full max-w-[1000px]">
+            <motion.h4 className="leading-[140%] font-semibold">{item.question}</motion.h4>
+            <motion.p
+              className={clsx('text-gray4 leading-[140%]', {
+                'mb-6': faq_items.length !== i + 1,
+              })}>
               {item.answer}
             </motion.p>
           </motion.div>
