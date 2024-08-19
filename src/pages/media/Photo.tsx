@@ -36,7 +36,7 @@ const items = [
 ];
 
 const Photo = () => {
-  const [active, setActive] = useState('');
+  const [active, setActive] = useState('2023');
   const [current, setCurrent] = useState(0);
   const [count, setCount] = useState(0);
   const [api, setApi] = useState<CarouselApi>();
@@ -67,7 +67,7 @@ const Photo = () => {
             className={clsx(
               'text-[14px] cursor-pointer relative after:w-8 after:absolute after:transition-all  after:border-b-[2px] after:rounded-full after:border-purple after:-bottom-[9.5px] after:left-0',
               {
-                'after:opacity-100 ': active === item.year,
+                'after:opacity-100': active === item.year,
                 'after:opacity-0': active !== item.year,
               },
             )}>
