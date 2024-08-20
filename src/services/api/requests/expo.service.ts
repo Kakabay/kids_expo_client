@@ -1,16 +1,17 @@
-import axios from 'axios';
-import { GetBannersTypes } from '../types/getBannersTypes';
-import { GetNewsTypes } from '../types/getNewsTypes';
-import { ContactsType } from '../types/getContactsTypes';
-import { FaqDataType } from '../types/getFaqTypes';
-import { SeperateNewsTypes } from '../types/getSeperateNews';
-import { TopicsTypes } from '../types/getTopicsType';
-import { EventsDateTypes } from '../types/getEventsDate';
-import { BenefitsTypes } from '../types/getBenefitsType';
-import { DocsTypes } from '../types/getDocsType';
-import { PartnersType } from '../types/getPartnersType';
-import { EngeenerTypes } from '../types/getEngeenerTypes';
-import { FooterServicesTypes } from '../types/getFooterServicesTypes';
+import axios from "axios";
+import { GetBannersTypes } from "../types/getBannersTypes";
+import { GetNewsTypes } from "../types/getNewsTypes";
+import { ContactsType } from "../types/getContactsTypes";
+import { FaqDataType } from "../types/getFaqTypes";
+import { SeperateNewsTypes } from "../types/getSeperateNews";
+import { TopicsTypes } from "../types/getTopicsType";
+import { EventsDateTypes } from "../types/getEventsDate";
+import { BenefitsTypes } from "../types/getBenefitsType";
+import { DocsTypes } from "../types/getDocsType";
+import { PartnersType } from "../types/getPartnersType";
+import { EngeenerTypes } from "../types/getEngeenerTypes";
+import { FooterServicesTypes } from "../types/getFooterServicesTypes";
+import { MediaTypes } from "../types/getMediaType";
 
 type PostParticipantFormTypes = {
   company_name: string;
@@ -30,12 +31,12 @@ type GetNewsParamsTypes = {
 };
 
 class ExpoService {
-  private URL = 'https://editor.turkmenexpo.com/api/v1';
+  private URL = "https://editor.turkmenexpo.com/api/v1";
 
   async getBanners(localiztion: string) {
     return await axios.get<GetBannersTypes>(`${this.URL}/banners`, {
       headers: {
-        'Accept-Language': localiztion,
+        "Accept-Language": localiztion,
       },
     });
   }
@@ -49,16 +50,22 @@ class ExpoService {
       `${this.URL}/news?page=${current ? current : 1}&per_page=${perPage}`,
       {
         headers: {
-          'Accept-Language': localization,
+          "Accept-Language": localization,
         },
-      },
+      }
     );
   }
 
-  async getSeperateNews({ localization, id }: { localization: string; id: string }) {
+  async getSeperateNews({
+    localization,
+    id,
+  }: {
+    localization: string;
+    id: string;
+  }) {
     return await axios.get<SeperateNewsTypes>(`${this.URL}/news/${id}`, {
       headers: {
-        'Accept-Language': localization,
+        "Accept-Language": localization,
       },
     });
   }
@@ -66,26 +73,28 @@ class ExpoService {
   async getContacts(localization: string) {
     return await axios.get<ContactsType>(`${this.URL}/contacts`, {
       headers: {
-        'Accept-Language': localization,
+        "Accept-Language": localization,
       },
     });
   }
 
   async getFaq(localization: string, currentRadio: number) {
     return await axios.get<FaqDataType>(
-      `${this.URL}/faq-headers${currentRadio !== 0 ? '?faq_user_group_id=' + currentRadio : ''}`,
+      `${this.URL}/faq-headers${
+        currentRadio !== 0 ? "?faq_user_group_id=" + currentRadio : ""
+      }`,
       {
         headers: {
-          'Accept-Language': localization,
+          "Accept-Language": localization,
         },
-      },
+      }
     );
   }
 
   async getAboutExhibition(localiztion: string) {
     return await axios.get<string>(`${this.URL}/settings/about_us`, {
       headers: {
-        'Accept-Language': localiztion,
+        "Accept-Language": localiztion,
       },
     });
   }
@@ -93,7 +102,7 @@ class ExpoService {
   async getVenueExhibition(localiztion: string) {
     return await axios.get<string>(`${this.URL}/settings/location`, {
       headers: {
-        'Accept-Language': localiztion,
+        "Accept-Language": localiztion,
       },
     });
   }
@@ -101,49 +110,61 @@ class ExpoService {
   async getTopics(localization: string) {
     return await axios.get<TopicsTypes>(`${this.URL}/topics`, {
       headers: {
-        'Accept-Language': localization,
+        "Accept-Language": localization,
       },
     });
   }
 
   async getEventDates(localization: string) {
-    return await axios.get<EventsDateTypes>(`${this.URL}/settings/event-dates`, {
-      headers: {
-        'Accept-Language': localization,
-      },
-    });
+    return await axios.get<EventsDateTypes>(
+      `${this.URL}/settings/event-dates`,
+      {
+        headers: {
+          "Accept-Language": localization,
+        },
+      }
+    );
   }
 
   async getBenefits(localization: string) {
-    return await axios.get<BenefitsTypes>(`${this.URL}/settings/benefit-items`, {
-      headers: {
-        'Accept-Language': localization,
-      },
-    });
+    return await axios.get<BenefitsTypes>(
+      `${this.URL}/settings/benefit-items`,
+      {
+        headers: {
+          "Accept-Language": localization,
+        },
+      }
+    );
   }
 
   async getDocs(localization: string) {
     return await axios.get<DocsTypes>(`${this.URL}/docs`, {
       headers: {
-        'Accept-Language': localization,
+        "Accept-Language": localization,
       },
     });
   }
 
   async getEngeener(localization: string) {
-    return await axios.get<EngeenerTypes>(`${this.URL}/exponent-services/engineer-services`, {
-      headers: {
-        'Accept-Language': localization,
-      },
-    });
+    return await axios.get<EngeenerTypes>(
+      `${this.URL}/exponent-services/engineer-services`,
+      {
+        headers: {
+          "Accept-Language": localization,
+        },
+      }
+    );
   }
 
   async getStandServices(localization: string) {
-    return await axios.get<EngeenerTypes>(`${this.URL}/exponent-services/stand-services`, {
-      headers: {
-        'Accept-Language': localization,
-      },
-    });
+    return await axios.get<EngeenerTypes>(
+      `${this.URL}/exponent-services/stand-services`,
+      {
+        headers: {
+          "Accept-Language": localization,
+        },
+      }
+    );
   }
 
   async getHotels(localization: string) {
@@ -151,26 +172,54 @@ class ExpoService {
       `${this.URL}/exponent-services/hotel-accommodation`,
       {
         headers: {
-          'Accept-Language': localization,
+          "Accept-Language": localization,
         },
-      },
+      }
     );
   }
 
   async getPrints(localization: string) {
-    return await axios.get<FooterServicesTypes>(`${this.URL}/exponent-services/printings`, {
-      headers: {
-        'Accept-Language': localization,
-      },
-    });
+    return await axios.get<FooterServicesTypes>(
+      `${this.URL}/exponent-services/printings`,
+      {
+        headers: {
+          "Accept-Language": localization,
+        },
+      }
+    );
   }
 
   async getFooterServices(localization: string) {
-    return await axios.get<FooterServicesTypes>(`${this.URL}/exponent-services/late-order-block`, {
-      headers: {
-        'Accept-Language': localization,
-      },
-    });
+    return await axios.get<FooterServicesTypes>(
+      `${this.URL}/exponent-services/late-order-block`,
+      {
+        headers: {
+          "Accept-Language": localization,
+        },
+      }
+    );
+  }
+
+  async getPhotos(localization: string) {
+    return await axios.get<MediaTypes>(
+      `https://turkmenexpo.com/app/api/v1/photos`,
+      {
+        headers: {
+          "Accept-Language": localization,
+        },
+      }
+    );
+  }
+
+  async getVideos(localization: string) {
+    return await axios.get<MediaTypes>(
+      `https://turkmenexpo.com/app/api/v1/videos`,
+      {
+        headers: {
+          "Accept-Language": localization,
+        },
+      }
+    );
   }
 
   async postParticipantForm({
@@ -200,9 +249,9 @@ class ExpoService {
       },
       {
         headers: {
-          'Access-Control-Allow-Origin': '*',
+          "Access-Control-Allow-Origin": "*",
         },
-      },
+      }
     );
   }
 }
