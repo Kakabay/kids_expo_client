@@ -11,13 +11,9 @@ const Video = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
-  const handlePlay = () => {
-    setIsPlaying(true);
-  };
-
   const { data } = useGetVideos();
 
-  const { activeVideo, setActiveVideo } = useMedia();
+  const { activeVideo } = useMedia();
 
   useEffect(() => {
     setIsPlaying(false);

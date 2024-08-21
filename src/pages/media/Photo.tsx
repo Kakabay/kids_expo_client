@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { BreadCrumbs } from '../../components/ui/BreadCrumbs';
 import { Title } from '../../components/ui/Title';
-import clsx from 'clsx';
 import {
   Carousel,
   CarouselContent,
@@ -31,7 +30,6 @@ const items = [
 
 const Photo = () => {
   const [current, setCurrent] = useState(0);
-  const [count, setCount] = useState(0);
   const [api, setApi] = useState<CarouselApi>();
 
   useEffect(() => {
@@ -39,7 +37,6 @@ const Photo = () => {
       return;
     }
 
-    setCount(api.scrollSnapList().length);
     setCurrent(api.selectedScrollSnap() + 1);
 
     api.on('select', () => {

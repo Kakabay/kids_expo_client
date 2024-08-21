@@ -1,6 +1,5 @@
 import clsx from 'clsx';
 import { Link } from 'react-router-dom';
-import useGetDocs from '../../hooks/participants/useGetDocs';
 
 interface IProps {
   title: string;
@@ -10,12 +9,6 @@ interface IProps {
 }
 
 export const Card = ({ title, path, link, rect = false }: IProps) => {
-  const { docsData } = useGetDocs();
-
-  const docPath = docsData?.find((item) =>
-    item.doc_path.includes('http://editor.turkmenexpo.com/storage/app/media/doc/Travel'),
-  );
-
   return link.includes('https') ? (
     <Link
       target="_blank"
