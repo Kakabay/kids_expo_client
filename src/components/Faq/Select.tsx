@@ -95,9 +95,9 @@ export const Select = ({ ...props }: IProps) => {
       <motion.div
         onClick={() => onTitle(header)}
         className={clsx(
-          'w-full flex items-center justify-between border-t transition-all border-y-navyBlue cursor-pointer',
+          'w-full flex items-center justify-between border-t transition-all border-t-black/20 cursor-pointer',
           {
-            'border-b-[1px]': openTitles.includes(header || ''),
+            'border-b border-b-black/20': openTitles.includes(header || ''),
           },
         )}>
         <h2 className="sm:text-[21px] transition-all text-[16px] sm:leading-[100%] leading-[120%] sm:font-semibold font-[400] py-4 sm:py-5">
