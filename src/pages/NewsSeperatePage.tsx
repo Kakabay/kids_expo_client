@@ -4,7 +4,6 @@ import { BreadCrumbs } from '../components/ui/BreadCrumbs';
 import { Title } from '../components/ui/Title';
 import useGetSeperateNews from '../hooks/useGetSeperateNews';
 import { useLang } from '../services/zustand/zusLang';
-import { Button } from '../components/ui/Button';
 import { useEffect } from 'react';
 import Loader from '../components/Loader';
 import { CustomButton } from '../components/ui/CustomButton';
