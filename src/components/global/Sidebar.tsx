@@ -25,11 +25,11 @@ export const Sidebar = () => {
             <p className={'mb-[16px] text-[16px] font-bold leading-[1.5]'}>
               {lang === 'en' ? item.pathnameEn : item.pathname}
             </p>
-            <div className="flex flex-col ml-4">
+            <div className="flex flex-col gap-4 ml-4">
               {item.info
                 .filter((item) => (lang === 'en' ? item.en : !item.en))
                 .map((obj, i) => (
-                  <>
+                  <div key={i}>
                     <Link
                       to={obj.link}
                       className={clsx(
@@ -59,10 +59,10 @@ export const Sidebar = () => {
                               }
                             : {}
                         }
-                        className="flex flex-col gap-2 text-[13px] leading-[125%] mt-2 ml-4">
+                        className="flex flex-col gap-3 text-[13px] leading-[125%] mt-4 ml-4">
                         <Link
                           to={item.link}
-                          className={clsx(' h-6', {
+                          className={clsx('', {
                             'text-[#61378A]': item.link === pathname,
                             'text-[#808080]': item.link !== pathname,
                           })}>
@@ -70,7 +70,7 @@ export const Sidebar = () => {
                         </Link>
                       </motion.div>
                     ))}
-                  </>
+                  </div>
                 ))}
             </div>
           </div>

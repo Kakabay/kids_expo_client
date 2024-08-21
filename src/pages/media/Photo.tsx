@@ -1,31 +1,31 @@
-import { useEffect, useState } from "react";
-import { BreadCrumbs } from "../../components/ui/BreadCrumbs";
-import { Title } from "../../components/ui/Title";
-import clsx from "clsx";
+import { useEffect, useState } from 'react';
+import { BreadCrumbs } from '../../components/ui/BreadCrumbs';
+import { Title } from '../../components/ui/Title';
+import clsx from 'clsx';
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselPrevious,
   CarouselNext,
-} from "../../components/ui/carousel";
-import { type CarouselApi } from "../../components/ui/carousel";
-import YearTab from "@/components/Video/YearTab";
-import useGetPhotos from "@/hooks/media/useGetPhotos";
-import Loader from "@/components/Loader";
+} from '../../components/ui/carousel';
+import { type CarouselApi } from '../../components/ui/carousel';
+import YearTab from '@/components/Video/YearTab';
+import useGetPhotos from '@/hooks/media/useGetPhotos';
+import Loader from '@/components/Loader';
 
 const items = [
   {
-    img: "/assets/images/photo.png",
+    img: '/assets/images/photo.png',
   },
   {
-    img: "/assets/images/photo.png",
+    img: '/assets/images/photo.png',
   },
   {
-    img: "/assets/images/photo.png",
+    img: '/assets/images/photo.png',
   },
   {
-    img: "/assets/images/photo.png",
+    img: '/assets/images/photo.png',
   },
 ];
 
@@ -42,7 +42,7 @@ const Photo = () => {
     setCount(api.scrollSnapList().length);
     setCurrent(api.selectedScrollSnap() + 1);
 
-    api.on("select", () => {
+    api.on('select', () => {
       setCurrent(api.selectedScrollSnap() + 1);
     });
   }, [api]);
@@ -51,12 +51,10 @@ const Photo = () => {
 
   return (
     <div className="">
-      <BreadCrumbs second={"Медиа"} path="/media/photo" third="Фоторепортаж" />
+      <BreadCrumbs second={'Медиа'} path="/media/photo" third="Фоторепортаж" />
       <Title title="Фоторепортаж" className="mb-8" />
 
-      <h4 className="mb-8 font-semibold text-[21px] leading-none">
-        Экспозиция
-      </h4>
+      <h4 className="mb-8 font-semibold text-[21px] leading-none">Экспозиция</h4>
 
       <YearTab />
 
@@ -66,11 +64,7 @@ const Photo = () => {
             {data ? (
               data.map((item, i) => (
                 <CarouselItem key={i} className="w-full">
-                  <img
-                    src={item.media_url}
-                    alt=""
-                    className="w-full h-full object-cover"
-                  />
+                  <img src={item.media_url} alt="" className="w-full h-full object-cover" />
                 </CarouselItem>
               ))
             ) : (
@@ -80,12 +74,12 @@ const Photo = () => {
 
           <div className="flex items-center justify-between mt-4">
             <div className="text-black text-[14px]">
-              {current}/{items.length}
+              {current}/{items.length - 1}
             </div>
 
             <div className="flex items-center gap-5">
-              <CarouselPrevious variant={"default"} />
-              <CarouselNext variant={"default"} />
+              <CarouselPrevious variant={'default'} />
+              <CarouselNext variant={'default'} />
             </div>
           </div>
         </Carousel>
