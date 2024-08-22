@@ -5,7 +5,7 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from '../ui/carousel';
+} from '../../../components/ui/carousel';
 import Loader from '../Loader';
 import { useMedia, VideoType } from '@/services/zustand/zusMedia';
 

@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { LangMenu } from './LangMenu';
 import { useLang } from '../../services/zustand/zusLang';
 import { v4 } from 'uuid';
-import { BurgerMenu } from '../Home/BurgerMenu';
+import BurgerMenu from '../Home/BurgerMenu';
 import { AnimatePresence } from 'framer-motion';
 import { useBurger } from '../../services/zustand/zusBurger';
 import { headerMenu, headerMenu2 } from '../../database/header.data';

@@ -7,8 +7,8 @@ import {
   CarouselItem,
   CarouselPrevious,
   CarouselNext,
-} from '../../components/ui/carousel';
-import { type CarouselApi } from '../../components/ui/carousel';
+} from '../../../components/ui/carousel';
+import { type CarouselApi } from '../../../components/ui/carousel';
 import YearTab from '@/components/Video/YearTab';
 import useGetPhotos from '@/hooks/media/useGetPhotos';
 import Loader from '@/components/Loader';
