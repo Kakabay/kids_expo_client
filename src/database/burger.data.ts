@@ -1,88 +1,105 @@
 export const burgerData = [
   {
-    view: 'Медиа',
+    view: "Медиа",
+    viewEn: "Media",
     info: [
       {
-        view: 'Фоторепортаж',
-        link: '/media/photo',
+        view: "Фоторепортаж",
+        viewEn: "Фоторепортаж",
+        link: "/media/photo",
       },
       {
-        view: 'Видеорепортаж',
-        link: '/media/video',
+        view: "Видеорепортаж",
+        viewEn: "Видеорепортаж",
+        link: "/media/video",
       },
     ],
   },
   {
-    view: 'Новости',
-    link: '/news',
+    view: "Новости",
+    viewEn: "News",
+    link: "/news",
   },
   {
-    view: 'FAQ',
-    link: '/faq',
+    view: "FAQ",
+    viewEn: "FAQ",
+    link: "/faq",
   },
   {
-    view: 'Контакты',
-    link: '/contacts',
+    view: "Контакты",
+    viewEn: "Contacts",
+    link: "/contacts",
   },
 ];
 
 export const burgerData2 = [
   {
-    view: 'Выставка',
+    view: "Выставка",
+    viewEn: "Exhibition",
     info: [
       {
-        view: 'О выставке',
-        link: '/exhibition-about',
+        view: "О выставке",
+        viewEn: "About",
+        link: "/exhibition-about",
       },
       {
-        view: 'Тематика',
-        link: '/exhibition-theme',
+        view: "Тематика",
+        viewEn: "Theme",
+        link: "/exhibition-theme",
       },
       {
-        view: 'Место проведения',
-        link: '/exhibition-avenue',
+        view: "Место проведения",
+        viewEn: "Venue",
+        link: "/exhibition-avenue",
       },
       {
-        view: 'Информационная поддержка',
-        link: '/exhibition-support',
+        view: "Информационная поддержка",
+        viewEn: "Information support",
+        link: "/exhibition-support",
       },
     ],
   },
   {
-    view: 'Участникам',
+    view: "Участникам",
+    viewEn: "Participants",
     info: [
       {
-        view: 'Информация для участников',
-        link: '/participants-info',
+        view: "Информация для участников",
+        viewEn: "Information for participants",
+        link: "/participants-info",
       },
       {
-        view: 'Преимущества участия',
-        link: '/participants-benefits',
+        view: "Преимущества участия",
+        viewEn: "Benefits of participation",
+        link: "/participants-benefits",
       },
       {
-        view: 'Онлайн-заявка для участников',
-        link: '/participants-apply',
+        view: "Онлайн-заявка для участников",
+        viewEn: "Application for participation",
+        link: "/participants-apply",
       },
       {
-        view: 'Документы',
-        link: '/participants-docs',
+        view: "Документы",
+        viewEn: "Documents",
+        link: "/participants-docs",
       },
       {
-        view: 'Услуги для экспонентов',
-        link: '/participants-services',
+        view: "Услуги для экспонентов",
+        viewEn: "Participants",
+        link: "/participants-services",
       },
     ],
   },
   {
-    view: 'Посетителям',
+    view: "Посетителям",
     info: [
       {
-        view: 'Информация для посетителей',
-        link: '/visitors-info',
+        view: "Информация для посетителей",
+        link: "/visitors-info",
       },
       {
-        view: 'Зачем посещать',
-        link: '/visitors-visit',
+        view: "Зачем посещать",
+        link: "/visitors-visit",
       },
     ],
   },
