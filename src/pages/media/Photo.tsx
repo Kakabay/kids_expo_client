@@ -60,7 +60,7 @@ const Photo = () => {
           <CarouselContent>
             {data ? (
               data.map((item, i) => (
-                <CarouselItem key={i} className="w-full">
+                <CarouselItem key={i} className="w-full max-h-[450px]">
                   <img src={item.media_url} alt="" className="w-full h-full object-cover" />
                 </CarouselItem>
               ))
@@ -71,7 +71,7 @@ const Photo = () => {
 
           <div className="flex items-center justify-between mt-4">
             <div className="text-black text-[14px]">
-              {current}/{items.length - 1}
+              {current}/{data.length}
             </div>
 
             <div className="flex items-center gap-5">
