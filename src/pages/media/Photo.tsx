@@ -13,20 +13,20 @@ import YearTab from '@/components/Video/YearTab';
 import useGetPhotos from '@/hooks/media/useGetPhotos';
 import Loader from '@/components/Loader';
 
-const items = [
-  {
-    img: '/assets/images/photo.png',
-  },
-  {
-    img: '/assets/images/photo.png',
-  },
-  {
-    img: '/assets/images/photo.png',
-  },
-  {
-    img: '/assets/images/photo.png',
-  },
-];
+// const items = [
+//   {
+//     img: '/assets/images/photo.png',
+//   },
+//   {
+//     img: '/assets/images/photo.png',
+//   },
+//   {
+//     img: '/assets/images/photo.png',
+//   },
+//   {
+//     img: '/assets/images/photo.png',
+//   },
+// ];
 
 const Photo = () => {
   const [current, setCurrent] = useState(0);

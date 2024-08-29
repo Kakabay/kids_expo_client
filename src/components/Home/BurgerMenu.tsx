@@ -165,17 +165,17 @@ import { ChevronRight } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { Separator } from '../../../components/ui/separator';
 import { useBurger } from '@/services/zustand/zusBurger';
-import { useLang } from '../News/zusLang';
+// import { useLang } from '../News/zusLang';
 
 const BurgerMenu = () => {
   const [activeDrop, setActiveDrop] = useState('');
 
   const [activeFooter, setActiveFooter] = useState('');
 
-  const burger = useBurger((state) => state.burger);
+  // const burger = useBurger((state) => state.burger);
   const setBurger = useBurger((state) => state.setBurger);
 
-  const setLang = useLang((state) => state.setLang);
+  // const setLang = useLang((state) => state.setLang);
 
   useEffect(() => {
     document.body.classList.add('overflow-hidden');
