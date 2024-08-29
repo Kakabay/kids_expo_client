@@ -1,13 +1,13 @@
-import useGetVideos from '@/hooks/media/useGetVideos';
+import useGetVideos from "@/hooks/media/useGetVideos";
 import {
   Carousel,
   CarouselContent,
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from '../../../components/ui/carousel';
-import Loader from '../Loader';
-import { useMedia, VideoType } from '@/services/zustand/zusMedia';
+} from "../../../components/ui/carousel";
+import Loader from "../Loader";
+import { useMedia, VideoType } from "@/services/zustand/zusMedia";
 
 const VideoSlider = () => {
   const { data, isLoading } = useGetVideos();
@@ -16,7 +16,9 @@ const VideoSlider = () => {
 
   return data ? (
     <div className="">
-      <h4 className="mb-[26px] mt-8 text-[21px] font-semibold">Смотрите также: </h4>
+      <h4 className="mb-[26px] mt-8 text-[21px] font-semibold">
+        Смотрите также:{" "}
+      </h4>
       <Carousel className="w-full h-full relative z-50 ">
         <div className="">
           <CarouselContent className="relative pointer-events-auto top-0 left-0">
@@ -24,8 +26,13 @@ const VideoSlider = () => {
               <CarouselItem
                 onClick={() => setActiveVideo(item as VideoType)}
                 key={i}
-                className="basis-1/4 max-h-[111px] w-full cursor-pointer">
-                <img src={item.preview} alt="" className="object-cover h-full w-full" />
+                className="basis-1/2 md:basis-1/3 lg:basis-1/4 max-h-[111px] w-full cursor-pointer"
+              >
+                <img
+                  src={item.preview}
+                  alt=""
+                  className="object-cover h-full w-full"
+                />
               </CarouselItem>
             ))}
           </CarouselContent>
