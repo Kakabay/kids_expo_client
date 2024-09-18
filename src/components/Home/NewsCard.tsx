@@ -57,7 +57,13 @@ export const HomeNewsCard = ({ path, published_at, id, title }: IProps) => {
 
   return (
     <Link to={`/news/${id}`}>
-      <img src={path} alt="news_image" width={mobile ? 290 : 500} height={160} />
+      <img
+        src={path}
+        alt="news_image"
+        width={mobile ? 290 : 500}
+        height={160}
+        className="h-[160px] w-full object-cover object-center"
+      />
       <div
         className={clsx('py-6', {
           'max-w-[250px]': mobile,
