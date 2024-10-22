@@ -86,6 +86,13 @@ module.exports = {
         participantsCardShadow: '0 2px 8px rgba(0, 0, 0, 0.16)',
         rectCardShadow: '0 2px 4px rgba(0, 0, 0, 0.10)',
       },
+      backgroundImage: {
+        HOME_PATTERN: "url('/images/home-bg.png')",
+        HEADER_PATTERN: "url('/images/header-bg.png')",
+        FOOTER_PATTERN: "url('/images/footer-bg.png')",
+        AUTH_BTN_PATTERN: "url('/images/auth-btn-bg.png')",
+        POEM_PATTERN: "url('/images/poems/1.png')",
+      },
       screens: {
         mob: '440px',
         tab: '980px',

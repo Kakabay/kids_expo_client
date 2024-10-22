@@ -61,7 +61,7 @@ export const Header = () => {
             />
             <div>
               <p className="text-#050505 font-bold text-[12px]">
-                {useGetEn('19-22 August, 2024', '19–22 августа 2024')}
+                {useGetEn('22-24 August, 2025', '22-24 августа 2025')}
               </p>
               <img src="/assets/icons/kids-expo.svg" alt="" />
             </div>

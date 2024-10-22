@@ -47,7 +47,7 @@ const BurgerMenu = () => {
       initial={{ x: '100%', opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       exit={{ x: '100%', opacity: 0 }}
-      transition={{ ease: 'circInOut', duration: 0.3 }}
+      transition={{ duration: 0.4, ease: [0.55, 0, 0.1, 1] }}
       className="w-screen h-screen top-[97px] bg-purple absolute leading-[120%] text-white left-0 py-10 overflow-auto">
       <motion.div className="container flex flex-col gap-5 font-normal">
         <AnimatePresence>
