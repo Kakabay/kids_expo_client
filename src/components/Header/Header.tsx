@@ -72,7 +72,7 @@ export const Header = () => {
                 </Link>
               ))}
 
-            <GetTicketBtn href="https://reg.turkmenexpo.com/login.php?idExh=1" />
+            <GetTicketBtn href="/participants-apply" />
           </div>
 
           <div
