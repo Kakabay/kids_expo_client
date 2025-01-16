@@ -46,12 +46,9 @@ export const Header = () => {
         </div>
       </div>
 
-      <div
-        className={clsx('bg-white text-black drop-shadow-headerShadow', {
-          // 'fixed w-full top-0': burgerOpen,
-        })}>
+      <div className={clsx('bg-white text-black drop-shadow-headerShadow')}>
         <div className="container py-[15px] tab:py-[5px] flex items-center justify-between">
-          <Link to="/" className="flex">
+          <Link to="/" className="flex items-center">
             <img
               src="/assets/icons/flower-toy.svg"
               width={65}
@@ -60,9 +57,9 @@ export const Header = () => {
               className="mr-[5px]"
             />
             <div>
-              <p className="text-#050505 font-bold text-[12px]">
+              {/* <p className="text-#050505 font-bold text-[12px]">
                 {useGetEn('22-24 August, 2025', '22-24 августа 2025')}
-              </p>
+              </p> */}
               <img src="/assets/icons/kids-expo.svg" alt="" />
             </div>
           </Link>
