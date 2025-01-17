@@ -11,7 +11,7 @@ const ParticipantsHotels = () => {
     <div>
       <BreadCrumbs
         second={useTranslate('Участникам', 'Participants')}
-        third={useTranslate('Размещение в гостиницах', 'Услуги для экспонентов')}
+        third={useTranslate('Туристические услуги', 'Туристические услуги')}
       />
       <Title title={useTranslate('Туристические услуги', 'Туристические услуги')} mb32 />
 
