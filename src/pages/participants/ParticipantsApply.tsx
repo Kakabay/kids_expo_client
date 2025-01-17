@@ -8,6 +8,7 @@ import expoService from '../../services/api/requests/expo.service';
 import { useLang } from '../../services/zustand/zusLang';
 import { SubmitModal } from '../../components/Participants/SubmitModal';
 import { useParticipantsForm } from '../../services/zustand/zusForm';
+import { AnimatePresence } from 'framer-motion';
 
 interface ResType {
   title?: string;
@@ -91,7 +92,8 @@ const ParticipantsApply = () => {
 
   return (
     <>
-      {success === 'success' && <SubmitModal />}
+      <AnimatePresence>{success === 'success' && <SubmitModal />}</AnimatePresence>
+
       <SidebarLayout>
         <div className="w-full max-w-[540px] tab:mx-0 mx-auto">
           <BreadCrumbs

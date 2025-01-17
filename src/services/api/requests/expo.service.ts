@@ -195,7 +195,9 @@ class ExpoService {
     phone,
     email,
     area,
+    // response_method,
     contact_person,
+    // area_is_equipped,
     what_demonstrated,
     web_site,
   }: PostParticipantFormTypes) {
