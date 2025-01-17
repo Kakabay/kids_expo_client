@@ -28,14 +28,14 @@ const ExhibitionAbout = () => {
         <BreadCrumbs second={useGetEn('About', 'О Выставке')} />
 
         <Title title={useGetEn('About', 'О выставке')} mb24 />
-        {aboutExhibitionIsSuccess ? (
+        {aboutExhibitionIsSuccess && (
           <div
             className="flex flex-col gap-6 exibition-about-wrapper"
             dangerouslySetInnerHTML={{
               __html: aboutExhibitionData ? aboutExhibitionData : '',
             }}
           />
-        ) : null}
+        )}
 
         {aboutExhibitionIsLoading && <Loader />}
       </div>

@@ -89,6 +89,10 @@
     @apply text-[14px] leading-[140%];
   }
 
+  .exibition-about-wrapper ul {
+    @apply flex flex-col gap-3 leading-[130%] pl-6 list-disc;
+  }
+
   .exibition-about-wrapper p {
     @apply text-base leading-[24px];
   }
@@ -114,7 +118,7 @@
   }
 
   .select-inner ul {
-    @apply ml-8 leading-[150%];
+    @apply ml-8 flex flex-col gap-3  leading-[150%];
   }
 
   .select-inner li {
