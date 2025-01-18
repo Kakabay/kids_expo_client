@@ -103,9 +103,28 @@ export const burgerData2 = [
         link: '/participants-docs',
       },
       {
+        id: 8,
         view: 'Услуги для экспонентов',
         viewEn: 'Participants',
-        link: '/participants-services',
+
+        items: [
+          {
+            title: 'Инженерные услуги',
+            link: '/participants-services',
+          },
+          {
+            title: 'Сервис на стендах',
+            link: '/participants-services/stend',
+          },
+          {
+            title: 'Туристические услуги',
+            link: '/participants-services/hotels',
+          },
+          {
+            title: 'Полиграфия',
+            link: '/participants-services/poligraphy',
+          },
+        ],
       },
     ],
   },
@@ -113,6 +132,7 @@ export const burgerData2 = [
     id: 7,
 
     view: 'Посетителям',
+    viewEn: 'For visitors',
     menu: true,
 
     info: [

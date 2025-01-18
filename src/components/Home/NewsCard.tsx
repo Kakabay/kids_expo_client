@@ -67,7 +67,7 @@ export const HomeNewsCard = ({ path, published_at, id, title }: IProps) => {
       <div
         className={clsx('py-6', {
           'max-w-[250px]': mobile,
-          'w-[500px]': !mobile,
+          'max-w-[500px]': !mobile,
         })}>
         <div className="leading-[125%] font-medium news-text mb-[10px]">{title}</div>
         <div className="text-[#8D9399] text-[13px]">{published_at}</div>
