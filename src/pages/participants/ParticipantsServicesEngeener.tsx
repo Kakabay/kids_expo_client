@@ -1,5 +1,4 @@
 import Loader from "../../components/Loader";
-import { BlankButton } from "../../components/Participants/BlankButton";
 import { FooterServices } from "../../components/Participants/FooterServices";
 import { ThemeCardAccordion } from "../../components/Theme/ThemeCardAccordion";
 import { BreadCrumbs } from "../../components/ui/BreadCrumbs";
@@ -29,7 +28,7 @@ const ParticipantsServicesEngeener = () => {
 
       {isLoading && <Loader />}
 
-      <BlankButton path="" className="mb-8" />
+      {/* <BlankButton path="" className="mb-8" /> */}
 
       <FooterServices />
     </div>

@@ -1,5 +1,4 @@
 import Loader from "../../components/Loader";
-import { BlankButton } from "../../components/Participants/BlankButton";
 import { FooterServices } from "../../components/Participants/FooterServices";
 import { ThemeCardAccordion } from "../../components/Theme/ThemeCardAccordion";
 import { BreadCrumbs } from "../../components/ui/BreadCrumbs";
@@ -27,7 +26,7 @@ const ParticipantsStend = () => {
 
       {isLoading && <Loader />}
 
-      <BlankButton path="" className="my-8 " />
+      {/* <BlankButton path="" className="my-8 " /> */}
 
       <FooterServices />
     </div>
