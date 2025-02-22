@@ -31,8 +31,8 @@ export default function HomePage() {
               ))}
           </div>
 
-          <div className="flex tab:flex-row flex-col-reverse gap-[30px]">
-            <div className="flex tab:flex-col flex-wrap gap-3">
+          <div className="flex flex-col-reverse gap-[30px]">
+            <div className="grid tab:grid-cols-3 grid-cols-1 gap-6">
               {cardsRectData
                 .filter((item) => (localization === "en" ? item.en : !item.en))
                 .map((item) => (
@@ -40,23 +40,33 @@ export default function HomePage() {
                 ))}
             </div>
 
-            <div className="flex flex-col tab:items-end justify-between">
-              <p className="sm-[16px] md:text-[24px] leading-[130%] font-light tab:mb-0 mb-8">
-                {useGetEn(
-                  `“Everything for Children”
+            <div className="flex flex-col-reverse lg:flex-row justify-between  gap-6">
+              <div>
+                <p className="sm-[16px] md:text-[24px] leading-[130%] font-light mb-8">
+                  {useGetEn(
+                    `“Everything for Children”
                   is the largest congress and exhibition B2B event in the
                   field of children's goods industry in Turkmenistan,
                   Central Asia and the CIS countries, uniting
                   professionals who produce and
                   purchase quality products.`,
-                  `«Все для детей» - крупнейшее конгресно-выставочное В2В-мероприятие в сфере индустрии
+                    `«Все для детей» - крупнейшее конгресно-выставочное В2В-мероприятие в сфере индустрии
                   детских товаров на территории Туркменистана, стран ЦА и СНГ, объединяющее
                   профессионалов, производящих и закупающих качественную продукцию.`
-                )}
-              </p>
-              <LinkSeeMore
-                text={useGetEn("To learn more", "Узнать больше")}
-                path="/exhibition-about"
+                  )}
+                </p>
+                <LinkSeeMore
+                  text={useGetEn("To learn more", "Узнать больше")}
+                  path="/exhibition-about"
+                />
+              </div>
+
+              <video
+                controls
+                autoPlay
+                loop
+                muted
+                src="https://editor.turkmenexpo.com/storage/app/media/video/KidsExpo%202024_%20Turkmenistan.mp4"
               />
             </div>
           </div>
