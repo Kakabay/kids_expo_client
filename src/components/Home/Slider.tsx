@@ -1,25 +1,24 @@
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { Link } from 'react-router-dom';
-import { Autoplay, Navigation, Pagination } from 'swiper/modules';
-import { v4 } from 'uuid';
-import { useMediaQuery } from 'usehooks-ts';
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Link } from "react-router-dom";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { useMediaQuery } from "usehooks-ts";
 
-import useGetBanners from '../../hooks/useGetBanners';
-import Loader from '../Loader';
+import useGetBanners from "../../hooks/useGetBanners";
+import Loader from "../Loader";
 
 export const Slider = () => {
-  const tab = useMediaQuery('(min-width: 1250px)');
-  const md = useMediaQuery('(min-width: 768px)');
+  const tab = useMediaQuery("(min-width: 1250px)");
+  const md = useMediaQuery("(min-width: 768px)");
 
   const { bannersIsLoading, bannersData } = useGetBanners();
 
   const chooseBanner = () => {
     if (tab) {
-      return 'main-surat';
+      return "main-surat";
     } else if (md) {
-      return 'medium-surat';
+      return "medium-surat";
     } else {
-      return 'small-surat';
+      return "small-surat";
     }
   };
 
@@ -27,16 +26,16 @@ export const Slider = () => {
     <Swiper
       modules={[Pagination, Autoplay, Navigation]}
       slidesPerView={1}
-      // onAutoplayTimeLeft={onAutoplayTimeLeft}
       loop
       speed={1500}
-      autoplay={{ delay: 5000 }}>
+      autoplay={{ delay: 5000 }}
+    >
       {bannersData &&
         bannersData.map(
-          (item) =>
+          (item, i) =>
             item.code.includes(chooseBanner()) && (
-              <SwiperSlide key={v4()}>
-                <Link to={''}>
+              <SwiperSlide key={i}>
+                <Link to={""}>
                   <div className="h-[490px] w-full">
                     <img
                       src={item.banner_items[0].image}
@@ -46,7 +45,7 @@ export const Slider = () => {
                   </div>
                 </Link>
               </SwiperSlide>
-            ),
+            )
         )}
       {bannersIsLoading && <Loader className="h-[490px]" />}
     </Swiper>

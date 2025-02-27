@@ -19,7 +19,7 @@ export const ExhibitionTheme = () => {
     <SidebarLayout>
       <BreadCrumbs
         second={useGetEn("Exhibition", "Выставка")}
-        third={useGetEn("Venue", "Место проведения")}
+        third={useGetEn("Theme", "Тематика")}
         path="/exhibition-about"
       />
 

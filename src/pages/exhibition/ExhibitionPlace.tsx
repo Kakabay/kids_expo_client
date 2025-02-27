@@ -20,7 +20,7 @@ const ExhibitionPlace = () => {
       <BreadCrumbs
         second={useGetEn("Exhibition", "Выставка")}
         path="/exhibition-about"
-        third={useGetEn("venue", "Место проведения")}
+        third={useGetEn("Venue", "Место проведения")}
       />
 
       <div className="flex flex-col gap-6">

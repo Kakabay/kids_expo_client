@@ -9,16 +9,14 @@ import { useTranslate } from "../../utils/useTranslate";
 const ParticipantsStend = () => {
   const { data, isLoading } = useGetStandServices();
 
+  const title = useTranslate("Сервис на стендах", "Servise at stands");
   return (
     <div>
       <BreadCrumbs
         second={useTranslate("Участникам", "Participants")}
-        third={useTranslate("Сервис на стендах", "Услуги для экспонентов")}
+        third={title}
       />
-      <Title
-        title={useTranslate("Сервис на стендах", "Инженерные услуги")}
-        mb32
-      />
+      <Title title={title} mb32 />
 
       {data
         ? data.map((item, i) => <ThemeCardAccordion {...item} key={i} />)

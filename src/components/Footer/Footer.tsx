@@ -23,7 +23,11 @@ export const Footer = () => {
               </p>
             </div>
 
-            <div className="flex flex-col gap-2">
+            <Link
+              to={"https://turkmenexpo.com/"}
+              target="_blank"
+              className="flex flex-col gap-2"
+            >
               <p>{useGetEn("Co-organizer:", "Со-организатор:")}</p>
               <img
                 width={161}
@@ -31,7 +35,7 @@ export const Footer = () => {
                 src="../assets/icons/text-logo.svg"
                 alt=""
               />
-            </div>
+            </Link>
           </div>
 
           <hr className="block md:hidden my-6  border-[1px] border-gray3" />

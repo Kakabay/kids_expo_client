@@ -7,13 +7,15 @@ import { useTranslate } from "../../utils/useTranslate";
 const ParticipantsPoligraphy = () => {
   const { data, isLoading } = useGetPrints();
 
+  const title = useTranslate("Полиграфия", "Printing Services");
+
   return (
     <div>
       <BreadCrumbs
         second={useTranslate("Участникам", "Participants")}
-        third={useTranslate("Полиграфия", "Услуги для экспонентов")}
+        third={title}
       />
-      <Title title={useTranslate("Полиграфия", "Инженерные услуги")} mb32 />
+      <Title title={title} mb32 />
 
       <div
         className="select-inner select-prints"

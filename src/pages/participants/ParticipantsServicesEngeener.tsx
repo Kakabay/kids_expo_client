@@ -16,7 +16,10 @@ const ParticipantsServicesEngeener = () => {
         third={useTranslate("Услуги для экспонентов", "Услуги для экспонентов")}
       />
       <Title
-        title={useTranslate("Инженерные услуги", "Инженерные услуги")}
+        title={useTranslate(
+          "Services for exhibitors",
+          "Услуги для экспонентов"
+        )}
         mb32
       />
 

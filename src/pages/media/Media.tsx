@@ -1,5 +1,5 @@
-import { Outlet } from 'react-router-dom';
-import { SidebarLayout } from '../../components/global/SidebarLayout';
+import { Outlet } from "react-router-dom";
+import { SidebarLayout } from "../../components/global/SidebarLayout";
 
 const Media = () => {
   return (

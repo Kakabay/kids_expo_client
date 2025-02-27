@@ -7,6 +7,7 @@ import { useLang } from "../services/zustand/zusLang";
 import { useEffect } from "react";
 import { useGetEn } from "../hooks/language/useGetEn";
 import { PartnersSection } from "../components/Home/PartnersSection";
+import { Title } from "@/components/ui/Title";
 
 export default function HomePage() {
   useEffect(() => {
@@ -14,6 +15,21 @@ export default function HomePage() {
   }, []);
 
   const localization = useLang((state) => state.activeLang.localization);
+
+  const titleRu = "Изучите отчет Kids Expo 2024!";
+
+  const pRu = `
+  Отчет Kids Expo 2024
+  – одного из крупнейшего мероприятия для индустрии детских товаров иразвлечений. В нем представлен анализ посещаемости, данные о
+  странах-участниках, оценка удовлетворенности гостей, а также ключевые тренды, аналитика рынка, инсайты отэкспертов, которые формируют будущее детской индустрии.  `;
+
+  const titleEn = "Explore the Kids Expo 2024 Report!";
+  const pEn = `
+  The
+  Kids Expo 2024 Report covers one of the largest events in thechildren's products and entertainment industry. It includes an analysis
+  of attendance, data on participating countries, visitor satisfaction assessment,as well as key trends, market analytics, and expert insights
+  shaping the future of the children's industry.
+  `;
 
   return (
     <>
@@ -42,21 +58,12 @@ export default function HomePage() {
 
             <div className="flex flex-col-reverse lg:flex-row justify-between  gap-6">
               <div>
-                <p className="sm-[16px] md:text-[24px] leading-[130%] font-light mb-8">
-                  {useGetEn(
-                    `“Everything for Children”
-                  is the largest congress and exhibition B2B event in the
-                  field of children's goods industry in Turkmenistan,
-                  Central Asia and the CIS countries, uniting
-                  professionals who produce and
-                  purchase quality products.`,
-                    `«Все для детей» - крупнейшее конгресно-выставочное В2В-мероприятие в сфере индустрии
-                  детских товаров на территории Туркменистана, стран ЦА и СНГ, объединяющее
-                  профессионалов, производящих и закупающих качественную продукцию.`
-                  )}
+                <Title title={useGetEn(titleEn, titleRu)} className="mb-6" />
+                <p className="sm-[16px] md:text-[20px] leading-[130%] font-light mb-8">
+                  {useGetEn(pEn, pRu)}
                 </p>
                 <LinkSeeMore
-                  text={useGetEn("To learn more", "Узнать больше")}
+                  text={useGetEn("Download", "Скачать")}
                   path="/exhibition-about"
                 />
               </div>
