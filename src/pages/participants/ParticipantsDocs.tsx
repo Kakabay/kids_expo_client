@@ -1,4 +1,3 @@
-import { v4 } from "uuid";
 import { SidebarLayout } from "../../components/global/SidebarLayout";
 import { BreadCrumbs } from "../../components/ui/BreadCrumbs";
 import { Title } from "../../components/ui/Title";

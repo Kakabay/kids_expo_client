@@ -1,4 +1,3 @@
-import { v4 } from "uuid";
 import { NavBtn } from "../ui/NavBtn";
 import { Title } from "../ui/Title";
 import { HomeNewsCard } from "./NewsCard";
@@ -6,7 +5,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import useGetNews from "../../hooks/useGetNews";
 import { useLang } from "../../services/zustand/zusLang";
-import { newsDataEn } from "../../database/news.data";
 import { Link } from "react-router-dom";
 import { CustomButton } from "../ui/CustomButton";
 
