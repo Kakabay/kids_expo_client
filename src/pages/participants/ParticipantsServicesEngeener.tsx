@@ -9,24 +9,19 @@ import { useTranslate } from "../../utils/useTranslate";
 const ParticipantsServicesEngeener = () => {
   const { data, isLoading } = useGetEngeener();
 
+  const title = useTranslate("Услуги для экспонентов", "Engineering services");
+
   return (
     <div>
       <BreadCrumbs
         second={useTranslate("Участникам", "Participants")}
-        third={useTranslate("Услуги для экспонентов", "Услуги для экспонентов")}
+        third={title}
       />
-      <Title
-        title={useTranslate(
-          "Services for exhibitors",
-          "Услуги для экспонентов"
-        )}
-        mb32
-      />
+      <Title title={title} mb32 />
 
       <div className="border-b-[1px] border-[#DADADA] mb-8">
-        {data
-          ? data.map((item, i) => <ThemeCardAccordion {...item} key={i} />)
-          : null}
+        {data &&
+          data.map((item, i) => <ThemeCardAccordion {...item} key={i} />)}
       </div>
 
       {isLoading && <Loader />}
