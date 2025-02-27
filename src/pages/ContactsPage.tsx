@@ -5,6 +5,8 @@ import useGetContacts from "../hooks/useGetContacts";
 import { useLang } from "../services/zustand/zusLang";
 import { useEffect } from "react";
 import Loader from "../components/Loader";
+import { useTranslate } from "@/utils/useTranslate";
+import { useGetEn } from "@/hooks/language/useGetEn";
 
 export const ContactsPage = () => {
   useEffect(() => {
@@ -43,12 +45,14 @@ export const ContactsPage = () => {
         <Title title={chooseDataLang("Contacts", "Контакты")} />
 
         <div className="mt-[35px] flex flex-col gap-2 leading-[130%]">
-          {contactsData?.map((item) => (
-            <div key={v4()}>
+          {contactsData?.map((item, i) => (
+            <div key={i}>
               <h4 className="font-bold leading-[125%] mb-2">
-                Ходжамурадов Махтумкули
+                {localization === "en"
+                  ? "Hojamuradov Magtymguly"
+                  : "Ходжамурадов Махтумкули"}
               </h4>
-              <p className="text-[14px]">{item.services[0].phone}</p>
+              <p className="text-[14px]">{item.services?.[0]?.phone}</p>
               <p className="text-[14px] text-purple">
                 {item.services[0].email}
               </p>
