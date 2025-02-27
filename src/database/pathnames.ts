@@ -51,7 +51,7 @@ export const sidebarData: MenuType[] = [
         link: "/participants-services",
         items: [
           {
-            title: "Услуги для экспонентов",
+            title: "Инженерные услуги",
             link: "/participants-services",
           },
           {

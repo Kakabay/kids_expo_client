@@ -9,7 +9,7 @@ import { useTranslate } from "../../utils/useTranslate";
 const ParticipantsServicesEngeener = () => {
   const { data, isLoading } = useGetEngeener();
 
-  const title = useTranslate("Услуги для экспонентов", "Engineering services");
+  const title = useTranslate("Инженерные услуги", "Engineering services");
 
   return (
     <div>
