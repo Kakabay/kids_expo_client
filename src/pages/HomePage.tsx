@@ -84,15 +84,18 @@ export default function HomePage() {
 
       <PartnersSection />
 
-      <section className="mb-[50px] bg-[#f9f9f9]">
-        <div className="flex py-5 justify-center container">
-          <a href="https://exposale.net/ru" target="_blank">
-            <img
-              src="https://exposale.net/template-admin/assets/elFinder/files/banners/728x90rus.png"
-              title="Найди свою выставку на EXPOSALE.net"
-            />
-          </a>
-        </div>
+      <section className="mb-[50px] bg-[#f9f9f9] container flex justify-center">
+        <a
+          href="https://exposale.net/ru"
+          target="_blank"
+          className="max-w-[450px] h-auto"
+        >
+          <img
+            src="https://exposale.net/template-admin/assets/elFinder/files/banners/728x90rus.png"
+            title="Найди свою выставку на EXPOSALE.net"
+            className=""
+          />
+        </a>
       </section>
 
       <section className="relative w-full h-[300px] sm:h-[350px] md:h-[400px] lg:h-[480px] mb-[50px]">
