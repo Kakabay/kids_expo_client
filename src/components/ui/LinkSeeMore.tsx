@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 
 interface IProps {
   path: string;
@@ -6,10 +6,19 @@ interface IProps {
 }
 
 export const LinkSeeMore = ({ path, text }: IProps) => {
-  return (
-    <Link to={path} className="flex items-center text-[14px] gap-[10px] text-orange">
+  return path ? (
+    <Link
+      target="_blank"
+      to={path}
+      className="flex items-center text-[14px] gap-[10px] text-orange"
+    >
       <p>{text}</p>
       <img src="../assets/icons/link-arrow.png" alt="arrow" />
     </Link>
+  ) : (
+    <div className="flex items-center text-[14px] gap-[10px] text-orange">
+      <p>{text}</p>
+      <img src="../assets/icons/link-arrow.png" alt="arrow" />
+    </div>
   );
 };

@@ -7,6 +7,8 @@ import { Autoplay } from "swiper/modules";
 export const PartnersSection = () => {
   const { partnersData } = useGetPartners();
 
+  console.log(partnersData);
+
   return (
     <div className="container mb-[50px]">
       <Title title={useGetEn("Partners", "Партнёры")} />

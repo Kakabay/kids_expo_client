@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { useGetEn } from "../hooks/language/useGetEn";
 import { PartnersSection } from "../components/Home/PartnersSection";
 import { Title } from "@/components/ui/Title";
+import { lang } from "@/components/Header/LangMenu";
 
 export default function HomePage() {
   useEffect(() => {
@@ -30,6 +31,11 @@ export default function HomePage() {
   of attendance, data on participating countries, visitor satisfaction assessment,as well as key trends, market analytics, and expert insights
   shaping the future of the children's industry.
   `;
+
+  const link =
+    localization === "ru"
+      ? "https://editor.turkmenexpo.com/storage/app/media/report/ReportKidsExpo2024_ru.pdf"
+      : "";
 
   return (
     <>
@@ -64,7 +70,7 @@ export default function HomePage() {
                 </p>
                 <LinkSeeMore
                   text={useGetEn("Download", "Скачать")}
-                  path="/exhibition-about"
+                  path={link}
                 />
               </div>
 
@@ -93,7 +99,6 @@ export default function HomePage() {
           <img
             src="https://exposale.net/template-admin/assets/elFinder/files/banners/728x90rus.png"
             title="Найди свою выставку на EXPOSALE.net"
-            className=""
           />
         </a>
       </section>
