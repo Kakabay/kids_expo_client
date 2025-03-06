@@ -8,7 +8,6 @@ import { useEffect } from "react";
 import { useGetEn } from "../hooks/language/useGetEn";
 import { PartnersSection } from "../components/Home/PartnersSection";
 import { Title } from "@/components/ui/Title";
-import { lang } from "@/components/Header/LangMenu";
 
 export default function HomePage() {
   useEffect(() => {
