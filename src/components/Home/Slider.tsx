@@ -7,7 +7,7 @@ import useGetBanners from "../../hooks/useGetBanners";
 import Loader from "../Loader";
 
 export const Slider = () => {
-  const tab = useMediaQuery("(min-width: 1250px)");
+  const tab = useMediaQuery("(min-width: 1024px)");
   const md = useMediaQuery("(min-width: 768px)");
 
   const { bannersIsLoading, bannersData } = useGetBanners();
@@ -36,11 +36,11 @@ export const Slider = () => {
             item.code.includes(chooseBanner()) && (
               <SwiperSlide key={i}>
                 <Link to={""}>
-                  <div className="h-[490px] w-full">
+                  <div className="lg:max-h-[600px] lg:min-h-[320px]">
                     <img
                       src={item.banner_items[0].image}
                       alt={item.banner_items[0].title}
-                      className="h-full w-full object-cover object-center"
+                      className="size-full object-cover"
                     />
                   </div>
                 </Link>
