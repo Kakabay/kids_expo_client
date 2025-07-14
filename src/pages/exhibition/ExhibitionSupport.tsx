@@ -9,7 +9,7 @@ export const ExhibitionSupport = () => {
   }, []);
 
   return (
-    <section className="container page-m">
+    <section className="container">
       <BreadCrumbs
         second={useGetEn("Exhibition", "Выставка")}
         path="/exhibition-about"

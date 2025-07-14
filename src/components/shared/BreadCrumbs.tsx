@@ -13,7 +13,7 @@ export const BreadCrumbs = ({
   cursor?: boolean;
 }) => {
   return (
-    <div className="text-[12px] text-[#8C8C8C] flex items-center mob:mb-6 mb-5 mt-8">
+    <div className="text-[12px] text-[#8C8C8C] flex items-center mob:mb-6 mb-5 mt-4">
       <Link to={"/"}>{useTranslate("Главная", "Home")}</Link>
 
       <p className="px-1">/</p>
