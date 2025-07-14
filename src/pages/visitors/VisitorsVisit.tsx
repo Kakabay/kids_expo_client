@@ -1,8 +1,5 @@
 import { useLang } from "../../services/zustand/zusLang";
-import { BreadCrumbs } from "../../components/shared/BreadCrumbs";
-import { Title } from "../../components/shared/Title";
 import { v4 } from "uuid";
-import { useEffect } from "react";
 import { useScrollTop } from "@/lib/utils";
 import { CoverLayout } from "@/components/layout/CoverLayout";
 

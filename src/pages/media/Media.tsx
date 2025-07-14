@@ -1,4 +1,3 @@
-import { SidebarLayout } from "@/components/layout/SidebarLayout";
 import { Outlet } from "react-router-dom";
 
 const Media = () => {

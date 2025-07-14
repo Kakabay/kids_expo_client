@@ -8,7 +8,6 @@ import { useLang } from "../services/zustand/zusLang";
 import { Pagination } from "../components/shared/Pagination";
 import Loader from "../components/Loader";
 import { CustomButton } from "../components/shared/CustomButton";
-import { SidebarLayout } from "@/components/layout/SidebarLayout";
 import { NewsCard } from "@/components/shared/NewsCard";
 
 export const NewsPage = () => {

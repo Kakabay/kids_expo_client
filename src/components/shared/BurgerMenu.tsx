@@ -4,11 +4,10 @@ import { Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useBurger } from "@/services/zustand/zusBurger";
-import { useLang } from "../News/zusLang";
-import { activeLangType } from "../shared/LangMenu";
 import { cn } from "@/lib/utils";
+import { useLang } from "@/services/zustand/zusLang";
 
-const burgerLangs: activeLangType[] = [
+const burgerLangs = [
   // {
   //   title: "Tm",
   //   localization: "tm",

@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import { FC } from "react";
 import { Button } from "../ui/button";
-import { ArrowUpRight, Download } from "lucide-react";
+import { Download } from "lucide-react";
 import { Link } from "react-router-dom";
 
 interface Props {

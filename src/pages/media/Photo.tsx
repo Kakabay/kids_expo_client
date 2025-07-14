@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import { BreadCrumbs } from "../../components/shared/BreadCrumbs";
-import { Title } from "../../components/shared/Title";
 import {
   Carousel,
   CarouselContent,
@@ -47,8 +45,6 @@ const Photo = () => {
   }, [api]);
 
   const { data, isLoading } = useGetPhotos();
-
-  const title = useGetEn("Photo Report", "Фоторепортаж");
 
   return (
     <CoverLayout title="Фоторепортаж">

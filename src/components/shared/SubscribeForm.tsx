@@ -2,6 +2,8 @@ import { FC, useState } from "react";
 import { z } from "zod";
 import { cn, useTranslate } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
 
 interface Props {
   className?: string;
@@ -17,27 +19,25 @@ export type SubscribeType = z.infer<typeof schema>;
 export const SubscribeForm: FC<Props> = ({ modal = false }) => {
   const [success, setSuccess] = useState(false);
 
-  // const form = useForm<SubscribeType>({
-  //   resolver: zodResolver(schema),
-  //   defaultValues: {
-  //     email: "",
-  //   },
-  // });
+  const form = useForm<SubscribeType>({
+    resolver: zodResolver(schema),
+    defaultValues: {
+      email: "",
+    },
+  });
 
-  // async function onSubmit(data: SubscribeType) {
-  //   try {
-  //     const status = await postSubscribe(data);
-
-  //     form.reset();
-  //     setSuccess(status);
-  //   } catch (error) {
-  //     console.error("POST subscribe", error);
-  //   }
-  // }
+  async function onSubmit() {
+    try {
+      form.reset();
+      setSuccess(true);
+    } catch (error) {
+      console.error("POST subscribe", error);
+    }
+  }
 
   return (
     <form
-      // onSubmit={form.handleSubmit(onSubmit)}
+      onSubmit={form.handleSubmit(onSubmit)}
       className={cn(
         "py-8",
         modal ? "max-w-[392px] mx-auto" : "bg-surface-secondary"

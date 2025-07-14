@@ -1,6 +1,4 @@
 import { useForm } from "react-hook-form";
-import { BreadCrumbs } from "../../components/shared/BreadCrumbs";
-import { Title } from "../../components/shared/Title";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import expoService from "../../services/api/requests/expo.service";
