@@ -9,12 +9,10 @@ import { Pagination } from "../components/shared/Pagination";
 import Loader from "../components/Loader";
 import { CustomButton } from "../components/shared/CustomButton";
 import { NewsCard } from "@/components/shared/NewsCard";
+import { useScrollTop } from "@/lib/utils";
 
 export const NewsPage = () => {
-  useEffect(() => {
-    window.scroll(0, 0);
-  }, []);
-
+  useScrollTop();
   const chooseDataLang = (en: string, ru: string) =>
     localization === "en" ? en : ru;
 
@@ -34,7 +32,7 @@ export const NewsPage = () => {
   });
 
   return (
-    <div className="container page-m">
+    <div className="container mb-24">
       <BreadCrumbs second={chooseDataLang("News", "Новости")} />
 
       <Title title={chooseDataLang("News", "Новости")} mb24 />

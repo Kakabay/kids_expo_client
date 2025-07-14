@@ -23,7 +23,7 @@ export const NewsSeperatePage = () => {
   );
 
   return (
-    <div className="container">
+    <div className="container mb-24">
       <>
         <BreadCrumbs
           second={chooseDataLang("News", "Новости")}

@@ -1,13 +1,19 @@
-import { cn } from "@/lib/utils";
+import { cn, useTranslate } from "@/lib/utils";
 import { FC } from "react";
 
 interface Props {
   title: string;
+  subtitleEn: string;
   subtitle: string;
   className?: string;
 }
 
-export const AboutCard: FC<Props> = ({ className, title, subtitle }) => {
+export const AboutCard: FC<Props> = ({
+  className,
+  title,
+  subtitle,
+  subtitleEn,
+}) => {
   return (
     <article
       className={cn(
@@ -23,7 +29,9 @@ export const AboutCard: FC<Props> = ({ className, title, subtitle }) => {
         {title}
       </h2>
 
-      <h4 className="text-on_surface normal text-base">{subtitle}</h4>
+      <h4 className="text-on_surface normal text-base">
+        {useTranslate(subtitle, subtitleEn)}
+      </h4>
     </article>
   );
 };

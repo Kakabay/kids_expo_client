@@ -1,18 +1,22 @@
 export const stats = [
   {
     title: "8,400 m²",
+    subtitleEn: "Exhibition area",
     subtitle: "выставочной площади",
   },
   {
     title: "10000+",
+    subtitleEn: "Expected visitors",
     subtitle: "Посетители посетят выставку",
   },
   {
     title: "100+",
+    subtitleEn: "Exhibitors from over 30 countries",
     subtitle: "Экспоненты из более чем 30 стран",
   },
   {
     title: "80%",
+    subtitleEn: "Participants are top-management",
     subtitle: "Участники принимают участие в принятии решений о закупках",
   },
 ];
@@ -98,15 +102,18 @@ export const themeData = [
 export const times = [
   {
     title: "Монтаж выставки",
-    date: "12 мая – 10 июня 2025 года",
+    titleEn: "Exhibition assembly",
+    date: "6 августа – 20 августа 2025 года",
   },
   {
     title: "Работа",
-    date: "12 мая – 10 июня 2025 года",
+    titleEn: "Exhibition days",
+    date: "21 августа – 23 августа 2025 года",
   },
   {
     title: "Демонтаж",
-    date: "12 мая – 10 июня 2025 года",
+    titleEn: "Exhibition dismantling",
+    date: "24 августа 2025 года",
   },
 ];
 

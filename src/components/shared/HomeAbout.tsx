@@ -39,7 +39,7 @@ export const HomeAbout: FC<Props> = ({ className }) => {
             to={item.link}
             className="bg-interactive-background-primary text-white h-12 w-full flex items-center justify-center rounded-sm font-bold"
           >
-            {useTranslate(item.title, item.title)}
+            {useTranslate(item.title, item.titleEn)}
           </Link>
         ))}
       </div>
