@@ -1,15 +1,10 @@
-import { useEffect } from 'react';
-import { SidebarLayout } from '../../components/global/SidebarLayout';
-import { BreadCrumbs } from '../../components/ui/BreadCrumbs';
-import { Title } from '../../components/ui/Title';
-import useGetAboutExhibition from '../../hooks/useGetAboutExhibition';
-import { useGetEn } from '../../hooks/language/useGetEn';
-import Loader from '../../components/Loader';
+import useGetAboutExhibition from "../../hooks/useGetAboutExhibition";
+import Loader from "../../components/Loader";
+import { CoverLayout } from "@/components/layout/CoverLayout";
+import { useScrollTop, useTranslate } from "@/lib/utils";
 
 const ExhibitionAbout = () => {
-  useEffect(() => {
-    window.scroll(0, 0);
-  }, []);
+  useScrollTop();
 
   const {
     aboutExhibitionData,
@@ -22,24 +17,21 @@ const ExhibitionAbout = () => {
     <h1>Error...</h1>;
   }
 
+  const title = useTranslate("О выставке", "About");
+
   return (
-    <SidebarLayout>
-      <div className="w-full h-full">
-        <BreadCrumbs second={useGetEn('About', 'О Выставке')} />
+    <CoverLayout title={title}>
+      {aboutExhibitionIsSuccess && (
+        <div
+          className="flex flex-col gap-6 exibition-about-wrapper"
+          dangerouslySetInnerHTML={{
+            __html: aboutExhibitionData ? aboutExhibitionData : "",
+          }}
+        />
+      )}
 
-        <Title title={useGetEn('About', 'О выставке')} mb24 />
-        {aboutExhibitionIsSuccess && (
-          <div
-            className="flex flex-col gap-6 exibition-about-wrapper"
-            dangerouslySetInnerHTML={{
-              __html: aboutExhibitionData ? aboutExhibitionData : '',
-            }}
-          />
-        )}
-
-        {aboutExhibitionIsLoading && <Loader />}
-      </div>
-    </SidebarLayout>
+      {aboutExhibitionIsLoading && <Loader />}
+    </CoverLayout>
   );
 };
 

@@ -1,5 +1,5 @@
-import { BreadCrumbs } from "../components/ui/BreadCrumbs";
-import { Title } from "../components/ui/Title";
+import { BreadCrumbs } from "../components/shared/BreadCrumbs";
+import { Title } from "../components/shared/Title";
 import useGetContacts from "../hooks/useGetContacts";
 import { useLang } from "../services/zustand/zusLang";
 import { useEffect } from "react";

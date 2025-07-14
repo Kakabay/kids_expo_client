@@ -1,12 +1,11 @@
 import { create } from "zustand";
-import { activeLangType } from "../../components/Header/LangMenu";
 
-type LangStore = {
+export type LangStore = {
   activeLang: {
     title: string;
     localization: string;
   };
-  setLang: (obj: activeLangType) => void;
+  setLang: (obj: LangStore["activeLang"]) => void;
 };
 
 export const useLang = create<LangStore>((set) => ({

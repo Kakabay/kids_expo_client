@@ -1,18 +1,16 @@
-export const headerMenu = [
+export const headerData = [
   {
     title: "Медиа",
-    titleEn: "Media",
     link: "/media/photo",
-    dropDown: [
+    drop: true,
+    content: [
       {
-        title: "Фоторепортаж",
+        text: "Фоторепортаж",
         link: "/media/photo",
-        titleEn: "Фоторепортаж",
       },
       {
-        title: "Видеорепортаж",
+        text: "Видеорепортаж",
         link: "/media/video",
-        titleEn: "Видеорепортаж",
       },
     ],
   },
@@ -20,22 +18,22 @@ export const headerMenu = [
     en: true,
     title: "Media",
     link: "/media/photo",
-    dropDown: [
+    drop: true,
+
+    content: [
       {
-        title: "Фоторепортаж",
+        text: "Фоторепортаж",
         link: "/media/photo",
-        titleEn: "Фоторепортаж",
       },
       {
-        title: "Видеорепортаж",
+        text: "Видеорепортаж",
         link: "/media/video",
-        titleEn: "Видеорепортаж",
       },
     ],
   },
-  { title: "Новости", titleEn: "News", link: "/news" },
-  { title: "FAQ", titleEn: "FAQ", link: "/faq" },
-  { title: "Контакты", titleEn: "Contacts", link: "/contacts" },
+  { title: "Новости", link: "/news" },
+  { title: "FAQ", link: "/faq" },
+  { title: "Контакты", link: "/contacts" },
 
   { en: true, title: "News", link: "/news" },
   { en: true, title: "FAQ", link: "/faq" },
@@ -47,7 +45,7 @@ export const headerMenu2 = [
     ex: true,
     title: "Выставка",
     link: "/exhibition-about",
-    dropDown: [
+    content: [
       {
         title: "О Выставке",
         titleEn: "About",
@@ -75,7 +73,7 @@ export const headerMenu2 = [
     partic: true,
     title: "Участникам",
     link: "/participants-info",
-    dropDown: [
+    content: [
       {
         title: "Информация для участников",
         titleEn: "Information for participants",
@@ -102,7 +100,7 @@ export const headerMenu2 = [
     vis: true,
     title: "Посетителям",
     link: "/visitors-info",
-    dropDown: [
+    content: [
       {
         title: "Информация для посетителей",
         titleEn: "Information for visitors",
@@ -119,4 +117,118 @@ export const headerMenu2 = [
   { en: true, title: "Exhibition", link: "/exhibition-about" },
   { en: true, title: "Participants", link: "/participants-info" },
   { en: true, title: "For visitors", link: "/visitors-info" },
+];
+
+export const navTop = [
+  {
+    title: "Путеводитель",
+    titleEn: "Travel Guide",
+    link: "",
+  },
+  {
+    title: "Контакты",
+    titleEn: "Contacts",
+    link: "/contacts",
+  },
+  {
+    title: "Новости",
+    titleEn: "News",
+    link: "/news",
+  },
+];
+
+export const navBottom = [
+  {
+    title: "Выставка",
+    titleEn: "Exhibition",
+    content: [
+      {
+        title: "О Выставке",
+        titleEn: "About",
+        link: "/exhibition-about",
+      },
+      {
+        title: "Тематика",
+        titleEn: "Theme",
+        link: "/exhibition-theme",
+      },
+      {
+        title: "Место проведения",
+        titleEn: "Venue",
+        link: "/exhibition-avenue",
+      },
+      {
+        title: "Информационная поддержка",
+        titleEn: "Information support",
+        link: "/exhibition-support",
+      },
+    ],
+  },
+
+  {
+    title: "Участникам",
+    titleEn: "Participants",
+    content: [
+      {
+        title: "Информация для участников",
+        titleEn: "Information for participants",
+        link: "/participants-info",
+      },
+      {
+        title: "Преимущества участия",
+        titleEn: "Benefits of participation",
+        link: "/participants-benefits",
+      },
+      {
+        titleEn: "Application for participation",
+        title: "Онлайн заявка для участников",
+        link: "/participants-apply",
+      },
+      {
+        title: "Документы",
+        titleEn: "Documents",
+        link: "/participants-docs",
+      },
+      {
+        title: "Инженерные услуги",
+        titleEn: "Engineering services",
+
+        link: "/participants-services",
+      },
+      {
+        title: "Сервис на стендах",
+        titleEn: "Servise at stands",
+
+        link: "/participants-services/stend",
+      },
+      {
+        title: "Туристические услуги",
+        titleEn: "Tourist Services",
+
+        link: "/participants-services/hotels",
+      },
+      {
+        title: "Полиграфия",
+        titleEn: "Printing Services",
+
+        link: "/participants-services/poligraphy",
+      },
+    ],
+  },
+  {
+    title: "Посетителям",
+    titleEn: "For visitors",
+    content: [
+      {
+        title: "Информация для посетителей",
+        titleEn: "Information for visitors",
+        link: "/visitors-info",
+      },
+      {
+        title: "Преимущества участия",
+        titleEn: "Why visit",
+        link: "/visitors-visit",
+      },
+    ],
+  },
 ];

@@ -1,11 +1,10 @@
-import { Outlet } from 'react-router-dom';
-import { SidebarLayout } from '../../components/global/SidebarLayout';
+import { Outlet } from "react-router-dom";
 
 const ParticipantsServices = () => {
   return (
-    <SidebarLayout>
+    <div className="container">
       <Outlet />
-    </SidebarLayout>
+    </div>
   );
 };
 

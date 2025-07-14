@@ -1,12 +1,11 @@
 import { useEffect, useRef, useState } from "react";
-import { BreadCrumbs } from "../../components/ui/BreadCrumbs";
-import { Title } from "../../components/ui/Title";
 import YearTab from "@/components/Video/YearTab";
 import { Play } from "lucide-react";
 import useGetVideos from "@/hooks/media/useGetVideos";
 import VideoSlider from "@/components/Video/VideoSlider";
 import { useMedia } from "@/services/zustand/zusMedia";
-import { useGetEn } from "@/hooks/language/useGetEn";
+import { CoverLayout } from "@/components/layout/CoverLayout";
+import { useTranslate } from "@/lib/utils";
 
 const Video = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -20,15 +19,10 @@ const Video = () => {
     setIsPlaying(false);
   }, [activeVideo]);
 
-  const videoReport = useGetEn("Video Report", "Видеорепортаж");
-
-  const media = useGetEn("Media", "Медиа");
+  const title = useTranslate("Video Report", "Видеорепортаж");
 
   return (
-    <div className="pointer-events-auto">
-      <BreadCrumbs second={media} path="/media/photo" third={videoReport} />
-      <Title title={videoReport} className="mb-8" />
-
+    <CoverLayout title={title}>
       <YearTab />
 
       <div className="relative w-full max-h-[470px]">
@@ -69,7 +63,7 @@ const Video = () => {
         )}
       </div>
       <VideoSlider />
-    </div>
+    </CoverLayout>
   );
 };
 

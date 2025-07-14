@@ -1,10 +1,8 @@
 import { useEffect } from "react";
-import { SidebarLayout } from "../../components/global/SidebarLayout";
-import { BreadCrumbs } from "../../components/ui/BreadCrumbs";
-import { Title } from "../../components/ui/Title";
 import useGetVenue from "../../hooks/exhibition/useGetVenue";
-import { useGetEn } from "../../hooks/language/useGetEn";
 import Loader from "../../components/Loader";
+import { CoverLayout } from "@/components/layout/CoverLayout";
+import { useTranslate } from "@/lib/utils";
 
 const ExhibitionPlace = () => {
   useEffect(() => {
@@ -15,17 +13,11 @@ const ExhibitionPlace = () => {
 
   const { venueData, venueIsLoading } = useGetVenue();
 
+  const title = useTranslate("Место проведения", "Venue");
+
   return (
-    <SidebarLayout>
-      <BreadCrumbs
-        second={useGetEn("Exhibition", "Выставка")}
-        path="/exhibition-about"
-        third={useGetEn("Venue", "Место проведения")}
-      />
-
+    <CoverLayout title={title}>
       <div className="flex flex-col gap-6">
-        <Title title={useGetEn("Venue", "Место проведения")} />
-
         <div
           className="exibition-about-wrapper flex flex-col gap-6"
           dangerouslySetInnerHTML={{
@@ -35,7 +27,7 @@ const ExhibitionPlace = () => {
       </div>
 
       {venueIsLoading && <Loader />}
-    </SidebarLayout>
+    </CoverLayout>
   );
 };
 

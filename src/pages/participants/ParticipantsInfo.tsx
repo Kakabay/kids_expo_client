@@ -1,11 +1,10 @@
-import { SidebarLayout } from "../../components/global/SidebarLayout";
-import { InfoCard } from "../../components/Participants/InfoCard";
-import { BreadCrumbs } from "../../components/ui/BreadCrumbs";
-import { Title } from "../../components/ui/Title";
+import { InfoCard } from "../../components/shared/InfoCard";
 import { useLang } from "../../services/zustand/zusLang";
 import useGetEventDates from "../../hooks/participants/useGetEventDates";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
+import { useTranslate } from "@/lib/utils";
+import { CoverLayout } from "@/components/layout/CoverLayout";
 
 export const ParticipantsInfo = () => {
   useEffect(() => {
@@ -18,24 +17,13 @@ export const ParticipantsInfo = () => {
 
   const { eventsDatesData } = useGetEventDates();
 
+  const title = useTranslate(
+    "Информация для участников",
+    "Information for participants"
+  );
+
   return (
-    <SidebarLayout>
-      <BreadCrumbs
-        second={chooseDataLang("Participants", "Участникам")}
-        third={chooseDataLang(
-          "Information for participants",
-          "Информация для участников"
-        )}
-      />
-
-      <Title
-        title={chooseDataLang(
-          "Information for participants",
-          "Информация для участников"
-        )}
-        mb24
-      />
-
+    <CoverLayout title={title}>
       <div className="hidden min-[1200px]:grid grid-cols-3 min-[1250px] gap-[45px]">
         <InfoCard
           title={chooseDataLang("Assembly", "Монтаж")}
@@ -95,6 +83,6 @@ export const ParticipantsInfo = () => {
            
         </div>
       </div>
-    </SidebarLayout>
+    </CoverLayout>
   );
 };

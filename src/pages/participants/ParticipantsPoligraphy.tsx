@@ -1,8 +1,8 @@
+import { useTranslate } from "@/lib/utils";
 import Loader from "../../components/Loader";
-import { BreadCrumbs } from "../../components/ui/BreadCrumbs";
-import { Title } from "../../components/ui/Title";
+import { BreadCrumbs } from "../../components/shared/BreadCrumbs";
+import { Title } from "../../components/shared/Title";
 import useGetPrints from "../../hooks/participants/services/useGetPrints";
-import { useTranslate } from "../../utils/useTranslate";
 
 const ParticipantsPoligraphy = () => {
   const { data, isLoading } = useGetPrints();

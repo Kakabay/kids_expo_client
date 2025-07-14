@@ -1,12 +1,12 @@
-import { BreadCrumbs } from "../components/ui/BreadCrumbs";
-import { Radio } from "../components/ui/Radio";
-import { Title } from "../components/ui/Title";
+import { BreadCrumbs } from "../components/shared/BreadCrumbs";
+import { Radio } from "../components/shared/Radio";
+import { Title } from "../components/shared/Title";
 import { useFaq } from "../services/zustand/zusFaq";
 import useGetFaq from "../hooks/useGetFaq";
-import { Select } from "../components/Faq/Select";
+import { Select } from "../components/shared/Select";
 import { useEffect } from "react";
 import Loader from "../components/Loader";
-import { useTranslate } from "@/utils/useTranslate";
+import { useTranslate } from "@/lib/utils";
 
 const faqRadio = [
   {

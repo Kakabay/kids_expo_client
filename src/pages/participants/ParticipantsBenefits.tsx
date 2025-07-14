@@ -1,16 +1,11 @@
-import { v4 } from "uuid";
-import { SidebarLayout } from "../../components/global/SidebarLayout";
-import { BreadCrumbs } from "../../components/ui/BreadCrumbs";
-import { Title } from "../../components/ui/Title";
 import { useLang } from "../../services/zustand/zusLang";
 import useGetBenefits from "../../hooks/participants/useGetBenefits";
-import { useEffect } from "react";
 import Loader from "../../components/Loader";
+import { useScrollTop, useTranslate } from "@/lib/utils";
+import { CoverLayout } from "@/components/layout/CoverLayout";
 
 export const ParticipantsBenefits = () => {
-  useEffect(() => {
-    window.scroll(0, 0);
-  }, []);
+  useScrollTop();
 
   const localization = useLang((state) => state.activeLang.localization);
   const chooseDataLang = (en: string, ru: string) =>
@@ -18,25 +13,13 @@ export const ParticipantsBenefits = () => {
 
   const { benefitsData, benefitsIsLoading } = useGetBenefits();
 
+  const title = useTranslate(
+    "Преимущества участия",
+    "Benefits of participations"
+  );
+
   return (
-    <SidebarLayout>
-      <BreadCrumbs
-        second={chooseDataLang("Participations", "Участникам")}
-        path="/participants-info"
-        third={chooseDataLang(
-          "Benefits of participations",
-          "Преимущества участия"
-        )}
-      />
-
-      <Title
-        title={chooseDataLang(
-          "Benefits of participations",
-          "Преимущества участия"
-        )}
-        mb24
-      />
-
+    <CoverLayout title={title}>
       <h3 className="text-[21px] md:leading-[100%] leading-[115%] font-semibold mb-[42px]">
         {chooseDataLang(
           "By taking part in “Kids Expo: Everything for Children”, companies will have:",
@@ -46,9 +29,9 @@ export const ParticipantsBenefits = () => {
 
       <div className="grid min-[1150px]:grid-cols-2 grid-cols-1 grid-rows-2 gap-6 min-[1150px]gap-[42px]">
         {benefitsData
-          ? benefitsData.map((item) => (
+          ? benefitsData.map((item, i) => (
               <div
-                key={v4()}
+                key={i}
                 className="flex items-start px-4 py-6 bg-pureWhite rounded-sm gap-[10px] text-[14px] leading-[130%]"
               >
                 <img src="/assets/icons/benefits-star.svg" alt="" />
@@ -58,6 +41,6 @@ export const ParticipantsBenefits = () => {
           : null}
       </div>
       {benefitsIsLoading && <Loader />}
-    </SidebarLayout>
+    </CoverLayout>
   );
 };

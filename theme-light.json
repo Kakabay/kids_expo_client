@@ -1,0 +1,536 @@
+{
+  "surface": {
+    "primary": {
+      "value": "{neutral.50}",
+      "type": "color",
+      "description": "Основной фон приложения"
+    },
+    "secondary": {
+      "value": "{neutral.white}",
+      "type": "color",
+      "description": "Фон элементов поверх основного (карточки, модальные окна)."
+    },
+    "secondary-hover": {
+      "value": "{neutral.200}",
+      "type": "color",
+      "description": "Фон для вторичной поверхности при наведении"
+    },
+    "secondary-pressed": {
+      "value": "{neutral.300}",
+      "type": "color",
+      "description": "Фон для вторичной поверхности в момент нажатия"
+    },
+    "brand": {
+      "value": "{purple.800}",
+      "type": "color",
+      "description": "Фон для крупных, брендированных секций (например, футер или \"геройский\" блок), которые не являются интерактивными"
+    },
+    "indicator": {
+      "default": {
+        "value": "{neutral.300}",
+        "type": "color",
+        "description": "Должен быть четко виден, но не спорить с активным состоянием"
+      },
+      "hover": {
+        "value": "{neutral.400}",
+        "type": "color",
+        "description": "Дает обратную связь. Становится чуть темнее, показывая, что на него можно нажать"
+      }
+    },
+    "brand-overlay": {
+      "value": "{purple.900}",
+      "type": "color",
+      "description": "Фон для всплывающих окон"
+    },
+    "complimentary": {
+      "value": "{orange.400}",
+      "type": "color",
+      "description": "Акцентная поверхность для выделения второстепенных информационных блоков или специальных предложений"
+    },
+    "muted": {
+      "value": "{neutral.100}",
+      "type": "color",
+      "description": "Нейтральный, слегка выделяющийся фон для информационных врезок (callouts) или второстепенных панелей"
+    },
+    "disabled": {
+      "value": "{neutral.100}",
+      "type": "color",
+      "description": "Фон для отключенных, неинтерактивных элементов"
+    }
+  },
+  "text": {
+    "primary": {
+      "value": "{neutral.900}",
+      "type": "color",
+      "description": "Основной, самый контрастный текст (заголовки, параграфы)"
+    },
+    "secondary": {
+      "value": "{neutral.700}",
+      "type": "color",
+      "description": "Второстепенный текст (подписи, мета-информация)"
+    },
+    "tertiary": {
+      "value": "{neutral.500}",
+      "type": "color",
+      "description": "Третьестепенный текст "
+    },
+    "interactive": {
+      "value": "{purple.600}",
+      "type": "color",
+      "description": "Текст для ссылок и текстовых кнопок"
+    },
+    "interactive-hover": {
+      "value": "{purple.700}",
+      "type": "color",
+      "description": "Цвет для интерактивного текста при наведении курсора"
+    },
+    "interactive-pressed": {
+      "value": "{purple.700}",
+      "type": "color",
+      "description": "Цвет для интерактивного текста в момент нажатия"
+    },
+    "interactive-visited": {
+      "value": "#8361A4",
+      "type": "color",
+      "description": "Цвет для посещенного интерактивного текста "
+    },
+    "on-interactive": {
+      "value": "{neutral.white}",
+      "type": "color",
+      "description": "Текст для наложения на цветной интерактивный фон (например, на кнопке)"
+    },
+    "accent-alt": {
+      "value": "{orange.500}",
+      "type": "color",
+      "description": "Декоративный, акцентный текст (например, для заголовков секций)"
+    },
+    "accent-brand": {
+      "value": "{purple.500}",
+      "type": "color",
+      "description": "Декоративный, брендовый, акцентный текст (например, для заголовков секций)"
+    },
+    "negative": {
+      "value": "{red.600}",
+      "type": "color",
+      "description": "Для ошибки или невалидного состояния"
+    },
+    "disabled": {
+      "value": "{neutral.400}",
+      "type": "color",
+      "description": "Текст для отключенных элементов"
+    },
+    "on-brand": {
+      "value": "{neutral.white}",
+      "type": "color",
+      "description": "Основной текст для наложения на темный брендированный фон"
+    },
+    "on-brand-secondary": {
+      "value": "{purple.200}",
+      "type": "color",
+      "description": "Второстепенный, менее контрастный текст для футера (например, для копирайта)"
+    },
+    "on-complimentary": {
+      "value": "{neutral.white}",
+      "type": "color",
+      "description": "Основной цвет текста для наложения на комплиментарные фоны"
+    }
+  },
+  "border": {
+    "default": {
+      "value": "{neutral.200}",
+      "type": "color",
+      "description": "Граница для элементов по умолчанию (инпуты, карточки)"
+    },
+    "subtle": {
+      "value": "{neutral.100}",
+      "type": "color",
+      "description": "Едва заметная, \"невесомая\" граница для самого деликатного разделения"
+    },
+    "default-hover": {
+      "value": "{neutral.300}",
+      "type": "color",
+      "description": "Граница для элементов при наведении"
+    },
+    "interactive": {
+      "value": "{purple.600}",
+      "type": "color",
+      "description": "Основная граница для вторичных интерактивных элементов (кнопки, инпуты)"
+    },
+    "focused": {
+      "value": "{purple.600}",
+      "type": "color",
+      "description": "Граница для элемента в фокусе (доступность)"
+    },
+    "negative": {
+      "value": "{red.500}",
+      "type": "color",
+      "description": "Граница для обозначения ошибки или невалидного состояния"
+    },
+    "divider": {
+      "value": "{neutral.200}",
+      "type": "color",
+      "description": "Разделитель между элементами"
+    },
+    "sublte-on-brand": {
+      "value": "{purple.700}",
+      "type": "color",
+      "description": "Едва заметная граница для использования поверх surface/brand"
+    }
+  },
+  "interactive": {
+    "background": {
+      "primary": {
+        "value": "{purple.500}",
+        "type": "color",
+        "description": "Фон основной кнопки (Default)"
+      },
+      "primary-hover": {
+        "value": "{purple.600}",
+        "type": "color",
+        "description": "Фон основной кнопки (Hover)"
+      },
+      "primary-pressed": {
+        "value": "{purple.700}",
+        "type": "color",
+        "description": "Фон основной кнопки (Active/Pressed)"
+      },
+      "secondary-hover": {
+        "value": "{purple.100}",
+        "type": "color",
+        "description": "Фон для второстепенной кнопки при наведении"
+      },
+      "secondary-pressed": {
+        "value": "{purple.200}",
+        "type": "color",
+        "description": "Фон второстепенной кнопки при нажатии"
+      },
+      "complimentary": {
+        "value": "{orange.500}",
+        "type": "color",
+        "description": "Фон комплиментарной кнопки (Default)"
+      },
+      "complimentary-hover": {
+        "value": "{orange.600}",
+        "type": "color",
+        "description": "Фон комплиментарной кнопки (Hover)"
+      },
+      "complimentary-pressed": {
+        "value": "{orange.700}",
+        "type": "color",
+        "description": "Фон комплиментарной кнопки (Pressed)"
+      }
+    },
+    "overlay": {
+      "on-brand-hover": {
+        "value": "rgba(255,255,255,0.1)",
+        "type": "color",
+        "description": "{colors.white} с 10% прозрачности\nЛегкая белая \"дымка\", которая появляется при наведении."
+      },
+      "on-brand-pressed": {
+        "value": "rgba(255,255,255,0.2)",
+        "type": "color",
+        "description": "{colors.white} с 20% прозрачности\n\"Дымка\" становится плотнее в момент нажатия.\n"
+      },
+      "default": {
+        "value": "rgba(74,44,104,0.1)",
+        "type": "color",
+        "description": "{purple.800} с 10% прозрачности\nЛегкая брендовая \"дымка\", которая появляется при наведении."
+      },
+      "default-hover": {
+        "value": "rgba(74,44,104,0.1)",
+        "type": "color",
+        "description": "{purple.800} с 20% прозрачности\n\"Дымка\" становится плотнее в момент нажатия.\n"
+      }
+    }
+  },
+  "heading": {
+    "h1": {
+      "value": {
+        "fontFamily": "{font.family.brand}",
+        "fontWeight": "{font.weight.bold}",
+        "fontSize": "{font.size.5xl}",
+        "lineHeight": "{font.line-height.tight}"
+      },
+      "type": "typography",
+      "description": "Главный заголовок страницы (один на страницу)"
+    },
+    "h2": {
+      "value": {
+        "fontFamily": "{font.family.brand}",
+        "fontWeight": "{font.weight.bold}",
+        "fontSize": "{font.size.4xl}",
+        "lineHeight": "{font.line-height.tight}"
+      },
+      "type": "typography",
+      "description": "Крупный заголовок секции"
+    },
+    "h3": {
+      "value": {
+        "fontFamily": "{font.family.brand}",
+        "fontWeight": "{font.weight.bold}",
+        "fontSize": "{font.size.3xl}",
+        "lineHeight": "{font.line-height.tight}"
+      },
+      "type": "typography",
+      "description": "Заголовок подсекции или крупной карточки"
+    },
+    "h4": {
+      "value": {
+        "fontFamily": "{font.family.brand}",
+        "fontWeight": "{font.weight.bold}",
+        "fontSize": "{font.size.2xl}",
+        "lineHeight": "{font.line-height.tight}"
+      },
+      "type": "typography",
+      "description": "Небольшой заголовок внутри компонента"
+    },
+    "h5": {
+      "value": {
+        "fontFamily": "{font.family.brand}",
+        "fontWeight": "{font.weight.bold}",
+        "fontSize": "{font.size.xl}",
+        "lineHeight": "{font.line-height.tight}"
+      },
+      "type": "typography",
+      "description": "Еще меньший заголовок"
+    },
+    "h6": {
+      "value": {
+        "fontFamily": "{font.family.brand}",
+        "fontWeight": "{font.weight.bold}",
+        "fontSize": "{font.size.lg}",
+        "lineHeight": "{font.line-height.tight}"
+      },
+      "type": "typography",
+      "description": "Самый низкий уровень иерархии заголовков"
+    }
+  },
+  "body": {
+    "large": {
+      "regular": {
+        "value": {
+          "fontFamily": "{font.family.body}",
+          "fontWeight": "{font.weight.regular}",
+          "fontSize": "{font.size.lg}",
+          "lineHeight": "{font.line-height.normal}"
+        },
+        "type": "typography",
+        "description": "Вступительный абзац, акцентный текст"
+      },
+      "bold": {
+        "value": {
+          "fontFamily": "{font.family.body}",
+          "fontWeight": "{font.weight.bold}",
+          "fontSize": "{font.size.lg}",
+          "lineHeight": "{font.line-height.normal}"
+        },
+        "type": "typography",
+        "description": "Вступительный абзац, акцентный текст"
+      }
+    },
+    "medium": {
+      "regular": {
+        "value": {
+          "fontFamily": "{font.family.body}",
+          "fontWeight": "{font.weight.regular}",
+          "fontSize": "{font.size.md}",
+          "lineHeight": "{font.line-height.normal}"
+        },
+        "type": "typography",
+        "description": "Основной текст сайта"
+      },
+      "bold": {
+        "value": {
+          "fontFamily": "{font.family.body}",
+          "fontWeight": "{font.weight.bold}",
+          "fontSize": "{font.size.md}",
+          "lineHeight": "{font.line-height.normal}"
+        },
+        "type": "typography",
+        "description": "Основной текст сайта (жирный)"
+      }
+    },
+    "small": {
+      "regular": {
+        "value": {
+          "fontFamily": "{font.family.body}",
+          "fontWeight": "{font.weight.regular}",
+          "fontSize": "{font.size.sm}",
+          "lineHeight": "{font.line-height.normal}"
+        },
+        "type": "typography",
+        "description": "Второстепенный текст, подсказки, мета-информация"
+      },
+      "bold": {
+        "value": {
+          "fontFamily": "{font.family.body}",
+          "fontWeight": "{font.weight.bold}",
+          "fontSize": "{font.size.sm}",
+          "lineHeight": "{font.line-height.normal}"
+        },
+        "type": "typography",
+        "description": "Выделенный второстепенный текст"
+      }
+    },
+    "action": {
+      "medium-bold": {
+        "value": {
+          "fontFamily": "{font.family.body}",
+          "fontWeight": "{font.weight.bold}",
+          "fontSize": "{font.size.md}",
+          "lineHeight": "{font.line-height.compact}"
+        },
+        "type": "typography",
+        "description": "Текст на кнопках"
+      },
+      "medium-regular": {
+        "value": {
+          "fontFamily": "{font.family.body}",
+          "fontWeight": "{font.weight.regular}",
+          "fontSize": "{font.size.md}",
+          "lineHeight": "{font.line-height.compact}"
+        },
+        "type": "typography",
+        "description": "Текст на кнопках"
+      },
+      "small-bold": {
+        "value": {
+          "fontFamily": "{font.family.body}",
+          "fontWeight": "{font.weight.bold}",
+          "fontSize": "{font.size.sm}",
+          "lineHeight": "{font.line-height.compact}"
+        },
+        "type": "typography",
+        "description": "Текст на маленьких кнопках"
+      },
+      "small-regular": {
+        "value": {
+          "fontFamily": "{font.family.body}",
+          "fontWeight": "{font.weight.regular}",
+          "fontSize": "{font.size.sm}",
+          "lineHeight": "{font.line-height.compact}"
+        },
+        "type": "typography",
+        "description": "Текст на маленьких кнопках"
+      }
+    },
+    "ui": {
+      "label": {
+        "value": {
+          "fontFamily": "{font.family.body}",
+          "fontWeight": "{font.weight.semibold}",
+          "fontSize": "{font.size.sm}",
+          "lineHeight": "{font.line-height.tight}"
+        },
+        "type": "typography",
+        "description": "Лейблы над полями ввода (инпутами)"
+      },
+      "caption": {
+        "value": {
+          "fontFamily": "{font.family.body}",
+          "fontWeight": "{font.weight.regular}",
+          "fontSize": "{font.size.xs}",
+          "lineHeight": "{font.line-height.normal}"
+        },
+        "type": "typography",
+        "description": "Самый мелкий текст. Подписи под картинками, юридическая информация"
+      }
+    }
+  },
+  "spacing": {
+    "0": {
+      "value": "0",
+      "type": "spacing"
+    },
+    "1": {
+      "value": "4",
+      "type": "spacing"
+    },
+    "2": {
+      "value": "8",
+      "type": "spacing"
+    },
+    "3": {
+      "value": "12",
+      "type": "spacing"
+    },
+    "4": {
+      "value": "16",
+      "type": "spacing"
+    },
+    "5": {
+      "value": "20",
+      "type": "spacing"
+    },
+    "6": {
+      "value": "24",
+      "type": "spacing"
+    },
+    "8": {
+      "value": "32",
+      "type": "spacing"
+    },
+    "10": {
+      "value": "40",
+      "type": "spacing"
+    },
+    "12": {
+      "value": "48",
+      "type": "spacing"
+    }
+  },
+  "corner-radius": {
+    "none": {
+      "value": "0",
+      "type": "borderRadius",
+      "description": "Нет скругления, острые углы"
+    },
+    "sm": {
+      "value": "2",
+      "type": "borderRadius",
+      "description": "Небольшое, едва заметное скругление"
+    },
+    "default": {
+      "value": "4",
+      "type": "borderRadius",
+      "description": "Базовое скругление. Используется для большинства элементов"
+    },
+    "md": {
+      "value": "6",
+      "type": "borderRadius",
+      "description": "Чуть более заметное скругление"
+    },
+    "lg": {
+      "value": "8",
+      "type": "borderRadius",
+      "description": "Скругление для кнопок и карточек"
+    },
+    "xl": {
+      "value": "12",
+      "type": "borderRadius",
+      "description": "Сильное скругление для крупных элементов"
+    },
+    "2xl": {
+      "value": "16",
+      "type": "borderRadius",
+      "description": "Очень сильное скругление"
+    },
+    "3xl": {
+      "value": "24",
+      "type": "borderRadius",
+      "description": "Почти круглое скругление для больших плашек"
+    },
+    "full": {
+      "value": "9999",
+      "type": "borderRadius",
+      "description": "Делает элемент идеально круглым (аватары, чипсы)"
+    }
+  },
+  "link": {
+    "on-brand": {
+      "value": "{neutral.white}",
+      "type": "color",
+      "description": "Ссылка на темном фоне. Она уже контрастна, поэтому можно сделать ее просто белой, но с подчеркиванием"
+    }
+  }
+}

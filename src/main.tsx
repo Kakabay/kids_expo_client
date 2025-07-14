@@ -1,15 +1,9 @@
-// Mo
 import React from "react";
-// Styles
 import "./index.css";
-// ReactDOM
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-// Components
 import App from "./App.tsx";
-// Tanstack query
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-// Pages
 import FaqPage from "./pages/FaqPage.tsx";
 import HomePage from "./pages/HomePage.tsx";
 import ExhibitionAbout from "./pages/exhibition/ExhibitionAbout.tsx";

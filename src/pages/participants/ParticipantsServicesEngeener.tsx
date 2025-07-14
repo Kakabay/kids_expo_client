@@ -1,10 +1,10 @@
 import Loader from "../../components/Loader";
-import { FooterServices } from "../../components/Participants/FooterServices";
+import { FooterServices } from "../../components/shared/FooterServices";
 import { ThemeCardAccordion } from "../../components/Theme/ThemeCardAccordion";
-import { BreadCrumbs } from "../../components/ui/BreadCrumbs";
-import { Title } from "../../components/ui/Title";
+import { BreadCrumbs } from "../../components/shared/BreadCrumbs";
+import { Title } from "../../components/shared/Title";
 import useGetEngeener from "../../hooks/participants/services/useGetEngeener";
-import { useTranslate } from "../../utils/useTranslate";
+import { useTranslate } from "@/lib/utils";
 
 const ParticipantsServicesEngeener = () => {
   const { data, isLoading } = useGetEngeener();
