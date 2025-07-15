@@ -108,16 +108,19 @@ export const times = [
     title: "Монтаж выставки",
     titleEn: "Exhibition assembly",
     date: "6 августа – 20 августа 2025 года",
+    dateEn: "August 6 – August 20, 2025",
   },
   {
     title: "Работа",
     titleEn: "Exhibition days",
     date: "21 августа – 23 августа 2025 года",
+    dateEn: "August 21 – August 23, 2025",
   },
   {
     title: "Демонтаж",
     titleEn: "Exhibition dismantling",
     date: "24 августа 2025 года",
+    dateEn: "August 24, 2025",
   },
 ];
 

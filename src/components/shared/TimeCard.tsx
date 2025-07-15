@@ -5,6 +5,7 @@ interface Props {
   className?: string;
   title: string;
   date: string;
+  dateEn: string;
   titleEn: string;
   bottomClassName?: string;
 }
@@ -13,6 +14,7 @@ export const TimeCard: FC<Props> = ({
   className,
   title,
   date,
+  dateEn,
   bottomClassName,
   titleEn,
 }) => {
@@ -28,7 +30,7 @@ export const TimeCard: FC<Props> = ({
           bottomClassName
         )}
       >
-        {date}
+        {useTranslate(date, dateEn)}
       </div>
     </div>
   );
