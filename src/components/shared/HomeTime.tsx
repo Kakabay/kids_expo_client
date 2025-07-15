@@ -1,7 +1,5 @@
 import { cn, useTranslate } from "@/lib/utils";
 import { FC } from "react";
-import { Button } from "@/components/ui/button";
-import { Link } from "react-router-dom";
 import { TimeCard } from "./TimeCard";
 import { ContactCard } from "./ContactCard";
 import { contacts, times } from "@/constantas";
@@ -11,13 +9,12 @@ interface Props {
 }
 
 export const HomeTime: FC<Props> = ({ className }) => {
-  const btnText = useTranslate("Забронируйте стенд", "Book a stand");
   const title = useTranslate("Время выставки", "Exhibition time");
 
   return (
     <section className={cn("bg-surface-muted my-20 pt-10 pb-20", className)}>
       <div className="container">
-        <h2 className="text-4xl font-bold mb-6">{title}</h2>
+        <h2 className="h2 font-bold mb-6">{title}</h2>
 
         <div className="flex flex-col gap-6">
           <div className="flex flex-col md:flex-row items-center gap-6">
@@ -36,10 +33,6 @@ export const HomeTime: FC<Props> = ({ className }) => {
               />
             ))}
           </div>
-
-          <Link to="/stend-form" className="md:w-fit w-full mx-auto">
-            <Button className="w-full">{btnText}</Button>
-          </Link>
         </div>
       </div>
     </section>

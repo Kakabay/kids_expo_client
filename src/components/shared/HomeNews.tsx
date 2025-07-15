@@ -30,7 +30,7 @@ const HomeNews = () => {
 
   if (newsIsSuccess) {
     return (
-      <section className="container pt-[100px] mb-[100px]">
+      <section className="container pt-0 mb-16 md:pt-[100px] md:mb-[100px]">
         <div className="flex items-center justify-between mb-10">
           <Title title={chooseDataLang("News", "Новости")} />
 
@@ -42,8 +42,9 @@ const HomeNews = () => {
 
         <div ref={emblaRef} className="embla h-[350px] overflow-hidden">
           <div className="flex gap-6">
-            {newsData?.data.map((item) => (
+            {newsData?.data.map((item, i) => (
               <HomeNewsCard
+                key={i}
                 className="flex-[0_0_390px]"
                 id={item.id}
                 path={item.featured_images[0].path}

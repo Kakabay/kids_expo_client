@@ -70,32 +70,36 @@ export const offers = [
 
 export const themeData = [
   {
-    data: [
-      {
-        title: "Товары для новорожденных",
-      },
-      {
-        title: "Товары для школы (канцелярские принадлежности, детская мебель)",
-      },
-      {
-        title: "Образование и обучение для детей",
-      },
-      {
-        title: "Игрушки и развивающие пособия",
-      },
-      {
-        title: "Танцы, музыка и искусство в детской жизни",
-      },
-      {
-        title: "Здоровье и безопасность детей",
-      },
-      {
-        title: "Инновационные технологии в детском образовании",
-      },
-      {
-        title: "Детская литература и чтение",
-      },
-    ],
+    title: "Товары для новорожденных",
+    titleEn: "Products for Newborns",
+  },
+  {
+    title: "Товары для школы (канцелярские принадлежности, детская мебель)",
+    titleEn: "School Supplies (stationery, children's furniture)",
+  },
+  {
+    title: "Образование и обучение для детей",
+    titleEn: "Education and Learning for Children",
+  },
+  {
+    title: "Игрушки и развивающие пособия",
+    titleEn: "Toys and Educational Aids",
+  },
+  {
+    title: "Танцы, музыка и искусство в детской жизни",
+    titleEn: "Dance, Music, and Art in Children's Lives",
+  },
+  {
+    title: "Здоровье и безопасность детей",
+    titleEn: "Children's Health and Safety",
+  },
+  {
+    title: "Инновационные технологии в детском образовании",
+    titleEn: "Innovative Technologies in Children's Education",
+  },
+  {
+    title: "Детская литература и чтение",
+    titleEn: "Children's Literature and Reading",
   },
 ];
 
@@ -120,14 +124,20 @@ export const times = [
 export const contacts = [
   {
     suptitle: "Адрес электронной почты",
-    title: " contact@turkmenexpo.com",
+    suptitleEn: "Адрес электронной почты",
+    title: "contact@turkmenexpo.com",
+    titleEn: "contact@turkmenexpo.com",
   },
   {
-    suptitle: "Адрес электронной почты",
-    title: " contact@turkmenexpo.com",
+    suptitle: "Адрес выставки",
+    suptitleEn: "Exhibition address",
+    title: "г. Ашхабад, улица Чандыбиль 143",
+    titleEn: "Ashgabat, Chandybil street 143",
   },
   {
-    suptitle: "Адрес электронной почты",
-    title: " contact@turkmenexpo.com",
+    suptitle: "Контактный номер",
+    suptitleEn: "Contact Number",
+    title: "+993 71 87 18 13",
+    titleEn: "+993 71 87 18 13",
   },
 ];

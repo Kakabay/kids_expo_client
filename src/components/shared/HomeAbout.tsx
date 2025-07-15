@@ -31,8 +31,10 @@ export const HomeAbout: FC<Props> = ({ className }) => {
   );
 
   return (
-    <section className={cn("pt-10 pb-24 bg-surface-primary", className)}>
-      <div className="flex items-center container gap-6 mb-20">
+    <section
+      className={cn("pt-10 md:pb-24 pb-14 bg-surface-primary", className)}
+    >
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 items-center container gap-6 mb-20">
         {mainButtons[0].data.map((item, i) => (
           <Link
             key={i}
@@ -47,7 +49,7 @@ export const HomeAbout: FC<Props> = ({ className }) => {
       <div className="flex flex-col container gap-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           <div className="flex flex-col gap-6">
-            <h2 className="text-4xl font-bold text-left">{title}</h2>
+            <h2 className="h2 font-bold text-left">{title}</h2>
             <div
               dangerouslySetInnerHTML={{ __html: text ? text : "" }}
               className="md:text-base flex flex-col gap-6 text-sm normal text-left text-[#454545]"
@@ -63,7 +65,7 @@ export const HomeAbout: FC<Props> = ({ className }) => {
           </div>
 
           <video
-            src="https://turkmentextile.turkmenexpo.com/app/storage/app/media/video/Textile2025.mp4"
+            src="https://editor.turkmenexpo.com/storage/app/media/video/KidsExpo%202024_%20Turkmenistan.mp4"
             muted
             controls
             autoPlay

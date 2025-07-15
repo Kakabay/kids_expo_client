@@ -5,11 +5,13 @@ import { useMediaQuery } from "usehooks-ts";
 
 import useGetBanners from "../../hooks/useGetBanners";
 import Loader from "../Loader";
-import { useTranslate } from "@/lib/utils";
+import { cn, useTranslate } from "@/lib/utils";
+import { useLang } from "@/services/zustand/zusLang";
 
 export const HomeHero = () => {
   const tab = useMediaQuery("(min-width: 1024px)");
   const md = useMediaQuery("(min-width: 768px)");
+  const lang = useLang((state) => state.activeLang.localization);
 
   const { bannersIsLoading, bannersData } = useGetBanners();
 
@@ -57,7 +59,10 @@ export const HomeHero = () => {
       <div className="container relative">
         <Link
           to="/participants-apply"
-          className="absolute flex items-center justify-center bg-interactive-background-primary h-14 rounded-sm font-bold text-white w-[300px] right-10 bottom-20 z-50"
+          className={cn(
+            "absolute flex items-center text-2xl justify-center bg-interactive-background-primary md:h-14 h-10 rounded-sm font-bold text-white w-[300px] md:right-10 md:bottom-20 z-50 bottom-5",
+            lang === "ru" ? "text-xl" : "text-2xl"
+          )}
         >
           {btn}
         </Link>

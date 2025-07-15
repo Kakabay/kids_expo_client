@@ -1,5 +1,5 @@
 import { burgerData, burgerData2 } from "@/database/burger.data";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -35,6 +35,7 @@ export interface Item {
 }
 
 const BurgerMenu = () => {
+  const isOpen = useBurger((state) => state.burger);
   const setBurger = useBurger((state) => state.setBurger);
 
   const lang = useLang((state) => state.activeLang.localization);
@@ -57,15 +58,13 @@ const BurgerMenu = () => {
     .find((item) => item.id === 6)
     ?.info.find((_, i, arr) => i + 1 === arr.length) as BurgerItemType;
 
-  console.log(lang);
-
   return (
     <motion.div
       initial={{ x: "100%", opacity: 0 }}
       animate={{ x: 0, opacity: 1 }}
       exit={{ x: "100%", opacity: 0 }}
       transition={{ duration: 0.4, ease: [0.55, 0, 0.1, 1] }}
-      className="w-screen h-screen top-[95px] bg-purple absolute leading-[120%] text-white left-0 py-10 overflow-auto"
+      className="w-screen h-full top-20 bg-purple absolute leading-[120%] text-white z-[200] left-0 py-10 overflow-auto"
     >
       <nav className="mx-4">
         <div className="flex flex-col gap-6 h-[150px] overflow-hidden">

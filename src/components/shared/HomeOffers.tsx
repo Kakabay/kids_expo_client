@@ -7,7 +7,7 @@ export const HomeOffers: FC = () => {
   const [emblaRef] = useEmblaCarousel({ align: "start" });
 
   return (
-    <section className="bg-surface-secondary py-10 my-20 relative overflow-hidden">
+    <section className="bg-surface-secondary py-10 md:my-20 my-0 relative overflow-hidden">
       <div className="container">
         <div ref={emblaRef} className="embla ">
           <div className="mb-2 flex gap-6 embla__container">

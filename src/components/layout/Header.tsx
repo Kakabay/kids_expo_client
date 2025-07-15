@@ -5,8 +5,14 @@ import { navBottom, navTop } from "@/database/header.data";
 import { LangMenu } from "../shared/LangMenu";
 import { HoverMenu } from "../shared/HoverMenu";
 import { useTranslate } from "@/lib/utils";
+import BurgerMenu from "../shared/BurgerMenu";
+import { useBurger } from "@/services/zustand/zusBurger";
+import { AnimatePresence } from "framer-motion";
 
 export const Header: FC = () => {
+  const burger = useBurger((state) => state.burger);
+  const setBurger = useBurger((state) => state.setBurger);
+
   return (
     <header>
       <div className="h-12 hidden lg:flex bg-sur text-surface-bg bg-surface-brand text-white items-center">
@@ -62,8 +68,16 @@ export const Header: FC = () => {
           </div>
 
           <div className="flex items-center gap-3">
-            <LangMenu className="lg:hidden" light />
-            {/* <BurgerMenu /> */}
+            <div
+              onClick={() => setBurger(!burger)}
+              className="flex flex-col gap-1.5 cursor-pointer lg:hidden"
+            >
+              <span className="w-7 h-[1.7px] bg-surface-brand rounded"></span>
+              <span className="w-7 h-[1.7px] bg-surface-brand rounded"></span>
+              <span className="w-7 h-[1.7px] bg-surface-brand rounded"></span>
+            </div>
+
+            <AnimatePresence>{burger && <BurgerMenu />}</AnimatePresence>
           </div>
         </div>
       </div>

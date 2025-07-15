@@ -1,9 +1,10 @@
-import { cn } from "@/lib/utils";
+import { cn, useTranslate } from "@/lib/utils";
 import { FC } from "react";
 
 interface Props {
   image: string;
   title: string;
+  titleEn: string;
   className?: string;
   iconClassName?: string;
 }
@@ -12,6 +13,7 @@ export const ThemeCard: FC<Props> = ({
   className,
   image,
   title,
+  titleEn,
   iconClassName,
 }) => {
   return (
@@ -31,8 +33,8 @@ export const ThemeCard: FC<Props> = ({
       >
         <img src={image} alt="theme icon" />
       </div>
-      <h3 className="md:mt-6 mt-2 md:text-xl z-30 !leading-[120%] text-sm font-bold relative z-10">
-        {title}
+      <h3 className="md:mt-6 mt-2 md:text-xl z-30 !leading-[120%] text-sm font-bold relative">
+        {useTranslate(title, titleEn)}
       </h3>
     </article>
   );

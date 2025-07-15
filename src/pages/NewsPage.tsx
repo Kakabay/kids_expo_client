@@ -40,8 +40,8 @@ export const NewsPage = () => {
       <div className="flex flex-col">
         <div className="flex justify-between items-center mb-[24px] pb-[5px]">
           <div className="pointer-events-none hidden sm opacity-0 sm:flex items-center gap-5">
-            {menu.map((item) => (
-              <p key={v4()} className="cursor-pointer leading-[130%]">
+            {menu.map((item, i) => (
+              <p key={i} className="cursor-pointer leading-[130%]">
                 {item}
               </p>
             ))}
@@ -63,23 +63,22 @@ export const NewsPage = () => {
             "min-[1400px]:grid-cols-3 sm:grid-cols-2 grid-cols-1": grid,
           })}
         >
-          {newsData
-            ? newsData.data.map((item) => (
-                <NewsCard
-                  page
-                  key={v4()}
-                  id={item.id}
-                  title={item.title}
-                  published_at={item.published_at}
-                  path={
-                    item.featured_images.length > 0
-                      ? item.featured_images[0].path
-                      : newsData.data[0].featured_images[0].path
-                  }
-                  grid={grid}
-                />
-              ))
-            : null}
+          {newsData &&
+            newsData.data.map((item) => (
+              <NewsCard
+                page
+                key={v4()}
+                id={item.id}
+                title={item.title}
+                published_at={item.published_at}
+                path={
+                  item.featured_images.length > 0
+                    ? item.featured_images[0].path
+                    : newsData.data[0].featured_images[0].path
+                }
+                grid={grid}
+              />
+            ))}
         </div>
 
         <div className="hidden sm:flex flex-col gap-6 w-full max-w-[180px] mx-auto justify-center items-center">

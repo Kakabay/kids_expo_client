@@ -53,7 +53,7 @@ export const LangMenu: FC<Props> = ({ className }) => {
         onMouseEnter={handleEnter}
         onMouseLeave={handleLeavae}
         className={cn(
-          "flex text-white items-center gap-2 cursor-pointer",
+          "flex md:text-white items-center gap-2 cursor-pointer",
           className
         )}
       >
