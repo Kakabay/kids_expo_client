@@ -1,5 +1,5 @@
 import { burgerData, burgerData2 } from "@/database/burger.data";
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
@@ -35,7 +35,6 @@ export interface Item {
 }
 
 const BurgerMenu = () => {
-  const isOpen = useBurger((state) => state.burger);
   const setBurger = useBurger((state) => state.setBurger);
 
   const lang = useLang((state) => state.activeLang.localization);
