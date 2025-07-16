@@ -6,6 +6,7 @@ import { useLang } from "../../services/zustand/zusLang";
 import { Link } from "react-router-dom";
 import { CustomButton } from "./CustomButton";
 import useEmblaCarousel from "embla-carousel-react";
+import { useCallback } from "react";
 
 const HomeNews = () => {
   const { newsIsError, newsIsLoading, newsData, newsIsSuccess } = useGetNews({
@@ -13,7 +14,9 @@ const HomeNews = () => {
     perPage: 7,
   });
 
-  const [emblaRef] = useEmblaCarousel();
+  const [emblaRef, emblaApi] = useEmblaCarousel({
+    slidesToScroll: 2,
+  });
 
   if (newsIsError) {
     <h1>Error...</h1>;
@@ -22,6 +25,14 @@ const HomeNews = () => {
   if (newsIsLoading) {
     <h1>Loading...</h1>;
   }
+
+  const scrollNext = useCallback(() => {
+    emblaApi?.scrollNext();
+  }, [emblaApi]);
+
+  const scrollPrev = useCallback(() => {
+    emblaApi?.scrollPrev();
+  }, [emblaApi]);
 
   const localization = useLang((state) => state.activeLang.localization);
 
@@ -35,8 +46,8 @@ const HomeNews = () => {
           <Title title={chooseDataLang("News", "Новости")} />
 
           <div className="hidden sm:flex gap-5">
-            <NavBtn left />
-            <NavBtn />
+            <NavBtn onClick={scrollPrev} left />
+            <NavBtn onClick={scrollNext} />
           </div>
         </div>
 

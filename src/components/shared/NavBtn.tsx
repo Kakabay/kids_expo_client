@@ -6,11 +6,18 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 
-export const NavBtn = ({ left = false }: { left?: boolean }) => {
+export const NavBtn = ({
+  left = false,
+  onClick,
+}: {
+  left?: boolean;
+  onClick: VoidFunction;
+}) => {
   const btnRef = useRef<HTMLButtonElement>(null);
 
   return (
     <button
+      onClick={onClick}
       ref={btnRef}
       className={clsx("", {
         "next-btn": !left,
