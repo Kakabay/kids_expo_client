@@ -1,10 +1,7 @@
 import clsx from "clsx";
 import { useState } from "react";
 import { v4 } from "uuid";
-import { BreadCrumbs } from "../components/shared/BreadCrumbs";
-import { Title } from "../components/shared/Title";
 import useGetNews from "../hooks/useGetNews";
-import { useLang } from "../services/zustand/zusLang";
 import { Pagination } from "../components/shared/Pagination";
 import Loader from "../components/shared/Loader";
 import { CustomButton } from "../components/shared/CustomButton";
