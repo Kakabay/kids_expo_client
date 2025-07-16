@@ -1,8 +1,7 @@
 import { useTranslate } from "@/lib/utils";
 import Loader from "../../components/shared/Loader";
-import { BreadCrumbs } from "../../components/shared/BreadCrumbs";
-import { Title } from "../../components/shared/Title";
 import useGetPrints from "../../hooks/participants/services/useGetPrints";
+import { CoverLayout } from "@/components/layout/CoverLayout";
 
 const ParticipantsPoligraphy = () => {
   const { data, isLoading } = useGetPrints();
@@ -10,20 +9,14 @@ const ParticipantsPoligraphy = () => {
   const title = useTranslate("Полиграфия", "Printing Services");
 
   return (
-    <div>
-      <BreadCrumbs
-        second={useTranslate("Участникам", "Participants")}
-        third={title}
-      />
-      <Title title={title} mb32 />
-
+    <CoverLayout title={title}>
       <div
         className="select-inner select-prints"
         dangerouslySetInnerHTML={{ __html: data ? data[0].content : "" }}
       />
 
       {isLoading && <Loader />}
-    </div>
+    </CoverLayout>
   );
 };
 

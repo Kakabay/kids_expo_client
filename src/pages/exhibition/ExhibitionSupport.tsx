@@ -1,26 +1,14 @@
-import { useEffect } from "react";
-import { BreadCrumbs } from "../../components/shared/BreadCrumbs";
-import { Title } from "../../components/shared/Title";
 import { useGetEn } from "../../hooks/language/useGetEn";
+import { CoverLayout } from "@/components/layout/CoverLayout";
+import { useScrollTop, useTranslate } from "@/lib/utils";
 
 export const ExhibitionSupport = () => {
-  useEffect(() => {
-    window.scroll(0, 0);
-  }, []);
+  useScrollTop();
+
+  const title = useTranslate("Информационная поддержка", "Information support");
 
   return (
-    <section className="container">
-      <BreadCrumbs
-        second={useGetEn("Exhibition", "Выставка")}
-        path="/exhibition-about"
-        third={useGetEn("Information support", "Информационная поддержка")}
-      />
-
-      <Title
-        title={useGetEn("Information support", "Информационная поддержка")}
-        mb24
-      />
-
+    <CoverLayout title={title}>
       <h3 className="text-[18px] font-semibold leading-[120%] mb-[22px]">
         {useGetEn(
           "We invite you to become our partners",
@@ -45,6 +33,6 @@ export const ExhibitionSupport = () => {
           </div>
         </div>
       </div>
-    </section>
+    </CoverLayout>
   );
 };

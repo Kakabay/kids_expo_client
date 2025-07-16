@@ -9,18 +9,12 @@ import { Pagination } from "../components/shared/Pagination";
 import Loader from "../components/shared/Loader";
 import { CustomButton } from "../components/shared/CustomButton";
 import { NewsCard } from "@/components/shared/NewsCard";
-import { useScrollTop } from "@/lib/utils";
+import { useScrollTop, useTranslate } from "@/lib/utils";
 
 export const NewsPage = () => {
   useScrollTop();
-  const chooseDataLang = (en: string, ru: string) =>
-    localization === "en" ? en : ru;
-
-  const localization = useLang((state) => state.activeLang.localization);
 
   const [grid, setGrid] = useState(true);
-
-  const menu = ["Новости", "СМИ о нас"];
 
   const [current, setCurrent] = useState(1);
 
@@ -31,21 +25,15 @@ export const NewsPage = () => {
     perPage,
   });
 
+  const title = useTranslate("Новости", "News");
+
   return (
     <div className="container mb-24">
-      <BreadCrumbs second={chooseDataLang("News", "Новости")} />
-
-      <Title title={chooseDataLang("News", "Новости")} mb24 />
+      <h2 className="h2 mt-8">{title}</h2>
 
       <div className="flex flex-col">
-        <div className="flex justify-between items-center mb-[24px] pb-[5px]">
-          <div className="pointer-events-none hidden sm opacity-0 sm:flex items-center gap-5">
-            {menu.map((item, i) => (
-              <p key={i} className="cursor-pointer leading-[130%]">
-                {item}
-              </p>
-            ))}
-          </div>
+        <div className="flex justify-between items-end mb-[24px] pb-[5px]">
+          <div className="" />
           <img
             onClick={() => setGrid(!grid)}
             className="hidden sm:block cursor-pointer"

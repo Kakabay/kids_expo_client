@@ -1,18 +1,11 @@
-import { BreadCrumbs } from "../components/shared/BreadCrumbs";
-import { Title } from "../components/shared/Title";
 import useGetContacts from "../hooks/useGetContacts";
-import { useLang } from "../services/zustand/zusLang";
-import { useEffect } from "react";
 import Loader from "../components/shared/Loader";
+import { useScrollTop, useTranslate } from "@/lib/utils";
+import { useLang } from "@/services/zustand/zusLang";
 
 export const ContactsPage = () => {
-  useEffect(() => {
-    window.scroll(0, 0);
-  }, []);
-
-  const chooseDataLang = (en: string, ru: string) =>
-    localization === "en" ? en : ru;
-
+  useScrollTop();
+  const title = useTranslate("Контакты", "Contacts");
   const localization = useLang((state) => state.activeLang.localization);
 
   const {
@@ -36,10 +29,8 @@ export const ContactsPage = () => {
 
   if (contactsIsSuccess) {
     return (
-      <div className="container section-mb pt-5">
-        <BreadCrumbs second={chooseDataLang("Contacts", "Контакты")} />
-
-        <Title title={chooseDataLang("Contacts", "Контакты")} />
+      <div className="container">
+        <h2 className="h2 mt-10">{title}</h2>
 
         <div className="mt-[35px] flex flex-col gap-2 leading-[130%]">
           {contactsData?.map((item, i) => (

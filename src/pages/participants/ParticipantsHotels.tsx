@@ -1,8 +1,7 @@
 import { useTranslate } from "@/lib/utils";
 import Loader from "../../components/shared/Loader";
-import { BreadCrumbs } from "../../components/shared/BreadCrumbs";
-import { Title } from "../../components/shared/Title";
 import useGetHotels from "../../hooks/participants/services/useGetHotels";
+import { CoverLayout } from "@/components/layout/CoverLayout";
 
 const ParticipantsHotels = () => {
   const { data, isLoading } = useGetHotels();
@@ -10,20 +9,14 @@ const ParticipantsHotels = () => {
   const title = useTranslate("Туристические услуги", "Tourist Services");
 
   return (
-    <div>
-      <BreadCrumbs
-        second={useTranslate("Участникам", "Participants")}
-        third={title}
-      />
-      <Title title={title} mb32 />
-
+    <CoverLayout title={title}>
       <div
         className="select-inner"
         dangerouslySetInnerHTML={{ __html: data ? data[0].content : "" }}
       />
 
       {isLoading && <Loader />}
-    </div>
+    </CoverLayout>
   );
 };
 
