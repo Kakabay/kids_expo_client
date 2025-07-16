@@ -4,7 +4,7 @@ import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import { useMediaQuery } from "usehooks-ts";
 
 import useGetBanners from "../../hooks/useGetBanners";
-import Loader from "../Loader";
+import Loader from "./Loader";
 import { cn, useTranslate } from "@/lib/utils";
 import { useLang } from "@/services/zustand/zusLang";
 

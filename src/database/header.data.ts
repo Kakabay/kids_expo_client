@@ -59,7 +59,7 @@ export const headerMenu2 = [
       {
         title: "Место проведения",
         titleEn: "Venue",
-        link: "/exhibition-avenue",
+        link: "/exhibition-venue",
       },
       {
         title: "Информационная поддержка",
@@ -155,7 +155,7 @@ export const navBottom = [
       {
         title: "Место проведения",
         titleEn: "Venue",
-        link: "/exhibition-avenue",
+        link: "/exhibition-venue",
       },
       {
         title: "Информационная поддержка",

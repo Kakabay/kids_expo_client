@@ -27,12 +27,12 @@ export const sidebarData: MenuType[] = [
     info: [
       { title: "О выставке", link: "/exhibition-about" },
       { title: "Тематика", link: "/exhibition-theme" },
-      { title: "Место проведения", link: "/exhibition-avenue" },
+      { title: "Место проведения", link: "/exhibition-venue" },
       { title: "Информационная поддержка", link: "/exhibition-support" },
 
       { en: true, title: "About", link: "/exhibition-about" },
       { en: true, title: "Theme", link: "/exhibition-theme" },
-      { en: true, title: "Venue", link: "/exhibition-avenue" },
+      { en: true, title: "Venue", link: "/exhibition-venue" },
       { en: true, title: "Information support", link: "/exhibition-support" },
     ],
   },

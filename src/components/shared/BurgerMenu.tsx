@@ -31,6 +31,7 @@ export interface BurgerItemType {
 
 export interface Item {
   title: string;
+  titleEn: string;
   link: string;
 }
 
@@ -139,7 +140,7 @@ const BurgerMenu = () => {
                       to={item.link}
                       key={i}
                     >
-                      {item.title}
+                      {lang === "ru" ? item.title : item.titleEn}
                     </Link>
                   ))}
                 </motion.div>
@@ -164,7 +165,7 @@ const BurgerMenu = () => {
                         key={i}
                         to={item.link || ""}
                       >
-                        {item.view}
+                        {lang === "ru" ? item.view : item.viewEn}
                       </Link>
 
                       {i + 1 === arr.length && (
@@ -172,7 +173,7 @@ const BurgerMenu = () => {
                           onClick={() => handleClick(8, active)}
                           className="flex items-center justify-between"
                         >
-                          {item.view}
+                          {lang === "ru" ? item.view : item.viewEn}
                           <ChevronRight size={18} />
                         </div>
                       )}
@@ -213,3 +214,50 @@ const BurgerMenu = () => {
 };
 
 export default BurgerMenu;
+
+// import { burgerData, burgerData2 } from "@/database/burger.data";
+// import { useBurger } from "@/services/zustand/zusBurger";
+// import { motion } from "framer-motion";
+// import { useState } from "react";
+// import { useNavigate } from "react-router-dom";
+
+// export const BurgerMenu = () => {
+//   const setBurger = useBurger((state) => state.setBurger);
+//   const [active, setActive] = useState<null | number>(null);
+//   const navigate = useNavigate();
+
+//   const onLink = (id: number, link?: string) => {
+//     if (link) {
+//       navigate(link);
+//       setBurger(false);
+//     } else setActive(id);
+//   };
+
+//   return (
+//     <motion.div
+//       initial={{ x: "100%", opacity: 0 }}
+//       animate={{ x: 0, opacity: 1 }}
+//       exit={{ x: "100%", opacity: 0 }}
+//       transition={{ duration: 0.4, ease: [0.55, 0, 0.1, 1] }}
+//       className="w-screen h-full top-20 px-4 flex flex-col gap-10 bg-purple absolute leading-[120%] text-white z-[200] left-0 py-10 overflow-auto"
+//     >
+//       <div className="flex flex-col items-start gap-6">
+//         {burgerData.map((item, i) => (
+//           <div key={i} className="">
+//             <button onClick={() => onLink(i, item.link)} key={i}>
+//               {item.title}
+//             </button>
+//           </div>
+//         ))}
+//       </div>
+
+//       <hr className="opacity-30" />
+
+//       <div className="flex flex-col items-start gap-6">
+//         {burgerData2.map((item, i) => (
+//           <button key={i}>{item.title}</button>
+//         ))}
+//       </div>
+//     </motion.div>
+//   );
+// };

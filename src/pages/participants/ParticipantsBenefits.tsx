@@ -1,6 +1,6 @@
 import { useLang } from "../../services/zustand/zusLang";
 import useGetBenefits from "../../hooks/participants/useGetBenefits";
-import Loader from "../../components/Loader";
+import Loader from "../../components/shared/Loader";
 import { useScrollTop, useTranslate } from "@/lib/utils";
 import { CoverLayout } from "@/components/layout/CoverLayout";
 

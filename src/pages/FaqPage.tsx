@@ -5,7 +5,7 @@ import { useFaq } from "../services/zustand/zusFaq";
 import useGetFaq from "../hooks/useGetFaq";
 import { Select } from "../components/shared/Select";
 import { useEffect } from "react";
-import Loader from "../components/Loader";
+import Loader from "../components/shared/Loader";
 import { useTranslate } from "@/lib/utils";
 
 const faqRadio = [

@@ -3,14 +3,12 @@ import { BreadCrumbs } from "../components/shared/BreadCrumbs";
 import { Title } from "../components/shared/Title";
 import useGetSeperateNews from "../hooks/useGetSeperateNews";
 import { useLang } from "../services/zustand/zusLang";
-import { useEffect } from "react";
-import Loader from "../components/Loader";
+import Loader from "../components/shared/Loader";
 import { CustomButton } from "../components/shared/CustomButton";
+import { useScrollTop } from "@/lib/utils";
 
 export const NewsSeperatePage = () => {
-  useEffect(() => {
-    window.scroll(0, 0);
-  }, []);
+  useScrollTop();
 
   const localization = useLang((state) => state.activeLang.localization);
   const chooseDataLang = (en: string, ru: string) =>
@@ -19,7 +17,7 @@ export const NewsSeperatePage = () => {
   let { id } = useParams();
 
   const { newsSeperateData, newsSeperateIsLoading } = useGetSeperateNews(
-    id ? id : ""
+    id ?? ""
   );
 
   return (
@@ -30,7 +28,9 @@ export const NewsSeperatePage = () => {
           path="/news"
           third={chooseDataLang("", "")}
         />
-        <Title title={newsSeperateData ? newsSeperateData.title : ""} mb32 />
+        <h2 className="h2 mb-6">
+          {newsSeperateData ? newsSeperateData.title : ""}
+        </h2>
 
         <p className="mb-8">{newsSeperateData?.published_at}</p>
 

@@ -82,7 +82,7 @@ const router = createBrowserRouter([
         element: <ExhibitionTheme />,
       },
       {
-        path: "/exhibition-avenue",
+        path: "/exhibition-venue",
         element: <ExhibitionPlace />,
       },
       {

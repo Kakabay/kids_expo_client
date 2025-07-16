@@ -1,5 +1,5 @@
 import { useTranslate } from "@/lib/utils";
-import Loader from "../../components/Loader";
+import Loader from "../../components/shared/Loader";
 import { BreadCrumbs } from "../../components/shared/BreadCrumbs";
 import { Title } from "../../components/shared/Title";
 import useGetHotels from "../../hooks/participants/services/useGetHotels";

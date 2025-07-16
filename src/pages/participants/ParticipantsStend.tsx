@@ -1,4 +1,4 @@
-import Loader from "../../components/Loader";
+import Loader from "../../components/shared/Loader";
 import { FooterServices } from "../../components/shared/FooterServices";
 import { ThemeCardAccordion } from "../../components/Theme/ThemeCardAccordion";
 import { BreadCrumbs } from "../../components/shared/BreadCrumbs";

@@ -1,5 +1,5 @@
 import useGetDocs from "../../hooks/participants/useGetDocs";
-import Loader from "../../components/Loader";
+import Loader from "../../components/shared/Loader";
 import { CoverLayout } from "@/components/layout/CoverLayout";
 import { useScrollTop, useTranslate } from "@/lib/utils";
 

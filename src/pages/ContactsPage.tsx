@@ -3,7 +3,7 @@ import { Title } from "../components/shared/Title";
 import useGetContacts from "../hooks/useGetContacts";
 import { useLang } from "../services/zustand/zusLang";
 import { useEffect } from "react";
-import Loader from "../components/Loader";
+import Loader from "../components/shared/Loader";
 
 export const ContactsPage = () => {
   useEffect(() => {

@@ -6,7 +6,7 @@ import { Title } from "../components/shared/Title";
 import useGetNews from "../hooks/useGetNews";
 import { useLang } from "../services/zustand/zusLang";
 import { Pagination } from "../components/shared/Pagination";
-import Loader from "../components/Loader";
+import Loader from "../components/shared/Loader";
 import { CustomButton } from "../components/shared/CustomButton";
 import { NewsCard } from "@/components/shared/NewsCard";
 import { useScrollTop } from "@/lib/utils";

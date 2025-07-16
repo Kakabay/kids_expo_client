@@ -5,9 +5,9 @@ import { navBottom, navTop } from "@/database/header.data";
 import { LangMenu } from "../shared/LangMenu";
 import { HoverMenu } from "../shared/HoverMenu";
 import { useTranslate } from "@/lib/utils";
-import BurgerMenu from "../shared/BurgerMenu";
 import { useBurger } from "@/services/zustand/zusBurger";
 import { AnimatePresence } from "framer-motion";
+import BurgerMenu from "../shared/BurgerMenu";
 
 export const Header: FC = () => {
   const burger = useBurger((state) => state.burger);

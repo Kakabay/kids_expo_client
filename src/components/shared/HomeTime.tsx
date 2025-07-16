@@ -3,6 +3,7 @@ import { FC } from "react";
 import { TimeCard } from "./TimeCard";
 import { ContactCard } from "./ContactCard";
 import { contacts, times } from "@/constantas";
+import { Mail, MapPin, PhoneIcon } from "lucide-react";
 
 interface Props {
   className?: string;
@@ -10,6 +11,12 @@ interface Props {
 
 export const HomeTime: FC<Props> = ({ className }) => {
   const title = useTranslate("Время выставки", "Exhibition time");
+
+  const images = [
+    <Mail size={32} color="#4a2b68" />,
+    <MapPin size={32} color="#4a2b68" />,
+    <PhoneIcon size={32} color="#4a2b68" />,
+  ];
 
   return (
     <section className={cn("bg-surface-muted my-20 pt-10 pb-20", className)}>
@@ -26,7 +33,7 @@ export const HomeTime: FC<Props> = ({ className }) => {
           <div className="md:p-10 pt-16 flex flex-col md:flex-row items-center gap-6">
             {contacts.map((item, i) => (
               <ContactCard
-                image={"/assets/icons/mail.svg"}
+                image={images[i]}
                 {...item}
                 key={i}
                 className="w-full"

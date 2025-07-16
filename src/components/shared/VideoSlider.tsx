@@ -6,7 +6,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "../ui/carousel";
-import Loader from "../Loader";
+import Loader from "./Loader";
 import { useMedia, VideoType } from "@/services/zustand/zusMedia";
 import { useGetEn } from "@/hooks/language/useGetEn";
 

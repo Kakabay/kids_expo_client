@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from "react";
-import YearTab from "@/components/Video/YearTab";
+import YearTab from "@/components/shared/YearTab";
 import { Play } from "lucide-react";
 import useGetVideos from "@/hooks/media/useGetVideos";
-import VideoSlider from "@/components/Video/VideoSlider";
+import VideoSlider from "@/components/shared/VideoSlider";
 import { useMedia } from "@/services/zustand/zusMedia";
 import { CoverLayout } from "@/components/layout/CoverLayout";
 import { useTranslate } from "@/lib/utils";

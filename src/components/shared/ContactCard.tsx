@@ -1,5 +1,5 @@
 import { cn, useTranslate } from "@/lib/utils";
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 
 interface Props {
   className?: string;
@@ -7,7 +7,7 @@ interface Props {
   suptitleEn: string;
   title: string;
   titleEn: string;
-  image: string;
+  image: ReactNode;
 }
 
 export const ContactCard: FC<Props> = ({
@@ -20,8 +20,8 @@ export const ContactCard: FC<Props> = ({
 }) => {
   return (
     <div className={cn("flex items-center gap-4", className)}>
-      <div className="bg-secondary_container size-16 rounded-[2px] p-3">
-        <img src={image} alt="contact icon" className="size-full" />
+      <div className="flex items-center justify-center size-16 rounded-[2px] p-3">
+        {image}
       </div>
 
       <div className="flex flex-col gap-2">
