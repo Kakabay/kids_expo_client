@@ -17,8 +17,8 @@ export const PartnersSection = () => {
         modules={[Autoplay]}
         autoplay={{ delay: 3000 }}
         speed={5000}
-        spaceBetween={20}
-        slidesPerGroup={4}
+        spaceBetween={80}
+        slidesPerGroup={1}
         slidesPerView={4}
         loop
         breakpoints={{
@@ -31,12 +31,19 @@ export const PartnersSection = () => {
           partnersData.map(
             (item, i) =>
               item.images[0].path && (
-                <SwiperSlide key={i}>
+                <SwiperSlide key={i} className="size-[200px]">
                   {!item.link ? (
-                    <img src={item?.images?.[0]?.path} />
+                    <img
+                      src={item?.images?.[0]?.path}
+                      className="size-full object-cover"
+                    />
                   ) : (
                     <a href={item.link} target="_blank">
-                      <img src={item?.images?.[0]?.path} alt="logo" />
+                      <img
+                        src={item?.images?.[0]?.path}
+                        alt="logo"
+                        className="size-full object-cover"
+                      />
                     </a>
                   )}
                 </SwiperSlide>
