@@ -55,15 +55,18 @@ const Photo = () => {
       <YearTab />
 
       {data ? (
-        <Carousel className="md:px-10" setApi={setApi}>
+        <Carousel className="md:px-20" setApi={setApi}>
           <CarouselContent>
             {data ? (
               data.map((item, i) => (
-                <CarouselItem key={i} className="w-full max-h-[450px] ">
+                <CarouselItem
+                  key={i}
+                  className="basis-full max-h-[650px] overflow-hidden"
+                >
                   <img
                     src={item.media_url}
                     alt=""
-                    className="w-full h-full object-cover overflow-hidden object-center"
+                    className="size-full object-cover"
                   />
                 </CarouselItem>
               ))

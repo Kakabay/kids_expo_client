@@ -121,9 +121,20 @@ export const headerMenu2 = [
 
 export const navTop = [
   {
-    title: "Путеводитель",
-    titleEn: "Travel Guide",
-    link: "",
+    title: "Медиа",
+    titleEn: "Media",
+    content: [
+      {
+        title: "Фоторепортаж",
+        titleEn: "Photo",
+        link: "/media/photo",
+      },
+      {
+        title: "Видеорепортаж",
+        titleEn: "Video",
+        link: "/media/video",
+      },
+    ],
   },
   {
     title: "Контакты",

@@ -9,7 +9,7 @@ interface Props {
   title: string;
   titleEn: string;
   titleClassName?: string;
-  content: {
+  content?: {
     title: string;
     titleEn: string;
     link: string;
@@ -69,7 +69,7 @@ export const HoverMenu: FC<Props> = ({
           className
         )}
       >
-        {content.map((item) => (
+        {content?.map((item) => (
           <Link key={item.title} to={item.link} className="px-6 py-3">
             {useTranslate(item.title, item.titleEn)}
           </Link>

@@ -27,6 +27,7 @@ import ParticipantsServicesEngeener from "./pages/participants/ParticipantsServi
 import Photo from "./pages/media/Photo.tsx";
 import Video from "./pages/media/Video.tsx";
 import Media from "./pages/media/Media.tsx";
+import ParticipantsList from "./pages/ParticipantsList.tsx";
 
 const router = createBrowserRouter([
   {
@@ -135,6 +136,10 @@ const router = createBrowserRouter([
       {
         path: "/visitors-visit",
         element: <VisitorsVisit />,
+      },
+      {
+        path: "/participants-list",
+        element: <ParticipantsList />,
       },
     ],
   },

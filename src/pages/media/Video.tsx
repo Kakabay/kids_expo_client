@@ -25,7 +25,7 @@ const Video = () => {
     <CoverLayout title={title}>
       <YearTab />
 
-      <div className="relative w-full max-h-[470px]">
+      <div className="relative w-full max-h-[600px]">
         {!isPlaying && (
           <div className="w-full h-full bg-black/50 absolute top-0 left-0 " />
         )}
@@ -46,7 +46,7 @@ const Video = () => {
               ? data[0].media_url
               : ""
           }
-          className="w-full max-h-[470px] object-cover"
+          className="w-full max-h-[600px] object-cover"
           ref={videoRef}
         />
 

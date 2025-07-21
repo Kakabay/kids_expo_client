@@ -13,6 +13,11 @@ export const Header: FC = () => {
   const burger = useBurger((state) => state.burger);
   const setBurger = useBurger((state) => state.setBurger);
 
+  const address = useTranslate(
+    "Ашхабад, Туркменистан",
+    "Ashgabat, Turkmenistan"
+  );
+
   return (
     <header>
       <div className="h-12 hidden lg:flex bg-sur text-surface-bg bg-surface-brand text-white items-center">
@@ -20,25 +25,24 @@ export const Header: FC = () => {
           <div className="gap-8 flex items-center justify-between">
             <div className="flex items-center gap-2">
               <MapPin />
-              <h4 className="text-sm">
-                {useTranslate(
-                  "Ашхабад, Туркменистан",
-                  "Ashgabat, Turkmenistan"
-                )}
-              </h4>
+              <h4 className="text-sm">{address}</h4>
             </div>
 
             <nav className="flex items-center gap-6">
-              {navTop.map((item, i) => (
-                <Link
-                  target={item.link.includes("http") ? "_blank" : ""}
-                  className="py-2 font-bold text-sm"
-                  key={i}
-                  to={item.link || ""}
-                >
-                  {useTranslate(item.title, item.titleEn)}
-                </Link>
-              ))}
+              {navTop.map((item, i) =>
+                item.link ? (
+                  <Link
+                    target={item.link.includes("http") ? "_blank" : ""}
+                    className="py-2 font-bold text-sm"
+                    key={i}
+                    to={item.link || ""}
+                  >
+                    {useTranslate(item.title, item.titleEn)}
+                  </Link>
+                ) : (
+                  <HoverMenu titleClassName="!text-white" key={i} {...item} />
+                )
+              )}
             </nav>
           </div>
 

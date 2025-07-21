@@ -25,7 +25,7 @@ export const NewsCard = ({ path, published_at, grid, id, title }: IProps) => {
         height={160}
         src={path}
         alt="событие"
-        className="h-[160px] w-full object-cover"
+        className="h-[220px] w-full object-cover"
       />
       <div className="px-[16px] py-[25px] sm:p-[25px]">
         <p className="text-extraSm text-gray4 mb-[10px]">{published_at}</p>

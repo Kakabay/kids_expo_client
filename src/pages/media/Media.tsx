@@ -2,7 +2,7 @@ import { Outlet } from "react-router-dom";
 
 const Media = () => {
   return (
-    <div className="container">
+    <div>
       <Outlet />
     </div>
   );

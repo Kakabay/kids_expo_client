@@ -27,12 +27,12 @@ const VideoSlider = () => {
               <CarouselItem
                 onClick={() => setActiveVideo(item as VideoType)}
                 key={i}
-                className="basis-1/2 md:basis-1/3 lg:basis-1/4 max-h-[111px] w-full cursor-pointer"
+                className="basis-1/2 md:basis-1/3 lg:basis-1/4 max-h-[150px] w-full cursor-pointer"
               >
                 <img
                   src={item?.preview}
                   alt=""
-                  className="object-cover h-full w-full"
+                  className="object-cover object-center h-full w-full"
                 />
               </CarouselItem>
             ))}

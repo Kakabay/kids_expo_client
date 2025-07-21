@@ -37,7 +37,7 @@ export const mainButtons = [
       {
         title: "Список участников",
         titleEn: "List of participants",
-        link: "",
+        link: "/participants-list",
       },
       {
         title: "Программа",

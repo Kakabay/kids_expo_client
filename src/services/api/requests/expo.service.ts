@@ -12,6 +12,7 @@ import { PartnersType } from "../types/getPartnersType";
 import { EngeenerTypes } from "../types/getEngeenerTypes";
 import { FooterServicesTypes } from "../types/getFooterServicesTypes";
 import { MediaTypes } from "../types/getMediaType";
+import { ParticipantsType } from "../types/getParticipanstType";
 
 type PostParticipantFormTypes = {
   company_name: string;
@@ -214,6 +215,17 @@ class ExpoService {
   async getVideos(localization: string) {
     return await axios.get<MediaTypes>(
       `https://turkmenexpo.com/app/api/v1/videos`,
+      {
+        headers: {
+          "Accept-Language": localization,
+        },
+      }
+    );
+  }
+
+  async getParticipants(localization: string) {
+    return await axios.get<ParticipantsType>(
+      "https://editor.turkmenexpo.com/api/v1/participants",
       {
         headers: {
           "Accept-Language": localization,

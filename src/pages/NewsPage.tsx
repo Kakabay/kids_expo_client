@@ -1,6 +1,5 @@
 import clsx from "clsx";
 import { useState } from "react";
-import { v4 } from "uuid";
 import useGetNews from "../hooks/useGetNews";
 import { Pagination } from "../components/shared/Pagination";
 import Loader from "../components/shared/Loader";
@@ -48,22 +47,21 @@ export const NewsPage = () => {
             "min-[1400px]:grid-cols-3 sm:grid-cols-2 grid-cols-1": grid,
           })}
         >
-          {newsData &&
-            newsData.data.map((item) => (
-              <NewsCard
-                page
-                key={v4()}
-                id={item.id}
-                title={item.title}
-                published_at={item.published_at}
-                path={
-                  item.featured_images.length > 0
-                    ? item.featured_images[0].path
-                    : newsData.data[0].featured_images[0].path
-                }
-                grid={grid}
-              />
-            ))}
+          {newsData?.data.map((item, i) => (
+            <NewsCard
+              page
+              key={i}
+              id={item.id}
+              title={item.title}
+              published_at={item.published_at}
+              path={
+                item.featured_images.length > 0
+                  ? item.featured_images[0].path
+                  : newsData.data[0].featured_images[0].path
+              }
+              grid={grid}
+            />
+          ))}
         </div>
 
         <div className="hidden sm:flex flex-col gap-6 w-full max-w-[180px] mx-auto justify-center items-center">
