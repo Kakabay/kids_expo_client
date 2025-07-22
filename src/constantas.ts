@@ -27,7 +27,7 @@ export const mainButtons = [
       {
         title: "План выставки",
         titleEn: "Floor plan",
-        link: "",
+        link: "https://editor.turkmenexpo.com/storage/app/media/floor%20plan/floor_plan.pdf",
       },
       {
         title: "Забронировать стенд",

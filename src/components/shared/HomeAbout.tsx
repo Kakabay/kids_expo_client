@@ -37,6 +37,7 @@ export const HomeAbout: FC<Props> = ({ className }) => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 items-center container gap-6 mb-20">
         {mainButtons[0].data.map((item, i) => (
           <Link
+            target={link.includes("https") ? "_blank" : ""}
             key={i}
             to={item.link}
             className="bg-interactive-background-primary text-white h-12 w-full flex items-center justify-center rounded-sm font-bold"

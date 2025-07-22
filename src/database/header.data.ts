@@ -146,6 +146,11 @@ export const navTop = [
     titleEn: "News",
     link: "/news",
   },
+  {
+    title: "Путеводитель",
+    titleEn: "Travel guide",
+    link: "https://editor.turkmenexpo.com/storage/app/media/travel%20guide/travel_guide.pdf",
+  },
 ];
 
 export const navBottom = [

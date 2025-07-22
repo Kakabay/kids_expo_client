@@ -44,7 +44,7 @@ export const HoverMenu: FC<Props> = ({
   };
 
   return (
-    <div className={cn("relative", className)}>
+    <div className={cn("relative z-[100]", className)}>
       <div
         ref={triggerRef}
         onMouseLeave={handleMouseLeave}
