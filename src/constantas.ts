@@ -56,13 +56,19 @@ export const mainButtons = [
 export const offers = [
   {
     title: "Гостиницы, трансфер, визы",
+    titleEn: "Hotels, transportation, visa",
     text: "По вопросам размещения в гостиницах, визовой поддержки, транспортного и экскурсионного обслуживания Вы можете обращаться к официальным туроператорам выставки",
+    textEn:
+      "For inquiries regarding hotel accommodation, visa support, transportation, and excursion services, please contact the official tour operators of the exhibition.",
     img: "/assets/images/offer-1.png",
     link: "",
   },
   {
     title: "Ознакомьтесь с планом выставки Kids Expo 2025",
+    titleEn: "Choosing Your Optimal Location at Kids Expo 2025",
     text: "Как выбрать лучшее место на выставке? Вы всегда должны помнить, что удачное расположение выставочной экспозиции повышает Ваши шансы привлечь внимание Ваших потенциальных клиентов",
+    textEn:
+      "How to choose the best location at the exhibition? You should always remember that a good exhibition stand location increases your chances of attracting the attention of your potential clients.",
     img: "/assets/images/offer-2.png",
     link: "",
   },

@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn, useTranslate } from "@/lib/utils";
 import { FC } from "react";
 import { Button } from "../ui/button";
 import { Download } from "lucide-react";
@@ -6,13 +6,25 @@ import { Link } from "react-router-dom";
 
 interface Props {
   title: string;
+  titleEn: string;
+  textEn: string;
   text: string;
   className?: string;
   img: string;
   link: string;
 }
 
-export const OfferCard: FC<Props> = ({ className, title, text, img, link }) => {
+export const OfferCard: FC<Props> = ({
+  className,
+  title,
+  text,
+  img,
+  link,
+  titleEn,
+  textEn,
+}) => {
+  const download = useTranslate("Скачать", "Download");
+
   return (
     <article
       className={cn(
@@ -29,10 +41,10 @@ export const OfferCard: FC<Props> = ({ className, title, text, img, link }) => {
       <div className="relative z-20 h-full">
         <div className="text-white">
           <h4 className="md:text-2xl font-bold text-lg mb-6 max-w-[444px] z-20">
-            {title}
+            {useTranslate(title, titleEn)}
           </h4>
           <p className="md:text-base text-sm normal max-w-[360px] z-20">
-            {text}
+            {useTranslate(text, textEn)}
           </p>
         </div>
 
@@ -42,7 +54,7 @@ export const OfferCard: FC<Props> = ({ className, title, text, img, link }) => {
             variant={"link"}
           >
             <Download size={14} />
-            Скачать
+            {download}
           </Button>
         </Link>
       </div>
