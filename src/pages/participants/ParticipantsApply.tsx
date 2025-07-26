@@ -73,7 +73,6 @@ const ParticipantsApply = () => {
         company_name: data.company_name,
         phone: data.phone,
         email: data.email,
-        area: 0,
         contact_person: data.contact_person,
         what_demonstrated: data.what_demonstrated ? data.what_demonstrated : "",
         web_site: data.web_site ? data.web_site : "",

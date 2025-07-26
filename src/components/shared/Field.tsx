@@ -6,10 +6,10 @@ import {
   FormLabel,
   FormMessage,
 } from "../ui/form";
-import { Input } from "../ui/input";
 import { cn } from "@/lib/utils";
 import { LegacyRef } from "react";
 import { Textarea } from "../ui/textarea";
+import { Input } from "../ui/input";
 
 type Props = {
   control: any;

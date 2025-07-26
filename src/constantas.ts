@@ -23,33 +23,29 @@ export const stats = [
 
 export const mainButtons = [
   {
-    data: [
-      {
-        title: "План выставки",
-        titleEn: "Floor plan",
-        link: "https://editor.turkmenexpo.com/storage/app/media/floor%20plan/floor_plan.pdf",
-      },
-      {
-        title: "Забронировать стенд",
-        titleEn: "Book a stand",
-        link: "",
-      },
-      {
-        title: "Список участников",
-        titleEn: "List of participants",
-        link: "/participants-list",
-      },
-      {
-        title: "Программа",
-        titleEn: "Programme",
-        link: "",
-      },
-      {
-        title: "B2B | B2G встречи",
-        titleEn: "B2B | B2G meetings",
-        link: "",
-      },
-    ],
+    title: "План выставки",
+    titleEn: "Floor plan",
+    link: "https://editor.turkmenexpo.com/storage/app/media/floor%20plan/floor_plan.pdf",
+  },
+  {
+    title: "Забронировать стенд",
+    titleEn: "Book a stand",
+    link: "/stand-form",
+  },
+  {
+    title: "Список участников",
+    titleEn: "List of participants",
+    link: "/participants-list",
+  },
+  {
+    title: "Программа",
+    titleEn: "Programme",
+    link: "",
+  },
+  {
+    title: "B2B | B2G встречи",
+    titleEn: "B2B | B2G meetings",
+    link: "",
   },
 ];
 

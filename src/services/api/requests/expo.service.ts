@@ -13,12 +13,12 @@ import { EngeenerTypes } from "../types/getEngeenerTypes";
 import { FooterServicesTypes } from "../types/getFooterServicesTypes";
 import { MediaTypes } from "../types/getMediaType";
 import { ParticipantsType } from "../types/getParticipanstType";
+import { StandFormType } from "@/lib/stand-form";
 
 type PostParticipantFormTypes = {
   company_name: string;
   phone: string;
   email: string;
-  area: number;
   contact_person: string;
   what_demonstrated: string;
   web_site: string;
@@ -238,7 +238,6 @@ class ExpoService {
     company_name,
     phone,
     email,
-    area,
     // response_method,
     contact_person,
     // area_is_equipped,
@@ -252,7 +251,6 @@ class ExpoService {
         company_name,
         phone,
         email,
-        area,
         response_method: 1,
         contact_person,
         area_is_equipped: true,
@@ -265,6 +263,23 @@ class ExpoService {
         },
       }
     );
+  }
+
+  async postStand(data: StandFormType) {
+    return await axios
+      .post(
+        `https://editor.turkmenexpo.com/api/v1/stand-applications`,
+        {
+          ...data,
+        },
+        {
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+          },
+        }
+      )
+      .then((res) => res.status === 201)
+      .catch(() => false);
   }
 }
 

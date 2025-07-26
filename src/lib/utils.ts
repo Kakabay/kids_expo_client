@@ -19,3 +19,7 @@ export const useScrollTop = () => {
     window.scroll(0, 0);
   }, []);
 };
+
+export const useArrayIndex = (lang: string): number => {
+  return lang === "ru" ? 0 : 1;
+};

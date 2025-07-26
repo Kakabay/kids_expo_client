@@ -28,6 +28,7 @@ import Photo from "./pages/media/Photo.tsx";
 import Video from "./pages/media/Video.tsx";
 import Media from "./pages/media/Media.tsx";
 import ParticipantsList from "./pages/ParticipantsList.tsx";
+import StandFormPage from "./pages/StandFormPage.tsx";
 
 const router = createBrowserRouter([
   {
@@ -140,6 +141,10 @@ const router = createBrowserRouter([
       {
         path: "/participants-list",
         element: <ParticipantsList />,
+      },
+      {
+        path: "/stand-form",
+        element: <StandFormPage />,
       },
     ],
   },

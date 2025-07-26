@@ -6,12 +6,14 @@ import useEmblaCarousel from "embla-carousel-react";
 import { mainButtons, stats } from "@/constantas";
 import { AboutCard } from "./AboutCard";
 import { Download } from "lucide-react";
+import { useLang } from "@/services/zustand/zusLang";
 
 interface Props {
   className?: string;
 }
 
 export const HomeAbout: FC<Props> = ({ className }) => {
+  const lang = useLang((state) => state.activeLang.localization);
   const [emblaRef] = useEmblaCarousel();
 
   const title = useTranslate(
@@ -35,14 +37,14 @@ export const HomeAbout: FC<Props> = ({ className }) => {
       className={cn("pt-10 md:pb-24 pb-14 bg-surface-primary", className)}
     >
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 items-center container gap-6 mb-20">
-        {mainButtons[0].data.map((item, i) => (
+        {mainButtons.map((item) => (
           <Link
-            target={link.includes("https") ? "_blank" : ""}
-            key={i}
+            target={item.link.includes("https") ? "_blank" : ""}
+            key={item.title}
             to={item.link}
             className="bg-interactive-background-primary text-white h-12 w-full flex items-center justify-center rounded-sm font-bold"
           >
-            {useTranslate(item.title, item.titleEn)}
+            {lang === "ru" ? item.title : item.titleEn}
           </Link>
         ))}
       </div>
@@ -54,7 +56,7 @@ export const HomeAbout: FC<Props> = ({ className }) => {
             <div
               dangerouslySetInnerHTML={{ __html: text ? text : "" }}
               className="md:text-base flex flex-col gap-6 text-sm normal text-left text-[#454545]"
-            ></div>
+            />
 
             <div className="flex w-full gap-8">
               <Link to={link ?? ""} target="_blank" className="w-fit">
