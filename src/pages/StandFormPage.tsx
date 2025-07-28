@@ -9,7 +9,6 @@ import { useArrayIndex, useScrollTop, useTranslate } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
-import { useState } from "react";
 import expoService from "@/services/api/requests/expo.service";
 import {
   Form,
@@ -27,7 +26,6 @@ import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 const StandFormPage = () => {
   useScrollTop();
   const lang = useLang((state) => state.activeLang.localization);
-  const [success, setSuccess] = useState(false);
   const title = useTranslate("Забронировать стенд", "Book a stand");
 
   const form = useForm({
@@ -36,9 +34,7 @@ const StandFormPage = () => {
   });
 
   const onSubmit = async (data: StandFormType) => {
-    const status = await expoService.postStand(data);
-
-    if (status) setSuccess(true);
+    await expoService.postStand(data);
   };
 
   const translate = useArrayIndex(lang);
