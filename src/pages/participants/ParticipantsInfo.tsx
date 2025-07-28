@@ -24,15 +24,15 @@ export const ParticipantsInfo = () => {
     <CoverLayout title={title}>
       <div className="hidden min-[1200px]:grid grid-cols-3 min-[1250px] gap-[45px]">
         <InfoCard
+          title={chooseDataLang("Assembly", "Монтаж")}
+          date={useTranslate(times[0].date, times[0].dateEn)}
+          // date={eventsDatesData ? eventsDatesData.installation_date : ""}
+        />
+        <InfoCard
           date={useTranslate(times[1].date, times[1].dateEn)}
           // date={eventsDatesData ? eventsDatesData.work_date : ""}
           title={chooseDataLang("Work", "Работа")}
           orang
-        />
-        <InfoCard
-          title={chooseDataLang("Assembly", "Монтаж")}
-          date={useTranslate(times[0].date, times[0].dateEn)}
-          // date={eventsDatesData ? eventsDatesData.installation_date : ""}
         />
         <InfoCard
           date={useTranslate(times[2].date, times[2].dateEn)}
@@ -44,16 +44,16 @@ export const ParticipantsInfo = () => {
       <div className="min-[1200px]:hidden grid sm:grid-cols-2 mb-12 sm:mb-0 grid-cols-1 gap-x-4 sm:gap-y-[26px] gap-y-[38px]">
         <div className="sm:col-span-2">
           <InfoCard
-            date={useTranslate(times[1].date, times[1].dateEn)}
-            // date={eventsDatesData ? eventsDatesData.dismantling_date : ""}
-            title={chooseDataLang("Work", "Работа")}
-            orang
+            title={chooseDataLang("Assembly", "Монтаж")}
+            // date={eventsDatesData ? eventsDatesData.installation_date : ""}
+            date={useTranslate(times[0].date, times[0].dateEn)}
           />
         </div>
         <InfoCard
-          title={chooseDataLang("Assembly", "Монтаж")}
-          // date={eventsDatesData ? eventsDatesData.installation_date : ""}
           date={useTranslate(times[1].date, times[1].dateEn)}
+          // date={eventsDatesData ? eventsDatesData.dismantling_date : ""}
+          title={chooseDataLang("Work", "Работа")}
+          orang
         />
         <InfoCard
           // date={eventsDatesData ? eventsDatesData.work_date : ""}
