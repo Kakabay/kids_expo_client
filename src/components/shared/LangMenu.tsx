@@ -68,7 +68,7 @@ export const LangMenu: FC<Props> = ({ className }) => {
         onMouseLeave={handleLeavae}
         initial={{ opacity: 0, pointerEvents: "none" }}
         animate={isOpen ? { opacity: 1, pointerEvents: "all" } : {}}
-        className="py-1 rounded-[8px] top-6 -left-6 flex flex-col bg-surface-brand absolute z-50 text-text-on-brand-secondary w-[140px]"
+        className="py-1 rounded-[8px] top-6 -left-6 flex flex-col bg-surface-brand absolute z-[2000] text-text-on-brand-secondary w-[140px]"
       >
         {langs
           .filter((item) => item.localization !== lang)

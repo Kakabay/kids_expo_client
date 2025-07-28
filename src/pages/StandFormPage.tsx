@@ -57,7 +57,7 @@ const StandFormPage = () => {
         >
           <FormField
             control={form.control}
-            name="selection_option"
+            name="area_is_equipped"
             render={({ field }) => (
               <FormItem className="space-y-5">
                 <FormLabel className="text-xl">
@@ -72,10 +72,7 @@ const StandFormPage = () => {
                   >
                     <FormItem className="flex items-center space-x-5 space-y-0">
                       <FormControl>
-                        <RadioGroupItem
-                          value={"space"}
-                          checked={field.value === "space"}
-                        />
+                        <RadioGroupItem value={false} checked={!field.value} />
                       </FormControl>
                       <FormLabel className="text-base">
                         {standData[translate].radio}
@@ -84,10 +81,7 @@ const StandFormPage = () => {
 
                     <FormItem className="flex items-center space-x-5 space-y-0">
                       <FormControl>
-                        <RadioGroupItem
-                          value={"package"}
-                          checked={field.value === "package"}
-                        />
+                        <RadioGroupItem value={true} checked={field.value} />
                       </FormControl>
                       <FormLabel className="text-base">
                         {standData[translate].radio_2}
@@ -107,22 +101,22 @@ const StandFormPage = () => {
           />
           <Field
             label={standData[translate].label_2}
-            name="representative_name"
+            name="contact_person"
             control={form.control}
-            error={errors.representative_name}
+            error={errors.contact_person}
           />
           <Field
             label={standData[translate].label_3}
-            name="position_title"
+            name="contact_person_postion"
             control={form.control}
-            error={errors.position_title}
+            error={errors.contact_person_postion}
           />
           <Field
             label={standData[translate].number_of_participants}
             type="number"
             name="participants_count"
             control={form.control}
-            error={errors.participants_count}
+            error={errors.participant_count}
           />
           <Field
             label={standData[translate].label_4}
@@ -138,9 +132,9 @@ const StandFormPage = () => {
           />
           <Field
             label={standData[translate].label_6}
-            name="phone_number"
+            name="phone"
             control={form.control}
-            error={errors.phone_number}
+            error={errors.phone}
           />
 
           <Field
@@ -151,7 +145,7 @@ const StandFormPage = () => {
 
           <FormField
             control={form.control}
-            name="visa_support"
+            name="viza_support"
             render={({ field }) => (
               <FormItem className="space-y-5">
                 <FormLabel className="text-xl">

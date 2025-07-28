@@ -33,11 +33,11 @@
   }
 
   .form-input {
-    @apply py-[15px] px-[12px] border-[1px] border-[#BFBFBF] rounded-sm focus:outline-none;
+    @apply flex h-14 rounded border p-4 focus:ring-[3px] focus:outline-none focus:ring-surface-brand transition-all ring-border ring-1 bg-transparent text-base file:border-0 file:outline-none file:text-sm file:w-fit  focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50;
   }
 
   .form-label {
-    @apply text-[14px] leading-[140%];
+    @apply text-[14px] text-text-secondary font-semibold leading-[140%];
   }
 
   .exibition-about-wrapper ul {
@@ -130,6 +130,10 @@
 
   .footer-serv p {
     @apply text-[14px];
+  }
+
+  .progress-circle {
+    @apply size-14 rounded-full text-2xl z-10 text-text-secondary;
   }
 
   :disabled {

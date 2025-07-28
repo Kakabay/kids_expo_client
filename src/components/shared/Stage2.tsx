@@ -1,12 +1,12 @@
 import { FC } from "react";
 import { FieldError, useFormContext } from "react-hook-form";
-import { Field } from "../";
-import { motion } from "motion/react";
+
+import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { Language, useLangStore } from "@/store/lang";
-import { useTranslate } from "@/hooks/use-translate";
-import { b2bStage2 } from "@/data/b2b.data";
-import { useScrollTop } from "@/hooks/use-scroll-top";
+import { useLang } from "@/services/zustand/zusLang";
+import { useArrayIndex, useScrollTop } from "@/lib/utils";
+import { Field } from "./Field";
+import { b2bStage2 } from "@/database/b2b.data";
 
 interface Props {
   className?: string;
@@ -17,8 +17,10 @@ interface Props {
 export const Stage2: FC<Props> = ({ handleNext, handlePrev }) => {
   useScrollTop();
 
-  const lang = useLangStore((state) => state.lang);
+  const lang = useLang((state) => state.activeLang.localization);
   const { control, formState } = useFormContext();
+
+  const translate = useArrayIndex(lang);
 
   return (
     <motion.div
@@ -26,7 +28,7 @@ export const Stage2: FC<Props> = ({ handleNext, handlePrev }) => {
       animate={{ opacity: 1, y: 0, transition: { delay: 0.5, duration: 0.3 } }}
       exit={{ opacity: 0, y: 100 }}
     >
-      <h2 className="h2 mb-8">{b2bStage2[useTranslate(lang)].h2}</h2>
+      <h2 className="h2 mb-8">{b2bStage2[translate].h2}</h2>
 
       <div className="flex flex-col gap-8">
         <Field
@@ -34,45 +36,45 @@ export const Stage2: FC<Props> = ({ handleNext, handlePrev }) => {
           name={"meeting_purpose"}
           error={formState.errors.meeting_purpose as FieldError}
           placeholder=""
-          label={b2bStage2[useTranslate(lang)].data[0].label}
+          label={b2bStage2[translate].data[0].label}
         />
         <Field
           control={control}
           name={"project_description"}
           error={formState.errors.project_description as FieldError}
           placeholder=""
-          label={b2bStage2[useTranslate(lang)].data[1].label}
+          label={b2bStage2[translate].data[1].label}
         />
         <Field
           control={control}
           name={"government_agency"}
           error={formState.errors.government_agency as FieldError}
           placeholder=""
-          label={b2bStage2[useTranslate(lang)].data[2].label}
+          label={b2bStage2[translate].data[2].label}
         />
 
-        <h2 className="h2 mt-4">{b2bStage2[useTranslate(lang)].secondH2}</h2>
+        <h2 className="h2 mt-4">{b2bStage2[translate].secondH2}</h2>
 
         <Field
           control={control}
           name={"industry"}
           error={formState.errors.industry as FieldError}
           placeholder=""
-          label={b2bStage2[useTranslate(lang)].data[3].label}
+          label={b2bStage2[translate].data[3].label}
         />
         <Field
           control={control}
           name={"key_services"}
           error={formState.errors.key_services as FieldError}
           placeholder=""
-          label={b2bStage2[useTranslate(lang)].data[4].label}
+          label={b2bStage2[translate].data[4].label}
         />
         <Field
           control={control}
           name={"gov_experience"}
           error={formState.errors.gov_experience as FieldError}
           placeholder=""
-          label={b2bStage2[useTranslate(lang)].data[5].label}
+          label={b2bStage2[translate].data[5].label}
         />
       </div>
 
@@ -81,18 +83,18 @@ export const Stage2: FC<Props> = ({ handleNext, handlePrev }) => {
           type="button"
           onClick={handlePrev}
           variant={"outline"}
-          className="text-on_surface"
+          className="text-on_surface border-0 text-text-interactive"
         >
-          {lang === Language.RU ? "Назад" : "Back"}
+          {lang === "ru" ? "Назад" : "Back"}
         </Button>
 
         <Button
-          variant={"secondary"}
+          variant={"outline"}
           type="button"
           onClick={handleNext}
           className="w-full"
         >
-          {lang === Language.RU ? "Далее" : "Next"}
+          {lang === "ru" ? "Далее" : "Next"}
         </Button>
       </div>
     </motion.div>

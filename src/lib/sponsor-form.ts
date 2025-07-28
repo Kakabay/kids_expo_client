@@ -1,11 +1,10 @@
 import { z } from "zod";
 
-export type StandFormType = z.infer<typeof standFormSchema>;
+export type SponsorFormType = z.infer<typeof sponsorFormSchema>;
 
-export const standFormSchema = z.object({
-  area_is_equipped: z.boolean(),
-  event_id: z.number(),
-
+export const sponsorFormSchema = z.object({
+  event_id: z.number().min(1, { message: "Выберите мероприятие" }),
+  area_is_equipped: z.boolean().default(false),
   company_name: z
     .string()
     .min(3, { message: "Название компании должно быть не менее 3 символов" }),
@@ -17,11 +16,6 @@ export const standFormSchema = z.object({
   contact_person_postion: z
     .string()
     .min(3, { message: "Должность должна быть не менее 3 символов" }),
-
-  participant_count: z.preprocess(
-    (val) => Number(val),
-    z.number().min(1, "Укажите количество участников")
-  ),
 
   country: z
     .string()
@@ -35,19 +29,17 @@ export const standFormSchema = z.object({
 
   website: z.string().optional(),
 
-  viza_support: z.boolean().optional(),
+  viza_support: z.boolean(),
 });
 
-export const standDefaultValues = {
-  area_is_equipped: false,
+export const sponsorDefaultValues = {
   event_id: 3,
   company_name: "",
   contact_person: "",
   contact_person_postion: "",
-  participant_count: 1,
   country: "",
   email: "",
   phone: "",
   website: "",
-  viza_support: true,
+  viza_support: false,
 };

@@ -29,6 +29,8 @@ import Video from "./pages/media/Video.tsx";
 import Media from "./pages/media/Media.tsx";
 import ParticipantsList from "./pages/ParticipantsList.tsx";
 import StandFormPage from "./pages/StandFormPage.tsx";
+import B2bFormPage from "./pages/B2bFormPage.tsx";
+import SponsorFormPage from "./pages/SponsorFormPage.tsx";
 
 const router = createBrowserRouter([
   {
@@ -145,6 +147,14 @@ const router = createBrowserRouter([
       {
         path: "/stand-form",
         element: <StandFormPage />,
+      },
+      {
+        path: "/b2b-form",
+        element: <B2bFormPage />,
+      },
+      {
+        path: "/sponsor-form",
+        element: <SponsorFormPage />,
       },
     ],
   },

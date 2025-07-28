@@ -45,7 +45,7 @@ export const mainButtons = [
   {
     title: "B2B | B2G встречи",
     titleEn: "B2B | B2G meetings",
-    link: "",
+    link: "/b2b-form",
   },
 ];
 

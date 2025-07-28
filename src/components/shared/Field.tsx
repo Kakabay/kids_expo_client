@@ -82,17 +82,18 @@ export const Field = ({
                   )}
                 />
               ) : (
-                <div className="relative">
+                <div className="relative w-full h-[180px]">
                   <Input
                     type="file"
                     placeholder={placeholder}
                     onChange={(e) => {
                       const file = e.target.files?.[0] || null;
-                      console.log("Выбранный файл:", file); // Проверим, выбран ли файл
-                      field.onChange(file); // Передаем файл в react-hook-form
-                      if (handleChange) handleChange(e); // Дополнительный обработчик
+                      console.log("Выбранный файл:", file);
+                      field.onChange(file);
+                      if (handleChange) handleChange(e);
                     }}
                     disabled={disabled}
+                    className="w-full border-2 rounded h-full  border-dashed outline-0 ring-0 border-surface-brand"
                   />
                   {field.value && (
                     <div className="text-sm mt-2 text-gray-500 absolute top-8">

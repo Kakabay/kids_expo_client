@@ -8,6 +8,7 @@ import { useParticipantsForm } from "../../services/zustand/zusForm";
 import { AnimatePresence } from "framer-motion";
 import { CoverLayout } from "@/components/layout/CoverLayout";
 import { useTranslate } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 interface ResType {
   title?: string;
@@ -32,6 +33,8 @@ const phoneNumberRegex = /^\+\d{11}$/;
 
 const ParticipantsApply = () => {
   const formSchema = z.object({
+    area_is_equipped: z.boolean().default(false),
+
     company_name: z
       .string({ required_error: "Заполните поле!" })
       .min(2, "Минимальная длина 2 символа"),
@@ -70,15 +73,17 @@ const ParticipantsApply = () => {
   const onSubmit = async (data: FormFields) => {
     try {
       expoService.postParticipantForm({
+        area_is_equipped: data.area_is_equipped,
+        event_id: 3,
         company_name: data.company_name,
         phone: data.phone,
         email: data.email,
         contact_person: data.contact_person,
-        what_demonstrated: data.what_demonstrated ? data.what_demonstrated : "",
-        web_site: data.web_site ? data.web_site : "",
+        what_demonstrated: data.what_demonstrated ?? "",
+        web_site: data.web_site ?? "",
       });
     } catch (error) {
-      console.error(error, "Ошибка при отправке формы");
+      console.error(error, "POST participants apply");
     } finally {
       setSuccess("success");
     }
@@ -103,46 +108,47 @@ const ParticipantsApply = () => {
       <CoverLayout title={title} className="!w-[700px] mx-auto">
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
           <div className="flex flex-col gap-4">
-            <label htmlFor="company_name" className="form-label">
-              {chooseDataLang("Company name:", "Название компании:")}
-              <span className="text-lightRed">*</span>
-            </label>
-            <input
-              {...register("company_name")}
-              name="company_name"
-              id="company_name"
-              type="text"
-              className="form-input"
-            />
-            {errors.company_name && (
-              <span className="text-lightRed">
-                {errors.company_name.message}
-              </span>
-            )}
-          </div>
-
-          <div className="flex flex-col gap-4">
-            <label htmlFor="contact_person" className="form-label">
-              {chooseDataLang(
-                "Contact person (full name):",
-                "Контактное лицо (Ф.И.О.):"
+            <div className="flex flex-col gap-2">
+              <label htmlFor="company_name" className="form-label">
+                {chooseDataLang("Company name:", "Название компании:")}
+                <span className="text-lightRed">*</span>
+              </label>
+              <input
+                {...register("company_name")}
+                name="company_name"
+                id="company_name"
+                type="text"
+                className="form-input"
+              />
+              {errors.company_name && (
+                <span className="text-lightRed">
+                  {errors.company_name.message}
+                </span>
               )}
-              <span className="text-lightRed">*</span>
-            </label>
-            <input
-              {...register("contact_person")}
-              name="contact_person"
-              type="text"
-              id="contact_person"
-              className="form-input"
-            />
-            {errors.contact_person && (
-              <span className="text-lightRed">
-                {errors.contact_person.message}
-              </span>
-            )}
+            </div>
+            <div className="flex flex-col gap-2">
+              <label htmlFor="contact_person" className="form-label">
+                {chooseDataLang(
+                  "Contact person (full name):",
+                  "Контактное лицо (Ф.И.О.):"
+                )}
+                <span className="text-lightRed">*</span>
+              </label>
+              <input
+                {...register("contact_person")}
+                name="contact_person"
+                type="text"
+                id="contact_person"
+                className="form-input"
+              />
+              {errors.contact_person && (
+                <span className="text-lightRed">
+                  {errors.contact_person.message}
+                </span>
+              )}
+            </div>
 
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-2">
               <label htmlFor="web_site" className="form-label">
                 {chooseDataLang("Web site:", "Веб-сайт:")}
               </label>
@@ -158,7 +164,7 @@ const ParticipantsApply = () => {
               )}
             </div>
 
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-2">
               <label htmlFor="phone" className="form-label">
                 {chooseDataLang("Phone:", "Телефон:")}
                 <span className="text-lightRed">*</span>
@@ -175,7 +181,7 @@ const ParticipantsApply = () => {
               )}
             </div>
 
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-2">
               <label htmlFor="email" className="form-label">
                 E-mail:<span className="text-lightRed">*</span>
               </label>
@@ -191,7 +197,7 @@ const ParticipantsApply = () => {
               )}
             </div>
 
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-2">
               <label htmlFor="what_demonstrated" className="form-label">
                 {chooseDataLang(
                   "Products / equipment / services demonstrated:",
@@ -203,7 +209,7 @@ const ParticipantsApply = () => {
                 rows={7}
                 name="what_demonstrated"
                 id="what_demonstrated"
-                className="form-input"
+                className="form-input !h-24 resize-none"
               />
               {errors.what_demonstrated && (
                 <span className="text-lightRed">
@@ -213,7 +219,7 @@ const ParticipantsApply = () => {
             </div>
           </div>
 
-          <div className="flex flex-col gap-4 cursor-pointer">
+          <div className="flex flex-col gap-2 cursor-pointer">
             <div className="flex items-center">
               <input
                 {...register("agree")}
@@ -239,9 +245,7 @@ const ParticipantsApply = () => {
             )}
           </div>
 
-          <button className="w-full py-[17px] font-medium bg-purple text-white">
-            {chooseDataLang("Send", "Отправить")}
-          </button>
+          <Button>{chooseDataLang("Send", "Отправить")}</Button>
         </form>
       </CoverLayout>
     </>

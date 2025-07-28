@@ -12,6 +12,8 @@ import {
 import { Button } from "@/components/ui/button";
 import { useLang } from "@/services/zustand/zusLang";
 import { useArrayIndex, useScrollTop } from "@/lib/utils";
+import { b2bStage1 } from "@/database/b2b.data";
+import { Field } from "./Field";
 
 interface Props {
   className?: string;
@@ -42,7 +44,7 @@ export const Stage1: FC<Props> = ({ handleNext }) => {
           render={({ field }) => (
             <FormItem className="space-y-3">
               <FormLabel className="text-xl">
-                {lang === Language.RU ? "Тип:" : "Type:"}
+                {lang === "ru" ? "Тип:" : "Type:"}
               </FormLabel>
 
               <FormControl>
@@ -135,12 +137,12 @@ export const Stage1: FC<Props> = ({ handleNext }) => {
       </div>
 
       <Button
-        variant={"secondary"}
+        variant={"outline"}
         type="button"
         onClick={handleNext}
         className="w-full mt-10"
       >
-        {lang === Language.RU ? "Далее" : "Next"}
+        {lang === "ru" ? "Далее" : "Next"}
       </Button>
     </motion.div>
   );

@@ -14,8 +14,11 @@ import { FooterServicesTypes } from "../types/getFooterServicesTypes";
 import { MediaTypes } from "../types/getMediaType";
 import { ParticipantsType } from "../types/getParticipanstType";
 import { StandFormType } from "@/lib/stand-form";
+import { SponsorFormType } from "@/lib/sponsor-form";
 
 type PostParticipantFormTypes = {
+  area_is_equipped: boolean;
+  event_id: number;
   company_name: string;
   phone: string;
   email: string;
@@ -234,28 +237,11 @@ class ExpoService {
     );
   }
 
-  async postParticipantForm({
-    company_name,
-    phone,
-    email,
-    // response_method,
-    contact_person,
-    // area_is_equipped,
-    what_demonstrated,
-    web_site,
-  }: PostParticipantFormTypes) {
+  async postParticipantForm(data: PostParticipantFormTypes) {
     return await axios.post(
       `https://editor.turkmenexpo.com/api/v1/applications`,
       {
-        event_id: 3,
-        company_name,
-        phone,
-        email,
-        response_method: 1,
-        contact_person,
-        area_is_equipped: true,
-        what_demonstrated,
-        web_site,
+        ...data,
       },
       {
         headers: {
@@ -268,7 +254,23 @@ class ExpoService {
   async postStand(data: StandFormType) {
     return await axios
       .post(
-        `https://editor.turkmenexpo.com/api/v1/stand-applications`,
+        `https://editor.turkmenexpo.com/api/v1/applications/stand`,
+        {
+          ...data,
+        },
+        {
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+          },
+        }
+      )
+      .then((res) => res.status === 201)
+      .catch(() => false);
+  }
+  async postSponsor(data: SponsorFormType) {
+    return await axios
+      .post(
+        `https://editor.turkmenexpo.com/api/v1/applications/sponsor`,
         {
           ...data,
         },

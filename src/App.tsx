@@ -7,9 +7,9 @@ const App = () => {
     <div className="flex flex-col overflow-x-hidden min-h-screen tab:bg-[#FAFAFA]">
       <Header />
 
-      <div className="flex-auto">
+      <main className="flex-auto">
         <Outlet />
-      </div>
+      </main>
 
       <Footer />
     </div>

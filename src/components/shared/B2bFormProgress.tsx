@@ -17,7 +17,7 @@ export const B2bFormProgress: FC<Props> = ({ className, stage }) => {
         <div className="relative h-14 w-full">
           <div
             className={cn(
-              "h-2 absolute bg-[#D0D3D8] rounded-[2px] w-full top-0 left-0"
+              "h-2 absolute bg-surface-muted rounded-[2px] w-full top-0 left-0"
             )}
           />
           <motion.div
@@ -29,7 +29,7 @@ export const B2bFormProgress: FC<Props> = ({ className, stage }) => {
             }
             transition={{ delay: 0.5, duration: 0.5 }}
             className={cn(
-              "h-2 absolute bg-primary rounded-[2px] top-0 left-0 z-[5]",
+              "h-2 absolute bg-surface-brand rounded-[2px] top-0 left-0 z-[5]",
               {
                 "w-0 bg-opacity-0": stage === 1,
                 "w-[20%]": stage === 2,
@@ -45,18 +45,17 @@ export const B2bFormProgress: FC<Props> = ({ className, stage }) => {
               stage === 2 ? { width: "75%" } : stage === 3 && { width: "100%" }
             }
             className={cn(
-              "bg-reverse_primary w-1/2 absolute top-0 left-0 rounded-[2px] z-[3] h-2"
+              "bg-surface-brand w-1/2 absolute top-0 left-0 rounded-[2px] z-[3] h-2"
               //   stage === 2 ? "w-[75%]" : stage === 3 && "w-full"
             )}
           />
 
           <motion.div
             className={cn(
-              "progress-circle absolute transition-all duration-500 -top-6 flex items-center justify-center",
+              "progress-circle absolute !text-white transition-all duration-500 -top-6 flex items-center justify-center",
               {
-                "bg-reverse_primary md:left-1/2 left-1/3": stage === 1,
-                "bg-primary left-[20%] !text-on_primary":
-                  stage === 2 || stage === 3,
+                "bg-surface-brand  md:left-1/2 left-1/3": stage === 1,
+                "bg-surface-brand  left-[20%]": stage === 2 || stage === 3,
               }
             )}
           >
@@ -66,9 +65,8 @@ export const B2bFormProgress: FC<Props> = ({ className, stage }) => {
             className={cn(
               "progress-circle absolute -top-6 right-[17%] transition-all -translate-x-1/2 flex items-center justify-center",
               {
-                "bg-[#D0D3D8]": stage === 1,
-                "bg-reverse_primary": stage === 2,
-                "bg-primary !text-on_primary": stage === 3,
+                "bg-surface-muted": stage === 1,
+                "bg-surface-brand !text-white": stage === 2 || stage === 3,
               }
             )}
           >
@@ -78,8 +76,8 @@ export const B2bFormProgress: FC<Props> = ({ className, stage }) => {
             className={cn(
               "progress-circle absolute -top-6 right-0 transition-all duration-500 flex items-center justify-center",
               {
-                "bg-[#D0D3D8]": stage === 1 || stage === 2,
-                "bg-reverse_primary": stage === 3,
+                "bg-surface-muted": stage === 1 || stage === 2,
+                "bg-surface-brand !text-white": stage === 3,
               }
             )}
           >

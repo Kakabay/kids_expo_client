@@ -4,7 +4,7 @@ import { B2bFormProgress } from "@/components/shared/B2bFormProgress";
 import { useScrollTop, useTranslate } from "@/lib/utils";
 import { useState } from "react";
 
-export default function B2b() {
+const B2bFormPage = () => {
   useScrollTop();
   const [stage, setStage] = useState(1);
   const [success, setSuccess] = useState(false);
@@ -25,4 +25,6 @@ export default function B2b() {
       </div>
     </CoverLayout>
   );
-}
+};
+
+export default B2bFormPage;
