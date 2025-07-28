@@ -1,12 +1,10 @@
 import useGetContacts from "../hooks/useGetContacts";
 import Loader from "../components/shared/Loader";
 import { useScrollTop, useTranslate } from "@/lib/utils";
-import { useLang } from "@/services/zustand/zusLang";
 
 export const ContactsPage = () => {
   useScrollTop();
   const title = useTranslate("Контакты", "Contacts");
-  const localization = useLang((state) => state.activeLang.localization);
 
   const {
     contactsData,
@@ -35,12 +33,7 @@ export const ContactsPage = () => {
         <div className="mt-[35px] flex flex-col gap-2 leading-[130%]">
           {contactsData?.map((item, i) => (
             <div key={i}>
-              <h4 className="font-bold leading-[125%] mb-2">
-                {localization === "en"
-                  ? "Hojamuradov Magtymguly"
-                  : "Ходжамурадов Махтумкули"}
-              </h4>
-              <p className="text-[14px]">{item.services?.[0]?.phone}</p>
+              <p>+993 71 87-18-13</p>
               <p className="text-[14px] text-purple">
                 {item.services[0].email}
               </p>
