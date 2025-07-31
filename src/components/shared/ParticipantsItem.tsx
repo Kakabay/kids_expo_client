@@ -57,11 +57,13 @@ export const ParticipantItem: FC<Props> = ({
                 </h3>
 
                 <div className="flex items-center flex-[0_0_50%] gap-2">
-                  <img
-                    src={image_country?.path}
-                    alt="flag"
-                    className="size-4 flex-[0_0_16px] object-contain"
-                  />
+                  {image_country?.path && (
+                    <img
+                      src={image_country?.path}
+                      alt={country}
+                      className="size-4 flex-[0_0_16px] object-contain"
+                    />
+                  )}
                   <h4 className="text-xs flex-1">{country}</h4>
                 </div>
               </div>
@@ -105,7 +107,9 @@ export const ParticipantItem: FC<Props> = ({
         </div>
 
         <div className="flex-[0_0_19.80%] flex gap-2.5">
-          <img src={image_country?.path} alt="flag" className="size-4" />
+          {image_country.path && (
+            <img src={image_country?.path} alt="flag" className="size-4" />
+          )}
           <h4 className="text-sm normal">{country}</h4>
         </div>
 
