@@ -46,11 +46,12 @@ export const ThemeCardAccordion = ({
           />
         </div>
       </div>
+
       <motion.div
         initial={{ height: 0, opacity: 0, marginTop: 0 }}
         animate={
           openTitles.includes(title || "")
-            ? { height: "100%", opacity: 1, marginTop: 24 }
+            ? { height: "fit-content", opacity: 1, marginTop: 24 }
             : {}
         }
         className="select-inner overflow-hidden"
