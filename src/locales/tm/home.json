@@ -1,0 +1,68 @@
+{
+  "register": "Register",
+
+  "download": "Ýüklemek",
+
+  "buttons": [
+    {
+      "name": "Serginiň meýilnamasy",
+      "link": ""
+    },
+    {
+      "name": "Stende yazylmak",
+      "link": "/stand-form"
+    },
+    {
+      "name": "Gatnaşyjylaryň sanawy",
+      "link": "/participants-list"
+    },
+    {
+      "name": "Serginiň programmasy",
+      "link": ""
+    },
+    {
+      "name": "B2B/B2G duşuşyklar",
+      "link": "/b2b-form"
+    }
+  ],
+
+  "about": {
+    "title": "Kids Expo 2024 hasabatyny öwreniň!",
+    "text": "Kids Expo 2024 Hasabaty çagalar üçin harytlar we dynç alyş önümleri senagatyndaky iň uly wakalaryň birini beýan edýär. Ol gatnaşyk seljermesini, gatnaşan ýurtlar barada maglumaty, myhmanlaryň hoşal bolmagyna baha berilmegini, şeýle hem esasy ugurlary, bazar seljermesini we bilermenleriň çagalar senagatynyň geljegi baradaky düşünjelerini öz içine alýar",
+    "link": "https://editor.turkmenexpo.com/storage/app/media/report/ReportKidsExpo2024_ru.pdf",
+
+    "stats": [
+      {
+        "name": "Sergi meýdançasy"
+      },
+
+      {
+        "name": "Garaşylýan myhmanlar"
+      },
+
+      {
+        "name": "30-dan gowrak ýurtlardan sergiçiler"
+      },
+      {
+        "name": "Gatnaşyjylar ýokary derejeli ýolbaşçylar bolup"
+      }
+    ]
+  },
+
+  "offers": [
+    {
+      "title": "Myhmanhanalar, Ulag hyzmaty, Wiza",
+      "text": "Myhmanhana ýerleşmek, wiza goldawy, ulag we seýil hyzmatlary bilen bagly soraglar boýunça serginiň resmi syýahatçylyk işgärleri bilen habarlaşmagy haýyş edýäris"
+    },
+    {
+      "title": "Kids Expo 2025 sergisinde iň amatly ýerleşýän ýeri saýlap almak mümkinçiligi",
+      "text": "Sergide iň gowy ýeri nädip saýlap almaly? Serginiň gowy stendiniň ýerleşjek ýeriniň siziň meýilli müşderileriňiziň ünsüni özüne çekmek mümkinçiligini artdyrýandygyny hemişe ýatdan saklaň"
+    }
+  ],
+
+  "themeTitle": "Serginiň Tematiki ugurlary",
+
+  "timeTitle": "Exhibition time",
+
+  "partnersTitle": "Partners"
+}

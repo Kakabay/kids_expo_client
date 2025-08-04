@@ -3,29 +3,32 @@ import { cn, useTranslate } from "@/lib/utils";
 import { Link } from "react-router-dom";
 import { Button } from "../ui/button";
 import useEmblaCarousel from "embla-carousel-react";
-import { mainButtons, stats } from "@/constantas";
 import { AboutCard } from "./AboutCard";
 import { Download } from "lucide-react";
-import { useLang } from "@/services/zustand/zusLang";
+import { useTranslation } from "react-i18next";
 
 interface Props {
   className?: string;
 }
 
 export const HomeAbout: FC<Props> = ({ className }) => {
-  const lang = useLang((state) => state.activeLang.localization);
   const [emblaRef] = useEmblaCarousel();
 
-  const title = useTranslate(
-    "Изучите отчет Kids Expo 2024!",
-    "Explore the Kids Expo 2024 Report!"
-  );
-  const text = useTranslate(
-    "Отчет Kids Expo 2024 – одного из крупнейшего мероприятия для индустрии детских товаров иразвлечений. В нем представлен анализ посещаемости, данные о странах-участниках, оценка удовлетворенности гостей, а также ключевые тренды, аналитика рынка, инсайты отэкспертов, которые формируют будущее детской индустрии.",
-    "The Kids Expo 2024 Report covers one of the largest events in thechildren's products and entertainment industry. It includes an analysis of attendance, data on participating countries, visitor satisfaction assessment,as well as key trends, market analytics, and expert insights shaping the future of the children's industry."
-  );
+  const { t } = useTranslation("home");
 
-  const button = useTranslate("Скачать", "Download");
+  const data = t("buttons", { returnObjects: true }) as {
+    name: string;
+    link: string;
+  }[];
+
+  const { title, text, stats } = t("about", { returnObjects: true }) as {
+    title: string;
+    text: string;
+    link?: string;
+    stats: { name: string }[];
+  };
+
+  const titles = ["8,400 m²", "10000+", "100+", "80%"];
 
   const link = useTranslate(
     "https://editor.turkmenexpo.com/storage/app/media/report/ReportKidsExpo2024_ru.pdf",
@@ -37,14 +40,14 @@ export const HomeAbout: FC<Props> = ({ className }) => {
       className={cn("pt-10 md:pb-24 pb-14 bg-surface-primary", className)}
     >
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 items-center container gap-6 mb-20">
-        {mainButtons.map((item) => (
+        {data.map((item) => (
           <Link
             target={item.link.includes("https") ? "_blank" : ""}
-            key={item.title}
+            key={item.name}
             to={item.link}
             className="bg-interactive-background-primary text-white h-12 w-full flex items-center justify-center rounded-sm font-bold"
           >
-            {lang === "ru" ? item.title : item.titleEn}
+            {item.name}
           </Link>
         ))}
       </div>
@@ -54,14 +57,14 @@ export const HomeAbout: FC<Props> = ({ className }) => {
           <div className="flex flex-col gap-6">
             <h2 className="h2 font-bold text-left">{title}</h2>
             <div
-              dangerouslySetInnerHTML={{ __html: text ? text : "" }}
+              dangerouslySetInnerHTML={{ __html: text }}
               className="md:text-base flex flex-col gap-6 text-sm normal text-left text-[#454545]"
             />
 
             <div className="flex w-full gap-8">
               <Link to={link ?? ""} target="_blank" className="w-fit">
                 <Button variant={"outline"} className="flex items-center gap-2">
-                  <Download size={14} /> {button}
+                  <Download size={14} /> {t("download")}
                 </Button>
               </Link>
             </div>
@@ -79,9 +82,10 @@ export const HomeAbout: FC<Props> = ({ className }) => {
 
         <div ref={emblaRef} className="embla overflow-hidden">
           <div className="flex embla__container items-center gap-6">
-            {stats.map((item) => (
+            {stats.map((item, i) => (
               <AboutCard
-                key={item.title}
+                title={titles[i]}
+                key={item.name}
                 {...item}
                 className="embla__slide flex-[0_0_288px]"
               />

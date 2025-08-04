@@ -1,0 +1,67 @@
+{
+  "register": "Register",
+
+  "download": "Download",
+
+  "buttons": [
+    {
+      "name": "Floor plan",
+      "link": ""
+    },
+    {
+      "name": "Book a stand",
+      "link": "/stand-form"
+    },
+    {
+      "name": "List of participants",
+      "link": "/participants-list"
+    },
+    {
+      "name": "Programme",
+      "link": ""
+    },
+    {
+      "name": "B2B | B2G meetings",
+      "link": "/b2b-form"
+    }
+  ],
+
+  "about": {
+    "title": "Explore the Kids Expo 2024 Report!",
+    "text": "The Kids Expo 2024 Report covers one of the largest events in thechildren's products and entertainment industry. It includes an analysis of attendance, data on participating countries, visitor satisfaction assessment,as well as key trends, market analytics, and expert insights shaping the future of the children's industry.",
+    "link": "https://editor.turkmenexpo.com/storage/app/media/report/ReportKidsExpo2024_ru.pdf",
+    "stats": [
+      {
+        "name": "Exhibition area"
+      },
+
+      {
+        "name": "Expected visitors"
+      },
+
+      {
+        "name": "Exhibitors from over 30 countries"
+      },
+      {
+        "name": "Participants are top-management"
+      }
+    ]
+  },
+
+  "offers": [
+    {
+      "title": "Hotels, transportation, visa",
+      "text": "For inquiries regarding hotel accommodation, visa support, transportation, and excursion services, please contact the official tour operators of the exhibition."
+    },
+    {
+      "title": "Choosing Your Optimal Location at Kids Expo 2025",
+      "text": "How to choose the best location at the exhibition? You should always remember that a good exhibition stand location increases your chances of attracting the attention of your potential clients."
+    }
+  ],
+
+  "themeTitle": "Exhibition Thematic Areas",
+
+  "timeTitle": "Exhibition time",
+
+  "partnersTitle": "Partners"
+}

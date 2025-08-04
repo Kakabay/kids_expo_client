@@ -1,0 +1,102 @@
+{
+  "data": [
+    {
+      "title": "Media",
+      "content": [
+        {
+          "title": "Photo",
+          "link": "/media/photo"
+        },
+        {
+          "title": "Video",
+          "link": "/media/video"
+        }
+      ]
+    },
+    {
+      "title": "Contacts",
+      "link": "/contacts"
+    },
+    {
+      "title": "News",
+      "link": "/news"
+    },
+    {
+      "title": "Travel guide",
+      "link": "https://editor.turkmenexpo.com/storage/app/media/travel%20guide/travel_guide.pdf"
+    }
+  ],
+  "data2": [
+    {
+      "title": "Sergi",
+      "content": [
+        {
+          "title": "About",
+          "link": "/exhibition-about"
+        },
+        {
+          "title": "Theme",
+          "link": "/exhibition-theme"
+        },
+        {
+          "title": "Venue",
+          "link": "/exhibition-venue"
+        },
+        {
+          "title": "Information-support",
+          "link": "/exhibition-support"
+        }
+      ]
+    },
+    {
+      "title": "Gatnaşyjylar",
+      "content": [
+        {
+          "title": "Iformation for participants",
+          "link": "/participants-info"
+        },
+        {
+          "title": "Benefits of participation",
+          "link": "/participants-benefits"
+        },
+        {
+          "title": "Application for participation",
+          "link": "/participants-apply"
+        },
+        {
+          "title": "Documets",
+          "link": "/participants-docs"
+        },
+        {
+          "title": "Engineering services",
+          "link": "/participants-services"
+        },
+        {
+          "title": "Services at stands",
+          "link": "/participants-services/stend"
+        },
+        {
+          "title": "Tourist services",
+          "link": "/participants-services/hotels"
+        },
+        {
+          "title": "Printing services",
+          "link": "/participants-services/poligraphy"
+        }
+      ]
+    },
+    {
+      "title": "Myhmanlar üçin",
+      "content": [
+        {
+          "title": "Information for visitors",
+          "link": "/visitors-info"
+        },
+        {
+          "title": "Why visit",
+          "link": "/visitors-visit"
+        }
+      ]
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 import { FC, MouseEvent, useRef, useState } from "react";
-import { cn, useTranslate } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 import { ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
@@ -7,11 +7,9 @@ import { motion } from "framer-motion";
 interface Props {
   className?: string;
   title: string;
-  titleEn: string;
   titleClassName?: string;
   content?: {
     title: string;
-    titleEn: string;
     link: string;
   }[];
 }
@@ -21,7 +19,6 @@ export const HoverMenu: FC<Props> = ({
   title,
   content,
   titleClassName,
-  titleEn,
 }) => {
   const triggerRef = useRef<HTMLDivElement | null>(null);
   const contentRef = useRef<HTMLDivElement | null>(null);
@@ -54,7 +51,7 @@ export const HoverMenu: FC<Props> = ({
           titleClassName
         )}
       >
-        {useTranslate(title, titleEn)}
+        {title}
         <ChevronDown size={14} />
       </div>
 
@@ -71,7 +68,7 @@ export const HoverMenu: FC<Props> = ({
       >
         {content?.map((item) => (
           <Link key={item.title} to={item.link} className="px-6 py-3">
-            {useTranslate(item.title, item.titleEn)}
+            {item.title}
           </Link>
         ))}
       </motion.div>

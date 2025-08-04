@@ -1,22 +1,30 @@
 import { FC } from "react";
 import { MapPin, Smartphone } from "lucide-react";
 import { Link } from "react-router-dom";
-import { navBottom, navTop } from "@/database/header.data";
 import { LangMenu } from "../shared/LangMenu";
 import { HoverMenu } from "../shared/HoverMenu";
 import { useTranslate } from "@/lib/utils";
 import { useBurger } from "@/services/zustand/zusBurger";
 import { AnimatePresence } from "framer-motion";
 import BurgerMenu from "../shared/BurgerMenu";
+import { useTranslation } from "react-i18next";
+import { Navigation } from "@/locales";
 
 export const Header: FC = () => {
   const burger = useBurger((state) => state.burger);
   const setBurger = useBurger((state) => state.setBurger);
 
+  const { t } = useTranslation("nav");
+
   const address = useTranslate(
     "Ашхабад, Туркменистан",
     "Ashgabat, Turkmenistan"
   );
+
+  const data = t("data", { returnObjects: true }) as Navigation[];
+  const data2 = t("data2", { returnObjects: true }) as Navigation[];
+
+  console.log(data);
 
   return (
     <header>
@@ -29,7 +37,7 @@ export const Header: FC = () => {
             </div>
 
             <nav className="flex items-center gap-6">
-              {navTop.map((item, i) =>
+              {data.map((item, i) =>
                 item.link ? (
                   <Link
                     target={item.link.includes("http") ? "_blank" : ""}
@@ -37,7 +45,7 @@ export const Header: FC = () => {
                     key={i}
                     to={item.link || ""}
                   >
-                    {useTranslate(item.title, item.titleEn)}
+                    {item.title}
                   </Link>
                 ) : (
                   <HoverMenu titleClassName="!text-white" key={i} {...item} />
@@ -65,7 +73,7 @@ export const Header: FC = () => {
             </Link>
 
             <nav className="lg:flex hidden items-center gap-6">
-              {navBottom.map((item, i) => (
+              {data2.map((item, i) => (
                 <HoverMenu key={i} {...item} />
               ))}
             </nav>

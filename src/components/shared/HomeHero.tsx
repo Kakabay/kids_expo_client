@@ -32,7 +32,7 @@ export const HomeHero = () => {
     }
   };
 
-  const btn = useTranslate("Зарегистрироваться", "Register");
+  const btn = useTranslate("Стать спонсором", "Become a sponsor");
 
   const filteredSlides =
     bannersData
@@ -57,7 +57,7 @@ export const HomeHero = () => {
       {bannersIsLoading && <Loader className="h-[490px]" />}
       <div className="container relative">
         <Link
-          to="/participants-apply"
+          to="/sponsor-form"
           className={cn(
             "absolute flex items-center text-2xl justify-center bg-interactive-background-primary md:h-14 h-10 rounded-sm font-bold text-white w-[300px] md:right-10 md:bottom-20 z-50 bottom-5",
             lang === "ru" ? "text-xl" : "text-2xl"

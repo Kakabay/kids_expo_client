@@ -1,0 +1,102 @@
+{
+  "data": [
+    {
+      "title": "Медиа",
+      "content": [
+        {
+          "title": "Фоторепортаж",
+          "link": "/media/photo"
+        },
+        {
+          "title": "Видеорепортаж",
+          "link": "/media/video"
+        }
+      ]
+    },
+    {
+      "title": "Контакты",
+      "link": "/contacts"
+    },
+    {
+      "title": "Новости",
+      "link": "/news"
+    },
+    {
+      "title": "Путеводитель",
+      "link": "https://editor.turkmenexpo.com/storage/app/media/travel%20guide/travel_guide.pdf"
+    }
+  ],
+  "data2": [
+    {
+      "title": "Выставка",
+      "content": [
+        {
+          "title": "О выставке",
+          "link": "/exhibition-about"
+        },
+        {
+          "title": "Тематика",
+          "link": "/exhibition-theme"
+        },
+        {
+          "title": "Место проведения",
+          "link": "/exhibition-venue"
+        },
+        {
+          "title": "Информационная поддержка",
+          "link": "/exhibition-support"
+        }
+      ]
+    },
+    {
+      "title": "Участникам",
+      "content": [
+        {
+          "title": "Информция для участников",
+          "link": "/participants-info"
+        },
+        {
+          "title": "Преимущества участия",
+          "link": "/participants-benefits"
+        },
+        {
+          "title": "Онлайн заявка для участников",
+          "link": "/participants-apply"
+        },
+        {
+          "title": "Документы",
+          "link": "/participants-docs"
+        },
+        {
+          "title": "Инженерные услуги",
+          "link": "/participants-services"
+        },
+        {
+          "title": "Сервис на стендах",
+          "link": "/participants-services/stend"
+        },
+        {
+          "title": "Турестические услуги",
+          "link": "/participants-services/hotels"
+        },
+        {
+          "title": "Полиграфия",
+          "link": "/participants-services/poligraphy"
+        }
+      ]
+    },
+    {
+      "title": "Посетителям",
+      "content": [
+        {
+          "title": "Информация для посетителей",
+          "link": "/visitors-info"
+        },
+        {
+          "title": "Зачем посещать",
+          "link": "/visitors-visit"
+        }
+      ]
+    }
+  ]
+}
