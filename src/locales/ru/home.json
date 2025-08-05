@@ -64,5 +64,20 @@
 
   "timeTitle": "Exhibition time",
 
+  "contacts": [
+    {
+      "title": "contact@turkmenexpo.com",
+      "suptitle": "Адрес электронной почты"
+    },
+    {
+      "title": "г. Ашхабад, улица Чандыбиль 143",
+      "suptitle": "Адрес выставки"
+    },
+    {
+      "title": "+993 71 87 18 13",
+      "suptitle": "Контактный номер"
+    }
+  ],
+
   "partnersTitle": "Partners"
 }

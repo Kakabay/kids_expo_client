@@ -24,8 +24,6 @@ export const Header: FC = () => {
   const data = t("data", { returnObjects: true }) as Navigation[];
   const data2 = t("data2", { returnObjects: true }) as Navigation[];
 
-  console.log(data);
-
   return (
     <header>
       <div className="h-12 hidden lg:flex bg-sur text-surface-bg bg-surface-brand text-white items-center">

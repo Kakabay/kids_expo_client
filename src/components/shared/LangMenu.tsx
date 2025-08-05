@@ -18,10 +18,10 @@ export const langs = [
     title: "English",
     localization: "en",
   },
-  // {
-  //   title: "Türkmen",
-  //   localization: "tm",
-  // },
+  {
+    title: "Türkmen",
+    localization: "tm",
+  },
 ];
 
 export const LangMenu: FC<Props> = ({ className }) => {
@@ -61,7 +61,7 @@ export const LangMenu: FC<Props> = ({ className }) => {
           className
         )}
       >
-        <img src={lang === "ru" ? "/ru-flag.svg" : "/en-flag.svg"} alt="" />
+        <img src={`/${lang}-flag.svg`} alt="" />
         {lang === "ru" ? "Ру" : lang === "en" ? "En" : "Tm"}
         <ChevronDown />
       </h4>
@@ -82,12 +82,7 @@ export const LangMenu: FC<Props> = ({ className }) => {
               key={i}
               className="flex gap-3 py-3 px-6 items-center cursor-pointer"
             >
-              <img
-                src={
-                  item.localization === "ru" ? "/ru-flag.svg" : "/en-flag.svg"
-                }
-                alt="flag"
-              />
+              <img src={`/${item.localization}-flag.svg`} alt="flag" />
               <h5>{item.title}</h5>
             </div>
           ))}
