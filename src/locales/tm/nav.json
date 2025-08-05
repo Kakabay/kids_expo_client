@@ -1,6 +1,8 @@
 {
   "data": [
     {
+      "id": 1,
+
       "title": "Media",
       "content": [
         {
@@ -14,20 +16,28 @@
       ]
     },
     {
+      "id": 2,
+
       "title": "Contacts",
       "link": "/contacts"
     },
     {
+      "id": 3,
+
       "title": "News",
       "link": "/news"
     },
     {
+      "id": 4,
+
       "title": "Travel guide",
       "link": "https://editor.turkmenexpo.com/storage/app/media/travel%20guide/travel_guide.pdf"
     }
   ],
   "data2": [
     {
+      "id": 5,
+
       "title": "Sergi",
       "content": [
         {
@@ -49,6 +59,8 @@
       ]
     },
     {
+      "id": 6,
+
       "title": "Gatnaşyjylar",
       "content": [
         {
@@ -86,6 +98,8 @@
       ]
     },
     {
+      "id": 7,
+
       "title": "Myhmanlar üçin",
       "content": [
         {

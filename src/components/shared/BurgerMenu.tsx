@@ -1,62 +1,46 @@
-import { burgerData, burgerData2 } from "@/database/burger.data";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ChevronRight } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useBurger } from "@/services/zustand/zusBurger";
-import { cn } from "@/lib/utils";
 import { useLang } from "@/services/zustand/zusLang";
+import { useTranslation } from "react-i18next";
+import { cn } from "@/lib/utils";
+import { Navigation, NavigationGroup } from "@/locales";
 
 const burgerLangs = [
-  // {
-  //   title: "Tm",
-  //   localization: "tm",
-  // },
-  {
-    title: "Ру",
-    localization: "ru",
-  },
-  {
-    title: "En",
-    localization: "en",
-  },
+  { title: "Tm", localization: "tm" },
+  { title: "Ру", localization: "ru" },
+  { title: "En", localization: "en" },
 ];
-
-export interface BurgerItemType {
-  id: number;
-  view: string;
-  viewEn: string;
-  items: Item[];
-}
-
-export interface Item {
-  title: string;
-  titleEn: string;
-  link: string;
-}
 
 const BurgerMenu = () => {
   const setBurger = useBurger((state) => state.setBurger);
-
-  const lang = useLang((state) => state.activeLang.localization);
   const setLang = useLang((state) => state.setLang);
+  const { t } = useTranslation("nav");
+
+  const isNavigationGroup = (item: Navigation): item is NavigationGroup =>
+    "content" in item;
+
+  const burgerData = t("data", { returnObjects: true }) as Navigation[];
+  const burgerData2 = t("data2", { returnObjects: true }) as Navigation[];
+
+  const [active, setActive] = useState<number | null>(null);
 
   useEffect(() => {
     document.body.classList.add("overflow-hidden");
-
     return () => document.body.classList.remove("overflow-hidden");
   }, []);
 
-  const [active, setActive] = useState(0);
-
-  const handleClick = (id: number, activeId: number) => {
-    if (id === activeId) setActive(0);
-    else setActive(id);
+  const toggleActive = (id: number) => {
+    setActive((prev) => (prev === id ? null : id));
   };
 
-  const innerItem = burgerData2
-    .find((item) => item.id === 6)
-    ?.info.find((_, i, arr) => i + 1 === arr.length) as BurgerItemType;
+  const innerItem = burgerData2.find(
+    (item) => isNavigationGroup(item) && item.id === 6
+  ) as NavigationGroup;
+
+  const lastInnerContent = innerItem?.content.at(-1);
 
   return (
     <motion.div
@@ -66,20 +50,20 @@ const BurgerMenu = () => {
       transition={{ duration: 0.4, ease: [0.55, 0, 0.1, 1] }}
       className="w-screen h-full top-20 bg-purple absolute leading-[120%] text-white z-[200] left-0 py-10 overflow-auto"
     >
-      <nav className="mx-4">
-        <div className="flex flex-col gap-6 h-[150px] overflow-hidden">
-          {burgerData.map((item, i) =>
-            item.menu ? (
-              <div key={i}>
+      <nav className="mx-4 flex flex-col gap-10">
+        {/* Первая группа */}
+        <div className="flex flex-col gap-6">
+          {burgerData.map((item) =>
+            isNavigationGroup(item) ? (
+              <div key={item.id}>
                 <div
-                  onClick={() => handleClick(item.id, active)}
-                  key={i}
+                  onClick={() => toggleActive(item.id)}
                   className={cn(
-                    "flex items-center justify-between",
+                    "flex items-center justify-between cursor-pointer",
                     item.id !== 1 && "hidden"
                   )}
                 >
-                  {lang === "ru" ? item.view : item.viewEn}
+                  {item.title}
                   <ChevronRight
                     className={cn(
                       active === item.id && "rotate-90",
@@ -93,13 +77,15 @@ const BurgerMenu = () => {
                   <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    className={cn(
-                      "flex flex-col gap-6 h-[200px] transition-all border-t mt-3 pt-4 border-t-white/20"
-                    )}
+                    className="flex flex-col gap-6 mt-3 pt-4 border-t border-white/20 transition-all"
                   >
-                    {item.info?.map((item, i) => (
-                      <Link key={i} to={item.link}>
-                        {lang === "ru" ? item.view : item.viewEn}
+                    {item.content.map((sub, i) => (
+                      <Link
+                        key={i}
+                        to={sub.link}
+                        onClick={() => setBurger(false)}
+                      >
+                        {sub.title}
                       </Link>
                     ))}
                   </motion.div>
@@ -107,157 +93,110 @@ const BurgerMenu = () => {
               </div>
             ) : (
               <Link
-                onClick={() => setBurger(false)}
-                key={i}
+                key={item.title}
                 to={item.link || ""}
+                onClick={() => setBurger(false)}
               >
-                {lang === "ru" ? item.view : item.viewEn}
+                {item.title}
               </Link>
             )
           )}
         </div>
 
-        <hr className="border-white/20 my-8" />
+        <hr className="border-white/20" />
 
-        <div className={cn("flex h-[105px] flex-col gap-6")}>
-          {burgerData2.map((item, i) => (
-            <div key={i}>
-              <div
-                onClick={() => handleClick(item.id, active)}
-                className="flex items-center justify-between"
-              >
-                {lang === "ru" ? item.view : item.viewEn}
-                <ChevronRight size={18} />
-              </div>
-
-              {i === 1 && active === 8 && (
-                <motion.div className="flex border-y border-y-white/20 my-3 py-4 flex-col gap-6">
-                  {innerItem.items.map((item, i) => (
-                    <Link
-                      onClick={() => {
-                        setBurger(false);
-                      }}
-                      to={item.link}
-                      key={i}
-                    >
-                      {lang === "ru" ? item.title : item.titleEn}
-                    </Link>
-                  ))}
-                </motion.div>
-              )}
-
-              {active !== 8 && active === item.id && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1 }}
-                  transition={{ duration: 0.3 }}
-                  className={cn(
-                    "flex flex-col gap-6 transition-all border-y mt-3 py-4 border-y-white/20"
-                  )}
+        {/* Вторая группа */}
+        <div className="flex flex-col gap-6">
+          {burgerData2.map((item) =>
+            isNavigationGroup(item) ? (
+              <div key={item.id}>
+                <div
+                  onClick={() => toggleActive(item.id)}
+                  className="flex items-center justify-between cursor-pointer"
                 >
-                  {item.info?.map((item, i, arr) => (
-                    <div key={i}>
-                      <Link
-                        className={cn(i + 1 === arr.length && "hidden")}
-                        onClick={() => {
-                          setBurger(false);
-                        }}
-                        key={i}
-                        to={item.link || ""}
-                      >
-                        {lang === "ru" ? item.view : item.viewEn}
-                      </Link>
+                  {item.title}
+                  <ChevronRight
+                    className={cn(
+                      active === item.id && "rotate-90",
+                      "transition-all"
+                    )}
+                    size={18}
+                  />
+                </div>
 
-                      {i + 1 === arr.length && (
+                {/* Вложенные пункты с "ещё" */}
+                {active === item.id && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    className="flex flex-col gap-6 mt-3 py-4 border-y border-white/20 transition-all"
+                  >
+                    {item.content.map((sub, i) =>
+                      sub.title === lastInnerContent?.title ? (
                         <div
-                          onClick={() => handleClick(8, active)}
-                          className="flex items-center justify-between"
+                          key={i}
+                          onClick={() => toggleActive(999)}
+                          className="flex items-center justify-between cursor-pointer"
                         >
-                          {lang === "ru" ? item.view : item.viewEn}
+                          {sub.title}
                           <ChevronRight size={18} />
                         </div>
-                      )}
-                    </div>
-                  ))}
-                </motion.div>
-              )}
+                      ) : (
+                        <Link
+                          key={i}
+                          to={sub.link}
+                          onClick={() => setBurger(false)}
+                        >
+                          {sub.title}
+                        </Link>
+                      )
+                    )}
+
+                    {/* Раскрытие вложенного последнего пункта */}
+                    {active === 999 && lastInnerContent && (
+                      <motion.div className="flex flex-col gap-4 mt-3 border-t pt-4 border-white/20">
+                        {innerItem?.content
+                          ?.filter((el) => el.title === lastInnerContent.title)
+                          .map((el, i) => (
+                            <Link
+                              key={i}
+                              to={el.link}
+                              onClick={() => setBurger(false)}
+                            >
+                              {el.title}
+                            </Link>
+                          ))}
+                      </motion.div>
+                    )}
+                  </motion.div>
+                )}
+              </div>
+            ) : null
+          )}
+        </div>
+
+        {/* Языки */}
+        <div className="flex items-center justify-center mt-20 gap-10">
+          {burgerLangs.map((item, i) => (
+            <div
+              key={i}
+              onClick={() => {
+                setLang(item);
+                setBurger(false);
+              }}
+              className="flex cursor-pointer items-center gap-2"
+            >
+              <img
+                src={`/assets/icons/burgerMenu/${item.localization}.svg`}
+                alt={item.title}
+              />
+              <p>{item.title}</p>
             </div>
           ))}
         </div>
       </nav>
-
-      <div
-        className={cn(
-          "flex transition-all  items-center justify-center mt-20 mx-auto gap-10",
-          active > 4 && "translate-y-[200px]"
-        )}
-      >
-        {burgerLangs.map((item, i) => (
-          <div
-            key={i}
-            onClick={() => {
-              setLang(item);
-              setBurger(false);
-            }}
-            className="flex cursor-pointer transition-all items-center gap-[10px]"
-          >
-            <img
-              src={`/assets/icons/burgerMenu/${item.localization}.svg`}
-              alt="flag"
-            />
-            <p>{item.title}</p>
-          </div>
-        ))}
-      </div>
     </motion.div>
   );
 };
 
 export default BurgerMenu;
-
-// import { burgerData, burgerData2 } from "@/database/burger.data";
-// import { useBurger } from "@/services/zustand/zusBurger";
-// import { motion } from "framer-motion";
-// import { useState } from "react";
-// import { useNavigate } from "react-router-dom";
-
-// export const BurgerMenu = () => {
-//   const setBurger = useBurger((state) => state.setBurger);
-//   const [active, setActive] = useState<null | number>(null);
-//   const navigate = useNavigate();
-
-//   const onLink = (id: number, link?: string) => {
-//     if (link) {
-//       navigate(link);
-//       setBurger(false);
-//     } else setActive(id);
-//   };
-
-//   return (
-//     <motion.div
-//       initial={{ x: "100%", opacity: 0 }}
-//       animate={{ x: 0, opacity: 1 }}
-//       exit={{ x: "100%", opacity: 0 }}
-//       transition={{ duration: 0.4, ease: [0.55, 0, 0.1, 1] }}
-//       className="w-screen h-full top-20 px-4 flex flex-col gap-10 bg-purple absolute leading-[120%] text-white z-[200] left-0 py-10 overflow-auto"
-//     >
-//       <div className="flex flex-col items-start gap-6">
-//         {burgerData.map((item, i) => (
-//           <div key={i} className="">
-//             <button onClick={() => onLink(i, item.link)} key={i}>
-//               {item.title}
-//             </button>
-//           </div>
-//         ))}
-//       </div>
-
-//       <hr className="opacity-30" />
-
-//       <div className="flex flex-col items-start gap-6">
-//         {burgerData2.map((item, i) => (
-//           <button key={i}>{item.title}</button>
-//         ))}
-//       </div>
-//     </motion.div>
-//   );
-// };

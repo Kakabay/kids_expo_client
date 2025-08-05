@@ -66,15 +66,15 @@
   "contacts": [
     {
       "title": "contact@turkmenexpo.com",
-      "suptitle": "Адрес электронной почты"
+      "suptitle": "Email address"
     },
     {
-      "title": "г. Ашхабад, улица Чандыбиль 143",
-      "suptitle": "Адрес выставки"
+      "title": "Ashgabat, Chandybil street 143",
+      "suptitle": "Exhibition address"
     },
     {
       "title": "+993 71 87 18 13",
-      "suptitle": "Контактный номер"
+      "suptitle": "Contact number"
     }
   ],
 

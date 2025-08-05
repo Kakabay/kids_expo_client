@@ -1,6 +1,8 @@
 {
   "data": [
     {
+      "id": 1,
+
       "title": "Медиа",
       "content": [
         {
@@ -14,20 +16,28 @@
       ]
     },
     {
+      "id": 2,
+
       "title": "Контакты",
       "link": "/contacts"
     },
     {
+      "id": 3,
+
       "title": "Новости",
       "link": "/news"
     },
     {
+      "id": 4,
+
       "title": "Путеводитель",
       "link": "https://editor.turkmenexpo.com/storage/app/media/travel%20guide/travel_guide.pdf"
     }
   ],
   "data2": [
     {
+      "id": 5,
+
       "title": "Выставка",
       "content": [
         {
@@ -49,6 +59,8 @@
       ]
     },
     {
+      "id": 6,
+
       "title": "Участникам",
       "content": [
         {
@@ -86,6 +98,8 @@
       ]
     },
     {
+      "id": 7,
+
       "title": "Посетителям",
       "content": [
         {
