@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 import { z } from "zod";
-import { cn, useTranslate } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
