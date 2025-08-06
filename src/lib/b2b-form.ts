@@ -3,39 +3,41 @@ import { z } from "zod";
 export const MAX_FILE_SIZE = 2 * 1024 * 1024; // 2 МБ
 
 export const formSchema = z.object({
-  type: z.string(),
+  event_id: z.number().default(3),
+
+  meeting_type: z.string(),
   company_name: z
     .string()
     .min(3, { message: "Название компании должно быть не менее 3 символов" }),
-  representative_name: z
+  contact_person: z
     .string()
     .min(3, { message: "Имя представителя должно быть не менее 3 символов" }),
-  position_title: z
+  contact_person_position: z
     .string()
     .min(3, { message: "Должность должна быть не менее 3 символов" }),
-  participants_count: z
+  participant_count: z
     .string()
     .min(1, { message: "Укажите количество участников" }),
   country: z
     .string()
     .min(3, { message: "Название страны должно быть не менее 3 символов" }),
   email: z.string().email({ message: "Укажите корректный email" }),
-  phone_number: z
+  phone: z
     .string()
     .min(8, { message: "Номер телефона должен быть не менее 8 символов" }),
-  website: z.string().optional(),
+  web_site: z.string().optional(),
 
-  meeting_purpose: z.string().min(3, { message: "Укажите цель встречи" }),
-  project_description: z.string().optional(),
-  government_agency: z.string().optional(),
+  main_purpose: z.string().min(3, { message: "Укажите цель встречи" }),
+  short_description: z.string().optional(),
+  department: z.string().optional(),
   industry: z.string().optional(),
-  key_services: z.string().optional(),
-  gov_experience: z.string().optional(),
+  key_service: z.string().optional(),
+  experience: z.string().optional(),
 
-  preferred_datetime: z.string().optional(),
-  meeting_format: z.string().optional(),
+  preferred_date: z.string().optional(),
+  preferred_meeting_type: z.string().optional(),
   preferred_language: z.string().optional(),
-  logistics_requirements: z.string().optional(),
+  extra_requirements: z.string().optional(),
   company_profile: z
     .custom<File>((value) => value instanceof File, {
       message: "Выберите корректный файл",
@@ -77,27 +79,25 @@ export const formSchema = z.object({
     .optional(),
 });
 
-// Тип для формы
 export type FormType = z.infer<typeof formSchema>;
 
-// Значения по умолчанию
 export const defaultValuesOfB2b = {
-  type: "B2B",
-  company_name: "test",
-  representative_name: "test",
-  position_title: "test",
-  country: "test",
-  email: "test@gmail.com",
-  phone_number: "test32123123",
-  website: "test",
-  meeting_purpose: "test",
-  project_description: "",
-  government_agency: "",
+  meeting_type: "b2b",
+  company_name: "",
+  contact_person: "",
+  contact_person_position: "",
+  country: "",
+  email: "",
+  phone: "",
+  website: "",
+  main_purpose: "",
+  short_description: "",
+  department: "",
   industry: "",
-  key_services: "",
-  gov_experience: "",
-  preferred_datetime: "",
-  meeting_format: "",
+  key_service: "",
+  experience: "",
+  preferred_date: "",
+  preferred_meeting_type: "",
   preferred_language: "",
-  logistics_requirements: "",
+  extra_requirements: "",
 };

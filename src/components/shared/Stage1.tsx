@@ -40,7 +40,7 @@ export const Stage1: FC<Props> = ({ handleNext }) => {
         <FormField
           defaultValue={1}
           control={control}
-          name="type"
+          name="meeting_type"
           render={({ field }) => (
             <FormItem className="space-y-3">
               <FormLabel className="text-xl">
@@ -56,8 +56,8 @@ export const Stage1: FC<Props> = ({ handleNext }) => {
                   <FormItem className="flex items-center space-x-3 space-y-0">
                     <FormControl>
                       <RadioGroupItem
-                        value={"B2B"}
-                        checked={field.value === "B2B"}
+                        value={"b2b"}
+                        checked={field.value === "b2b"}
                       />
                     </FormControl>
                     <FormLabel className="text-base">B2B</FormLabel>
@@ -66,8 +66,8 @@ export const Stage1: FC<Props> = ({ handleNext }) => {
                   <FormItem className="flex items-center space-x-3 space-y-0">
                     <FormControl>
                       <RadioGroupItem
-                        value={"B2G"}
-                        checked={field.value === "B2G"}
+                        value={"b2g"}
+                        checked={field.value === "b2g"}
                       />
                     </FormControl>
                     <FormLabel className="text-base">B2G</FormLabel>
@@ -87,23 +87,23 @@ export const Stage1: FC<Props> = ({ handleNext }) => {
         />
         <Field
           control={control}
-          name={"representative_name"}
-          error={formState.errors.representative_name as FieldError}
+          name={"contact_person"}
+          error={formState.errors.contact_person as FieldError}
           placeholder=""
           label={b2bStage1[translate].data[1].label}
         />
         <Field
           control={control}
-          name={"position_title"}
-          error={formState.errors.position_title as FieldError}
+          name={"contact_person_position"}
+          error={formState.errors.contact_person_position as FieldError}
           placeholder=""
           label={b2bStage1[translate].data[2].label}
         />
         <Field
           type="number"
           control={control}
-          name={"participants_count"}
-          error={formState.errors.participants_count as FieldError}
+          name={"participant_count"}
+          error={formState.errors.participant_count as FieldError}
           placeholder=""
           label={b2bStage1[translate].data[3].label}
         />
@@ -123,14 +123,14 @@ export const Stage1: FC<Props> = ({ handleNext }) => {
         />
         <Field
           control={control}
-          name={"phone_number"}
-          error={formState.errors.phone_number as FieldError}
+          name={"phone"}
+          error={formState.errors.phone as FieldError}
           placeholder=""
           label={b2bStage1[translate].data[6].label}
         />
         <Field
           control={control}
-          name={"website"}
+          name={"web_site"}
           placeholder=""
           label={b2bStage1[translate].data[7].label}
         />

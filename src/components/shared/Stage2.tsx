@@ -33,22 +33,22 @@ export const Stage2: FC<Props> = ({ handleNext, handlePrev }) => {
       <div className="flex flex-col gap-8">
         <Field
           control={control}
-          name={"meeting_purpose"}
-          error={formState.errors.meeting_purpose as FieldError}
+          name={"main_purpose"}
+          error={formState.errors.main_purpose as FieldError}
           placeholder=""
           label={b2bStage2[translate].data[0].label}
         />
         <Field
           control={control}
-          name={"project_description"}
-          error={formState.errors.project_description as FieldError}
+          name={"short_description"}
+          error={formState.errors.short_description as FieldError}
           placeholder=""
           label={b2bStage2[translate].data[1].label}
         />
         <Field
           control={control}
-          name={"government_agency"}
-          error={formState.errors.government_agency as FieldError}
+          name={"department"}
+          error={formState.errors.department as FieldError}
           placeholder=""
           label={b2bStage2[translate].data[2].label}
         />
@@ -64,15 +64,15 @@ export const Stage2: FC<Props> = ({ handleNext, handlePrev }) => {
         />
         <Field
           control={control}
-          name={"key_services"}
-          error={formState.errors.key_services as FieldError}
+          name={"key_service"}
+          error={formState.errors.key_service as FieldError}
           placeholder=""
           label={b2bStage2[translate].data[4].label}
         />
         <Field
           control={control}
-          name={"gov_experience"}
-          error={formState.errors.gov_experience as FieldError}
+          name={"experience"}
+          error={formState.errors.experience as FieldError}
           placeholder=""
           label={b2bStage2[translate].data[5].label}
         />

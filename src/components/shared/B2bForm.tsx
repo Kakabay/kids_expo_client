@@ -35,31 +35,31 @@ export const B2bForm: FC<Props> = ({
     switch (currentStage) {
       case 1:
         return [
-          "type",
+          "meeting_type",
           "company_name",
-          "representative_name",
-          "position_title",
-          "participants_count",
+          "contact_person",
+          "contact_person_position",
+          "participant_count",
           "country",
           "email",
-          "phone_number",
-          "website",
+          "phone",
+          "web_site",
         ];
       case 2:
         return [
-          "meeting_purpose",
-          "project_description",
-          "government_agency",
+          "main_purpose",
+          "short_description",
+          "department",
           "industry",
-          "key_services",
-          "gov_experience",
+          "key_service",
+          "experience",
         ];
       case 3:
         return [
-          "preferred_datetime",
-          "meeting_format",
+          "preferred_date",
+          "preferred_meeting_type",
           "preferred_language",
-          "logistics_requirements",
+          "extra_requirements",
           "company_profile",
           "proposal_presentation",
           "relevant_certification",
@@ -85,15 +85,29 @@ export const B2bForm: FC<Props> = ({
       const formData = new FormData();
 
       Object.entries(values).forEach(([key, value]) => {
-        if (value instanceof File) {
-          formData.append(key, value);
-        } else if (value !== undefined) {
+        if (
+          key !== "company_profile" &&
+          key !== "proposal_presentation" &&
+          key !== "relevant_certification" &&
+          value !== undefined &&
+          !(value instanceof File)
+        ) {
           formData.append(key, value as string);
         }
       });
 
+      const documents = [
+        values.company_profile,
+        values.proposal_presentation,
+        values.relevant_certification,
+      ].filter(Boolean);
+
+      documents.forEach((file) => {
+        formData.append("documents[]", file as File);
+      });
+
       const res = await axios.post(
-        "https://tif.turkmenexpo.com/app/api/v1/form",
+        "https://editor.turkmenexpo.com/api/v1/applications/meeting",
         formData,
         {
           headers: {

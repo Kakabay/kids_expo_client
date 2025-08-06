@@ -78,7 +78,8 @@ export const Field = ({
                   disabled={disabled}
                   className={cn(
                     "transition-all",
-                    error && "focus:border-primary border-[#BA1A1A]"
+                    error &&
+                      "focus:border-primary focus:!ring-[#BA1A1A] !border-[#BA1A1A] !ring-[#BA1A1A]"
                   )}
                 />
               ) : (
@@ -93,7 +94,7 @@ export const Field = ({
                       if (handleChange) handleChange(e);
                     }}
                     disabled={disabled}
-                    className="w-full border-2 rounded h-full  border-dashed outline-0 ring-0 border-surface-brand"
+                    className="w-full border-2 rounded h-full border-dashed outline-0 ring-0 border-surface-brand"
                   />
                   {field.value && (
                     <div className="text-sm mt-2 text-gray-500 absolute top-8">
@@ -106,7 +107,7 @@ export const Field = ({
           </FormControl>
           <FormMessage
             className={cn(
-              "absolute -bottom-5 left-0 text-sm font-medium leading-[130%]",
+              "absolute top-[84px] left-0 text-sm font-medium leading-[130%]",
               Boolean(error) && onPrimary
                 ? "text-teritary_04"
                 : "text-[#BA1A1A]"
