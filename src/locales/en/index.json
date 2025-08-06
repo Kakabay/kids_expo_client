@@ -6,5 +6,10 @@
 
   "supportPage": {
     "title": "We invite you to become our partners"
+  },
+
+  "subscribeForm": {
+    "title": "Subscribe to the news:",
+    "button": "Subscribe"
   }
 }

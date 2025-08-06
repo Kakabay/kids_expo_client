@@ -6,5 +6,10 @@
 
   "supportPage": {
     "title": "Sizi hyzmatdaşlarymyz bolmaga çagyrýarys"
+  },
+
+  "subscribeForm": {
+    "title": "Abuna yazylyň:",
+    "button": "Ýazylmak"
   }
 }

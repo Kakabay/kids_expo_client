@@ -4,6 +4,7 @@ import { cn, useTranslate } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
+import { useTranslation } from "react-i18next";
 
 interface Props {
   className?: string;
@@ -18,6 +19,7 @@ export type SubscribeType = z.infer<typeof schema>;
 
 export const SubscribeForm: FC<Props> = ({ modal = false }) => {
   const [success, setSuccess] = useState(false);
+  const { t } = useTranslation("index");
 
   const form = useForm<SubscribeType>({
     resolver: zodResolver(schema),
@@ -49,9 +51,7 @@ export const SubscribeForm: FC<Props> = ({ modal = false }) => {
           modal ? "flex-col w-full" : "lg:flex-row flex-col lg:items-center"
         )}
       >
-        <h2 className="text-xl font-bold">
-          {useTranslate("Подпишитесь на новости:", "Subscribe to the news:")}
-        </h2>
+        <h2 className="text-xl font-bold">{t("subscribeForm.title")}</h2>
 
         <div className="relative">
           <input
@@ -78,9 +78,7 @@ export const SubscribeForm: FC<Props> = ({ modal = false }) => {
             "w-full": modal,
           })}
         >
-          {success
-            ? useTranslate("Отправлено", "Submitted")
-            : useTranslate("Подписаться", "Subscribe")}
+          {t("subscribeForm.button")}
         </Button>
       </div>
     </form>
