@@ -1,6 +1,5 @@
 import { useLang } from "../../services/zustand/zusLang";
 import { v4 } from "uuid";
-import { useScrollTop } from "@/lib/utils";
 import { CoverLayout } from "@/components/layout/CoverLayout";
 
 const benefitsData = [

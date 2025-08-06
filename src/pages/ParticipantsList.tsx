@@ -1,5 +1,5 @@
 import { FC, useState } from "react";
-import { cn, useScrollTop } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 import { useLang } from "@/services/zustand/zusLang";
 import Loader from "@/components/shared/Loader";
 import { ParticipantItem } from "@/components/shared/ParticipantsItem";

@@ -3,7 +3,6 @@ import useGetSeperateNews from "../hooks/useGetSeperateNews";
 import { useLang } from "../services/zustand/zusLang";
 import Loader from "../components/shared/Loader";
 import { CustomButton } from "../components/shared/CustomButton";
-import { useScrollTop } from "@/lib/utils";
 
 export const NewsSeperatePage = () => {
   const localization = useLang((state) => state.activeLang.localization);
