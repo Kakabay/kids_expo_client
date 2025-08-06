@@ -1,11 +1,10 @@
 import { CoverLayout } from "@/components/layout/CoverLayout";
 import { B2bForm } from "@/components/shared/B2bForm";
 import { B2bFormProgress } from "@/components/shared/B2bFormProgress";
-import { useScrollTop, useTranslate } from "@/lib/utils";
+import { useTranslate } from "@/lib/utils";
 import { useState } from "react";
 
 const B2bFormPage = () => {
-  useScrollTop();
   const [stage, setStage] = useState(1);
   const [success, setSuccess] = useState(false);
 

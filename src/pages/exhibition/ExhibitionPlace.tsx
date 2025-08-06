@@ -1,10 +1,8 @@
 import useGetVenue from "../../hooks/exhibition/useGetVenue";
 import Loader from "../../components/shared/Loader";
-import { useScrollTop, useTranslate } from "@/lib/utils";
+import { useTranslate } from "@/lib/utils";
 
 const ExhibitionPlace = () => {
-  useScrollTop();
-
   const { venueData, venueIsLoading } = useGetVenue();
 
   const title = useTranslate("Место проведения", "Venue");

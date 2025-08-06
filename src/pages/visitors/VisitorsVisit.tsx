@@ -24,8 +24,6 @@ const benefitsData = [
 ];
 
 export const VisitorsVisit = () => {
-  useScrollTop();
-
   const localization = useLang((state) => state.activeLang.localization);
   const chooseDataLang = (en: string, ru: string) =>
     localization === "en" ? en : ru;

@@ -11,7 +11,6 @@ interface Props {
 }
 
 const Participants: FC<Props> = ({ className }) => {
-  useScrollTop();
   const lang = useLang((state) => state.activeLang.localization);
 
   const { data, isPending } = useGetParticipants();

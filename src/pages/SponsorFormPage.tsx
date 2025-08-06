@@ -20,15 +20,13 @@ import {
   sponsorFormSchema,
   SponsorFormType,
 } from "@/lib/sponsor-form";
-import { useArrayIndex, useScrollTop, useTranslate } from "@/lib/utils";
+import { useArrayIndex, useTranslate } from "@/lib/utils";
 import expoService from "@/services/api/requests/expo.service";
 import { standData } from "@/lib/stand-form.data";
 import { Field } from "@/components/shared/Field";
 import { FormSuccesStatus } from "@/components/shared/FormSuccessStatus";
 
 const SponsorFormPage = () => {
-  useScrollTop();
-
   const lang = useLang((state) => state.activeLang.localization);
   const [success, setSuccess] = useState(false);
   const form = useForm<SponsorFormType>({

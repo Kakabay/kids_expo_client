@@ -5,7 +5,7 @@ import {
   standFormSchema,
   StandFormType,
 } from "@/lib/stand-form";
-import { useArrayIndex, useScrollTop, useTranslate } from "@/lib/utils";
+import { useArrayIndex, useTranslate } from "@/lib/utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
@@ -24,7 +24,6 @@ import { Button } from "@/components/ui/button";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
 const StandFormPage = () => {
-  useScrollTop();
   const lang = useLang((state) => state.activeLang.localization);
   const title = useTranslate("Забронировать стенд", "Book a stand");
 

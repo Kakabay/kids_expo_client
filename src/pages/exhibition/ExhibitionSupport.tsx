@@ -1,19 +1,13 @@
-import { useGetEn } from "../../hooks/language/useGetEn";
 import { CoverLayout } from "@/components/layout/CoverLayout";
-import { useScrollTop, useTranslate } from "@/lib/utils";
+import { useGetTitles } from "@/lib/useGetTitles";
 
 export const ExhibitionSupport = () => {
-  useScrollTop();
-
-  const title = useTranslate("Информационная поддержка", "Information support");
+  const { support, supportTitle } = useGetTitles();
 
   return (
-    <CoverLayout title={title}>
+    <CoverLayout title={support}>
       <h2 className="text-3xl font-semibold leading-[120%] mb-[22px]">
-        {useGetEn(
-          "We invite you to become our partners",
-          "Приглашаем Вас стать нашими партнерами"
-        )}
+        {supportTitle}
       </h2>
 
       <div className="flex flex-col gap-4 sm:gap-3">

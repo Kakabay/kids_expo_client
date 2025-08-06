@@ -1,10 +1,10 @@
 import useGetAboutExhibition from "../../hooks/useGetAboutExhibition";
 import Loader from "../../components/shared/Loader";
 import { CoverLayout } from "@/components/layout/CoverLayout";
-import { useScrollTop, useTranslate } from "@/lib/utils";
+import { useGetTitles } from "@/lib/useGetTitles";
 
 const ExhibitionAbout = () => {
-  useScrollTop();
+  const { about } = useGetTitles();
 
   const {
     aboutExhibitionData,
@@ -17,10 +17,8 @@ const ExhibitionAbout = () => {
     <h1>Error...</h1>;
   }
 
-  const title = useTranslate("О выставке", "About");
-
   return (
-    <CoverLayout title={title}>
+    <CoverLayout title={about}>
       {aboutExhibitionIsSuccess && (
         <div
           className="flex flex-col gap-6 exibition-about-wrapper"

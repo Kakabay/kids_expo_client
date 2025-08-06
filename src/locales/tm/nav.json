@@ -41,19 +41,19 @@
       "title": "Sergi",
       "content": [
         {
-          "title": "About",
+          "title": "Maglumat",
           "link": "/exhibition-about"
         },
         {
-          "title": "Theme",
+          "title": "Tema",
           "link": "/exhibition-theme"
         },
         {
-          "title": "Venue",
+          "title": "Ýeri",
           "link": "/exhibition-venue"
         },
         {
-          "title": "Information-support",
+          "title": "Maglumat üpjünçiligi",
           "link": "/exhibition-support"
         }
       ]

@@ -2,13 +2,11 @@ import { InfoCard } from "../../components/shared/InfoCard";
 import { useLang } from "../../services/zustand/zusLang";
 // import useGetEventDates from "../../hooks/participants/useGetEventDates";
 import { Link } from "react-router-dom";
-import { useScrollTop, useTranslate } from "@/lib/utils";
+import { useTranslate } from "@/lib/utils";
 import { CoverLayout } from "@/components/layout/CoverLayout";
 import { times } from "@/constantas";
 
 export const ParticipantsInfo = () => {
-  useScrollTop();
-
   const localization = useLang((state) => state.activeLang.localization);
   const chooseDataLang = (en: string, ru: string) =>
     localization === "en" ? en : ru;

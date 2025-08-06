@@ -5,11 +5,9 @@ import { Pagination } from "../components/shared/Pagination";
 import Loader from "../components/shared/Loader";
 import { CustomButton } from "../components/shared/CustomButton";
 import { NewsCard } from "@/components/shared/NewsCard";
-import { useScrollTop, useTranslate } from "@/lib/utils";
+import { useTranslate } from "@/lib/utils";
 
 export const NewsPage = () => {
-  useScrollTop();
-
   const [grid, setGrid] = useState(true);
 
   const [current, setCurrent] = useState(1);

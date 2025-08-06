@@ -1,9 +1,8 @@
 import useGetContacts from "../hooks/useGetContacts";
 import Loader from "../components/shared/Loader";
-import { useScrollTop, useTranslate } from "@/lib/utils";
+import { useTranslate } from "@/lib/utils";
 
 export const ContactsPage = () => {
-  useScrollTop();
   const title = useTranslate("Контакты", "Contacts");
 
   const {

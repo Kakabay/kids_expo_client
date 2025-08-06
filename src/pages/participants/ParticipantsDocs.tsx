@@ -1,10 +1,9 @@
 import useGetDocs from "../../hooks/participants/useGetDocs";
 import Loader from "../../components/shared/Loader";
 import { CoverLayout } from "@/components/layout/CoverLayout";
-import { useScrollTop, useTranslate } from "@/lib/utils";
+import { useTranslate } from "@/lib/utils";
 
 export const ParticipantsDocs = () => {
-  useScrollTop();
   const { docsData, docsIsLoading } = useGetDocs();
 
   const title = useTranslate("Документы", "Documents");

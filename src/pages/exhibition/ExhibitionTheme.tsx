@@ -2,10 +2,9 @@ import { ThemeCard } from "../../components/Theme/ThemeCard";
 import useGetTopics from "../../hooks/exhibition/useGetTopics";
 import Loader from "../../components/shared/Loader";
 import { CoverLayout } from "@/components/layout/CoverLayout";
-import { useScrollTop, useTranslate } from "@/lib/utils";
+import { useTranslate } from "@/lib/utils";
 
 export const ExhibitionTheme = () => {
-  useScrollTop();
   const { topicsData, topicsIsSuccess, topicsIsLoading } = useGetTopics();
 
   const title = useTranslate("Тематика", "Theme");

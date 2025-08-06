@@ -1,12 +1,10 @@
 import { useLang } from "../../services/zustand/zusLang";
 import useGetBenefits from "../../hooks/participants/useGetBenefits";
 import Loader from "../../components/shared/Loader";
-import { useScrollTop, useTranslate } from "@/lib/utils";
+import { useTranslate } from "@/lib/utils";
 import { CoverLayout } from "@/components/layout/CoverLayout";
 
 export const ParticipantsBenefits = () => {
-  useScrollTop();
-
   const localization = useLang((state) => state.activeLang.localization);
   const chooseDataLang = (en: string, ru: string) =>
     localization === "en" ? en : ru;

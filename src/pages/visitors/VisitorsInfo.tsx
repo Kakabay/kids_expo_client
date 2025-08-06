@@ -1,10 +1,8 @@
 import { CoverLayout } from "@/components/layout/CoverLayout";
-import { useScrollTop, useTranslate } from "@/lib/utils";
+import { useTranslate } from "@/lib/utils";
 import { Bus } from "lucide-react";
 
 export const VisitorsInfo = () => {
-  useScrollTop();
-
   const title = useTranslate(
     "Информация для посетителей",
     "Information for visitors"

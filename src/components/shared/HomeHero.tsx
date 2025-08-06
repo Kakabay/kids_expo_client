@@ -39,14 +39,16 @@ export const HomeHero = () => {
       ?.filter((item) => item.code.includes(chooseBanner()))
       .flatMap((item) =>
         item.banner_items.map((bannerItem, idx) => (
-          <Link to={""} className="flex-[0_0_100%]" key={`${item.code}-${idx}`}>
-            <div className="lg:max-h-[600px] lg:min-h-[320px]">
-              <img
-                src={bannerItem.image}
-                alt={bannerItem.title}
-                className="size-full object-cover"
-              />
-            </div>
+          <Link
+            to={""}
+            className="flex-[0_0_100%] overflow-hidden lg:max-h-[600px] lg:min-h-[320px]"
+            key={`${item.code}-${idx}`}
+          >
+            <img
+              src={bannerItem.image}
+              alt={bannerItem.title}
+              className="size-full object-cover overflow-hidden"
+            />
           </Link>
         ))
       ) || [];
@@ -59,7 +61,7 @@ export const HomeHero = () => {
         <Link
           to="/sponsor-form"
           className={cn(
-            "absolute flex items-center text-2xl justify-center bg-interactive-background-primary md:h-14 h-10 rounded-sm font-bold text-white w-[300px] md:right-10 md:bottom-20 z-50 bottom-5",
+            "absolute flex items-center text-2xl justify-center bg-interactive-background-primary md:h-14 h-10 rounded-sm font-bold text-white w-[300px] md:right-10 md:bottom-20 z-10 bottom-5",
             lang === "ru" ? "text-xl" : "text-2xl"
           )}
         >
