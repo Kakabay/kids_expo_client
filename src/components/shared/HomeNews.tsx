@@ -2,12 +2,10 @@ import { NavBtn } from "./NavBtn";
 import { Title } from "./Title";
 import { HomeNewsCard } from "./NewsCard";
 import useGetNews from "../../hooks/useGetNews";
-import { useLang } from "../../services/zustand/zusLang";
 import { Link } from "react-router-dom";
 import { CustomButton } from "./CustomButton";
 import useEmblaCarousel from "embla-carousel-react";
 import { useCallback } from "react";
-import { useTranslation } from "react-i18next";
 import { useTranslate } from "@/lib/useTranslate";
 
 const HomeNews = () => {
@@ -37,11 +35,6 @@ const HomeNews = () => {
   const scrollPrev = useCallback(() => {
     emblaApi?.scrollPrev();
   }, [emblaApi]);
-
-  const localization = useLang((state) => state.activeLang.localization);
-
-  const chooseDataLang = (en: string, ru: string) =>
-    localization === "en" ? en : ru;
 
   if (newsIsSuccess) {
     return (

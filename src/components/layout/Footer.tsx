@@ -1,7 +1,6 @@
 import { FC } from "react";
 import { Facebook, Instagram, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
-import { SubscribeForm } from "../shared/SubscribeForm";
 import { useTranslate } from "@/lib/useTranslate";
 
 export const Footer: FC = () => {
