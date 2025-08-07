@@ -48,7 +48,7 @@ const BurgerMenu = () => {
       animate={{ x: 0, opacity: 1 }}
       exit={{ x: "100%", opacity: 0 }}
       transition={{ duration: 0.4, ease: [0.55, 0, 0.1, 1] }}
-      className="w-screen h-full top-20 bg-purple absolute leading-[120%] text-white z-[200] left-0 py-10 overflow-auto"
+      className="w-screen min-h-screen top-20 bg-purple absolute leading-[120%] text-white z-[1200] left-0 py-10 overflow-auto"
     >
       <nav className="mx-4 flex flex-col gap-10">
         {/* Первая группа */}

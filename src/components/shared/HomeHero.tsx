@@ -20,7 +20,7 @@ export const HomeHero = () => {
     }),
   ]);
 
-  const { bannersIsLoading, bannersData } = useGetBanners();
+  const { bannersIsLoading, bannersData, bannersIsSuccess } = useGetBanners();
 
   const chooseBanner = () => {
     if (tab) {
@@ -53,21 +53,23 @@ export const HomeHero = () => {
         ))
       ) || [];
 
-  return (
-    <section ref={emblaRef}>
-      <div className="flex">{filteredSlides}</div>
-      {bannersIsLoading && <Loader className="h-[490px]" />}
-      <div className="container relative">
-        <Link
-          to="/sponsor-form"
-          className={cn(
-            "absolute flex items-center text-2xl justify-center bg-interactive-background-primary md:h-14 h-10 rounded-sm font-bold text-white w-[300px] md:right-10 md:bottom-20 z-10 bottom-5",
-            lang === "ru" ? "text-xl" : "text-2xl"
-          )}
-        >
-          {btn}
-        </Link>
-      </div>
-    </section>
-  );
+  if (bannersIsLoading) return <Loader className="h-[490px]" />;
+
+  if (bannersIsSuccess)
+    return (
+      <section ref={emblaRef}>
+        <div className="flex">{filteredSlides}</div>
+        <div className="container relative">
+          <Link
+            to="/sponsor-form"
+            className={cn(
+              "absolute flex items-center text-2xl justify-center bg-interactive-background-primary md:h-14 h-10 rounded-sm font-bold text-white w-[300px] md:right-10 md:bottom-20 z-10 bottom-5",
+              lang === "ru" ? "text-xl" : "text-2xl"
+            )}
+          >
+            {btn}
+          </Link>
+        </div>
+      </section>
+    );
 };
