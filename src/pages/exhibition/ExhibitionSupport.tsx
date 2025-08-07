@@ -1,11 +1,12 @@
 import { CoverLayout } from "@/components/layout/CoverLayout";
-import { useGetTitles } from "@/lib/useGetTitles";
+import { useTranslate } from "@/lib/useTranslate";
 
 export const ExhibitionSupport = () => {
-  const { support, supportTitle } = useGetTitles();
+  const title = useTranslate("informationSupport");
+  const supportTitle = useTranslate("supportPage.title");
 
   return (
-    <CoverLayout title={support}>
+    <CoverLayout title={title}>
       <h2 className="text-3xl font-semibold leading-[120%] mb-[22px]">
         {supportTitle}
       </h2>

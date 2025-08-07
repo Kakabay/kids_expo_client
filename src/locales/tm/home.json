@@ -60,6 +60,21 @@
     }
   ],
 
+  "contacts": [
+    {
+      "suptitle": "E-poçta salgysy",
+      "title": "contact@turkmenexpo.com"
+    },
+    {
+      "suptitle": "Serginiň salgysy",
+      "title": "Aşgabat şäher, Çandybil köçe, 143"
+    },
+    {
+      "suptitle": "Telefon belgisi",
+      "title": "+993 71 87 18 13"
+    }
+  ],
+
   "themeTitle": "Serginiň Tematiki ugurlary",
 
   "timeTitle": "Exhibition time",

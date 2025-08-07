@@ -1,10 +1,10 @@
 import useGetAboutExhibition from "../../hooks/useGetAboutExhibition";
 import Loader from "../../components/shared/Loader";
 import { CoverLayout } from "@/components/layout/CoverLayout";
-import { useGetTitles } from "@/lib/useGetTitles";
+import { useTranslate } from "@/lib/useTranslate";
 
 const ExhibitionAbout = () => {
-  const { about } = useGetTitles();
+  const title = useTranslate("about");
 
   const {
     aboutExhibitionData,
@@ -18,7 +18,7 @@ const ExhibitionAbout = () => {
   }
 
   return (
-    <CoverLayout title={about}>
+    <CoverLayout title={title}>
       {aboutExhibitionIsSuccess && (
         <div
           className="flex flex-col gap-6 exibition-about-wrapper"

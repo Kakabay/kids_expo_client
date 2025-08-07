@@ -1,15 +1,16 @@
 import { Title } from "./Title";
-import { useGetEn } from "../../hooks/language/useGetEn";
 import useGetPartners from "../../hooks/useGetPartners";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
+import { useTranslate } from "@/lib/useTranslate";
 
 export const PartnersSection = () => {
   const { partnersData } = useGetPartners();
+  const title = useTranslate("partners");
 
   return (
     <div className="container mb-[50px]">
-      <Title title={useGetEn("Partners", "Партнёры")} />
+      <Title title={title} />
 
       <Swiper
         modules={[Autoplay]}

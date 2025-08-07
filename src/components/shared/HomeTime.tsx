@@ -1,16 +1,24 @@
-import { cn, useTranslate } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 import { FC } from "react";
 import { TimeCard } from "./TimeCard";
 import { ContactCard } from "./ContactCard";
-import { contacts, times } from "@/constantas";
 import { Mail, MapPin, PhoneIcon } from "lucide-react";
+import useGetEventDates from "@/hooks/participants/useGetEventDates";
+import { useTranslation } from "react-i18next";
 
 interface Props {
   className?: string;
 }
 
 export const HomeTime: FC<Props> = ({ className }) => {
-  const title = useTranslate("Время выставки", "Exhibition time");
+  const { t } = useTranslation("index");
+  const titles = t("exhibitionStatus", { returnObjects: true }) as string[];
+  const contacts = t("contacts", { returnObjects: true }) as {
+    suptitle: string;
+    title: string;
+  }[];
+
+  const { eventsDatesData } = useGetEventDates();
 
   const images = [
     <Mail size={32} color="#4a2b68" />,
@@ -18,15 +26,28 @@ export const HomeTime: FC<Props> = ({ className }) => {
     <PhoneIcon size={32} color="#4a2b68" />,
   ];
 
+  const dates = [
+    eventsDatesData?.installation_date,
+    eventsDatesData?.work_date,
+    eventsDatesData?.dismantling_date,
+  ];
+
+  console.log(dates);
+
   return (
     <section className={cn("bg-surface-muted my-20 pt-10 pb-20", className)}>
       <div className="container">
-        <h2 className="h2 font-bold mb-6">{title}</h2>
+        <h2 className="h2 font-bold mb-6">{t("exhibitionTime")}</h2>
 
         <div className="flex flex-col gap-6">
           <div className="flex flex-col md:flex-row items-center gap-6">
-            {times.map((item, i) => (
-              <TimeCard {...item} key={i} className="w-full" />
+            {[...Array(3)].map((_, i) => (
+              <TimeCard
+                title={titles[i] || ""}
+                key={i}
+                className="w-full"
+                date={dates[0] || ""}
+              />
             ))}
           </div>
 

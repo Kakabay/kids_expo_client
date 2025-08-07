@@ -7,8 +7,12 @@ import { Link } from "react-router-dom";
 import { CustomButton } from "./CustomButton";
 import useEmblaCarousel from "embla-carousel-react";
 import { useCallback } from "react";
+import { useTranslation } from "react-i18next";
+import { useTranslate } from "@/lib/useTranslate";
 
 const HomeNews = () => {
+  const news = useTranslate("news");
+  const allNews = useTranslate("allNews");
   const { newsIsError, newsIsLoading, newsData, newsIsSuccess } = useGetNews({
     current: 1,
     perPage: 7,
@@ -43,7 +47,7 @@ const HomeNews = () => {
     return (
       <section className="container pt-0 mb-16 md:pt-[100px] md:mb-[100px]">
         <div className="flex items-center justify-between mb-10">
-          <Title title={chooseDataLang("News", "Новости")} />
+          <Title title={news} />
 
           <div className="hidden sm:flex gap-5">
             <NavBtn onClick={scrollPrev} left />
@@ -67,7 +71,7 @@ const HomeNews = () => {
         </div>
 
         <Link to={"/news"}>
-          <CustomButton news text={chooseDataLang("All news", "Все новости")} />
+          <CustomButton news text={allNews} />
         </Link>
       </section>
     );

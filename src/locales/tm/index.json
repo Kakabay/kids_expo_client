@@ -6,13 +6,42 @@
   "news": "Täzelikler",
   "allNews": "Hemme täzelikler",
   "partners": "Hyzmatdaşlar",
+  "exhibitionTime": "Sergi günleri",
+
+  "exhibitionStatus": [
+    "Serginiň gurnama işleri",
+    "Sergi günleri",
+    "Serginiň sökülme işleri"
+  ],
+
+  "contacts": [
+    {
+      "suptitle": "E-poçta salgysy",
+      "title": "contact@turkmenexpo.com"
+    },
+    {
+      "suptitle": "Serginiň salgysy",
+      "title": "Aşgabat şäher, Çandybil köçe, 143"
+    },
+    {
+      "suptitle": "Telefon belgisi",
+      "title": "+993 71 87 18 13"
+    }
+  ],
 
   "supportPage": {
     "title": "Sizi hyzmatdaşlarymyz bolmaga çagyrýarys"
   },
 
   "subscribeForm": {
-    "title": "Abuna yazylyň:",
-    "button": "Ýazylmak"
-  }
+    "title": "Habarlara yazylyň:",
+    "button": "Abuna yazylyň"
+  },
+
+  "address": {
+    "title": "Türkmenistanyň Söwda-senagat palatasynyň salgysy",
+    "subtitle": "Aşgabat şäheri, Çandybil köçe, 143"
+  },
+
+  "rightsReserved": "Ähli hukuklar goralandyr"
 }

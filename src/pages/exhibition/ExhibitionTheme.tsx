@@ -2,14 +2,14 @@ import { ThemeCard } from "../../components/Theme/ThemeCard";
 import useGetTopics from "../../hooks/exhibition/useGetTopics";
 import Loader from "../../components/shared/Loader";
 import { CoverLayout } from "@/components/layout/CoverLayout";
-import { useGetTitles } from "@/lib/useGetTitles";
+import { useTranslate } from "@/lib/useTranslate";
 
 export const ExhibitionTheme = () => {
   const { topicsData, topicsIsSuccess, topicsIsLoading } = useGetTopics();
-  const { theme } = useGetTitles();
+  const title = useTranslate("theme");
 
   return (
-    <CoverLayout title={theme}>
+    <CoverLayout title={title}>
       <div className="border-b-[1px] border-b-[#DADADA]">
         {topicsIsSuccess &&
           topicsData?.map((item, i) => (

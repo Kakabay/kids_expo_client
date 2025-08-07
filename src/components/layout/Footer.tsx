@@ -2,13 +2,13 @@ import { FC } from "react";
 import { Facebook, Instagram, Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 import { SubscribeForm } from "../shared/SubscribeForm";
-import { useTranslate } from "@/lib/utils";
+import { useTranslate } from "@/lib/useTranslate";
 
 export const Footer: FC = () => {
+  const rights = useTranslate("rightsReserved");
+
   return (
     <footer>
-      <SubscribeForm />
-
       <div className="py-5 bg-primary text-text-on">
         <div className="flex container flex-col gap-6">
           <div className="flex flex-col md:flex-row gap-6 md:items-end md:justify-between items-center">
@@ -47,9 +47,7 @@ export const Footer: FC = () => {
 
           <hr />
 
-          <h5 className="text-base text-center normal">
-            {useTranslate("©2025 Все права защищены", "All rights reserved")}
-          </h5>
+          <h5 className="text-base text-center normal">{rights}</h5>
         </div>
       </div>
     </footer>

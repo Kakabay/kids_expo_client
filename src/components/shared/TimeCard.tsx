@@ -1,12 +1,10 @@
-import { cn, useTranslate } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 import { FC } from "react";
 
 interface Props {
   className?: string;
   title: string;
   date: string;
-  dateEn: string;
-  titleEn: string;
   bottomClassName?: string;
 }
 
@@ -14,14 +12,12 @@ export const TimeCard: FC<Props> = ({
   className,
   title,
   date,
-  dateEn,
   bottomClassName,
-  titleEn,
 }) => {
   return (
     <div className={cn("rounded overflow-hidden", className)}>
       <div className="bg-surface-brand text-white font-bold text-xl flex items-center h-11 px-4">
-        {useTranslate(title, titleEn)}
+        {title}
       </div>
 
       <div
@@ -30,7 +26,7 @@ export const TimeCard: FC<Props> = ({
           bottomClassName
         )}
       >
-        {useTranslate(date, dateEn)}
+        {date}
       </div>
     </div>
   );

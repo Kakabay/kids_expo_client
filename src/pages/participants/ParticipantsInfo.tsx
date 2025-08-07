@@ -1,17 +1,17 @@
 import { InfoCard } from "../../components/shared/InfoCard";
 import { useLang } from "../../services/zustand/zusLang";
-// import useGetEventDates from "../../hooks/participants/useGetEventDates";
 import { Link } from "react-router-dom";
 import { useTranslate } from "@/lib/utils";
 import { CoverLayout } from "@/components/layout/CoverLayout";
 import { times } from "@/constantas";
+import useGetEventDates from "@/hooks/participants/useGetEventDates";
 
 export const ParticipantsInfo = () => {
   const localization = useLang((state) => state.activeLang.localization);
   const chooseDataLang = (en: string, ru: string) =>
     localization === "en" ? en : ru;
 
-  // const { eventsDatesData } = useGetEventDates();
+  const { eventsDatesData } = useGetEventDates();
 
   const title = useTranslate(
     "Информация для участников",
@@ -23,18 +23,15 @@ export const ParticipantsInfo = () => {
       <div className="hidden min-[1200px]:grid grid-cols-3 min-[1250px] gap-[45px]">
         <InfoCard
           title={chooseDataLang("Assembly", "Монтаж")}
-          date={useTranslate(times[0].date, times[0].dateEn)}
-          // date={eventsDatesData ? eventsDatesData.installation_date : ""}
+          date={eventsDatesData?.installation_date ?? ""}
         />
         <InfoCard
-          date={useTranslate(times[1].date, times[1].dateEn)}
-          // date={eventsDatesData ? eventsDatesData.work_date : ""}
+          date={eventsDatesData?.work_date ?? ""}
           title={chooseDataLang("Work", "Работа")}
           orang
         />
         <InfoCard
-          date={useTranslate(times[2].date, times[2].dateEn)}
-          // date={eventsDatesData ? eventsDatesData.dismantling_date : ""}
+          date={eventsDatesData?.dismantling_date ?? ""}
           title={chooseDataLang("Dismantling", "Демонтаж")}
         />
       </div>

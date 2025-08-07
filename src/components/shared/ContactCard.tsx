@@ -1,21 +1,17 @@
-import { cn, useTranslate } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 import { FC, ReactNode } from "react";
 
 interface Props {
   className?: string;
   suptitle: string;
-  suptitleEn: string;
   title: string;
-  titleEn: string;
   image: ReactNode;
 }
 
 export const ContactCard: FC<Props> = ({
   className,
   suptitle,
-  suptitleEn,
   title,
-  titleEn,
   image,
 }) => {
   return (
@@ -25,10 +21,8 @@ export const ContactCard: FC<Props> = ({
       </div>
 
       <div className="flex flex-col gap-2">
-        <h4 className="text-sm text-[#454545]">
-          {useTranslate(suptitle, suptitleEn)}
-        </h4>
-        <h5 className=" font-bold"> {useTranslate(title, titleEn)}</h5>
+        <h4 className="text-sm text-[#454545]">{suptitle}</h4>
+        <h5 className=" font-bold"> {title}</h5>
       </div>
     </div>
   );

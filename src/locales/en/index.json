@@ -6,6 +6,28 @@
   "news": "News",
   "allNews": "All news",
   "partners": "Partners",
+  "exhibitionTime": "Exhibition time",
+
+  "exhibitionStatus": [
+    "Exhibition assembly",
+    "Exhibition days",
+    "Exhibition dismantling"
+  ],
+
+  "contacts": [
+    {
+      "suptitle": "Email address",
+      "title": "contact@turkmenexpo.com"
+    },
+    {
+      "suptitle": "Exhibition address",
+      "title": "Ashgabat, Chandybil street 143"
+    },
+    {
+      "suptitle": "Contact number",
+      "title": "+993 71 87 18 13"
+    }
+  ],
 
   "supportPage": {
     "title": "We invite you to become our partners"
@@ -14,5 +36,12 @@
   "subscribeForm": {
     "title": "Subscribe to the news:",
     "button": "Subscribe"
-  }
+  },
+
+  "address": {
+    "title": "Address of Chamber of Commerce and Industry of Turkmenistan",
+    "subtitle": "Ashgabat, Chandybil street, 143"
+  },
+
+  "rightsReserved": "All rights reserved"
 }

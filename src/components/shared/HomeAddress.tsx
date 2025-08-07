@@ -1,20 +1,14 @@
-import { useTranslate } from "@/lib/utils";
+import { useTranslate } from "@/lib/useTranslate";
 
 export const HomeAddress = () => {
-  const title = useTranslate(
-    "Адрес ТПП Туркменистана",
-    "Address of Chamber of Commerce and Industry of Turkmenistan"
-  );
-  const address = useTranslate(
-    "г. Ашхабад, улица Чандыбиль 143",
-    "Ashgabat, Chandybil street,143"
-  );
+  const title = useTranslate("address.title");
+  const subtitle = useTranslate("address.subtitle");
 
   return (
     <section className="grid grid-cols-1 md:grid-cols-2 gap-6 container items-center mb-24">
       <div className="">
         <h2 className="text-3xl font-bold mb-6">{title}</h2>
-        <p className="text-text-secondary text-base">{address}</p>
+        <p className="text-text-secondary text-base">{subtitle}</p>
       </div>
 
       <div className="w-full h-[338px]">
