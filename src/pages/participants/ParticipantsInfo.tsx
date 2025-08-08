@@ -5,8 +5,12 @@ import { useTranslate } from "@/lib/utils";
 import { CoverLayout } from "@/components/layout/CoverLayout";
 import { times } from "@/constantas";
 import useGetEventDates from "@/hooks/participants/useGetEventDates";
+import { useTranslation } from "react-i18next";
 
 export const ParticipantsInfo = () => {
+  const { t } = useTranslation("index");
+  const titles = t("exhibitionStatus", { returnObjects: true }) as string[];
+
   const localization = useLang((state) => state.activeLang.localization);
   const chooseDataLang = (en: string, ru: string) =>
     localization === "en" ? en : ru;
@@ -22,24 +26,24 @@ export const ParticipantsInfo = () => {
     <CoverLayout title={title}>
       <div className="hidden min-[1200px]:grid grid-cols-3 min-[1250px] gap-[45px]">
         <InfoCard
-          title={chooseDataLang("Assembly", "Монтаж")}
+          title={titles[0]}
           date={eventsDatesData?.installation_date ?? ""}
         />
         <InfoCard
           date={eventsDatesData?.work_date ?? ""}
-          title={chooseDataLang("Work", "Работа")}
+          title={titles[1]}
           orang
         />
         <InfoCard
           date={eventsDatesData?.dismantling_date ?? ""}
-          title={chooseDataLang("Dismantling", "Демонтаж")}
+          title={titles[2]}
         />
       </div>
 
       <div className="min-[1200px]:hidden grid sm:grid-cols-2 mb-12 sm:mb-0 grid-cols-1 gap-x-4 sm:gap-y-[26px] gap-y-[38px]">
         <div className="sm:col-span-2">
           <InfoCard
-            title={chooseDataLang("Assembly", "Монтаж")}
+            title={titles[0]}
             // date={eventsDatesData ? eventsDatesData.installation_date : ""}
             date={useTranslate(times[0].date, times[0].dateEn)}
           />
@@ -47,13 +51,13 @@ export const ParticipantsInfo = () => {
         <InfoCard
           date={useTranslate(times[1].date, times[1].dateEn)}
           // date={eventsDatesData ? eventsDatesData.dismantling_date : ""}
-          title={chooseDataLang("Work", "Работа")}
+          title={titles[1]}
           orang
         />
         <InfoCard
           // date={eventsDatesData ? eventsDatesData.work_date : ""}
           date={useTranslate(times[2].date, times[2].dateEn)}
-          title={chooseDataLang("Dismantling", "Демонтаж")}
+          title={titles[2]}
         />
       </div>
 
