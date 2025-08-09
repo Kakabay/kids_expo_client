@@ -46,7 +46,7 @@ export const HomeTime: FC<Props> = ({ className }) => {
                 title={titles[i] || ""}
                 key={i}
                 className="w-full"
-                date={dates[0] || ""}
+                date={dates[i] || ""}
               />
             ))}
           </div>
