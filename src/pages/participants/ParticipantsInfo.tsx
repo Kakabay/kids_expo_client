@@ -13,10 +13,6 @@ export const ParticipantsInfo = () => {
     returnObjects: true,
   }) as string[];
 
-  const localization = useLang((state) => state.activeLang.localization);
-  const chooseDataLang = (en: string, ru: string) =>
-    localization === "en" ? en : ru;
-
   const { eventsDatesData } = useGetEventDates();
 
   const title = t("participantsInfo.title");

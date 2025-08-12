@@ -1,7 +1,5 @@
-import { useLang } from "../../services/zustand/zusLang";
 import useGetBenefits from "../../hooks/participants/useGetBenefits";
 import Loader from "../../components/shared/Loader";
-import { useTranslate } from "@/lib/utils";
 import { CoverLayout } from "@/components/layout/CoverLayout";
 import { useTranslation } from "react-i18next";
 
