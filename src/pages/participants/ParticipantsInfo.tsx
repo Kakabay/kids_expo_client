@@ -1,5 +1,4 @@
 import { InfoCard } from "../../components/shared/InfoCard";
-import { useLang } from "../../services/zustand/zusLang";
 import { Link } from "react-router-dom";
 import { useTranslate } from "@/lib/utils";
 import { CoverLayout } from "@/components/layout/CoverLayout";
