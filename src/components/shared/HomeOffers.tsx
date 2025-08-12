@@ -3,6 +3,11 @@ import useEmblaCarousel from "embla-carousel-react";
 import { OfferCard } from "./OfferCard";
 import { useTranslation } from "react-i18next";
 
+const links = [
+  "https://editor.turkmenexpo.com/storage/app/media/travel%20guide/travel_guide.pdf",
+  "",
+];
+
 export const HomeOffers: FC = () => {
   const [emblaRef] = useEmblaCarousel({ align: "start" });
 
@@ -20,7 +25,7 @@ export const HomeOffers: FC = () => {
           <div className="mb-2 flex gap-6 embla__container">
             {data.map((item, i) => (
               <OfferCard
-                link=""
+                link={links[i]}
                 img={`/assets/images/offer-${i + 1}.png`}
                 {...item}
                 key={item.title}

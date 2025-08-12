@@ -24,6 +24,8 @@ export const Header: FC = () => {
   const data = t("data", { returnObjects: true }) as Navigation[];
   const data2 = t("data2", { returnObjects: true }) as Navigation[];
 
+  console.log(data2);
+
   return (
     <header className="">
       <div className="h-12 hidden lg:flex text-surface-bg bg-surface-brand text-white items-center">
@@ -71,8 +73,8 @@ export const Header: FC = () => {
             </Link>
 
             <nav className="lg:flex hidden items-center gap-6">
-              {data2.map((item, i) => (
-                <HoverMenu key={i} {...item} />
+              {data2.map((item) => (
+                <HoverMenu key={item.title} {...item} />
               ))}
             </nav>
           </div>

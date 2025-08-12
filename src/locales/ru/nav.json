@@ -29,9 +29,8 @@
     },
     {
       "id": 4,
-
-      "title": "Путеводитель",
-      "link": "https://editor.turkmenexpo.com/storage/app/media/travel%20guide/travel_guide.pdf"
+      "title": "FAQ",
+      "link": "/faq"
     }
   ],
   "data2": [

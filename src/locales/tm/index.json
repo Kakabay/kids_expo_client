@@ -8,6 +8,43 @@
   "partners": "Hyzmatdaşlar",
   "exhibitionTime": "Sergi günleri",
 
+  "documents": "Resminamalar",
+  "engineering": "Inženerçilik hyzmaty",
+  "standServices": "Stendlerde hyzmatlar",
+  "touristic": "Syýahatçylyk hyzmatlary",
+  "poligraphy": "Çap ediş hyzmatlary",
+
+  "send": "Ugrat",
+
+  "participantsInfo": {
+    "title": "Gatnaşyjylar üçin maglumat",
+
+    "status": ["Mejlis", "Iş wagty", "Aýyrmak"],
+
+    "text": "Sergä gatnaşyjy bolmagyň tertibi",
+
+    "link": "Onlaýn arza dolduryň",
+
+    "p": ", şondan soň guramaňyzyň sergä gatnaşmagy bilen baglanyşykly ähli meseleleri gözegçilikde saklajak menejerimiz siz bilen habarlaşar"
+  },
+
+  "participantsBenefits": {
+    "title": "Gatnaşmagyň peýdalary",
+    "text": "“Kids Expo: Ähli zat çagalar üçin” sergisine gatnaşmak arkaly, kompaniýalar şu mümkinçiliklere eýe bolarlar"
+  },
+
+  "participantsApplication": {
+    "title": "Gatnaşyk üçin arza",
+    "labels": [
+      "Kompaniýanyň ady:",
+      "Habarlaşýan adam (doly ady):",
+      "Web sahypasy:",
+      "Telefon belgisi:",
+      "Products / equipment / services demonstrated – Görkezilýän önümler/ enjamlar/ hyzmatlar:",
+      "Men şahsy maglumatlaryny işlemeklige razyçylyk berýärin"
+    ]
+  },
+
   "exhibitionStatus": [
     "Serginiň gurnama işleri",
     "Sergi günleri",
@@ -41,6 +78,11 @@
   "address": {
     "title": "Türkmenistanyň Söwda-senagat palatasynyň salgysy",
     "subtitle": "Aşgabat şäheri, Çandybil köçe, 143"
+  },
+
+  "faq": {
+    "title": "FAQ",
+    "buttons": ["Hemmesi", "Gatnaşyjylar", "Myhmanlar"]
   },
 
   "rightsReserved": "Ähli hukuklar goralandyr"

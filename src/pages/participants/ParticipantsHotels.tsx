@@ -1,12 +1,11 @@
-import { useTranslate } from "@/lib/utils";
+import { useTranslate } from "@/lib/useTranslate";
 import Loader from "../../components/shared/Loader";
 import useGetHotels from "../../hooks/participants/services/useGetHotels";
 import { CoverLayout } from "@/components/layout/CoverLayout";
 
 const ParticipantsHotels = () => {
   const { data, isLoading } = useGetHotels();
-
-  const title = useTranslate("Туристические услуги", "Tourist Services");
+  const title = useTranslate("touristic");
 
   return (
     <CoverLayout title={title}>

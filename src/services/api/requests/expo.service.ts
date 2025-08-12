@@ -18,7 +18,7 @@ import { SponsorFormType } from "@/lib/sponsor-form";
 
 type PostParticipantFormTypes = {
   area_is_equipped: boolean;
-  event_id: number;
+  // event_id: number;
   company_name: string;
   phone: string;
   email: string;

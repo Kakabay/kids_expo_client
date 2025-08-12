@@ -5,7 +5,7 @@ import { useFaq } from "../services/zustand/zusFaq";
 
 const useGetFaq = () => {
   const localization = useLang((state) => state.activeLang.localization);
-  const currentRadio = useFaq((state) => state.currentRadio);
+  const currentRadio = useFaq((state) => state.activeRadio);
 
   const {
     isError: faqIsError,

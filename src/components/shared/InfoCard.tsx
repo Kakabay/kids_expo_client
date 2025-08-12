@@ -7,7 +7,7 @@ export const InfoCard = ({
 }: {
   orang?: boolean;
   title: string;
-  date: string;
+  date?: string;
 }) => {
   return (
     <div className="leading-[120%] bg-white text-center rounded-sm drop-shadow-participantsCardShadow">

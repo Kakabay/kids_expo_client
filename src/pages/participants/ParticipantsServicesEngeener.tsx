@@ -2,13 +2,12 @@ import Loader from "../../components/shared/Loader";
 import { FooterServices } from "../../components/shared/FooterServices";
 import { ThemeCardAccordion } from "../../components/Theme/ThemeCardAccordion";
 import useGetEngeener from "../../hooks/participants/services/useGetEngeener";
-import { useTranslate } from "@/lib/utils";
 import { CoverLayout } from "@/components/layout/CoverLayout";
+import { useTranslate } from "@/lib/useTranslate";
 
 const ParticipantsServicesEngeener = () => {
   const { data, isLoading } = useGetEngeener();
-
-  const title = useTranslate("Инженерные услуги", "Engineering services");
+  const title = useTranslate("engineering");
 
   return (
     <CoverLayout title={title}>

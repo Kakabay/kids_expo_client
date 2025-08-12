@@ -2,13 +2,12 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import expoService from "../../services/api/requests/expo.service";
-import { useLang } from "../../services/zustand/zusLang";
 import { SubmitModal } from "../../components/shared/SubmitModal";
 import { useParticipantsForm } from "../../services/zustand/zusForm";
 import { AnimatePresence } from "framer-motion";
 import { CoverLayout } from "@/components/layout/CoverLayout";
-import { useTranslate } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import { useTranslation } from "react-i18next";
 
 interface ResType {
   title?: string;
@@ -31,28 +30,35 @@ export const responseMethod: ResType[] = [
 
 const phoneNumberRegex = /^\+\d{11}$/;
 
-const ParticipantsApply = () => {
-  const formSchema = z.object({
-    area_is_equipped: z.boolean().default(false),
+const formSchema = z.object({
+  event_id: z.number().default(3),
+  area_is_equipped: z.boolean().default(false),
 
-    company_name: z
-      .string({ required_error: "Заполните поле!" })
-      .min(2, "Минимальная длина 2 символа"),
-    web_site: z.string().optional(),
-    what_demonstrated: z.string().optional(),
-    phone: z
-      .string({ message: "Заполните поле!" })
-      .refine((value) => phoneNumberRegex.test(value), {
-        message: "Неверный формат номера телефона",
-      }),
-    email: z.string().email("Недействительный адрес электронной почты"),
-    contact_person: z
-      .string({ message: "Заполните поле!" })
-      .min(5, "Минимальная длина 5 символов"),
-    agree: z.boolean().refine((value) => value === true, {
-      message: "Вы должны принять условия использования",
+  company_name: z
+    .string({ required_error: "Заполните поле!" })
+    .min(2, "Минимальная длина 2 символа"),
+  web_site: z.string().optional(),
+  what_demonstrated: z.string().optional(),
+  phone: z
+    .string({ message: "Заполните поле!" })
+    .refine((value) => phoneNumberRegex.test(value), {
+      message: "Неверный формат номера телефона",
     }),
-  });
+  email: z.string().email("Недействительный адрес электронной почты"),
+  contact_person: z
+    .string({ message: "Заполните поле!" })
+    .min(5, "Минимальная длина 5 символов"),
+  agree: z.boolean().refine((value) => value === true, {
+    message: "Вы должны принять условия использования",
+  }),
+});
+
+const ParticipantsApply = () => {
+  const { t } = useTranslation("index");
+
+  const labels = t("participantsApplication.labels", {
+    returnObjects: true,
+  }) as string[];
 
   type FormFields = z.infer<typeof formSchema>;
 
@@ -65,16 +71,10 @@ const ParticipantsApply = () => {
     resolver: zodResolver(formSchema),
   });
 
-  const chooseDataLang = (en: string, ru: string) =>
-    localization === "en" ? en : ru;
-
-  const localization = useLang((state) => state.activeLang.localization);
-
   const onSubmit = async (data: FormFields) => {
     try {
       expoService.postParticipantForm({
         area_is_equipped: data.area_is_equipped,
-        event_id: 3,
         company_name: data.company_name,
         phone: data.phone,
         email: data.email,
@@ -94,23 +94,21 @@ const ParticipantsApply = () => {
   const success = useParticipantsForm((state) => state.success);
   const setSuccess = useParticipantsForm((state) => state.setSuccess);
 
-  const title = useTranslate(
-    "Онлайн-заявка для участников",
-    "Application for participation"
-  );
-
   return (
     <>
       <AnimatePresence>
         {success === "success" && <SubmitModal />}
       </AnimatePresence>
 
-      <CoverLayout title={title} className="!w-[700px] mx-auto">
+      <CoverLayout
+        title={t("participantsApplication.title")}
+        className="!w-[700px] mx-auto"
+      >
         <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col gap-6">
           <div className="flex flex-col gap-4">
             <div className="flex flex-col gap-2">
               <label htmlFor="company_name" className="form-label">
-                {chooseDataLang("Company name:", "Название компании:")}
+                {labels[0]}
                 <span className="text-lightRed">*</span>
               </label>
               <input
@@ -128,10 +126,7 @@ const ParticipantsApply = () => {
             </div>
             <div className="flex flex-col gap-2">
               <label htmlFor="contact_person" className="form-label">
-                {chooseDataLang(
-                  "Contact person (full name):",
-                  "Контактное лицо (Ф.И.О.):"
-                )}
+                {labels[1]}
                 <span className="text-lightRed">*</span>
               </label>
               <input
@@ -150,7 +145,7 @@ const ParticipantsApply = () => {
 
             <div className="flex flex-col gap-2">
               <label htmlFor="web_site" className="form-label">
-                {chooseDataLang("Web site:", "Веб-сайт:")}
+                {labels[2]}
               </label>
               <input
                 {...register("web_site")}
@@ -166,7 +161,7 @@ const ParticipantsApply = () => {
 
             <div className="flex flex-col gap-2">
               <label htmlFor="phone" className="form-label">
-                {chooseDataLang("Phone:", "Телефон:")}
+                {labels[3]}
                 <span className="text-lightRed">*</span>
               </label>
               <input
@@ -199,10 +194,7 @@ const ParticipantsApply = () => {
 
             <div className="flex flex-col gap-2">
               <label htmlFor="what_demonstrated" className="form-label">
-                {chooseDataLang(
-                  "Products / equipment / services demonstrated:",
-                  "Демонстрируемая продукция / оборудование / услуги:"
-                )}
+                {labels[4]}
               </label>
               <textarea
                 {...register("what_demonstrated")}
@@ -234,10 +226,7 @@ const ParticipantsApply = () => {
                 htmlFor="agree"
                 className="text-[13px] cursor-pointer pl-[10px]"
               >
-                {chooseDataLang(
-                  "I agree to the processing of my data",
-                  "Даю согласие на обработку своих данных"
-                )}
+                {labels[5]}
               </label>
             </div>
             {errors.agree && (
@@ -245,7 +234,7 @@ const ParticipantsApply = () => {
             )}
           </div>
 
-          <Button>{chooseDataLang("Send", "Отправить")}</Button>
+          <Button>{t("send")}</Button>
         </form>
       </CoverLayout>
     </>

@@ -1,52 +1,30 @@
-import { BreadCrumbs } from "../components/shared/BreadCrumbs";
 import { Radio } from "../components/shared/Radio";
-import { Title } from "../components/shared/Title";
 import { useFaq } from "../services/zustand/zusFaq";
 import useGetFaq from "../hooks/useGetFaq";
 import { Select } from "../components/shared/Select";
-import { useEffect } from "react";
 import Loader from "../components/shared/Loader";
-import { useTranslate } from "@/lib/utils";
-
-const faqRadio = [
-  {
-    name: "Все",
-    nameEn: "All",
-  },
-  {
-    name: "Посетителям",
-    nameEn: "Participants",
-  },
-  {
-    name: "Участники",
-    nameEn: "Visitors",
-  },
-];
+import { CoverLayout } from "@/components/layout/CoverLayout";
+import { useTranslation } from "react-i18next";
 
 export default function FaqPage() {
   const activeRadio = useFaq((state) => state.activeRadio);
-  const currentRadio = useFaq((state) => state.currentRadio);
-  const setCurrentRadio = useFaq((state) => state.setCurrentRadio);
+  const filter = useFaq((state) => state.filter);
+  const { t } = useTranslation("index");
+
+  const { title, buttons } = t("faq", { returnObjects: true }) as {
+    title: string;
+    buttons: string[];
+  };
 
   const { faqData, faqIsError, faqIsLoading, faqIsSuccess } = useGetFaq();
 
-  useEffect(() => {
-    window.scroll(0, 0);
-  }, [currentRadio]);
-
-  const title = useTranslate("«Вопросы-ответы»", "FAQ");
-
   return (
-    <div className="bg-white2 pt-5">
-      <div className="container section-mb">
-        <BreadCrumbs second="FAQ" />
-
-        <Title title={title} />
-
-        <div className="flex items-center gap-6 mb-11 mt-6">
-          {faqRadio.map((item, i) => (
-            <div key={i} onClick={() => setCurrentRadio(i)}>
-              <Radio {...item} active={activeRadio === item.name} />
+    <CoverLayout title={title}>
+      <div className="container">
+        <div className="flex items-center gap-6 mb-11">
+          {buttons.map((item, i) => (
+            <div onClick={() => filter(i)} key={i}>
+              <Radio name={item} activeRadio={activeRadio} id={i} />
             </div>
           ))}
         </div>
@@ -63,6 +41,6 @@ export default function FaqPage() {
 
         {faqIsError && <h1>Error...</h1>}
       </div>
-    </div>
+    </CoverLayout>
   );
 }

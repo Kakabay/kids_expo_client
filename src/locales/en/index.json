@@ -8,11 +8,44 @@
   "partners": "Partners",
   "exhibitionTime": "Exhibition time",
 
-  "exhibitionStatus": [
-    "Exhibition assembly",
-    "Exhibition days",
-    "Exhibition dismantling"
-  ],
+  "documents": "Documents",
+  "engineering": "Engineering services",
+  "standServices": "Services at stands",
+  "touristic": "Tourist Services",
+  "poligraphy": "Printing Services",
+
+  "send": "Send",
+
+  "participantsInfo": {
+    "title": "Information for participants",
+
+    "status": ["Assembly", "Work", "Dismantling"],
+
+    "text": "How to become a participant in the exhibition?",
+
+    "link": "Fill out the online application",
+
+    "p": "and our manager will contact you, who will supervise all questions regarding your company’s participation in the exhibition."
+  },
+
+  "participantsBenefits": {
+    "title": "Benefits of participations",
+    "text": "By taking part in “Kids Expo: Everything for Children”, companies will have:"
+  },
+
+  "participantsApplication": {
+    "title": "Gatnaşyk üçin arza",
+    "labels": [
+      "Company name:",
+      "Contact person (full name):",
+      "Web site:",
+      "Phone:",
+      "Products / equipment / services demonstrated:",
+      "I agree to the processing of my data"
+    ]
+  },
+
+  "exhibitionStatus": ["Assembly", "Work", "Dismantling"],
 
   "contacts": [
     {
@@ -41,6 +74,11 @@
   "address": {
     "title": "Address of Chamber of Commerce and Industry of Turkmenistan",
     "subtitle": "Ashgabat, Chandybil street, 143"
+  },
+
+  "faq": {
+    "title": "FAQ",
+    "buttons": ["All", "Participants", "Visitors"]
   },
 
   "rightsReserved": "All rights reserved"

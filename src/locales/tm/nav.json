@@ -29,9 +29,8 @@
     },
     {
       "id": 4,
-
-      "title": "Syýahat gollanmasy",
-      "link": "https://editor.turkmenexpo.com/storage/app/media/travel%20guide/travel_guide.pdf"
+      "title": "FAQ",
+      "link": "/faq"
     }
   ],
   "data2": [
@@ -64,35 +63,35 @@
       "title": "Gatnaşyjylar",
       "content": [
         {
-          "title": "Iformation for participants",
+          "title": "Gatnaşyjylar üçin maglumat",
           "link": "/participants-info"
         },
         {
-          "title": "Benefits of participation",
+          "title": "Gatnaşmagyň peýdalary",
           "link": "/participants-benefits"
         },
         {
-          "title": "Application for participation",
+          "title": "Gatnaşyk üçin arza",
           "link": "/participants-apply"
         },
         {
-          "title": "Documets",
+          "title": "Resminamalar",
           "link": "/participants-docs"
         },
         {
-          "title": "Engineering services",
+          "title": "Inženerçilik hyzmaty",
           "link": "/participants-services"
         },
         {
-          "title": "Services at stands",
+          "title": "Stendlerde hyzmatlar",
           "link": "/participants-services/stend"
         },
         {
-          "title": "Tourist services",
+          "title": "Syýahatçylyk hyzmatlary",
           "link": "/participants-services/hotels"
         },
         {
-          "title": "Printing services",
+          "title": "Çap ediş hyzmatlary",
           "link": "/participants-services/poligraphy"
         }
       ]

@@ -1,12 +1,11 @@
-import { useTranslate } from "@/lib/utils";
+import { useTranslate } from "@/lib/useTranslate";
 import Loader from "../../components/shared/Loader";
 import useGetPrints from "../../hooks/participants/services/useGetPrints";
 import { CoverLayout } from "@/components/layout/CoverLayout";
 
 const ParticipantsPoligraphy = () => {
   const { data, isLoading } = useGetPrints();
-
-  const title = useTranslate("Полиграфия", "Printing Services");
+  const title = useTranslate("poligraphy");
 
   return (
     <CoverLayout title={title}>

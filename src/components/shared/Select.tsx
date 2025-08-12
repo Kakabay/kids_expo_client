@@ -117,7 +117,7 @@ export const Select = ({ ...props }: IProps) => {
 
       <motion.div
         initial={{
-          height: 0,
+          maxHeight: 0,
           paddingTop: 0,
           paddingBottom: 0,
           opacity: 0,
@@ -125,7 +125,7 @@ export const Select = ({ ...props }: IProps) => {
         animate={
           openTitles.includes(header || "")
             ? {
-                height: "fit-content",
+                maxHeight: "fit-content",
                 paddingTop: 32,
                 paddingBottom: 32,
                 opacity: 1,
