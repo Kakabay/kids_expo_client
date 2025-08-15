@@ -32,7 +32,7 @@ export const VisitorsInfo = () => {
               key={i}
               className={cn(
                 "px-4 py-6 bg-pureWhite w-full h-full flex flex-col items-center text-center rounded-sm",
-                i === 2 && "col-span-2 mx-auto"
+                i === 2 && "md:col-span-2 mx-auto"
               )}
             >
               {i === 2 ? (
