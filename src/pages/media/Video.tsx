@@ -5,7 +5,7 @@ import useGetVideos from "@/hooks/media/useGetVideos";
 import VideoSlider from "@/components/shared/VideoSlider";
 import { useMedia } from "@/services/zustand/zusMedia";
 import { CoverLayout } from "@/components/layout/CoverLayout";
-import { useTranslate } from "@/lib/utils";
+import { useTranslate } from "@/lib/useTranslate";
 
 const Video = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -19,7 +19,7 @@ const Video = () => {
     setIsPlaying(false);
   }, [activeVideo]);
 
-  const title = useTranslate("Video Report", "Видеорепортаж");
+  const title = useTranslate("video.title");
 
   return (
     <CoverLayout title={title}>

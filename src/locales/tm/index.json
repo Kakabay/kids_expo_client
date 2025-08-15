@@ -14,6 +14,8 @@
   "touristic": "Syýahatçylyk hyzmatlary",
   "poligraphy": "Çap ediş hyzmatlary",
 
+  "becomeSponsor": "Hemaýatkäri boluň",
+
   "send": "Ugrat",
 
   "participantsInfo": {
@@ -84,6 +86,34 @@
     "title": "FAQ",
     "buttons": ["Hemmesi", "Gatnaşyjylar", "Myhmanlar"]
   },
+
+  "video": {
+    "title": "Wideolar",
+    "more": "Goşmaça wideolary görüň:"
+  },
+
+  "visitorsInfo": {
+    "title": "Myhmanlar üçin maglumat",
+    "visitorsVisit": "Näme üçin gatnaşmaly?",
+
+    "text": "2025-nji ýylyň 21–23-nji awgusty aralygynda, Aşgabat şäherinde “Kids Expo: Ähli zat Çagalar üçin” atly Halkara Uniwersal Sergi-Ýarmarkasy geçiriler.",
+    "content": [
+      {
+        "title": "Açylyş wagty:",
+        "text": " 21–22-nji awgust: 09:00-dan 18:00-a çenli <br />  23-nji awgust: 09:00-dan 16:00-a çenli"
+      },
+      {
+        "title": "Geçirilýän ýeri:",
+        "text": "Türkmenistanyň Söwda-senagat edarasynyň Sergi Merkezi"
+      },
+      {
+        "title": "Ulag gatnawlary:",
+        "text": "35, 54, 56, 57, 58, 103, 121"
+      }
+    ]
+  },
+
+  "photo": "Suratlar",
 
   "rightsReserved": "Ähli hukuklar goralandyr"
 }

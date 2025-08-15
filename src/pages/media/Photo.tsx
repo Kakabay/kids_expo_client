@@ -12,6 +12,7 @@ import useGetPhotos from "@/hooks/media/useGetPhotos";
 import Loader from "@/components/shared/Loader";
 import { useGetEn } from "@/hooks/language/useGetEn";
 import { CoverLayout } from "@/components/layout/CoverLayout";
+import { useTranslate } from "@/lib/useTranslate";
 
 // const items = [
 //   {
@@ -31,6 +32,7 @@ import { CoverLayout } from "@/components/layout/CoverLayout";
 const Photo = () => {
   const [current, setCurrent] = useState(0);
   const [api, setApi] = useState<CarouselApi>();
+  const title = useTranslate("photo");
 
   useEffect(() => {
     if (!api) {
@@ -47,7 +49,7 @@ const Photo = () => {
   const { data, isLoading } = useGetPhotos();
 
   return (
-    <CoverLayout title="Фоторепортаж">
+    <CoverLayout title={title}>
       <h4 className="mb-8 font-semibold text-[21px] leading-none">
         {useGetEn("Exhibition", "Экспозиция")}
       </h4>

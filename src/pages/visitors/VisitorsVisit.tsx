@@ -1,5 +1,5 @@
+import { useTranslate } from "@/lib/useTranslate";
 import { useLang } from "../../services/zustand/zusLang";
-import { v4 } from "uuid";
 import { CoverLayout } from "@/components/layout/CoverLayout";
 
 const benefitsData = [
@@ -24,15 +24,14 @@ const benefitsData = [
 
 export const VisitorsVisit = () => {
   const localization = useLang((state) => state.activeLang.localization);
-  const chooseDataLang = (en: string, ru: string) =>
-    localization === "en" ? en : ru;
+  const title = useTranslate("visitorsInfo.visitorsVisit");
 
   return (
-    <CoverLayout title={chooseDataLang("Why visit", "Зачем посещать")}>
+    <CoverLayout title={title}>
       <div className="grid min-[1150px]:grid-cols-2 grid-cols-1 grid-rows-2 gap-6 min-[1150px]:gap-[42px]">
-        {benefitsData.map((item) => (
+        {benefitsData.map((item, i) => (
           <div
-            key={v4()}
+            key={i}
             className="flex lg:flex-row text-center md:text-left flex-col items-center md:items-start px-4 py-6 bg-pureWhite rounded-sm gap-[10px] text-[14px] leading-[130%]"
           >
             <img src="/assets/icons/benefits-star.svg" alt="" />

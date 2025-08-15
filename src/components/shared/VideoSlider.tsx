@@ -8,18 +8,19 @@ import {
 } from "../ui/carousel";
 import Loader from "./Loader";
 import { useMedia, VideoType } from "@/services/zustand/zusMedia";
-import { useGetEn } from "@/hooks/language/useGetEn";
+
+import { useTranslate } from "@/lib/useTranslate";
 
 const VideoSlider = () => {
   const { data, isLoading } = useGetVideos();
 
   const { setActiveVideo } = useMedia();
 
-  const title = useGetEn("Watch more videos", "Смотрите также:");
+  const more = useTranslate("video.more");
 
   return data ? (
     <div>
-      <h4 className="mb-[26px] mt-8 text-[21px] font-semibold">{title}</h4>
+      <h4 className="mb-[26px] mt-8 text-[21px] font-semibold">{more}</h4>
       <Carousel className="w-full h-full relative z-50 ">
         <div>
           <CarouselContent className="relative pointer-events-auto top-0 left-0">

@@ -14,6 +14,8 @@
   "touristic": "Tourist Services",
   "poligraphy": "Printing Services",
 
+  "becomeSponsor": "Become a sponsor",
+
   "send": "Send",
 
   "participantsInfo": {
@@ -74,6 +76,33 @@
   "address": {
     "title": "Address of Chamber of Commerce and Industry of Turkmenistan",
     "subtitle": "Ashgabat, Chandybil street, 143"
+  },
+
+  "video": {
+    "title": "Video report",
+    "more": "Watch more videos:"
+  },
+
+  "photo": "Photo report",
+
+  "visitorsInfo": {
+    "title": "Information for visitors",
+    "visitorsVisit": "Why visit",
+    "text": "From August 21 to 23, 2025, the International Universal Exhibition-Fair “Kids Expo: Everything for Children” will be held in Ashgabat",
+    "content": [
+      {
+        "title": "Opening hours:",
+        "text": "August 21–22: from 09:00 to 18:00 <br /> August 23: from 09:00 to 16:00"
+      },
+      {
+        "title": "Venue:",
+        "text": "Exhibition center of the Chamber of Commerce and Industry of Turkmenistan"
+      },
+      {
+        "title": "Buses:",
+        "text": "35, 54, 56, 57, 58, 103, 121."
+      }
+    ]
   },
 
   "faq": {

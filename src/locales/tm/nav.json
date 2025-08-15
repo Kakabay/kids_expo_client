@@ -6,11 +6,11 @@
       "title": "Metbugat",
       "content": [
         {
-          "title": "Photo",
+          "title": "Suratlar",
           "link": "/media/photo"
         },
         {
-          "title": "Video",
+          "title": "Wideolar",
           "link": "/media/video"
         }
       ]
@@ -24,7 +24,7 @@
     {
       "id": 3,
 
-      "title": "News",
+      "title": "Täzelikler",
       "link": "/news"
     },
     {
@@ -102,11 +102,11 @@
       "title": "Myhmanlar üçin",
       "content": [
         {
-          "title": "Information for visitors",
+          "title": "Myhmanlar üçin maglumat",
           "link": "/visitors-info"
         },
         {
-          "title": "Why visit",
+          "title": "Näme üçin gatnaşmaly?",
           "link": "/visitors-visit"
         }
       ]

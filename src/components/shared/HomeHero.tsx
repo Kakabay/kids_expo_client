@@ -3,15 +3,17 @@ import { useMediaQuery } from "usehooks-ts";
 
 import useGetBanners from "../../hooks/useGetBanners";
 import Loader from "./Loader";
-import { cn, useTranslate } from "@/lib/utils";
+import { cn } from "@/lib/utils";
 import { useLang } from "@/services/zustand/zusLang";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
+import { useTranslate } from "@/lib/useTranslate";
 
 export const HomeHero = () => {
   const tab = useMediaQuery("(min-width: 1024px)");
   const md = useMediaQuery("(min-width: 768px)");
   const lang = useLang((state) => state.activeLang.localization);
+  const becomeSponsor = useTranslate("becomeSponsor");
 
   const [emblaRef] = useEmblaCarousel({ loop: true, duration: 50 }, [
     Autoplay({
@@ -31,8 +33,6 @@ export const HomeHero = () => {
       return "small-surat";
     }
   };
-
-  const btn = useTranslate("Стать спонсором", "Become a sponsor");
 
   const filteredSlides =
     bannersData
@@ -67,7 +67,7 @@ export const HomeHero = () => {
               lang === "ru" ? "text-xl" : "text-2xl"
             )}
           >
-            {btn}
+            {becomeSponsor}
           </Link>
         </div>
       </section>
