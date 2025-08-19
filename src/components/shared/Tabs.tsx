@@ -5,21 +5,29 @@ import { useMediaQuery } from "usehooks-ts";
 import { useLang } from "@/services/zustand/zusLang";
 
 const tabs = [
-  { id: 0, title: "Все компании", titleEn: "All companies" },
+  {
+    id: 0,
+    title: "Все компании",
+    titleEn: "All companies",
+    titleTm: "Ähli kompaniýalar",
+  },
   {
     id: 3,
     title: "Государственные учреждения ",
     titleEn: "Government Institutions",
+    titleTm: "Döwlet edaralary",
   },
   {
     id: 1,
     title: "Местные компании",
     titleEn: "Local companies",
+    titleTm: "Ýerli kompaniýalar",
   },
   {
     id: 2,
     title: "Иностранные компании",
     titleEn: "Foreign companies",
+    titleTm: "Daşary ýurt kompaniýalary",
   },
 ];
 
@@ -126,7 +134,11 @@ export const Tabs: FC<Props> = ({
               )}
               onClick={() => handleTabClick(index)}
             >
-              {lang === "ru" ? tab.title : tab.titleEn}
+              {lang === "ru"
+                ? tab.title
+                : lang === "en"
+                ? tab.titleEn
+                : tab.titleTm}
             </button>
           ))}
         </div>
@@ -145,7 +157,11 @@ export const Tabs: FC<Props> = ({
                 )}
                 onClick={() => handleTabClick(index)}
               >
-                {lang === "ru" ? tab.title : tab.titleEn}
+                {lang === "ru"
+                  ? tab.title
+                  : lang === "en"
+                  ? tab.titleEn
+                  : tab.titleTm}
               </button>
             ))}
           </div>

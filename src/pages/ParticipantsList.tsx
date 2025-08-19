@@ -16,9 +16,19 @@ const Participants: FC<Props> = ({ className }) => {
   const { data, isPending } = useGetParticipants();
 
   const dataHeader = {
-    company: lang === "ru" ? "Название компании" : "Company name",
-    country: lang === "ru" ? "Страна" : "Country",
-    industry: lang === "ru" ? "Сфера деятельности" : "Industry",
+    company:
+      lang === "ru"
+        ? "Название компании"
+        : lang === "en"
+        ? "Company name"
+        : "Kompaniýanyň ady",
+    country: lang === "ru" ? "Страна" : lang === "en" ? "Country" : "Ýurt",
+    industry:
+      lang === "ru"
+        ? "Сфера деятельности"
+        : lang === "en"
+        ? "Industry"
+        : "Seneýet / Ugry",
   };
 
   const [activeTab, setActiveTab] = useState(0);
@@ -36,8 +46,6 @@ const Participants: FC<Props> = ({ className }) => {
       : item.id === 2
   );
 
-  console.log(activeTab);
-
   return (
     <section
       className={cn(
@@ -46,7 +54,11 @@ const Participants: FC<Props> = ({ className }) => {
       )}
     >
       <h1 className="text-center md:text-5xl text-3xl mb-4">
-        {lang === "ru" ? "Список участников" : "List of participants"}
+        {lang === "ru"
+          ? "Список участников"
+          : lang === "en"
+          ? "List of participants"
+          : "Gatnaşyjylaryň sanawy"}
       </h1>
       <Tabs
         state={activeTab}

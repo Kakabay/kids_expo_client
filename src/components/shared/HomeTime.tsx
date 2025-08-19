@@ -32,8 +32,6 @@ export const HomeTime: FC<Props> = ({ className }) => {
     eventsDatesData?.dismantling_date,
   ];
 
-  console.log(dates);
-
   return (
     <section className={cn("bg-surface-muted my-20 pt-10 pb-20", className)}>
       <div className="container">
