@@ -29,6 +29,22 @@ export const ParticipantItem: FC<Props> = ({
 }) => {
   const lang = useLang((state) => state.activeLang.localization);
 
+  const dataHeader = {
+    company2:
+      lang === "ru"
+        ? "Название компании"
+        : lang === "en"
+        ? "Company name"
+        : "Kompaniýanyň ady",
+    country2: lang === "ru" ? "Страна" : lang === "en" ? "Country" : "Ýurt",
+    industry2:
+      lang === "ru"
+        ? "Сфера деятельности"
+        : lang === "en"
+        ? "Industry"
+        : "Seneýet / Ugry",
+  };
+
   return (
     <>
       {/* MOBILE */}
@@ -43,7 +59,7 @@ export const ParticipantItem: FC<Props> = ({
           <div className="flex items-center w-full">
             <div className="flex items-center flex-[0_0_80%] gap-3">
               <h3 className="text-xs normal flex-[0_0_90px]">
-                {lang === "ru" ? "Название" : "Company"}:
+                {dataHeader.company2}:
               </h3>
               <h4 className="text-xs flex-[0_0_70%]">{name}</h4>
             </div>
@@ -53,7 +69,7 @@ export const ParticipantItem: FC<Props> = ({
             <div className="flex items-center w-full">
               <div className="flex items-center flex-[0_0_80%] gap-3">
                 <h3 className="text-xs normal flex-[0_0_90px]">
-                  {lang === "ru" ? "Страна" : "Country"}:
+                  {dataHeader.country2}
                 </h3>
 
                 <div className="flex items-center flex-[0_0_50%] gap-2">
@@ -73,7 +89,7 @@ export const ParticipantItem: FC<Props> = ({
           <div className="flex items-center ">
             <div className="flex items-center flex-[0_0_80%] gap-3">
               <h3 className="text-xs normal flex-[0_0_90px]">
-                {lang === "ru" ? "Сфера" : "Industry"}:
+                {dataHeader.industry2}:
               </h3>
               <h4 className="text-xs flex-1">{about}</h4>
             </div>

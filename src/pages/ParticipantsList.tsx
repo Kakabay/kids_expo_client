@@ -81,8 +81,8 @@ const Participants: FC<Props> = ({ className }) => {
               {...item}
               arr={arr?.length}
               index={index}
-              image={item.image ?? { path: "" }}
-              image_country={item.image_country ?? { path: "" }}
+              image={item?.image ?? { path: "" }}
+              image_country={item?.image_country ?? { path: "" }}
             />
           ))
         ) : (
@@ -91,8 +91,8 @@ const Participants: FC<Props> = ({ className }) => {
               {...item}
               arr={arr?.length}
               index={index}
-              image={item.image ?? { path: "" }}
-              image_country={item.image_country ?? { path: "" }}
+              image={item?.image ?? { path: "" }}
+              image_country={item?.image_country ?? { path: "" }}
             />
           ))
         )}

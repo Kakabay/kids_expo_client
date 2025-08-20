@@ -152,8 +152,10 @@ export const Tabs: FC<Props> = ({
                 role="tab"
                 aria-selected={state === index}
                 className={cn(
-                  "shrink-0 text-center relative after:transition-all after:rounded after:w-full after:h-0.5 after:bg-primary after:opacity-0 after:absolute after:bottom-0 after:left-0 h-12 mx-4 py-2 text-sm md:text-base whitespace-nowrap transition-all",
-                  state === index ? "text-text-primary after:opacity-100" : ""
+                  "shrink-0 text-center relative after:transition-all after:rounded after:w-full after:h-0.5 after:!bg-surface-brand  after:absolute after:bottom-0 after:left-0 h-12 mx-4 py-2 text-sm md:text-base whitespace-nowrap transition-all",
+                  state === index
+                    ? "!text-text-primary after:opacity-100"
+                    : "after:opacity-0"
                 )}
                 onClick={() => handleTabClick(index)}
               >
