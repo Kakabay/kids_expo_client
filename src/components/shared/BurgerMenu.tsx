@@ -40,7 +40,7 @@ const BurgerMenu = () => {
     (item) => isNavigationGroup(item) && item.id === 6
   ) as NavigationGroup;
 
-  const lastInnerContent = innerItem?.content.at(-1);
+  const lastInnerContent = innerItem?.content[innerItem.content.length - 1];
 
   return (
     <motion.div

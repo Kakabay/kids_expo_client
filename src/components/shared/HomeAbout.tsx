@@ -1,11 +1,13 @@
-import { FC } from "react";
-import { cn, useTranslate } from "@/lib/utils";
+import { FC, useRef, useState } from "react";
+import { cn } from "@/lib/utils";
 import { Link } from "react-router-dom";
 import { Button } from "../ui/button";
 import useEmblaCarousel from "embla-carousel-react";
 import { AboutCard } from "./AboutCard";
 import { Download } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { useOnClickOutside } from "usehooks-ts";
+import { AnimatePresence, motion } from "framer-motion";
 
 interface Props {
   className?: string;
@@ -13,6 +15,8 @@ interface Props {
 
 export const HomeAbout: FC<Props> = ({ className }) => {
   const [emblaRef] = useEmblaCarousel();
+  const [open, setOpen] = useState(false);
+  const ref = useRef(null);
 
   const { t } = useTranslation("home");
 
@@ -30,10 +34,9 @@ export const HomeAbout: FC<Props> = ({ className }) => {
 
   const titles = ["8,400 m²", "10000+", "100+", "80%"];
 
-  const link = useTranslate(
-    "https://editor.turkmenexpo.com/storage/app/media/report/ReportKidsExpo2024_ru.pdf",
-    ""
-  );
+  useOnClickOutside(ref, () => {
+    setOpen(false);
+  });
 
   return (
     <section
@@ -60,13 +63,41 @@ export const HomeAbout: FC<Props> = ({ className }) => {
               className="md:text-base flex flex-col gap-6 text-sm normal text-left text-[#454545]"
             />
 
-            <div className="flex w-full gap-8">
-              <Link to={link ?? ""} target="_blank" className="w-fit">
-                <Button variant={"outline"} className="flex items-center gap-2">
-                  <Download size={14} /> {t("download")}
-                </Button>
-              </Link>
-            </div>
+            <Button
+              ref={ref}
+              onClick={() => setOpen(!open)}
+              variant={"outline"}
+              className="flex flex-col gap-4 w-fit h-auto items-center overflow-hidden"
+            >
+              <div className="flex items-center gap-2">{t("download")}</div>
+
+              <AnimatePresence>
+                {open && (
+                  <motion.div
+                    initial={{ height: 0 }}
+                    animate={{ height: "auto" }}
+                    exit={{ height: 0 }}
+                    className="flex flex-col gap-4"
+                  >
+                    <div className="flex items-center gap-2">
+                      <Download size={14} />
+                      <a
+                        target="_blank"
+                        href="https://editor.turkmenexpo.com/storage/app/media/report/ReportKidsExpo2024_ru.pdf"
+                      >
+                        2024
+                      </a>
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                      <Download size={14} />
+
+                      <div className="cursor-default">2025</div>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </Button>
           </div>
 
           <video
