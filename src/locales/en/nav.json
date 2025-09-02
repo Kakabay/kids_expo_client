@@ -15,6 +15,11 @@
       ]
     },
     {
+      "id": 5,
+      "title": "Catalog",
+      "link": ""
+    },
+    {
       "id": 2,
       "title": "Contacts",
       "link": "/contacts"

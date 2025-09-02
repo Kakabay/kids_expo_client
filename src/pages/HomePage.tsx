@@ -6,6 +6,7 @@ import { HomeTheme } from "@/components/shared/HomeTheme";
 import { HomeTime } from "@/components/shared/HomeTime";
 import { HomeAddress } from "@/components/shared/HomeAddress";
 import HomeNews from "@/components/shared/HomeNews";
+import HomeTestimonials from "@/components/shared/HomeTestimonials";
 
 export default function HomePage() {
   return (
@@ -17,6 +18,7 @@ export default function HomePage() {
       <HomeTime />
       <HomeNews />
       <PartnersSection />
+      <HomeTestimonials />
       <HomeAddress />
     </>
   );
