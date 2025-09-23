@@ -7,7 +7,7 @@ import { CustomButton } from "../components/shared/CustomButton";
 import { NewsCard } from "@/components/shared/NewsCard";
 import { useTranslate } from "@/lib/utils";
 
-export const NewsPage = () => {
+export default function NewsPage() {
   const [grid, setGrid] = useState(true);
 
   const [current, setCurrent] = useState(1);
@@ -85,4 +85,4 @@ export const NewsPage = () => {
       {newsIsLoading && <Loader />}
     </div>
   );
-};
+}

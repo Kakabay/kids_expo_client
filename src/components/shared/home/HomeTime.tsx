@@ -1,10 +1,10 @@
 import { cn } from "@/lib/utils";
 import { FC } from "react";
-import { TimeCard } from "./TimeCard";
-import { ContactCard } from "./ContactCard";
 import { Mail, MapPin, PhoneIcon } from "lucide-react";
 import useGetEventDates from "@/hooks/participants/useGetEventDates";
 import { useTranslation } from "react-i18next";
+import { TimeCard } from "../TimeCard";
+import { ContactCard } from "../ContactCard";
 
 interface Props {
   className?: string;

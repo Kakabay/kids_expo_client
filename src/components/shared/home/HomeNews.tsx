@@ -1,14 +1,13 @@
-import { NavBtn } from "./NavBtn";
-import { Title } from "./Title";
-import { HomeNewsCard } from "./NewsCard";
-import useGetNews from "../../hooks/useGetNews";
 import { Link } from "react-router-dom";
-import { CustomButton } from "./CustomButton";
 import useEmblaCarousel from "embla-carousel-react";
 import { useCallback } from "react";
 import { useTranslate } from "@/lib/useTranslate";
+import useGetNews from "@/hooks/useGetNews";
+import { NavBtn } from "../NavBtn";
+import { HomeNewsCard } from "../NewsCard";
+import { CustomButton } from "../CustomButton";
 
-const HomeNews = () => {
+export const HomeNews = () => {
   const news = useTranslate("news");
   const allNews = useTranslate("allNews");
   const { newsIsError, newsIsLoading, newsData, newsIsSuccess } = useGetNews({
@@ -40,7 +39,7 @@ const HomeNews = () => {
     return (
       <section className="container pt-0 mb-16 md:pt-[100px] md:mb-[100px]">
         <div className="flex items-center justify-between mb-10">
-          <Title title={news} />
+          <h2 className="h2">{news}</h2>
 
           <div className="hidden sm:flex gap-5">
             <NavBtn onClick={scrollPrev} left />
@@ -70,5 +69,3 @@ const HomeNews = () => {
     );
   }
 };
-
-export default HomeNews;

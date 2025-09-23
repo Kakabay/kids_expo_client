@@ -26,7 +26,7 @@ import { standData } from "@/lib/stand-form.data";
 import { Field } from "@/components/shared/Field";
 import { FormSuccesStatus } from "@/components/shared/FormSuccessStatus";
 
-const SponsorFormPage = () => {
+export default function SponsorFormPage() {
   const lang = useLang((state) => state.activeLang.localization);
   const [success, setSuccess] = useState(false);
   const form = useForm<SponsorFormType>({
@@ -165,6 +165,4 @@ const SponsorFormPage = () => {
       {success && <FormSuccesStatus delay={0.3} />}
     </CoverLayout>
   );
-};
-
-export default SponsorFormPage;
+}

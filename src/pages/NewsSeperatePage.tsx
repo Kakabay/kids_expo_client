@@ -4,7 +4,7 @@ import { useLang } from "../services/zustand/zusLang";
 import Loader from "../components/shared/Loader";
 import { CustomButton } from "../components/shared/CustomButton";
 
-export const NewsSeperatePage = () => {
+export default function NewsSeperatePage() {
   const localization = useLang((state) => state.activeLang.localization);
   const chooseDataLang = (en: string, ru: string) =>
     localization === "en" ? en : ru;
@@ -49,4 +49,4 @@ export const NewsSeperatePage = () => {
       </Link>
     </div>
   );
-};
+}

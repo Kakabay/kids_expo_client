@@ -1,0 +1,9 @@
+export { HomeAbout } from "./HomeAbout";
+export { HomeAddress } from "./HomeAddress";
+export { HomeHero } from "./HomeHero";
+export { HomeNews } from "./HomeNews";
+export { HomeTheme } from "./HomeTheme";
+export { HomeOffers } from "./HomeOffers";
+export { HomeTime } from "./HomeTime";
+export { HomeTestimonials } from "./HomeTestimonials";
+export { HomePartners } from "./HomePartners";

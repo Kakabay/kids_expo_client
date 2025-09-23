@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { useLang } from "@/services/zustand/zusLang";
 import Loader from "@/components/shared/Loader";
@@ -6,11 +6,7 @@ import { ParticipantItem } from "@/components/shared/ParticipantsItem";
 import { useGetParticipants } from "@/hooks/useGetParticipants";
 import { Tabs } from "@/components/shared/Tabs";
 
-interface Props {
-  className?: string;
-}
-
-const Participants: FC<Props> = ({ className }) => {
+export default function Participants() {
   const lang = useLang((state) => state.activeLang.localization);
 
   const { data, isPending } = useGetParticipants();
@@ -48,10 +44,7 @@ const Participants: FC<Props> = ({ className }) => {
 
   return (
     <section
-      className={cn(
-        "page-padding container overflow-x-hidden mt-10 mb-20",
-        className
-      )}
+      className={cn("page-padding container overflow-x-hidden mt-10 mb-20")}
     >
       <h1 className="text-center md:text-5xl text-3xl mb-4">
         {lang === "ru"
@@ -99,6 +92,4 @@ const Participants: FC<Props> = ({ className }) => {
       </div>
     </section>
   );
-};
-
-export default Participants;
+}

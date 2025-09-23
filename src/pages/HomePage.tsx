@@ -1,11 +1,14 @@
-import { HomeHero } from "@/components/shared/HomeHero";
-import { PartnersSection } from "@/components/shared/PartnersSection";
-import { HomeAbout } from "@/components/shared/HomeAbout";
-import { HomeOffers } from "@/components/shared/HomeOffers";
-import { HomeTheme } from "@/components/shared/HomeTheme";
-import { HomeTime } from "@/components/shared/HomeTime";
-import { HomeAddress } from "@/components/shared/HomeAddress";
-import HomeNews from "@/components/shared/HomeNews";
+import {
+  HomeAbout,
+  HomeAddress,
+  HomeHero,
+  HomeNews,
+  HomeOffers,
+  HomePartners,
+  HomeTestimonials,
+  HomeTheme,
+  HomeTime,
+} from "@/components/shared/home";
 
 export default function HomePage() {
   return (
@@ -13,11 +16,11 @@ export default function HomePage() {
       <HomeHero />
       <HomeAbout />
       <HomeOffers />
-      <HomeTheme />R
+      <HomeTheme />
       <HomeTime />
       <HomeNews />
-      <PartnersSection />
-      {/* <HomeTestimonials /> */}
+      <HomeTestimonials />
+      <HomePartners />
       <HomeAddress />
     </>
   );

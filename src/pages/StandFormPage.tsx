@@ -23,7 +23,7 @@ import Loader from "@/components/shared/Loader";
 import { Button } from "@/components/ui/button";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 
-const StandFormPage = () => {
+export default function StandFormPage() {
   const lang = useLang((state) => state.activeLang.localization);
   const title = useTranslate("Забронировать стенд", "Book a stand");
 
@@ -187,6 +187,4 @@ const StandFormPage = () => {
       </Form>
     </CoverLayout>
   );
-};
-
-export default StandFormPage;
+}

@@ -1,7 +1,7 @@
 import { FC, useMemo } from "react";
-import { ThemeCard } from "./ThemeCard";
 import useGetTopics from "@/hooks/exhibition/useGetTopics";
 import { useTranslation } from "react-i18next";
+import { ThemeCard } from "../ThemeCard";
 
 export const HomeTheme: FC = () => {
   const { t } = useTranslation("home");

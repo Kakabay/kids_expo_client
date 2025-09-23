@@ -1,10 +1,10 @@
-import { Title } from "./Title";
-import useGetPartners from "../../hooks/useGetPartners";
+import { Title } from "../Title";
+import useGetPartners from "../../../hooks/useGetPartners";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import { useTranslate } from "@/lib/useTranslate";
 
-export const PartnersSection = () => {
+export const HomePartners = () => {
   const { partnersData } = useGetPartners();
   const title = useTranslate("partners");
 
