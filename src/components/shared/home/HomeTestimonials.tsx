@@ -4,10 +4,18 @@ import { Quote } from "lucide-react";
 import Loader from "../Loader";
 import { useCallback, useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
+import { useTranslation } from "react-i18next";
+import Autoplay from "embla-carousel-autoplay";
 
 export const HomeTestimonials = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({}, []);
+  const [emblaRef, emblaApi] = useEmblaCarousel({ duration: 100 }, [
+    Autoplay({
+      delay: 6000,
+      stopOnInteraction: false,
+    }),
+  ]);
   const [activeIndex, setActiveIndex] = useState(0);
+  const { t } = useTranslation("index");
 
   const scrollTo = useCallback(
     (index: number) => {
@@ -37,7 +45,7 @@ export const HomeTestimonials = () => {
 
   return (
     <section className="container my-20">
-      <h2 className="h2 mb-8 text-center">Reviews</h2>
+      <h2 className="h2 mb-8 text-center">{t("reviews")}</h2>
 
       <div ref={emblaRef} className="embla overflow-hidden">
         <div className="embla__container max-w-[710px] mx-auto gap-[20vw] flex">
@@ -47,7 +55,7 @@ export const HomeTestimonials = () => {
               className="relative flex flex-col text-center gap-3 flex-[0_0_100%] justify-center items-center"
             >
               <Quote
-                className="absolute left-0 rotate-180 bottom-14
+                className="absolute left-0 rotate-180 md:bottom-32 bottom-60
                text-text-interactive stroke-1 fill-text-interactive"
               />
               <Quote className="absolute right-0 bottom-2 text-text-interactive stroke-1 fill-text-interactive" />
@@ -62,7 +70,7 @@ export const HomeTestimonials = () => {
                 <h3 className="font-bold text-base">{item?.name}</h3>
                 <h4 className="text-base">{item?.job_title}</h4>
               </div>
-              <p className="text-base text-text-secondary px-14">
+              <p className="text-base text-text-secondary md:px-14">
                 {item?.text}
               </p>
             </article>
