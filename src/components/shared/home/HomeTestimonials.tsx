@@ -63,7 +63,7 @@ export const HomeTestimonials = () => {
               <img
                 src={item?.image?.path}
                 alt={item?.name}
-                className="size-[100px] object-contain bg-black rounded-full"
+                className="size-[100px] object-contain bg-white"
               />
 
               <div className="">
