@@ -15,6 +15,7 @@ import { MediaTypes } from "../types/getMediaType";
 import { ParticipantsType } from "../types/getParticipanstType";
 import { StandFormType } from "@/lib/stand-form";
 import { SponsorFormType } from "@/lib/sponsor-form";
+import { Testimonials } from "../types/getTestimonialsTypes";
 
 type PostParticipantFormTypes = {
   area_is_equipped: boolean;
@@ -217,7 +218,7 @@ class ExpoService {
 
   async getVideos(localization: string) {
     return await axios.get<MediaTypes>(
-      `https://turkmenexpo.com/app/api/v1/videos`,
+      "https://turkmenexpo.com/app/api/v1/videos",
       {
         headers: {
           "Accept-Language": localization,
@@ -229,6 +230,16 @@ class ExpoService {
   async getParticipants(localization: string) {
     return await axios.get<ParticipantsType>(
       "https://editor.turkmenexpo.com/api/v1/participants",
+      {
+        headers: {
+          "Accept-Language": localization,
+        },
+      }
+    );
+  }
+  async getTestimonials(localization: string) {
+    return await axios.get<Testimonials>(
+      "https://editor.turkmenexpo.com/api/v1/reviews",
       {
         headers: {
           "Accept-Language": localization,
@@ -270,7 +281,7 @@ class ExpoService {
   async postSponsor(data: SponsorFormType) {
     return await axios
       .post(
-        `https://editor.turkmenexpo.com/api/v1/applications/sponsor`,
+        "https://editor.turkmenexpo.com/api/v1/applications/sponsor",
         {
           ...data,
         },

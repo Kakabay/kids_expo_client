@@ -1,7 +1,7 @@
 import { FC } from "react";
 import useEmblaCarousel from "embla-carousel-react";
-import { OfferCard } from "./OfferCard";
 import { useTranslation } from "react-i18next";
+import { OfferCard } from "../OfferCard";
 
 const links = [
   "https://editor.turkmenexpo.com/storage/app/media/travel%20guide/travel_guide.pdf",

@@ -140,6 +140,14 @@
     @apply opacity-60;
   }
 
+  .dot {
+    @apply w-5 h-1 cursor-pointer bg-surface-primary rounded-[2px];
+  }
+
+  .dot-active {
+    @apply w-5 h-1 bg-surface-brand rounded-[2px];
+  }
+
   .real-checkbox {
     width: 16px;
     height: 16px;

@@ -1,13 +1,13 @@
 import { FC, useRef, useState } from "react";
 import { cn } from "@/lib/utils";
 import { Link } from "react-router-dom";
-import { Button } from "../ui/button";
 import useEmblaCarousel from "embla-carousel-react";
-import { AboutCard } from "./AboutCard";
 import { Download } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useOnClickOutside } from "usehooks-ts";
 import { AnimatePresence, motion } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { AboutCard } from "../AboutCard";
 
 interface Props {
   className?: string;

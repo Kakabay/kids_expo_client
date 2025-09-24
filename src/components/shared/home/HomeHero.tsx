@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 import { useMediaQuery } from "usehooks-ts";
 
-import useGetBanners from "../../hooks/useGetBanners";
-import Loader from "./Loader";
 import { cn } from "@/lib/utils";
 import { useLang } from "@/services/zustand/zusLang";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { useTranslate } from "@/lib/useTranslate";
+import useGetBanners from "@/hooks/useGetBanners";
+import Loader from "../Loader";
 
 export const HomeHero = () => {
   const tab = useMediaQuery("(min-width: 1024px)");

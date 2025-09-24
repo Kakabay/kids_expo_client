@@ -110,5 +110,7 @@
     "buttons": ["All", "Participants", "Visitors"]
   },
 
+  "reviews": "Reviews",
+
   "rightsReserved": "All rights reserved"
 }

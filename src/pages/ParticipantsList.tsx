@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { useLang } from "@/services/zustand/zusLang";
 import Loader from "@/components/shared/Loader";
