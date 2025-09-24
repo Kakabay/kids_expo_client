@@ -7,7 +7,7 @@ import { useMedia } from "@/services/zustand/zusMedia";
 import { CoverLayout } from "@/components/layout/CoverLayout";
 import { useTranslate } from "@/lib/useTranslate";
 
-const Video = () => {
+export default function Video() {
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -65,6 +65,4 @@ const Video = () => {
       <VideoSlider />
     </CoverLayout>
   );
-};
-
-export default Video;
+}

@@ -3,7 +3,7 @@ import Loader from "../../components/shared/Loader";
 import { CoverLayout } from "@/components/layout/CoverLayout";
 import { useTranslation } from "react-i18next";
 
-export const ParticipantsBenefits = () => {
+export default function ParticipantsBenefits() {
   const { benefitsData, benefitsIsLoading } = useGetBenefits();
   const { t } = useTranslation("index");
 
@@ -33,4 +33,4 @@ export const ParticipantsBenefits = () => {
       {benefitsIsLoading && <Loader />}
     </CoverLayout>
   );
-};
+}

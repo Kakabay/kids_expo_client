@@ -1,7 +1,7 @@
 import { CoverLayout } from "@/components/layout/CoverLayout";
 import { useTranslate } from "@/lib/useTranslate";
 
-export const ExhibitionSupport = () => {
+export default function ExhibitionSupport() {
   const title = useTranslate("informationSupport");
   const supportTitle = useTranslate("supportPage.title");
 
@@ -25,4 +25,4 @@ export const ExhibitionSupport = () => {
       </div>
     </CoverLayout>
   );
-};
+}

@@ -2,7 +2,7 @@ import useGetContacts from "../hooks/useGetContacts";
 import Loader from "../components/shared/Loader";
 import { useTranslate } from "@/lib/utils";
 
-export const ContactsPage = () => {
+export default function ContactsPage() {
   const title = useTranslate("Контакты", "Contacts");
 
   const {
@@ -42,4 +42,4 @@ export const ContactsPage = () => {
       </div>
     );
   }
-};
+}

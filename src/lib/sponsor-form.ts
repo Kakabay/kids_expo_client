@@ -13,7 +13,7 @@ export const sponsorFormSchema = z.object({
     .string()
     .min(3, { message: "Имя представителя должно быть не менее 3 символов" }),
 
-  contact_person_postion: z
+  contact_person_position: z
     .string()
     .min(3, { message: "Должность должна быть не менее 3 символов" }),
 
@@ -36,7 +36,7 @@ export const sponsorDefaultValues = {
   event_id: 3,
   company_name: "",
   contact_person: "",
-  contact_person_postion: "",
+  contact_person_position: "",
   country: "",
   email: "",
   phone: "",

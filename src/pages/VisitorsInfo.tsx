@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 import { Bus } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
-export const VisitorsInfo = () => {
+export default function VisitorsInfo() {
   const { t } = useTranslation("index");
 
   const { title, text, content } = t("visitorsInfo", {
@@ -72,4 +72,4 @@ export const VisitorsInfo = () => {
       </div>
     </CoverLayout>
   );
-};
+}

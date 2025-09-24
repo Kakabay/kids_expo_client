@@ -7,11 +7,11 @@
       "content": [
         {
           "title": "Suratlar",
-          "link": "/media/photo"
+          "link": "/media-photos"
         },
         {
           "title": "Wideolar",
-          "link": "/media/video"
+          "link": "/media-videos"
         }
       ]
     },
@@ -90,15 +90,15 @@
         },
         {
           "title": "Stendlerde hyzmatlar",
-          "link": "/participants-services/stend"
+          "link": "/stand"
         },
         {
           "title": "Syýahatçylyk hyzmatlary",
-          "link": "/participants-services/hotels"
+          "link": "/hotels"
         },
         {
           "title": "Çap ediş hyzmatlary",
-          "link": "/participants-services/poligraphy"
+          "link": "/poligraphy"
         }
       ]
     },

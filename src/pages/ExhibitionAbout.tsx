@@ -1,9 +1,9 @@
-import useGetAboutExhibition from "../../hooks/useGetAboutExhibition";
-import Loader from "../../components/shared/Loader";
 import { CoverLayout } from "@/components/layout/CoverLayout";
+import Loader from "@/components/shared/Loader";
+import useGetAboutExhibition from "@/hooks/useGetAboutExhibition";
 import { useTranslate } from "@/lib/useTranslate";
 
-const ExhibitionAbout = () => {
+export default function ExhibitionAbout() {
   const title = useTranslate("about");
 
   const {
@@ -31,6 +31,4 @@ const ExhibitionAbout = () => {
       {aboutExhibitionIsLoading && <Loader />}
     </CoverLayout>
   );
-};
-
-export default ExhibitionAbout;
+}

@@ -5,7 +5,7 @@ import useGetStandServices from "../../hooks/participants/services/useGetStandSe
 import { CoverLayout } from "@/components/layout/CoverLayout";
 import { useTranslate } from "@/lib/useTranslate";
 
-const ParticipantsStend = () => {
+export default function ParticipantsStand() {
   const { data, isLoading } = useGetStandServices();
 
   const title = useTranslate("standServices");
@@ -22,6 +22,4 @@ const ParticipantsStend = () => {
       <FooterServices />
     </CoverLayout>
   );
-};
-
-export default ParticipantsStend;
+}

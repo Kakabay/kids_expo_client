@@ -6,11 +6,11 @@
       "content": [
         {
           "title": "Photo",
-          "link": "/media/photo"
+          "link": "/media-photos"
         },
         {
           "title": "Video",
-          "link": "/media/video"
+          "link": "/media-videos"
         }
       ]
     },
@@ -65,7 +65,7 @@
       "title": "Participants",
       "content": [
         {
-          "title": "Iformation for participants",
+          "title": "Information for participants",
           "link": "/participants-info"
         },
         {
@@ -86,15 +86,15 @@
         },
         {
           "title": "Services at stands",
-          "link": "/participants-services/stend"
+          "link": "/stand"
         },
         {
           "title": "Tourist services",
-          "link": "/participants-services/hotels"
+          "link": "/hotels"
         },
         {
           "title": "Printing services",
-          "link": "/participants-services/poligraphy"
+          "link": "/poligraphy"
         }
       ]
     },

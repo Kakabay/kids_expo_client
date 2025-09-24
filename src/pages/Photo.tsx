@@ -5,8 +5,8 @@ import {
   CarouselItem,
   CarouselPrevious,
   CarouselNext,
-} from "../../components/ui/carousel";
-import { type CarouselApi } from "../../components/ui/carousel";
+} from "../components/ui/carousel";
+import { type CarouselApi } from "../components/ui/carousel";
 import YearTab from "@/components/shared/YearTab";
 import useGetPhotos from "@/hooks/media/useGetPhotos";
 import Loader from "@/components/shared/Loader";
@@ -29,7 +29,7 @@ import { useTranslate } from "@/lib/useTranslate";
 //   },
 // ];
 
-const Photo = () => {
+export default function Photo() {
   const [current, setCurrent] = useState(0);
   const [api, setApi] = useState<CarouselApi>();
   const title = useTranslate("photo");
@@ -95,6 +95,4 @@ const Photo = () => {
       )}
     </CoverLayout>
   );
-};
-
-export default Photo;
+}

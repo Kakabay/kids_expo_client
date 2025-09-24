@@ -5,7 +5,7 @@ import useGetEngeener from "../../hooks/participants/services/useGetEngeener";
 import { CoverLayout } from "@/components/layout/CoverLayout";
 import { useTranslate } from "@/lib/useTranslate";
 
-const ParticipantsServicesEngeener = () => {
+export default function ParticipantsServicesEngineer() {
   const { data, isLoading } = useGetEngeener();
   const title = useTranslate("engineering");
 
@@ -20,6 +20,4 @@ const ParticipantsServicesEngeener = () => {
       <FooterServices />
     </CoverLayout>
   );
-};
-
-export default ParticipantsServicesEngeener;
+}

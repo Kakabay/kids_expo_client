@@ -1,10 +1,10 @@
-import { ThemeCard } from "../../components/Theme/ThemeCard";
-import useGetTopics from "../../hooks/exhibition/useGetTopics";
-import Loader from "../../components/shared/Loader";
 import { CoverLayout } from "@/components/layout/CoverLayout";
+import Loader from "@/components/shared/Loader";
+import { ThemeCard } from "@/components/Theme/ThemeCard";
+import useGetTopics from "@/hooks/exhibition/useGetTopics";
 import { useTranslate } from "@/lib/useTranslate";
 
-export const ExhibitionTheme = () => {
+export default function ExhibitionTheme() {
   const { topicsData, topicsIsSuccess, topicsIsLoading } = useGetTopics();
   const title = useTranslate("theme");
 
@@ -25,4 +25,4 @@ export const ExhibitionTheme = () => {
       {topicsIsLoading && <Loader />}
     </CoverLayout>
   );
-};
+}

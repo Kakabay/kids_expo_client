@@ -3,7 +3,7 @@ import Loader from "../../components/shared/Loader";
 import useGetHotels from "../../hooks/participants/services/useGetHotels";
 import { CoverLayout } from "@/components/layout/CoverLayout";
 
-const ParticipantsHotels = () => {
+export default function ParticipantsHotels() {
   const { data, isLoading } = useGetHotels();
   const title = useTranslate("touristic");
 
@@ -17,6 +17,4 @@ const ParticipantsHotels = () => {
       {isLoading && <Loader />}
     </CoverLayout>
   );
-};
-
-export default ParticipantsHotels;
+}

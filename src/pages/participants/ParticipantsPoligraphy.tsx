@@ -3,7 +3,7 @@ import Loader from "../../components/shared/Loader";
 import useGetPrints from "../../hooks/participants/services/useGetPrints";
 import { CoverLayout } from "@/components/layout/CoverLayout";
 
-const ParticipantsPoligraphy = () => {
+export default function ParticipantsPoligraphy() {
   const { data, isLoading } = useGetPrints();
   const title = useTranslate("poligraphy");
 
@@ -17,6 +17,4 @@ const ParticipantsPoligraphy = () => {
       {isLoading && <Loader />}
     </CoverLayout>
   );
-};
-
-export default ParticipantsPoligraphy;
+}

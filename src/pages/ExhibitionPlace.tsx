@@ -1,8 +1,8 @@
-import useGetVenue from "../../hooks/exhibition/useGetVenue";
-import Loader from "../../components/shared/Loader";
+import Loader from "@/components/shared/Loader";
+import useGetVenue from "@/hooks/exhibition/useGetVenue";
 import { useTranslate } from "@/lib/useTranslate";
 
-const ExhibitionPlace = () => {
+export default function ExhibitionPlace() {
   const { venueData, venueIsLoading } = useGetVenue();
   const title = useTranslate("venue");
 
@@ -21,6 +21,4 @@ const ExhibitionPlace = () => {
       {venueIsLoading && <Loader />}
     </section>
   );
-};
-
-export default ExhibitionPlace;
+}

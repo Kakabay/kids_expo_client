@@ -37,10 +37,10 @@ type GetNewsParamsTypes = {
 class ExpoService {
   private URL = "https://editor.turkmenexpo.com/api/v1";
 
-  async getBanners(localiztion: string) {
+  async getBanners(localization: string) {
     return await axios.get<GetBannersTypes>(`${this.URL}/banners`, {
       headers: {
-        "Accept-Language": localiztion,
+        "Accept-Language": localization,
       },
     });
   }

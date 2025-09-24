@@ -1,5 +1,5 @@
 import { useTranslate } from "@/lib/useTranslate";
-import { useLang } from "../../services/zustand/zusLang";
+import { useLang } from "../services/zustand/zusLang";
 import { CoverLayout } from "@/components/layout/CoverLayout";
 
 const benefitsData = [
@@ -22,7 +22,7 @@ const benefitsData = [
   },
 ];
 
-export const VisitorsVisit = () => {
+export default function VisitorsVisit() {
   const localization = useLang((state) => state.activeLang.localization);
   const title = useTranslate("visitorsInfo.visitorsVisit");
 
@@ -41,4 +41,4 @@ export const VisitorsVisit = () => {
       </div>
     </CoverLayout>
   );
-};
+}

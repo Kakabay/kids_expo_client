@@ -7,11 +7,11 @@
       "content": [
         {
           "title": "Фоторепортаж",
-          "link": "/media/photo"
+          "link": "/media-photos"
         },
         {
           "title": "Видеорепортаж",
-          "link": "/media/video"
+          "link": "/media-videos"
         }
       ]
     },
@@ -90,15 +90,15 @@
         },
         {
           "title": "Сервис на стендах",
-          "link": "/participants-services/stend"
+          "link": "/stand"
         },
         {
           "title": "Туристические услуги",
-          "link": "/participants-services/hotels"
+          "link": "/hotels"
         },
         {
           "title": "Полиграфия",
-          "link": "/participants-services/poligraphy"
+          "link": "/poligraphy"
         }
       ]
     },

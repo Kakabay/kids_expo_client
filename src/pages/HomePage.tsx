@@ -13,7 +13,7 @@ export default function HomePage() {
       <HomeHero />
       <HomeAbout />
       <HomeOffers />
-      <HomeTheme />R
+      <HomeTheme />
       <HomeTime />
       <HomeNews />
       <PartnersSection />

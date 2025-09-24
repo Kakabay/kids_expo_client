@@ -26,7 +26,7 @@ import { standData } from "@/lib/stand-form.data";
 import { Field } from "@/components/shared/Field";
 import { FormSuccesStatus } from "@/components/shared/FormSuccessStatus";
 
-const SponsorFormPage = () => {
+export default function SponsorFormPage() {
   const lang = useLang((state) => state.activeLang.localization);
   const [success, setSuccess] = useState(false);
   const form = useForm<SponsorFormType>({
@@ -78,9 +78,9 @@ const SponsorFormPage = () => {
               />
               <Field
                 label={standData[translate].label_3}
-                name="contact_person_postion"
+                name="contact_person_position"
                 control={form.control}
-                error={errors.contact_person_postion}
+                error={errors.contact_person_position}
               />
               <Field
                 label={standData[translate].label_4}
@@ -165,6 +165,4 @@ const SponsorFormPage = () => {
       {success && <FormSuccesStatus delay={0.3} />}
     </CoverLayout>
   );
-};
-
-export default SponsorFormPage;
+}

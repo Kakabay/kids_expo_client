@@ -6,7 +6,7 @@ import { times } from "@/constantas";
 import useGetEventDates from "@/hooks/participants/useGetEventDates";
 import { useTranslation } from "react-i18next";
 
-export const ParticipantsInfo = () => {
+export default function ParticipantsInfo() {
   const { t } = useTranslation("index");
   const titles = t("participantsInfo.status", {
     returnObjects: true,
@@ -68,4 +68,4 @@ export const ParticipantsInfo = () => {
       </div>
     </CoverLayout>
   );
-};
+}

@@ -2,35 +2,35 @@ import "./index.css";
 import React from "react";
 import App from "./App.tsx";
 import ReactDOM from "react-dom/client";
-import FaqPage from "./pages/FaqPage.tsx";
 import HomePage from "./pages/HomePage.tsx";
-import Photo from "./pages/media/Photo.tsx";
-import Video from "./pages/media/Video.tsx";
-import Media from "./pages/media/Media.tsx";
-import { NewsPage } from "./pages/NewsPage.tsx";
-import B2bFormPage from "./pages/B2bFormPage.tsx";
-import StandFormPage from "./pages/StandFormPage.tsx";
-import { ContactsPage } from "./pages/ContactsPage.tsx";
-import SponsorFormPage from "./pages/SponsorFormPage.tsx";
-import ParticipantsList from "./pages/ParticipantsList.tsx";
-import { NewsSeperatePage } from "./pages/NewsSeperatePage.tsx";
-import { VisitorsInfo } from "./pages/visitors/VisitorsInfo.tsx";
-import { VisitorsVisit } from "./pages/visitors/VisitorsVisit.tsx";
-import ExhibitionAbout from "./pages/exhibition/ExhibitionAbout.tsx";
-import ExhibitionPlace from "./pages/exhibition/ExhibitionPlace.tsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import { ExhibitionTheme } from "./pages/exhibition/ExhibitionTheme.tsx";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import ParticipantsApply from "./pages/participants/ParticipantsApply.tsx";
-import ParticipantsStend from "./pages/participants/ParticipantsStend.tsx";
-import { ExhibitionSupport } from "./pages/exhibition/ExhibitionSupport.tsx";
-import { ParticipantsDocs } from "./pages/participants/ParticipantsDocs.tsx";
-import { ParticipantsInfo } from "./pages/participants/ParticipantsInfo.tsx";
-import ParticipantsHotels from "./pages/participants/ParticipantsHotels.tsx";
-import ParticipantsServices from "./pages/participants/ParticipantsServices.tsx";
-import ParticipantsPoligraphy from "./pages/participants/ParticipantsPoligraphy.tsx";
-import { ParticipantsBenefits } from "./pages/participants/ParticipantsBenefits.tsx";
-import ParticipantsServicesEngeener from "./pages/participants/ParticipantsServicesEngeener.tsx";
+import {
+  Photo,
+  Video,
+  FaqPage,
+  NewsPage,
+  NewsSeparatePage,
+  ContactsPage,
+  ExhibitionAbout,
+  ExhibitionPlace,
+  ExhibitionSupport,
+  ExhibitionTheme,
+  ParticipantsInfo,
+  ParticipantsBenefits,
+  ParticipantsApply,
+  ParticipantsDocs,
+  ParticipantsServicesEngineer,
+  ParticipantsHotels,
+  ParticipantsPoligraphy,
+  ParticipantsStand,
+  VisitorsInfo,
+  VisitorsVisit,
+  ParticipantsList,
+  StandFormPage,
+  B2bFormPage,
+  SponsorFormPage,
+} from "./pages";
 
 const router = createBrowserRouter([
   {
@@ -43,19 +43,12 @@ const router = createBrowserRouter([
       },
 
       {
-        path: "/media",
-        element: <Media />,
-
-        children: [
-          {
-            path: "photo",
-            element: <Photo />,
-          },
-          {
-            path: "video",
-            element: <Video />,
-          },
-        ],
+        path: "/media-photos",
+        element: <Photo />,
+      },
+      {
+        path: "/media-videos",
+        element: <Video />,
       },
 
       {
@@ -69,14 +62,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/news/:id",
-        element: <NewsSeperatePage />,
+        element: <NewsSeparatePage />,
       },
-
       {
         path: "/contacts",
         element: <ContactsPage />,
       },
-
       {
         path: "/exhibition-about",
         element: <ExhibitionAbout />,
@@ -111,27 +102,20 @@ const router = createBrowserRouter([
       },
       {
         path: "/participants-services",
-        element: <ParticipantsServices />,
-        children: [
-          {
-            path: "/participants-services",
-            element: <ParticipantsServicesEngeener />,
-          },
-          {
-            path: "stend",
-            element: <ParticipantsStend />,
-          },
-          {
-            path: "hotels",
-            element: <ParticipantsHotels />,
-          },
-          {
-            path: "poligraphy",
-            element: <ParticipantsPoligraphy />,
-          },
-        ],
+        element: <ParticipantsServicesEngineer />,
       },
-
+      {
+        path: "/stand",
+        element: <ParticipantsStand />,
+      },
+      {
+        path: "/hotels",
+        element: <ParticipantsHotels />,
+      },
+      {
+        path: "/poligraphy",
+        element: <ParticipantsPoligraphy />,
+      },
       {
         path: "/visitors-info",
         element: <VisitorsInfo />,

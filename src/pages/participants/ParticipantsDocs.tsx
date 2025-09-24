@@ -3,7 +3,7 @@ import Loader from "../../components/shared/Loader";
 import { CoverLayout } from "@/components/layout/CoverLayout";
 import { useTranslate } from "@/lib/useTranslate";
 
-export const ParticipantsDocs = () => {
+export default function ParticipantsDocs() {
   const { docsData, docsIsLoading } = useGetDocs();
   const title = useTranslate("documents");
 
@@ -31,4 +31,4 @@ export const ParticipantsDocs = () => {
       {docsIsLoading && <Loader />}
     </CoverLayout>
   );
-};
+}

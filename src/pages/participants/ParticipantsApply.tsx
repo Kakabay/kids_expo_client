@@ -53,7 +53,7 @@ const formSchema = z.object({
   }),
 });
 
-const ParticipantsApply = () => {
+export default function ParticipantsApply() {
   const { t } = useTranslation("index");
 
   const labels = t("participantsApplication.labels", {
@@ -239,6 +239,4 @@ const ParticipantsApply = () => {
       </CoverLayout>
     </>
   );
-};
-
-export default ParticipantsApply;
+}
