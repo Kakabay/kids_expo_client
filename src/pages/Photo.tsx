@@ -7,30 +7,27 @@ import {
   CarouselNext,
 } from "../components/ui/carousel";
 import { type CarouselApi } from "../components/ui/carousel";
-import YearTab from "@/components/shared/YearTab";
 import useGetPhotos from "@/hooks/media/useGetPhotos";
 import Loader from "@/components/shared/Loader";
 import { useGetEn } from "@/hooks/language/useGetEn";
 import { CoverLayout } from "@/components/layout/CoverLayout";
 import { useTranslate } from "@/lib/useTranslate";
+import clsx from "clsx";
 
-// const items = [
-//   {
-//     img: '/assets/images/photo.png',
-//   },
-//   {
-//     img: '/assets/images/photo.png',
-//   },
-//   {
-//     img: '/assets/images/photo.png',
-//   },
-//   {
-//     img: '/assets/images/photo.png',
-//   },
-// ];
+const years = [
+  {
+    title: "2024",
+    id: 1,
+  },
+  {
+    title: "2025",
+    id: 2,
+  },
+];
 
 export default function Photo() {
   const [current, setCurrent] = useState(0);
+  const [active, setActive] = useState(1);
   const [api, setApi] = useState<CarouselApi>();
   const title = useTranslate("photo");
 
@@ -46,7 +43,9 @@ export default function Photo() {
     });
   }, [api]);
 
-  const { data, isLoading } = useGetPhotos();
+  const { data, isLoading } = useGetPhotos(active);
+
+  const url = "https://turkmenexpo.com/app/storage/app/media/";
 
   return (
     <CoverLayout title={title}>
@@ -54,19 +53,35 @@ export default function Photo() {
         {useGetEn("Exhibition", "Экспозиция")}
       </h4>
 
-      <YearTab />
+      <div className="pb-2 border-b border-[#DADADA] flex items-center gap-5 mb-8">
+        {years.map((item, i) => (
+          <div
+            onClick={() => setActive(item.id)}
+            key={i}
+            className={clsx(
+              "text-[14px] cursor-pointer relative after:w-8 after:absolute after:transition-all  after:border-b-[2px] after:rounded-full after:border-purple after:-bottom-[9.5px] after:left-0",
+              {
+                "after:opacity-100": active === item.id,
+                "after:opacity-0": active !== item.id,
+              }
+            )}
+          >
+            {item.title}
+          </div>
+        ))}
+      </div>
 
-      {data ? (
+      {data?.photos ? (
         <Carousel className="md:px-20" setApi={setApi}>
           <CarouselContent>
             {data ? (
-              data.map((item, i) => (
+              data?.photos?.map((item, i) => (
                 <CarouselItem
                   key={i}
                   className="basis-full max-h-[650px] overflow-hidden"
                 >
                   <img
-                    src={item.media_url}
+                    src={url + item.url}
                     alt=""
                     className="size-full object-cover"
                   />
@@ -79,7 +94,7 @@ export default function Photo() {
 
           <div className="flex items-center justify-between mt-4">
             <div className="text-black text-[14px]">
-              {current}/{data.length}
+              {current}/{data?.photos?.length}
             </div>
 
             <div className="flex items-center gap-5">
@@ -88,10 +103,8 @@ export default function Photo() {
             </div>
           </div>
         </Carousel>
-      ) : isLoading ? (
-        <Loader />
       ) : (
-        <h1>Error</h1>
+        isLoading && <Loader />
       )}
     </CoverLayout>
   );

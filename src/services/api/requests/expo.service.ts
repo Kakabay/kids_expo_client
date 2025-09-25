@@ -205,9 +205,9 @@ class ExpoService {
     );
   }
 
-  async getPhotos(localization: string) {
+  async getPhotos(localization: string, id: number) {
     return await axios.get<MediaTypes>(
-      `https://turkmenexpo.com/app/api/v1/photos`,
+      `https://turkmenexpo.com/app/api/v1/categories-photos/${id}`,
       {
         headers: {
           "Accept-Language": localization,

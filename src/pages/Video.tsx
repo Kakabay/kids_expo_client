@@ -1,13 +1,14 @@
 import { useEffect, useRef, useState } from "react";
-import YearTab from "@/components/shared/YearTab";
 import { Play } from "lucide-react";
 import useGetVideos from "@/hooks/media/useGetVideos";
 import VideoSlider from "@/components/shared/VideoSlider";
 import { useMedia } from "@/services/zustand/zusMedia";
 import { CoverLayout } from "@/components/layout/CoverLayout";
 import { useTranslate } from "@/lib/useTranslate";
+import clsx from "clsx";
 
 export default function Video() {
+  const [active, setActive] = useState("1");
   const [isPlaying, setIsPlaying] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -23,7 +24,23 @@ export default function Video() {
 
   return (
     <CoverLayout title={title}>
-      <YearTab />
+      <div className="pb-2 border-b border-[#DADADA] flex items-center gap-5 mb-8">
+        {["2024", "2025"].map((item, i) => (
+          <div
+            onClick={() => setActive(item)}
+            key={i}
+            className={clsx(
+              "text-[14px] cursor-pointer relative after:w-8 after:absolute after:transition-all  after:border-b-[2px] after:rounded-full after:border-purple after:-bottom-[9.5px] after:left-0",
+              {
+                "after:opacity-100": active === item,
+                "after:opacity-0": active !== item,
+              }
+            )}
+          >
+            {item}
+          </div>
+        ))}
+      </div>
 
       <div className="relative w-full max-h-[600px]">
         {!isPlaying && (
