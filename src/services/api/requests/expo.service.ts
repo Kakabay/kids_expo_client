@@ -11,7 +11,7 @@ import { DocsTypes } from "../types/getDocsType";
 import { PartnersType } from "../types/getPartnersType";
 import { EngeenerTypes } from "../types/getEngeenerTypes";
 import { FooterServicesTypes } from "../types/getFooterServicesTypes";
-import { MediaTypes } from "../types/getMediaType";
+import { PhotoTypes, VideoTypes } from "../types/getMediaType";
 import { ParticipantsType } from "../types/getParticipanstType";
 import { StandFormType } from "@/lib/stand-form";
 import { SponsorFormType } from "@/lib/sponsor-form";
@@ -206,7 +206,7 @@ class ExpoService {
   }
 
   async getPhotos(localization: string, id: number) {
-    return await axios.get<MediaTypes>(
+    return await axios.get<PhotoTypes>(
       `https://turkmenexpo.com/app/api/v1/categories-photos/${id}`,
       {
         headers: {
@@ -216,9 +216,9 @@ class ExpoService {
     );
   }
 
-  async getVideos(localization: string) {
-    return await axios.get<MediaTypes>(
-      "https://turkmenexpo.com/app/api/v1/videos",
+  async getVideos(localization: string, id: number) {
+    return await axios.get<VideoTypes>(
+      `https://turkmenexpo.com/app/api/v1/categories-videos/${id}`,
       {
         headers: {
           "Accept-Language": localization,

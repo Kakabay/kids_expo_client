@@ -14,7 +14,7 @@ import { CoverLayout } from "@/components/layout/CoverLayout";
 import { useTranslate } from "@/lib/useTranslate";
 import clsx from "clsx";
 
-const years = [
+export const years = [
   {
     title: "2024",
     id: 1,
@@ -24,6 +24,8 @@ const years = [
     id: 2,
   },
 ];
+
+export const url = "https://turkmenexpo.com/app/storage/app/media/";
 
 export default function Photo() {
   const [current, setCurrent] = useState(0);
@@ -44,8 +46,6 @@ export default function Photo() {
   }, [api]);
 
   const { data, isLoading } = useGetPhotos(active);
-
-  const url = "https://turkmenexpo.com/app/storage/app/media/";
 
   return (
     <CoverLayout title={title}>
