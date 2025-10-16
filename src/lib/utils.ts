@@ -30,3 +30,10 @@ export const useScrollTop = () => {
 export const useArrayIndex = (lang: string): number => {
   return lang === "ru" ? 0 : 1;
 };
+
+export const useLockScroll = () => {
+  useEffect(() => {
+    document.body.classList.add("overflow-hidden");
+    return () => document.body.classList.remove("overflow-hidden");
+  }, []);
+};

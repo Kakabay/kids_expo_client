@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { useBurger } from "@/services/zustand/zusBurger";
 import { useLang } from "@/services/zustand/zusLang";
 import { useTranslation } from "react-i18next";
 import { Navigation } from "@/locales";
-import { cn } from "@/lib/utils";
+import { cn, useLockScroll } from "@/lib/utils";
 
 const burgerLangs = [
   { title: "Tm", localization: "tm" },
@@ -14,24 +14,25 @@ const burgerLangs = [
 ];
 
 const BurgerMenu = () => {
+  useLockScroll();
   const setBurger = useBurger((state) => state.setBurger);
   const setLang = useLang((state) => state.setLang);
   const { t } = useTranslation("nav");
 
-  const burgerData = t("data", { returnObjects: true }) as Navigation[];
-  const burgerData2 = t("data2", { returnObjects: true }) as Navigation[];
+  const burgerData = useMemo(
+    () => t("data", { returnObjects: true }) as Navigation[],
+    [t]
+  );
+  const burgerData2 = useMemo(
+    () => t("data2", { returnObjects: true }) as Navigation[],
+    [t]
+  );
 
-  useEffect(() => {
-    document.body.classList.add("overflow-hidden");
-    return () => document.body.classList.remove("overflow-hidden");
+  const [activeContent, setActiveContent] = useState<string | null>(null);
+
+  const toggleContent = useCallback((key: string) => {
+    setActiveContent((prev) => (prev === key ? null : key));
   }, []);
-
-  const [activeContent, setActiveContent] = useState("");
-
-  const toggleContent = (str: string) => {
-    setActiveContent((prev) => (prev === str ? "" : str));
-  };
-
   return (
     <motion.div
       initial={{ x: "100%", opacity: 0 }}
@@ -101,56 +102,48 @@ const BurgerMenu = () => {
         <hr />
 
         <div className="flex flex-col gap-6">
-          {burgerData2.map((item, i) =>
-            item.link ? (
-              <Link key={i} onClick={() => setBurger(false)} to={item.link}>
-                {item.title}
-              </Link>
-            ) : (
-              <div key={i} className="flex flex-col">
-                <div
-                  onClick={() => toggleContent(item.title)}
-                  className="flex items-center justify-between w-full"
-                >
-                  <h3>{item.title}</h3>
-                  <img
-                    src="/assets/icons/burgerMenu/arrow.svg"
-                    alt="chevron"
-                    className={cn(
-                      "transition-all",
-                      activeContent === item.title
-                        ? "-rotate-90"
-                        : "-rotate-180"
-                    )}
-                  />
-                </div>
-
-                <motion.div
-                  initial={{
-                    height: 0,
-                    opacity: 0,
-                    marginTop: 0,
-                  }}
-                  animate={
-                    activeContent === item.title
-                      ? {
-                          height: "",
-                          opacity: 1,
-                          marginTop: 24,
-                        }
-                      : {}
-                  }
-                  className="flex flex-col ml-2 gap-6 overflow-hidden text-sm text-white/80"
-                >
-                  {item.content.map((item, i) => (
-                    <Link key={i} to={item.link}>
-                      {item.title}
-                    </Link>
-                  ))}
-                </motion.div>
+          {burgerData2.map((item, i) => (
+            <div key={i} className="flex flex-col">
+              <div
+                onClick={() => toggleContent(item.title)}
+                className="flex items-center justify-between w-full"
+              >
+                <h3>{item.title}</h3>
+                <img
+                  src="/assets/icons/burgerMenu/arrow.svg"
+                  alt="chevron"
+                  className={cn(
+                    "transition-all",
+                    activeContent === item.title ? "-rotate-90" : "-rotate-180"
+                  )}
+                />
               </div>
-            )
-          )}
+
+              <motion.div
+                initial={{
+                  height: 0,
+                  opacity: 0,
+                  marginTop: 0,
+                }}
+                animate={
+                  activeContent === item.title
+                    ? {
+                        height: "",
+                        opacity: 1,
+                        marginTop: 24,
+                      }
+                    : {}
+                }
+                className="flex flex-col ml-2 gap-6 overflow-hidden text-sm text-white/80"
+              >
+                {item.content.map((item, i) => (
+                  <Link onClick={() => setBurger(false)} key={i} to={item.link}>
+                    {item.title}
+                  </Link>
+                ))}
+              </motion.div>
+            </div>
+          ))}
         </div>
 
         {/* Языки */}

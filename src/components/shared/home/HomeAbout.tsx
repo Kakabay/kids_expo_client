@@ -92,7 +92,13 @@ export const HomeAbout: FC<Props> = ({ className }) => {
                     <div className="flex items-center gap-2">
                       <Download size={14} />
 
-                      <div className="cursor-default">2025</div>
+                      <a
+                        href="https://editor.turkmenexpo.com/storage/app/media/report/ReportKidsExpo2025_ru.pdf"
+                        target="_blank"
+                        className="cursor-default"
+                      >
+                        2025
+                      </a>
                     </div>
                   </motion.div>
                 )}
