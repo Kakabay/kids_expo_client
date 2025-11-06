@@ -25,7 +25,7 @@ export const Header: FC = () => {
   const data2 = t("data2", { returnObjects: true }) as Navigation[];
 
   return (
-    <header className="">
+    <header className="fixed left-0 top-0 right-0 z-50 h-[128px]">
       <div className="h-12 hidden lg:flex text-surface-bg bg-surface-brand text-white items-center">
         <div className="container flex items-center justify-between">
           <div className="gap-8 flex items-center justify-between">
@@ -63,7 +63,7 @@ export const Header: FC = () => {
         </div>
       </div>
 
-      <div className="bg-primary relative z-[200  ] border border-border-subtle py-2 flex items-center justify-between h-20">
+      <div className="bg-surface-secondary relative z-[200  ] border border-border-subtle py-2 flex items-center justify-between h-20">
         <div className="container flex items-center justify-between">
           <div className="flex justify-between w-full items-center gap-8">
             <Link to="/">

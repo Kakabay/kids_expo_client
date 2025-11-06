@@ -8,7 +8,7 @@ const App = () => {
   useScrollTop();
 
   return (
-    <div className="flex flex-col overflow-x-hidden min-h-screen tab:bg-[#FAFAFA]">
+    <div className="flex flex-col overflow-x-hidden min-h-screen tab:bg-[#FAFAFA] lg:mt-[128px] mt-20">
       <Header />
 
       <LanguageSync />
