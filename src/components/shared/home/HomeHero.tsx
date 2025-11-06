@@ -2,7 +2,6 @@ import { Link } from "react-router-dom";
 import { useMediaQuery } from "usehooks-ts";
 
 import { cn } from "@/lib/utils";
-import { useLang } from "@/services/zustand/zusLang";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
 import { useTranslate } from "@/lib/useTranslate";
@@ -13,7 +12,6 @@ import { useTranslation } from "react-i18next";
 export const HomeHero = () => {
   const tab = useMediaQuery("(min-width: 1024px)");
   const md = useMediaQuery("(min-width: 768px)");
-  const lang = useLang((state) => state.activeLang.localization);
   const becomeSponsor = useTranslate("becomeSponsor");
   const { t } = useTranslation("home");
 
