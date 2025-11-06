@@ -8,12 +8,21 @@ import Autoplay from "embla-carousel-autoplay";
 import { useTranslate } from "@/lib/useTranslate";
 import useGetBanners from "@/hooks/useGetBanners";
 import Loader from "../Loader";
+import { useTranslation } from "react-i18next";
 
 export const HomeHero = () => {
   const tab = useMediaQuery("(min-width: 1024px)");
   const md = useMediaQuery("(min-width: 768px)");
   const lang = useLang((state) => state.activeLang.localization);
   const becomeSponsor = useTranslate("becomeSponsor");
+  const { t } = useTranslation("home");
+
+  const stend = t("buttons", { returnObjects: true }) as {
+    name: string;
+    link: string;
+  }[];
+
+  const stendBtn = stend.slice(0, 1)[0].name;
 
   const [emblaRef] = useEmblaCarousel({ loop: true, duration: 50 }, [
     Autoplay({
@@ -59,15 +68,22 @@ export const HomeHero = () => {
     return (
       <section ref={emblaRef}>
         <div className="flex">{filteredSlides}</div>
-        <div className="container relative">
+        <div className="container relative flex">
           <Link
             to="/sponsor-form"
             className={cn(
-              "absolute flex items-center text-2xl justify-center bg-interactive-background-primary md:h-14 h-10 rounded-sm font-bold text-white w-[300px] md:right-10 md:bottom-20 z-10 bottom-5",
-              lang === "ru" ? "text-xl" : "text-2xl"
+              "absolute flex items-center md:text-xl text-lg justify-center bg-interactive-background-primary md:h-12 h-8 rounded-sm font-bold text-white w-[290px] md:right-10 md:bottom-20 z-10 bottom-5"
             )}
           >
             {becomeSponsor}
+          </Link>
+          <Link
+            to="/sponsor-form"
+            className={cn(
+              "absolute flex items-center md:text-xl text-lg justify-center bg-interactive-background-primary md:h-12 h-8 rounded-sm font-bold text-white w-[290px] md:right-[360px] md:bottom-20 z-10 bottom-16"
+            )}
+          >
+            {stendBtn}
           </Link>
         </div>
       </section>

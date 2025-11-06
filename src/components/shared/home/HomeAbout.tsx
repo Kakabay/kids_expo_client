@@ -42,8 +42,8 @@ export const HomeAbout: FC<Props> = ({ className }) => {
     <section
       className={cn("pt-10 md:pb-24 pb-14 bg-surface-primary", className)}
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 items-center container gap-6 mb-20">
-        {data.map((item) => (
+      <div className="grid grid-cols-1 justify-center md:grid-cols-2 lg:grid-cols-3 items-center container gap-6 mb-20">
+        {data.slice(1, 4).map((item) => (
           <Link
             key={item.name}
             to={item.link}
