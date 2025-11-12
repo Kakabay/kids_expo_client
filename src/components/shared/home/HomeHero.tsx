@@ -76,7 +76,7 @@ export const HomeHero = () => {
             {becomeSponsor}
           </Link>
           <Link
-            to="/sponsor-form"
+            to="/stand-form"
             className={cn(
               "absolute flex items-center md:text-xl text-lg justify-center bg-interactive-background-primary md:h-12 h-8 rounded-sm font-bold text-white w-[290px] md:right-[360px] md:bottom-20 z-10 bottom-16"
             )}
