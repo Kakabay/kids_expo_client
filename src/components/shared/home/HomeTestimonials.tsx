@@ -11,9 +11,9 @@ export const HomeTestimonials = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel(
     {
       duration: 100,
-      align: "start",
       slidesToScroll: groupSize,
       containScroll: "trimSnaps",
+      dragFree: true,
     },
     [
       Autoplay({
@@ -83,7 +83,7 @@ export const HomeTestimonials = () => {
       <div ref={emblaRef} className="embla overflow-hidden">
         <div
           ref={cardsRef}
-          className="embla__container max-w-[710px] mx-auto gap-5 flex items-stretch"
+          className="embla__container max-w-[710px] gap-5 flex items-stretch"
         >
           {data?.map((item) => (
             <div
