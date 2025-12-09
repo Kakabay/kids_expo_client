@@ -41,24 +41,47 @@ export const HomeHero = () => {
     }
   };
 
-  const filteredSlides =
+  const isVideo = (src?: string) =>
+    src?.toLowerCase().includes(".mp4") ?? false;
+
+  const bannerItems =
     bannersData
       ?.filter((item) => item.code.includes(chooseBanner()))
       .flatMap((item) =>
-        item.banner_items.map((bannerItem, idx) => (
-          <Link
-            to={""}
-            className="flex-[0_0_100%] overflow-hidden lg:max-h-[600px] lg:min-h-[320px]"
-            key={`${item.code}-${idx}`}
-          >
-            <img
-              src={bannerItem.image}
-              alt={bannerItem.title}
-              className="size-full object-cover overflow-hidden"
-            />
-          </Link>
-        ))
+        item.banner_items.map((bannerItem, idx) => ({
+          ...bannerItem,
+          key: `${item.code}-${idx}`,
+        }))
       ) || [];
+
+  const hasVideo = bannerItems.some((bannerItem) => isVideo(bannerItem.image));
+
+  const filteredSlides = (
+    hasVideo
+      ? bannerItems.filter((bannerItem) => isVideo(bannerItem.image))
+      : bannerItems.filter((bannerItem) => !isVideo(bannerItem.image))
+  ).map((bannerItem) => (
+    <Link
+      to={""}
+      className="flex-[0_0_100%] overflow-hidden lg:max-h-[600px] lg:min-h-[320px]"
+      key={bannerItem.key}
+    >
+      {isVideo(bannerItem.image) ? (
+        <video
+          src={bannerItem.image ?? ""}
+          muted
+          autoPlay
+          className="pointer-events-none cursor-default"
+        />
+      ) : (
+        <img
+          src={bannerItem.image}
+          alt={bannerItem.title}
+          className="size-full object-cover overflow-hidden"
+        />
+      )}
+    </Link>
+  ));
 
   if (bannersIsLoading) return <Loader className="h-[490px]" />;
 
