@@ -74,7 +74,7 @@ export const HomeHero = () => {
           src={bannerItem.image ?? ""}
           muted
           autoPlay
-          className="pointer-events-none cursor-default"
+          className="pointer-events-none cursor-default size-full object-cover"
         />
       ) : (
         <img
