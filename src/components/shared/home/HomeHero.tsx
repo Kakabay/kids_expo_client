@@ -63,7 +63,10 @@ export const HomeHero = () => {
   ).map((bannerItem) => (
     <Link
       to={""}
-      className="flex-[0_0_100%] overflow-hidden lg:max-h-[600px] lg:min-h-[320px]"
+      className={cn(
+        "flex-[0_0_100%] overflow-hidden lg:max-h-[600px] lg:min-h-[320px]",
+        hasVideo && "pointer-events-none cursor-default"
+      )}
       key={bannerItem.key}
     >
       {isVideo(bannerItem.image) ? (
