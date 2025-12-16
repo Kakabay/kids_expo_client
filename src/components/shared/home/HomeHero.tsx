@@ -73,6 +73,7 @@ export const HomeHero = () => {
         <video
           src={bannerItem.image ?? ""}
           muted
+          loop
           autoPlay
           className="pointer-events-none cursor-default size-full object-cover"
         />
