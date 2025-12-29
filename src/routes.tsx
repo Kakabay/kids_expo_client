@@ -25,6 +25,8 @@ import {
   B2bFormPage,
   SponsorFormPage,
   HomePage,
+  ParticipationOptions,
+  PartnerOpportunities,
 } from "./pages";
 
 export const routes = [
@@ -134,6 +136,14 @@ export const routes = [
       {
         path: "/sponsor-form",
         element: <SponsorFormPage />,
+      },
+      {
+        element: <ParticipationOptions />,
+        path: "participation-options",
+      },
+      {
+        element: <PartnerOpportunities />,
+        path: "partner-opportunities",
       },
     ],
   },

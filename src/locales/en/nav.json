@@ -65,6 +65,15 @@
       "title": "Participants",
       "content": [
         {
+          "title": "Participation Options",
+          "link": "/participation-options"
+        },
+        {
+          "title": "Partnership Opportunities",
+          "link": "/partner-opportunities"
+        },
+
+        {
           "title": "Information for participants",
           "link": "/participants-info"
         },

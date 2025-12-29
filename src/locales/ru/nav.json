@@ -69,6 +69,15 @@
       "title": "Участникам",
       "content": [
         {
+          "title": "Варианты участия",
+          "link": "/participation-options"
+        },
+        {
+          "title": "Партнерские возможности",
+          "link": "/partner-opportunities"
+        },
+
+        {
           "title": "Информция для участников",
           "link": "/participants-info"
         },

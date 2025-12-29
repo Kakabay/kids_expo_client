@@ -15,5 +15,7 @@ export { default as ExhibitionAbout } from "./ExhibitionAbout";
 export { default as ExhibitionPlace } from "./ExhibitionPlace";
 export { default as ExhibitionSupport } from "./ExhibitionSupport";
 export { default as ExhibitionTheme } from "./ExhibitionTheme";
+export { default as PartnerOpportunities } from "./PartnerOpportunities";
+export { default as ParticipationOptions } from "./ParticipationOptions";
 
 export * from "./participants";
