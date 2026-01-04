@@ -206,7 +206,7 @@ export default function ParticipationOptions() {
               {getText(participationOptionsContent.example)}:
             </p>
             <img
-              src={exampleImage}
+              src={"/example.jpeg"}
               alt={getText(participationOptionsContent.standardExampleAlt)}
               className="h-[160px] w-full rounded-sm object-cover md:h-[190px]"
             />
@@ -219,7 +219,7 @@ export default function ParticipationOptions() {
               {getText(participationOptionsContent.example)}:
             </p>
             <img
-              src={exampleImage}
+              src={"/example-2.jpeg"}
               alt={getText(participationOptionsContent.customExampleAlt)}
               className="h-[160px] w-full rounded-sm object-cover md:h-[190px]"
             />
