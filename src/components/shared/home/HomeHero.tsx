@@ -46,7 +46,14 @@ export const HomeHero = () => {
 
   const convertToHttps = (url?: string) => {
     if (!url) return "";
-    return url.replace(/^http:\/\//i, "https://");
+    // Если URL уже использует https или относительный путь, возвращаем как есть
+    if (url.startsWith("https://") || url.startsWith("/")) return url;
+    // Заменяем http:// на https://
+    if (url.startsWith("http://")) {
+      return url.replace(/^http:\/\//i, "https://");
+    }
+    // Если нет протокола, добавляем https://
+    return `https://${url}`;
   };
 
   const bannerItems =
