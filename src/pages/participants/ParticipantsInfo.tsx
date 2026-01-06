@@ -26,7 +26,7 @@ export default function ParticipantsInfo() {
     <CoverLayout title={title}>
       <div className="hidden min-[1200px]:grid grid-cols-3 min-[1250px] gap-[45px]">
         {[...Array(3)].map((_, i) => (
-          <InfoCard orang={i === 1} title={titles[i]} date={dates[i]} />
+          <InfoCard key={i} orang={i === 1} title={titles[i]} date={dates[i]} />
         ))}
       </div>
 

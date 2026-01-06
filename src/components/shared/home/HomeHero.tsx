@@ -44,6 +44,11 @@ export const HomeHero = () => {
   const isVideo = (src?: string) =>
     src?.toLowerCase().includes(".mp4") ?? false;
 
+  const convertToHttps = (url?: string) => {
+    if (!url) return "";
+    return url.replace(/^http:\/\//i, "https://");
+  };
+
   const bannerItems =
     bannersData
       ?.filter((item) => item.code.includes(chooseBanner()))
@@ -71,7 +76,7 @@ export const HomeHero = () => {
     >
       {isVideo(bannerItem.image) ? (
         <video
-          src={bannerItem.image ?? ""}
+          src={convertToHttps(bannerItem.image)}
           muted
           loop
           autoPlay
@@ -79,7 +84,7 @@ export const HomeHero = () => {
         />
       ) : (
         <img
-          src={bannerItem.image}
+          src={convertToHttps(bannerItem.image)}
           alt={bannerItem.title}
           className="size-full object-cover overflow-hidden"
         />
